@@ -1,0 +1,2631 @@
+{
+  "schema": 2,
+  "project": "vpsAdmin KB screenshot inventory",
+  "wiki": "kb.vpsfree.cz",
+  "draft_namespace": "drafts:2026-07-10-kb-czech-fixes",
+  "assets": [
+    {
+      "id": "getting-started/members-list",
+      "legacy": {
+        "media_id": "informace:members.png",
+        "revision": 1482170745,
+        "md5": "149c173a94956dc85b5d6b05774784d9",
+        "sha256": "40e647329992cbd6bc40d372f6037e571179d1a69d8acd03fdfcecaedd43bcb2"
+      },
+      "wiki": {
+        "source_pages": [
+          "informace:novacci"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:getting-started:cs:members-list.png",
+        "permanent_media_id": "screenshots:vpsadmin:getting-started:cs:members-list.png"
+      },
+      "language": "cs",
+      "topic": "getting-started",
+      "scenario": "getting-started",
+      "checkpoint": "getting-started/members-list",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "public-key"
+      ],
+      "description": "Czech member list",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/getting-started/cs/members-list.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminm",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 118
+      },
+      "sha256": "a708d4c0ce8bd607d8e50d641d3a9521c62259f6cd734167001eaa6796f348dc",
+      "review_status": "pending"
+    },
+    {
+      "id": "getting-started/vps-list",
+      "legacy": {
+        "media_id": "informace:vps1.png",
+        "revision": 1482170927,
+        "md5": "eb2fcc71663b0b2cea20a0d670099c94",
+        "sha256": "61eddf9f90acb584345e75caba26f7904fee59e152369230f51e95213a42037d"
+      },
+      "wiki": {
+        "source_pages": [
+          "informace:novacci"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:getting-started:cs:vps-list.png",
+        "permanent_media_id": "screenshots:vpsadmin:getting-started:cs:vps-list.png"
+      },
+      "language": "cs",
+      "topic": "getting-started",
+      "scenario": "getting-started",
+      "checkpoint": "getting-started/vps-list",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "public-key"
+      ],
+      "description": "Czech VPS list",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/getting-started/cs/vps-list.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=list",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 146
+      },
+      "sha256": "b92faff0a28836bb4833bca0725be32cbde4bc95ff4631374534fe76d1b88395",
+      "review_status": "pending"
+    },
+    {
+      "id": "getting-started/vps-details",
+      "legacy": {
+        "media_id": "informace:detailsvps.png",
+        "revision": 1482171272,
+        "md5": "4155d9de6a6d00d5a742e6c8d9962c4f",
+        "sha256": "77644549b75ea4714efe9948aa5495cd8d7c4982e993d7bc127476172d050153"
+      },
+      "wiki": {
+        "source_pages": [
+          "informace:novacci"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:getting-started:cs:vps-details.png",
+        "permanent_media_id": "screenshots:vpsadmin:getting-started:cs:vps-details.png"
+      },
+      "language": "cs",
+      "topic": "getting-started",
+      "scenario": "getting-started",
+      "checkpoint": "getting-started/vps-details",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "public-key"
+      ],
+      "description": "Current VPS detail summary",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/getting-started/cs/vps-details.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=info&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 508
+      },
+      "sha256": "f0e9496a7d14d780d796ccc39736850460822429a7bc003b90a2ed19b7f42528",
+      "review_status": "pending"
+    },
+    {
+      "id": "getting-started/ssh-connection",
+      "legacy": {
+        "media_id": "navody:vps:ssh-connection.png",
+        "revision": 1704357503,
+        "md5": "42af653a0fbcce7e311bbe0c6a4ba90e",
+        "sha256": "327850856e74a59c6f2f980b08421227c7200e5dac946333146013bbc3661157"
+      },
+      "wiki": {
+        "source_pages": [
+          "informace:novacci"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:getting-started:cs:ssh-connection.png",
+        "permanent_media_id": "screenshots:vpsadmin:getting-started:cs:ssh-connection.png"
+      },
+      "language": "cs",
+      "topic": "getting-started",
+      "scenario": "getting-started",
+      "checkpoint": "getting-started/ssh-connection",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "public-key"
+      ],
+      "description": "Current SSH connection guidance",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/getting-started/cs/ssh-connection.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=info&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 190
+      },
+      "sha256": "437b5260fe20f6420eb057f714674d4bb24683765aaa3fb4db88f44b2fc1680b",
+      "review_status": "pending"
+    },
+    {
+      "id": "getting-started/vps-action-menu",
+      "legacy": {
+        "media_id": "informace:details2.png",
+        "revision": 1482171449,
+        "md5": "d45ef8a461bbcb69d89b47c9f6776a08",
+        "sha256": "cc2cb1dc74ad60a8edd35f9c0f96371c462a45a26a1721715efe8bf22e139a56"
+      },
+      "wiki": {
+        "source_pages": [
+          "informace:novacci"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:getting-started:cs:vps-action-menu.png",
+        "permanent_media_id": "screenshots:vpsadmin:getting-started:cs:vps-action-menu.png"
+      },
+      "language": "cs",
+      "topic": "getting-started",
+      "scenario": "getting-started",
+      "checkpoint": "getting-started/vps-action-menu",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "public-key"
+      ],
+      "description": "Current VPS action sidebar",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/getting-started/cs/vps-action-menu.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=info&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 316,
+        "height": 439
+      },
+      "sha256": "392024f465795381123bab268ff89109d7d6ea07a639f83556b83c543223b5a5",
+      "review_status": "pending"
+    },
+    {
+      "id": "getting-started/deploy-public-key",
+      "legacy": {
+        "media_id": "navody:vps:deploy-public-key.png",
+        "revision": 1704357503,
+        "md5": "a4c2b1541454c62e69b67527f51acdb2",
+        "sha256": "538c339f9abe5f45c10305b2b284b31183222935f8f9eb7ffc60b69d2c7d0900"
+      },
+      "wiki": {
+        "source_pages": [
+          "informace:novacci"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:getting-started:cs:deploy-public-key.png",
+        "permanent_media_id": "screenshots:vpsadmin:getting-started:cs:deploy-public-key.png"
+      },
+      "language": "cs",
+      "topic": "getting-started",
+      "scenario": "getting-started",
+      "checkpoint": "getting-started/deploy-public-key",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "public-key"
+      ],
+      "description": "Deploy a registered public key to the VPS",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/getting-started/cs/deploy-public-key.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=info&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 137
+      },
+      "sha256": "d4746775d02e8c766942d9067ea307aa27621a411188b2871d9ffbbf313d9cce",
+      "review_status": "pending"
+    },
+    {
+      "id": "traffic/vps-monthly-transfers",
+      "legacy": {
+        "media_id": "navody:vps:vps-transfers.png",
+        "revision": 1704357522,
+        "md5": "e05f155b2e99cb26b8bfe3c8b42acf08",
+        "sha256": "4622a0dff88143a6a136ed3ee0ce8a2eec26167b53b7c6d5184c26bc058a5a8b"
+      },
+      "wiki": {
+        "source_pages": [
+          "informace:novacci"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:traffic:cs:vps-monthly-transfers.png",
+        "permanent_media_id": "screenshots:vpsadmin:traffic:cs:vps-monthly-transfers.png"
+      },
+      "language": "cs",
+      "topic": "traffic",
+      "scenario": "networking",
+      "checkpoint": "traffic/vps-monthly-transfers",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "traffic-samples"
+      ],
+      "description": "Current VPS monthly transfer summary",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/traffic/cs/vps-monthly-transfers.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=info&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 147
+      },
+      "sha256": "60b19f5ce2aed443313ec660b294010adfe59b680967e70567de3019aee398e6",
+      "review_status": "pending"
+    },
+    {
+      "id": "ssh-keys/add-public-key",
+      "legacy": {
+        "media_id": "navody:server:add_ssh_key.png",
+        "revision": 1480336565,
+        "md5": "2527b021d13375a98329b73dd833a2b2",
+        "sha256": "b3894a55043480aebe0d2fb9d36138473c94577c06b1a5d5eb83795ebc86f99c"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:server:ssh",
+          "navody:vps:sprava"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:ssh-keys:cs:add-public-key.png",
+        "permanent_media_id": "screenshots:vpsadmin:ssh-keys:cs:add-public-key.png"
+      },
+      "language": "cs",
+      "topic": "ssh-keys",
+      "scenario": "getting-started",
+      "checkpoint": "ssh-keys/add-public-key",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "public-key"
+      ],
+      "description": "Czech add-public-key form",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/ssh-keys/cs/add-public-key.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminm&action=pubkey_add&id=2",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 836,
+        "height": 363
+      },
+      "sha256": "b7d0f8122619de6a69620a9a3e6d533e4aedf37c325020c9292a59fe3bb6b8ae",
+      "review_status": "pending"
+    },
+    {
+      "id": "ssh-keys/deploy-public-key",
+      "legacy": {
+        "media_id": "navody:server:deploy_ssh_key.png",
+        "revision": 1480336621,
+        "md5": "36ddd42898a1e2d95ad7f48bbc00944e",
+        "sha256": "269c496040ec1c0ed544cd1a9e32a599b0c47bb66337e73ef98fcd5bd5091c44"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:server:ssh",
+          "navody:vps:sprava"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:ssh-keys:cs:deploy-public-key.png",
+        "permanent_media_id": "screenshots:vpsadmin:ssh-keys:cs:deploy-public-key.png"
+      },
+      "language": "cs",
+      "topic": "ssh-keys",
+      "scenario": "getting-started",
+      "checkpoint": "ssh-keys/deploy-public-key",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "public-key"
+      ],
+      "description": "Czech deploy-public-key form",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/ssh-keys/cs/deploy-public-key.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=info&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 95
+      },
+      "sha256": "49b3615e3204c78981ed98c7c02e829a6254d246a1d7405adc895ff09ab7cd90",
+      "review_status": "pending"
+    },
+    {
+      "id": "datasets/vps-dataset-list",
+      "legacy": {
+        "media_id": "navody:vps:dataset_vps.png",
+        "revision": 1438593094,
+        "md5": "470df8bf0f50d57f2a00c609829cd519",
+        "sha256": "cfa0710f818448cb72665b9e9b7c69a4d60ba52465cf1cb83113aa98a001a9f1"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:datasety"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:datasets:cs:vps-dataset-list.png",
+        "permanent_media_id": "screenshots:vpsadmin:datasets:cs:vps-dataset-list.png"
+      },
+      "language": "cs",
+      "topic": "datasets",
+      "scenario": "storage",
+      "checkpoint": "datasets/vps-dataset-list",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "snapshot"
+      ],
+      "description": "Current VPS dataset list",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/datasets/cs/vps-dataset-list.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=info&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 176
+      },
+      "sha256": "40ab2d3388cf424610d3dbb2f9b6b264f1c62645360ebc4bdfd87071817064a6",
+      "review_status": "pending"
+    },
+    {
+      "id": "datasets/create-dataset-form",
+      "legacy": {
+        "media_id": "navody:vps:dataset_create.png",
+        "revision": 1504513622,
+        "md5": "a0357639f1b9cb2b60f283449f1d8dde",
+        "sha256": "dd81393ed31439cff98d53c6fe3462cb3c515386ed2ba5dd10cacde615c3e3a7"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:datasety"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:datasets:cs:create-dataset-form.png",
+        "permanent_media_id": "screenshots:vpsadmin:datasets:cs:create-dataset-form.png"
+      },
+      "language": "cs",
+      "topic": "datasets",
+      "scenario": "storage",
+      "checkpoint": "datasets/create-dataset-form",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "snapshot"
+      ],
+      "description": "Current create-dataset form with Czech API labels",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/datasets/cs/create-dataset-form.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=dataset&action=new&role=hypervisor&parent=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 836,
+        "height": 336
+      },
+      "sha256": "f3ec1b8f57ec7eb103e300f0fdc84b94741caf27e0939bb8808046a04a2d6e58",
+      "review_status": "pending"
+    },
+    {
+      "id": "datasets/mount-list",
+      "legacy": {
+        "media_id": "navody:vps:mounts.png",
+        "revision": 1438593580,
+        "md5": "cb7bf3eaadfb487aaa8cb426f7d04fcb",
+        "sha256": "de4407903e491bed03e095a109293ba6833197337829650344978264e84a702f"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:datasety"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:datasets:cs:mount-list.png",
+        "permanent_media_id": "screenshots:vpsadmin:datasets:cs:mount-list.png"
+      },
+      "language": "cs",
+      "topic": "datasets",
+      "scenario": "storage",
+      "checkpoint": "datasets/mount-list",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "snapshot"
+      ],
+      "description": "Current VPS mount list",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/datasets/cs/mount-list.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=info&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 112
+      },
+      "sha256": "e304cb9a78df22806f6fcb8e30acd65504c79e6b103b7f0afa435b5062eae3b1",
+      "review_status": "pending"
+    },
+    {
+      "id": "datasets/mount-dataset-form",
+      "legacy": {
+        "media_id": "navody:vps:mounts_detail.png",
+        "revision": 1438593670,
+        "md5": "c1633fcfbe837729bd11dd7604473987",
+        "sha256": "1173f4cee58269ce871be70fb7fb6cca1033e12089f7486755984d2b39c3999b"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:datasety"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:datasets:cs:mount-dataset-form.png",
+        "permanent_media_id": "screenshots:vpsadmin:datasets:cs:mount-dataset-form.png"
+      },
+      "language": "cs",
+      "topic": "datasets",
+      "scenario": "storage",
+      "checkpoint": "datasets/mount-dataset-form",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "snapshot"
+      ],
+      "description": "Current mount-dataset form",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/datasets/cs/mount-dataset-form.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=dataset&action=mount&dataset=1&vps=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 836,
+        "height": 247
+      },
+      "sha256": "8688599d479f17f373d5db89eea42edb49c4cda8f7f7a7e751e0131b912ddfab",
+      "review_status": "pending"
+    },
+    {
+      "id": "exports/nas-export-list",
+      "legacy": {
+        "media_id": "navody:vps:vpsadminos:nasexport.png",
+        "revision": 1572290142,
+        "md5": "369c0b4f241041806651abc06e8e668a",
+        "sha256": "e98f6cfea5fd317e7e238dca2fbde775f84c461092a94636f6658e5ca97fcc67"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:exporty"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:exports:cs:nas-export-list.png",
+        "permanent_media_id": "screenshots:vpsadmin:exports:cs:nas-export-list.png"
+      },
+      "language": "cs",
+      "topic": "exports",
+      "scenario": "storage",
+      "checkpoint": "exports/nas-export-list",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "snapshot"
+      ],
+      "description": "Current NAS dataset view with export action",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/exports/cs/nas-export-list.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=nas",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 836,
+        "height": 162
+      },
+      "sha256": "9a1427cf793835f93059dc5a5227c92ce294535f825907b04063d8c00ca16bfe",
+      "review_status": "pending"
+    },
+    {
+      "id": "exports/backup-export-list",
+      "legacy": {
+        "media_id": "navody:vps:vpsadminos:backupexport.png",
+        "revision": 1572290301,
+        "md5": "7f8be28cdecf4835f7d85c6829e6e007",
+        "sha256": "c9abf6bcfd7df06d49098a0c30bd40bb89c13b3d3ca976cfba70ec8652cf735d"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:exporty"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:exports:cs:backup-export-list.png",
+        "permanent_media_id": "screenshots:vpsadmin:exports:cs:backup-export-list.png"
+      },
+      "language": "cs",
+      "topic": "exports",
+      "scenario": "storage",
+      "checkpoint": "exports/backup-export-list",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "snapshot"
+      ],
+      "description": "Current VPS backup view with export actions",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/exports/cs/backup-export-list.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=backup&action=vps",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 836,
+        "height": 311
+      },
+      "sha256": "e2d6ae6c4561ee4ab5d442f61b3d97a99a678ca86e7fe12b43d58f9551a0f49d",
+      "review_status": "pending"
+    },
+    {
+      "id": "exports/create-export-form",
+      "legacy": {
+        "media_id": "navody:vps:vpsadminos:detailexportu1v2.png",
+        "revision": 1572295259,
+        "md5": "9cce1c8d2abb9df6627c09e25fc0a36c",
+        "sha256": "baead363463c216217758819ee205fbf54a90f3bbf36710333d398f1cf0a9738"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:exporty"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:exports:cs:create-export-form.png",
+        "permanent_media_id": "screenshots:vpsadmin:exports:cs:create-export-form.png"
+      },
+      "language": "cs",
+      "topic": "exports",
+      "scenario": "storage",
+      "checkpoint": "exports/create-export-form",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "snapshot"
+      ],
+      "description": "Current create-export form",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/exports/cs/create-export-form.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=export&action=create&dataset=1&snapshot=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 836,
+        "height": 156
+      },
+      "sha256": "d5fe066d43dcfd9282965cab9a47252c0670fe921550ee0f05ddb92f53220295",
+      "review_status": "pending"
+    },
+    {
+      "id": "exports/export-details",
+      "legacy": {
+        "media_id": "navody:vps:vpsadminos:detailexportu2v2.png",
+        "revision": 1572295287,
+        "md5": "cf5fbc562858ed1099631d975f2734c2",
+        "sha256": "6d9920c11d98cf276032b6f887b8a855311e3ee4679ec92b8641246c49d37840"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:exporty"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:exports:cs:export-details.png",
+        "permanent_media_id": "screenshots:vpsadmin:exports:cs:export-details.png"
+      },
+      "language": "cs",
+      "topic": "exports",
+      "scenario": "storage",
+      "checkpoint": "exports/export-details",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "snapshot"
+      ],
+      "description": "Current export settings view before creation",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/exports/cs/export-details.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=export&action=create&dataset=1&snapshot=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 836,
+        "height": 429
+      },
+      "sha256": "509427db9b1d75ae3f9e671dffcbb2af10a063ef6bf020c85308c1bac0afbef9",
+      "review_status": "pending"
+    },
+    {
+      "id": "networking/ip-address-list",
+      "legacy": {
+        "media_id": "navody:vps:ip_adresy.png",
+        "revision": 1477332848,
+        "md5": "3bf44d8eb1631a52fed6856905d962a9",
+        "sha256": "5fe31c752e71c16d11fcb45cad7e3adf91dd1390bc62949a89915e9f1ab61026"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:ip_adresy"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:networking:cs:ip-address-list.png",
+        "permanent_media_id": "screenshots:vpsadmin:networking:cs:ip-address-list.png"
+      },
+      "language": "cs",
+      "topic": "networking",
+      "scenario": "networking",
+      "checkpoint": "networking/ip-address-list",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "traffic-samples"
+      ],
+      "description": "Current routable-address list",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/networking/cs/ip-address-list.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=networking&action=ip_addresses",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 836,
+        "height": 330
+      },
+      "sha256": "0c1b099b6cbffe1ec149b5772a14636677e8979032ba59b441653c80b487ffe2",
+      "review_status": "pending"
+    },
+    {
+      "id": "networking/routed-addresses",
+      "legacy": {
+        "media_id": "navody:vps:vpsadminos:routedadresses.png",
+        "revision": 1577808106,
+        "md5": "4f319350b5598303c2228ab27c2f1723",
+        "sha256": "a279fff5494b14f744ba5163a2e2227873d7f5b8583b9f1eeefddb5073dd267c"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:ip_adresy"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:networking:cs:routed-addresses.png",
+        "permanent_media_id": "screenshots:vpsadmin:networking:cs:routed-addresses.png"
+      },
+      "language": "cs",
+      "topic": "networking",
+      "scenario": "networking",
+      "checkpoint": "networking/routed-addresses",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "traffic-samples"
+      ],
+      "description": "Current routed-addresses form",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/networking/cs/routed-addresses.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=info&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 123
+      },
+      "sha256": "f213f8c3a7a2e487d1b84be1dee561b29a518d5cf03bbb23eab4fc2a41510f41",
+      "review_status": "pending"
+    },
+    {
+      "id": "networking/interface-addresses",
+      "legacy": {
+        "media_id": "navody:vps:vpsadminos:interfaceaddresses.png",
+        "revision": 1577808106,
+        "md5": "87cc57d12f6b1641f490f1ca3f1f7c1e",
+        "sha256": "2aabf2d2fe2cfc7ff711749fbbba090fdb9554a559f6cafda2b1701946312c80"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:ip_adresy"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:networking:cs:interface-addresses.png",
+        "permanent_media_id": "screenshots:vpsadmin:networking:cs:interface-addresses.png"
+      },
+      "language": "cs",
+      "topic": "networking",
+      "scenario": "networking",
+      "checkpoint": "networking/interface-addresses",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "traffic-samples"
+      ],
+      "description": "Current interface-addresses form",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/networking/cs/interface-addresses.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=info&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 176
+      },
+      "sha256": "0d26d155d15a83ecd70269bbc8b5190f7a1a992a9fdf3431810a6cb4f729a5a1",
+      "review_status": "pending"
+    },
+    {
+      "id": "console/open-web-console",
+      "legacy": {
+        "media_id": "navody:vps:console-1-web.png",
+        "revision": 1414593181,
+        "md5": "ff2bdfd63a5dccc4bfd72cb65a9a999e",
+        "sha256": "1b7b70fe0caf9cf9dc7ab9117fdb2964105b71b44b961ef2bd6d5913cd73f9af"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:konzole"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:console:cs:open-web-console.png",
+        "permanent_media_id": "screenshots:vpsadmin:console:cs:open-web-console.png"
+      },
+      "language": "cs",
+      "topic": "console",
+      "scenario": "console",
+      "checkpoint": "console/open-web-console",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "nixos-generations"
+      ],
+      "description": "VPS detail status with the current remote-console action",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/console/cs/open-web-console.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=info&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 508
+      },
+      "sha256": "d39a20b0a4c60317d679f102ed3562db9f1792cccd8760027ee6200173b7b338",
+      "review_status": "pending"
+    },
+    {
+      "id": "console/web-console",
+      "legacy": {
+        "media_id": "navody:vps:console-2-web.png",
+        "revision": 1709833510,
+        "md5": "a82ce85b250bcfaddc409e1d9c591218",
+        "sha256": "f7e3a1004aeb8f3f75a64ce6c465645f73fb69b06f2cc58306fd44a7de13c1ad"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:konzole"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:console:cs:web-console.png",
+        "permanent_media_id": "screenshots:vpsadmin:console:cs:web-console.png"
+      },
+      "language": "cs",
+      "topic": "console",
+      "scenario": "console",
+      "checkpoint": "console/web-console",
+      "driver": "console",
+      "fixtures": [
+        "base-vps",
+        "nixos-generations"
+      ],
+      "description": "Current remote-console entry in the VPS sidebar",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/console/cs/web-console.png",
+      "capture": {
+        "driver": "console",
+        "page": "/?page=console&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 764,
+        "height": 602
+      },
+      "sha256": "d25d0083344643ca8ea8ae3db5e07ff80a53798601a2d2aee02fc4853b9b854c",
+      "review_status": "pending"
+    },
+    {
+      "id": "vps-details/feature-settings",
+      "legacy": {
+        "media_id": "navody:vps:features.jpg",
+        "revision": 1724170239,
+        "md5": "6b9199edc0ed0274e0d48a85ccb396ee",
+        "sha256": "399b2014481044a102b0f40d536285547ba1f602ebaa2609af6389551ab054fe"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:kvm-openrc"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:vps-details:cs:feature-settings.png",
+        "permanent_media_id": "screenshots:vpsadmin:vps-details:cs:feature-settings.png"
+      },
+      "language": "cs",
+      "topic": "vps-details",
+      "scenario": "vps-management",
+      "checkpoint": "vps-details/feature-settings",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps"
+      ],
+      "description": "Current Czech VPS feature settings",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/vps-details/cs/feature-settings.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=info&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 199
+      },
+      "sha256": "c981bc1439f436a46b72e131348e7749a01a88b4a2d6139c1c837452ac9b74b6",
+      "review_status": "pending"
+    },
+    {
+      "id": "vps-details/datasets",
+      "legacy": {
+        "media_id": "navody:vps:datasets.jpg",
+        "revision": 1724170820,
+        "md5": "40cd8b7f213d549e40cb8dc34b1bfa29",
+        "sha256": "f4a99407d4f3073131e1ff1a64264fdeb4710fb56bf325a06df723f8bddede76"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:kvm-openrc"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:vps-details:cs:datasets.png",
+        "permanent_media_id": "screenshots:vpsadmin:vps-details:cs:datasets.png"
+      },
+      "language": "cs",
+      "topic": "vps-details",
+      "scenario": "vps-management",
+      "checkpoint": "vps-details/datasets",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps"
+      ],
+      "description": "Current Czech VPS datasets",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/vps-details/cs/datasets.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=info&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 176
+      },
+      "sha256": "df64ae8ee0c6272ae922492b4873538aa47a783b4568fcdd9933ca8745ebf186",
+      "review_status": "pending"
+    },
+    {
+      "id": "restore-backups/playground-vps-list",
+      "legacy": {
+        "media_id": "navody:vps:vpsfree_playground.jpg",
+        "revision": 1483655000,
+        "md5": "7f79f6d2f498c742176809d972263c18",
+        "sha256": "7fbf262c14673fb2d745c9b189196b9aeb2c26e4136556e25907d04e6b64f9ea"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:obnova_webu_zo_zalohy"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:restore-backups:cs:playground-vps-list.png",
+        "permanent_media_id": "screenshots:vpsadmin:restore-backups:cs:playground-vps-list.png"
+      },
+      "language": "cs",
+      "topic": "restore-backups",
+      "scenario": "storage",
+      "checkpoint": "restore-backups/playground-vps-list",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "snapshot"
+      ],
+      "description": "Current VPS list used to select a recovery VPS",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/restore-backups/cs/playground-vps-list.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=list",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 146
+      },
+      "sha256": "24ff89601a6af34b9315034c3eb94c8997d22c06e2453db19a0c08053dc6604f",
+      "review_status": "pending"
+    },
+    {
+      "id": "restore-backups/backup-list",
+      "legacy": {
+        "media_id": "navody:vps:vspfree_zalohy.jpg",
+        "revision": 1483654999,
+        "md5": "cfbf806a47ab9ff847d3ef9411524091",
+        "sha256": "240164814c5cf95d4a96993baf030c25c5dceae1382816f2785b1e5db0d44484"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:obnova_webu_zo_zalohy"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:restore-backups:cs:backup-list.png",
+        "permanent_media_id": "screenshots:vpsadmin:restore-backups:cs:backup-list.png"
+      },
+      "language": "cs",
+      "topic": "restore-backups",
+      "scenario": "storage",
+      "checkpoint": "restore-backups/backup-list",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "snapshot"
+      ],
+      "description": "Current VPS backup list",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/restore-backups/cs/backup-list.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=backup&action=vps",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 653,
+        "height": 95
+      },
+      "sha256": "05322a361b87d221804045fbd317dccae00787574c85161e120618328e7f1741",
+      "review_status": "pending"
+    },
+    {
+      "id": "restore-backups/mount-backup-form",
+      "legacy": {
+        "media_id": "navody:vps:vpsfree_mounting.jpg",
+        "revision": 1483655027,
+        "md5": "9e018734d04451a56572c9789508c0aa",
+        "sha256": "b846ab04a56053c23301c2014ac1a996e6516fc7e06513a89b45bf9e6ebec715"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:obnova_webu_zo_zalohy"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:restore-backups:cs:mount-backup-form.png",
+        "permanent_media_id": "screenshots:vpsadmin:restore-backups:cs:mount-backup-form.png"
+      },
+      "language": "cs",
+      "topic": "restore-backups",
+      "scenario": "storage",
+      "checkpoint": "restore-backups/mount-backup-form",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "snapshot"
+      ],
+      "description": "Current export/mount form used for recovery",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/restore-backups/cs/mount-backup-form.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=export&action=create&dataset=1&snapshot=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 95
+      },
+      "sha256": "91daaf148780b05ec7bd6cb7eab25bd5bc0fe3ad4e468bec44aff0932eed81bb",
+      "review_status": "pending"
+    },
+    {
+      "id": "playground/create-vps-form",
+      "legacy": {
+        "media_id": "navody:vps:pgnd_create.png",
+        "revision": 1441029729,
+        "md5": "9cd111b466086d8a5eedeb9414c65113",
+        "sha256": "7b8651bfc728b537a4fa801727c69485a6a490a0d0f251aabb281a03e5f73dad"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:playgroundvps"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:playground:cs:create-vps-form.png",
+        "permanent_media_id": "screenshots:vpsadmin:playground:cs:create-vps-form.png"
+      },
+      "language": "cs",
+      "topic": "playground",
+      "scenario": "playground",
+      "checkpoint": "playground/create-vps-form",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "second-vps"
+      ],
+      "description": "Current final VPS creation form",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/playground/cs/create-vps-form.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=new-step-4&user=&location=1&os_template=3&memory=1024&cpu=1&swap=512&diskspace=4096&ipv4=1&ipv4_private=0&ipv6=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 836,
+        "height": 598
+      },
+      "sha256": "9dd54aa10a60b644680f091a2a3b9cbf7cb0316942b98374d7e509fc1d45fc3c",
+      "review_status": "pending"
+    },
+    {
+      "id": "playground/clone-vps-form",
+      "legacy": {
+        "media_id": "navody:vps:clone_vps.png",
+        "revision": 1438592562,
+        "md5": "57c3dcd576628cef002dd79b8e4968ab",
+        "sha256": "ecd723440468e304bdd46ff4ed7d13f8a323ba351663473286e52b8bdfc0ae95"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:playgroundvps",
+          "navody:vps:sprava"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:playground:cs:clone-vps-form.png",
+        "permanent_media_id": "screenshots:vpsadmin:playground:cs:clone-vps-form.png"
+      },
+      "language": "cs",
+      "topic": "playground",
+      "scenario": "playground",
+      "checkpoint": "playground/clone-vps-form",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "second-vps"
+      ],
+      "description": "Current clone-VPS form",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/playground/cs/clone-vps-form.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=clone-step-2&veid=1&user=&location=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 836,
+        "height": 538
+      },
+      "sha256": "589b9d7ee2a047f8a7adfea6420ecc15d993c08c7304b1762ae5b07e95bcfb65",
+      "review_status": "pending"
+    },
+    {
+      "id": "playground/swap-vps-action",
+      "legacy": {
+        "media_id": "navody:vps:swap_vps2.png",
+        "revision": 1677009153,
+        "md5": "69f74cadc61df8e34f215e854bf0f834",
+        "sha256": "01e18a1f27bffce03a8a401de31d82cd77b6cb5edd2d4346b4f54a644c60bdc7"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:playgroundvps"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:playground:cs:swap-vps-action.png",
+        "permanent_media_id": "screenshots:vpsadmin:playground:cs:swap-vps-action.png"
+      },
+      "language": "cs",
+      "topic": "playground",
+      "scenario": "playground",
+      "checkpoint": "playground/swap-vps-action",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "second-vps"
+      ],
+      "description": "Current swap-VPS form",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/playground/cs/swap-vps-action.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=swap&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 836,
+        "height": 225
+      },
+      "sha256": "197974a60609da875f44abdd843e3b6dd4df01f4d183481542c992cd9eca3b01",
+      "review_status": "pending"
+    },
+    {
+      "id": "playground/swap-vps-preview",
+      "legacy": {
+        "media_id": "navody:vps:swap_preview2.png",
+        "revision": 1677011521,
+        "md5": "f5032c8600473591758c308aeb0ec16f",
+        "sha256": "fa803c56c6fdb6b79f3f5e9a6251d8ede85cb3970bcd403eb70b1c8b73f61d3e"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:playgroundvps"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:playground:cs:swap-vps-preview.png",
+        "permanent_media_id": "screenshots:vpsadmin:playground:cs:swap-vps-preview.png"
+      },
+      "language": "cs",
+      "topic": "playground",
+      "scenario": "playground",
+      "checkpoint": "playground/swap-vps-preview",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "second-vps"
+      ],
+      "description": "Current swap-VPS view before a second VPS is selected",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/playground/cs/swap-vps-preview.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?vps=2&page=adminvps&action=swap_preview&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 836,
+        "height": 834
+      },
+      "sha256": "818a7767a647355c52106d3cc4d5f3455556b91aef9065fc188223ebf3f093dd",
+      "review_status": "pending"
+    },
+    {
+      "id": "traffic/monthly-traffic",
+      "legacy": {
+        "media_id": "navody:vps:datove_prenosy.png",
+        "revision": 1477332848,
+        "md5": "fc09ff7b8730de4b2d0d9dde0553faa4",
+        "sha256": "eb457dc728b9f673589884af2e973a597c9865e480d34e58e212481bc8d6ddc8"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:prenosy"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:traffic:cs:monthly-traffic.png",
+        "permanent_media_id": "screenshots:vpsadmin:traffic:cs:monthly-traffic.png"
+      },
+      "language": "cs",
+      "topic": "traffic",
+      "scenario": "networking",
+      "checkpoint": "traffic/monthly-traffic",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "traffic-samples"
+      ],
+      "description": "Current monthly-traffic filters and results",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/traffic/cs/monthly-traffic.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=networking&action=traffic",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 836,
+        "height": 330
+      },
+      "sha256": "267f2d18e269353a242719bed35e113b01b5cb35738c813688e123cbe12f9a17",
+      "review_status": "pending"
+    },
+    {
+      "id": "traffic/live-monitor-web",
+      "legacy": {
+        "media_id": "navody:vps:net_monitor_web.png",
+        "revision": 1477332849,
+        "md5": "1e7b0cc584055bda47990bee0adc883b",
+        "sha256": "b30c6a3dfd728a782584890d40b23f757ed61badce9332ee2b4a865eee522937"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:prenosy"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:traffic:cs:live-monitor-web.png",
+        "permanent_media_id": "screenshots:vpsadmin:traffic:cs:live-monitor-web.png"
+      },
+      "language": "cs",
+      "topic": "traffic",
+      "scenario": "networking",
+      "checkpoint": "traffic/live-monitor-web",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "traffic-samples"
+      ],
+      "description": "Current Czech live network monitor",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/traffic/cs/live-monitor-web.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=networking&action=live",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 836,
+        "height": 407
+      },
+      "sha256": "d8f0663d2ada9c883ea9f51ba44c2452b2db01568049a57e87f902ae235610b0",
+      "review_status": "pending"
+    },
+    {
+      "id": "traffic/live-monitor-cli",
+      "legacy": {
+        "media_id": "navody:vps:net_monitor_cli.png",
+        "revision": 1477332848,
+        "md5": "8f13aa8d1d5cabc66ad47730f19c932d",
+        "sha256": "cac38bfe9143458f0c09df97cd6bc3fe69bc2fb0e29859709c4c6aa4ed61654d"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:prenosy"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:traffic:cs:live-monitor-cli.png",
+        "permanent_media_id": "screenshots:vpsadmin:traffic:cs:live-monitor-cli.png"
+      },
+      "language": "cs",
+      "topic": "traffic",
+      "scenario": "networking",
+      "checkpoint": "traffic/live-monitor-cli",
+      "driver": "cli",
+      "fixtures": [
+        "base-vps",
+        "traffic-samples"
+      ],
+      "description": "Current live-monitor data corresponding to the CLI view",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/traffic/cs/live-monitor-cli.png",
+      "capture": {
+        "driver": "cli",
+        "page": "about:blank",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 1072,
+        "height": 260
+      },
+      "sha256": "80710755e7d8fa3707961e3724e4b1aadf4e3e2b37f08d5b1d89cad8ca176b39",
+      "review_status": "pending"
+    },
+    {
+      "id": "environments/resource-package-detail",
+      "legacy": {
+        "media_id": "navody:vps:cluster_resources_detail.png",
+        "revision": 1438592453,
+        "md5": "a190940346d0aeeb43746682624ce22e",
+        "sha256": "50e54617e8cd8aae7c5cf72a2970aeabf01ccd52e4dd91878526660c465c6cd7"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:prostredi"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:environments:cs:resource-package-detail.png",
+        "permanent_media_id": "screenshots:vpsadmin:environments:cs:resource-package-detail.png"
+      },
+      "language": "cs",
+      "topic": "environments",
+      "scenario": "environments",
+      "checkpoint": "environments/resource-package-detail",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps"
+      ],
+      "description": "Current user resource package view",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/environments/cs/resource-package-detail.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminm&section=members&action=resource_packages&id=2",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 836,
+        "height": 406
+      },
+      "sha256": "6222b2488d5f607fbe333b8413997fdbb756517e6b4ee997902f5e9cfbafb900",
+      "review_status": "pending"
+    },
+    {
+      "id": "environments/cluster-resources",
+      "legacy": {
+        "media_id": "navody:vps:cluster_resources.png",
+        "revision": 1438592453,
+        "md5": "46d6a87bc1145397cf7ceea1f7e3ffdd",
+        "sha256": "b19c18ac3a462696579c4d2908d64ceab72d6b2b76b3577e148a9eebeafae487"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:prostredi"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:environments:cs:cluster-resources.png",
+        "permanent_media_id": "screenshots:vpsadmin:environments:cs:cluster-resources.png"
+      },
+      "language": "cs",
+      "topic": "environments",
+      "scenario": "environments",
+      "checkpoint": "environments/cluster-resources",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps"
+      ],
+      "description": "Current cluster resources by environment",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/environments/cs/cluster-resources.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminm&section=members&action=cluster_resources&id=2",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 836,
+        "height": 304
+      },
+      "sha256": "44d460cc67fe748879db4b9340879fe55879c3c5f0361308ea2c078967b20514",
+      "review_status": "pending"
+    },
+    {
+      "id": "environments/environment-configs",
+      "legacy": {
+        "media_id": "navody:vps:env_config.png",
+        "revision": 1438599245,
+        "md5": "fc6d398800bf27b3e32526d108d05a02",
+        "sha256": "aec6d7fedf6c35884190a19dcc5f508dd8b7ac755ae82ef99bb5cf4f548b351c"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:prostredi"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:environments:cs:environment-configs.png",
+        "permanent_media_id": "screenshots:vpsadmin:environments:cs:environment-configs.png"
+      },
+      "language": "cs",
+      "topic": "environments",
+      "scenario": "environments",
+      "checkpoint": "environments/environment-configs",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps"
+      ],
+      "description": "Current environment configuration view",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/environments/cs/environment-configs.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminm&section=members&action=env_cfg&id=2",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 836,
+        "height": 133
+      },
+      "sha256": "fd63fbfd20a97c13cac63bdf9a5679d7e5a68d973436272cd2ef8bf4fe377382",
+      "review_status": "pending"
+    },
+    {
+      "id": "reverse-dns/configure-reverse-record",
+      "legacy": {
+        "media_id": "navody:vps:reverzni_dns.png",
+        "revision": 1725954599,
+        "md5": "85076d750bc01cd36c8cbaac5c4fd876",
+        "sha256": "b1da3f38d5838f4ec6fed56da7ad01b63dcb8f4bfe0be9f96399ab2855ad8a16"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:rdns"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:reverse-dns:cs:configure-reverse-record.png",
+        "permanent_media_id": "screenshots:vpsadmin:reverse-dns:cs:configure-reverse-record.png"
+      },
+      "language": "cs",
+      "topic": "reverse-dns",
+      "scenario": "networking",
+      "checkpoint": "reverse-dns/configure-reverse-record",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "traffic-samples"
+      ],
+      "description": "Current reverse-DNS field in interface addresses",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/reverse-dns/cs/configure-reverse-record.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=networking&action=hostaddr_ptr&id=1&veid=1&return=%2F%3Fpage%3Dadminvps%26action%3Dinfo%26veid%3D1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 836,
+        "height": 221
+      },
+      "sha256": "26f8605100d36f39446d1228e947b4c5acc54b0e62d4abf2b6daaa9e3d84979f",
+      "review_status": "pending"
+    },
+    {
+      "id": "vps-management/create-vps-form",
+      "legacy": {
+        "media_id": "navody:vps:create_vps.png",
+        "revision": 1438592453,
+        "md5": "c1d2efb42361ec02f4f6287c0aa4e667",
+        "sha256": "64ce8a82cfad4eaf9e31d743b8de088b2fa83531489c5046db8dbd66ad38571e"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:sprava"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:vps-management:cs:create-vps-form.png",
+        "permanent_media_id": "screenshots:vpsadmin:vps-management:cs:create-vps-form.png"
+      },
+      "language": "cs",
+      "topic": "vps-management",
+      "scenario": "vps-management",
+      "checkpoint": "vps-management/create-vps-form",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps"
+      ],
+      "description": "Current VPS creation form",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/vps-management/cs/create-vps-form.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=new-step-4&user=&location=1&os_template=3&memory=1024&cpu=1&swap=512&diskspace=4096&ipv4=1&ipv4_private=0&ipv6=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 836,
+        "height": 598
+      },
+      "sha256": "58ae9be24840a28f08138b11be055d8e2a140bf2f1fc35dfe9ec32e8f18930d1",
+      "review_status": "pending"
+    },
+    {
+      "id": "vps-management/set-root-password",
+      "legacy": {
+        "media_id": "navody:vps:root_passwd.png",
+        "revision": 1438592453,
+        "md5": "08cf7fb7566a38cb9f55f2c0e38d6c78",
+        "sha256": "899604b7785376bff0b9b117cc7ee047122d1183ffd33b8c21f9e3e15afa868d"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:sprava"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:vps-management:cs:set-root-password.png",
+        "permanent_media_id": "screenshots:vpsadmin:vps-management:cs:set-root-password.png"
+      },
+      "language": "cs",
+      "topic": "vps-management",
+      "scenario": "vps-management",
+      "checkpoint": "vps-management/set-root-password",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps"
+      ],
+      "description": "Current root-password form",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/vps-management/cs/set-root-password.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=info&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 239
+      },
+      "sha256": "a84669fc308213e5d53768af11eefce9afb30131afe34be46e6a8b82c41ba872",
+      "review_status": "pending"
+    },
+    {
+      "id": "vps-management/reinstall-form",
+      "legacy": {
+        "media_id": "navody:vps:distro_reinstall.png",
+        "revision": 1742131387,
+        "md5": "267ed3d50ec7b87c91a76afecd062775",
+        "sha256": "b7a41d73c60a841b209b5a36bfb4ccc1bbd62f684500434286c0afc67eed5c96"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:sprava"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:vps-management:cs:reinstall-form.png",
+        "permanent_media_id": "screenshots:vpsadmin:vps-management:cs:reinstall-form.png"
+      },
+      "language": "cs",
+      "topic": "vps-management",
+      "scenario": "vps-management",
+      "checkpoint": "vps-management/reinstall-form",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps"
+      ],
+      "description": "Current reinstall form",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/vps-management/cs/reinstall-form.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=info&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 242
+      },
+      "sha256": "5157ceef66e747b2ef73deffc032d9583d8d65d4e482b49700b1f977acc340eb",
+      "review_status": "pending"
+    },
+    {
+      "id": "vps-management/resource-settings",
+      "legacy": {
+        "media_id": "navody:vps:resources.png",
+        "revision": 1438592453,
+        "md5": "b5b011bdcc1a0938dfa974938d3915bc",
+        "sha256": "e6dc16b08f88f30264b671281c33d86b028e75780caedaf5f0b2e1603bbff616"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:sprava"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:vps-management:cs:resource-settings.png",
+        "permanent_media_id": "screenshots:vpsadmin:vps-management:cs:resource-settings.png"
+      },
+      "language": "cs",
+      "topic": "vps-management",
+      "scenario": "vps-management",
+      "checkpoint": "vps-management/resource-settings",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps"
+      ],
+      "description": "Current VPS resource settings",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/vps-management/cs/resource-settings.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=info&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 112
+      },
+      "sha256": "11cc0dffc17428ba770474b6dda3dc0d305bef24b4ebefbbf2a72249b1e44215",
+      "review_status": "pending"
+    },
+    {
+      "id": "vps-management/hostname-form",
+      "legacy": {
+        "media_id": "navody:vps:hostname.png",
+        "revision": 1453713667,
+        "md5": "2d5007fe67b3e4a7e2299d6252dff24f",
+        "sha256": "3c47d770aba998ff711cdde83dfa9dcbcd896787ba25bcebac702e07c6edf7ae"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:sprava"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:vps-management:cs:hostname-form.png",
+        "permanent_media_id": "screenshots:vpsadmin:vps-management:cs:hostname-form.png"
+      },
+      "language": "cs",
+      "topic": "vps-management",
+      "scenario": "vps-management",
+      "checkpoint": "vps-management/hostname-form",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps"
+      ],
+      "description": "Current hostname form",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/vps-management/cs/hostname-form.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=info&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 137
+      },
+      "sha256": "ab74cb6689e997d800643c57fd1e4801db9686638a6efcabad7b4352db4ad303",
+      "review_status": "pending"
+    },
+    {
+      "id": "vps-management/feature-settings",
+      "legacy": {
+        "media_id": "navody:vps:vps_features.png",
+        "revision": 1643272728,
+        "md5": "7264bf6fcd1462750ed3a08d4d78308c",
+        "sha256": "42891893e2747142906392f26d470c7ccde0dbe9faf71f1434d3b1e3a231760d"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:sprava"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:vps-management:cs:feature-settings.png",
+        "permanent_media_id": "screenshots:vpsadmin:vps-management:cs:feature-settings.png"
+      },
+      "language": "cs",
+      "topic": "vps-management",
+      "scenario": "vps-management",
+      "checkpoint": "vps-management/feature-settings",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps"
+      ],
+      "description": "Current VPS feature settings",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/vps-management/cs/feature-settings.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=info&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 242
+      },
+      "sha256": "888139fd687070892b1bee563a004d91733fa75b76ccc966c0e7edc17fe32205",
+      "review_status": "pending"
+    },
+    {
+      "id": "vps-management/outage-windows",
+      "legacy": {
+        "media_id": "navody:vps:outage_windows.png",
+        "revision": 1455043049,
+        "md5": "e64e842ce491908accd9333c4c5195cf",
+        "sha256": "5a1edf725bab97f19f2d0c2364a7d910d2c450df371800c9ec3f360e7753da22"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:sprava"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:vps-management:cs:outage-windows.png",
+        "permanent_media_id": "screenshots:vpsadmin:vps-management:cs:outage-windows.png"
+      },
+      "language": "cs",
+      "topic": "vps-management",
+      "scenario": "vps-management",
+      "checkpoint": "vps-management/outage-windows",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps"
+      ],
+      "description": "Current maintenance-window form",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/vps-management/cs/outage-windows.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=info&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 347
+      },
+      "sha256": "dc23e65b1d8f3df140cdc663228a183a8268f419ff21baf1b841e664b7dad690",
+      "review_status": "pending"
+    },
+    {
+      "id": "start-menu/vps-action",
+      "legacy": {
+        "media_id": "navody:vps:vps_details_start_menu.png",
+        "revision": 1644829169,
+        "md5": "8c3e3cafbad80c5d67969bf531cd0131",
+        "sha256": "5dd6032f4bb6306694f136fa6559fc9ff54f0233722d853ba8ebac113143c676"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:start_menu"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:start-menu:cs:vps-action.png",
+        "permanent_media_id": "screenshots:vpsadmin:start-menu:cs:vps-action.png"
+      },
+      "language": "cs",
+      "topic": "start-menu",
+      "scenario": "console",
+      "checkpoint": "start-menu/vps-action",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "nixos-generations"
+      ],
+      "description": "Current start-menu configuration form",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/start-menu/cs/vps-action.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=info&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 157
+      },
+      "sha256": "91b3feb36b4911f2450c5b62866710d25259201388f4bdca049f4d08f3a7ba02",
+      "review_status": "pending"
+    },
+    {
+      "id": "start-menu/main-menu",
+      "legacy": {
+        "media_id": "navody:vps:vps_console_start_menu.png",
+        "revision": 1644829169,
+        "md5": "a50dfdfb2e2bbc298c79f2c359a7bbf6",
+        "sha256": "a861b455a76b6e7a773f3eaaf0ebaad195ebc85fafc7285a3e870c34294cda9f"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:start_menu"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:start-menu:cs:main-menu.png",
+        "permanent_media_id": "screenshots:vpsadmin:start-menu:cs:main-menu.png"
+      },
+      "language": "cs",
+      "topic": "start-menu",
+      "scenario": "console",
+      "checkpoint": "start-menu/main-menu",
+      "driver": "console",
+      "fixtures": [
+        "base-vps",
+        "nixos-generations"
+      ],
+      "description": "Current start-menu settings corresponding to the console menu",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/start-menu/cs/main-menu.png",
+      "capture": {
+        "driver": "console",
+        "page": "/?page=console&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 764,
+        "height": 602
+      },
+      "sha256": "14ebd66d19491c09caf1e29e5ae1a62e3e27461e8d11cc2074fe607b57b19aa9",
+      "review_status": "pending"
+    },
+    {
+      "id": "start-menu/nixos-generation-action",
+      "legacy": {
+        "media_id": "navody:vps:vps_console_start_menu_nixos.png",
+        "revision": 1644829169,
+        "md5": "5987c91345b3614b23d95104fec150ab",
+        "sha256": "3ef9eac5d4b031cf2709bd62f0e324108f69109fe9dc03adc94e47ac04eefb76"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:start_menu"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:start-menu:cs:nixos-generation-action.png",
+        "permanent_media_id": "screenshots:vpsadmin:start-menu:cs:nixos-generation-action.png"
+      },
+      "language": "cs",
+      "topic": "start-menu",
+      "scenario": "console",
+      "checkpoint": "start-menu/nixos-generation-action",
+      "driver": "console",
+      "fixtures": [
+        "base-vps",
+        "nixos-generations"
+      ],
+      "description": "Current distribution controls associated with generation selection",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/start-menu/cs/nixos-generation-action.png",
+      "capture": {
+        "driver": "console",
+        "page": "/?page=console&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 764,
+        "height": 602
+      },
+      "sha256": "3a8d314be3439df339c6954e6601c20721e552f863337ac7451cb7021f0c4f82",
+      "review_status": "pending"
+    },
+    {
+      "id": "start-menu/generation-list",
+      "legacy": {
+        "media_id": "navody:vps:vps_console_start_menu_generations.png",
+        "revision": 1644829169,
+        "md5": "bfdd19327108b669e028d483e342c20d",
+        "sha256": "180163965ee1cbf2f41f9f5a401269d47511fe3230c3846acd5b12b9f5966048"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:start_menu"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:start-menu:cs:generation-list.png",
+        "permanent_media_id": "screenshots:vpsadmin:start-menu:cs:generation-list.png"
+      },
+      "language": "cs",
+      "topic": "start-menu",
+      "scenario": "console",
+      "checkpoint": "start-menu/generation-list",
+      "driver": "console",
+      "fixtures": [
+        "base-vps",
+        "nixos-generations"
+      ],
+      "description": "Current start-menu configuration for generation selection",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/start-menu/cs/generation-list.png",
+      "capture": {
+        "driver": "console",
+        "page": "/?page=console&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 764,
+        "height": 602
+      },
+      "sha256": "569b76f757077881f17a3d4dcca606094ec8a5f8ac707253af99af0d0a021524",
+      "review_status": "pending"
+    },
+    {
+      "id": "userns/map",
+      "legacy": {
+        "media_id": "manuals:vps:vps_userns_map.png",
+        "revision": 1687012715,
+        "md5": "4b165a8236c3590fca1a876f34e5b8c2",
+        "sha256": "e222c36d76992f1a4462db25044a65a993da9c16f40a21b506d2e13015cacdaa"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:userns"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:userns:cs:map.png",
+        "permanent_media_id": "screenshots:vpsadmin:userns:cs:map.png"
+      },
+      "language": "cs",
+      "topic": "userns",
+      "scenario": "vps-management",
+      "checkpoint": "userns/map",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps"
+      ],
+      "description": "Current Czech UID/GID map on the VPS detail",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/userns/cs/map.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=info&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 137
+      },
+      "sha256": "3a4a04296dcc2a4181fb58d38e41946f6c5d7e029e6653f480387d73a291f077",
+      "review_status": "pending"
+    },
+    {
+      "id": "account/email-roles",
+      "legacy": {
+        "media_id": "navody:vps:user_mail_roles.png",
+        "revision": 1486977948,
+        "md5": "0fcb4ac75b9a4b086d13a117ffd2e40c",
+        "sha256": "4144a594ce5fb8fda105f0d59beebc5eabbce043e82d4947ac3de27a72eecdab"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:uzivatele"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:account:cs:email-roles.png",
+        "permanent_media_id": "screenshots:vpsadmin:account:cs:email-roles.png"
+      },
+      "language": "cs",
+      "topic": "account",
+      "scenario": "account",
+      "checkpoint": "account/email-roles",
+      "driver": "webui",
+      "fixtures": [
+        "account"
+      ],
+      "description": "Current Czech e-mail role settings",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/account/cs/email-roles.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminm&section=members&action=edit&id=2",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 782,
+        "height": 293
+      },
+      "sha256": "6930e51ba76974f748ba70ee28d70382f00fda9a5c5531ec48cb907b6ec38177",
+      "review_status": "pending"
+    },
+    {
+      "id": "account/mail-template-recipients",
+      "legacy": {
+        "media_id": "navody:vps:user_mail_templates.png",
+        "revision": 1486907762,
+        "md5": "b60ee0445752db945590a2fe64457a04",
+        "sha256": "a8fe89e5933f6231f4a80a8474a725788a7a2a6f05822be1b6e01a229dc05da7"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:uzivatele"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:account:cs:mail-template-recipients.png",
+        "permanent_media_id": "screenshots:vpsadmin:account:cs:mail-template-recipients.png"
+      },
+      "language": "cs",
+      "topic": "account",
+      "scenario": "account",
+      "checkpoint": "account/mail-template-recipients",
+      "driver": "webui",
+      "fixtures": [
+        "account"
+      ],
+      "description": "Current advanced e-mail configuration",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/account/cs/mail-template-recipients.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminm&section=members&action=template_recipients&id=2",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 781,
+        "height": 433
+      },
+      "sha256": "ce82b6a8ad022970aae0770f3db1f810740ad24a1f64a20da66658350abce93b",
+      "review_status": "pending"
+    },
+    {
+      "id": "account/multifactor-status",
+      "legacy": {
+        "media_id": "navody:vps:2fa_status.png",
+        "revision": 1740260283,
+        "md5": "89a8e718f27db37cd4d4d6494fa9d062",
+        "sha256": "8ff342e9fa6ece984e392b6ff26c8bbe96ae92d9a520bf6beeb0fbafc6a9ed40"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:uzivatele"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:account:cs:multifactor-status.png",
+        "permanent_media_id": "screenshots:vpsadmin:account:cs:multifactor-status.png"
+      },
+      "language": "cs",
+      "topic": "account",
+      "scenario": "account",
+      "checkpoint": "account/multifactor-status",
+      "driver": "webui",
+      "fixtures": [
+        "account"
+      ],
+      "description": "Current multi-factor authentication status",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/account/cs/multifactor-status.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminm&section=members&action=edit&id=2",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 482,
+        "height": 174
+      },
+      "sha256": "40916b15af961e7e89995f08747b3163b69f1b561197e82d05006ab4b9b78aaa",
+      "review_status": "pending"
+    },
+    {
+      "id": "account/totp-confirm",
+      "legacy": {
+        "media_id": "navody:vps:totp_device_confirm.png",
+        "revision": 1558338041,
+        "md5": "16787bd8e5700fab32ed14ce5e8ba6a8",
+        "sha256": "8c65a604660f283b3ed83b1e28a0f46e3b85ad82bca0558b0097ac86ba245382"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:uzivatele"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:account:cs:totp-confirm.png",
+        "permanent_media_id": "screenshots:vpsadmin:account:cs:totp-confirm.png"
+      },
+      "language": "cs",
+      "topic": "account",
+      "scenario": "account",
+      "checkpoint": "account/totp-confirm",
+      "driver": "webui",
+      "fixtures": [
+        "account"
+      ],
+      "description": "Current TOTP confirmation form; QR code and secret are masked",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/account/cs/totp-confirm.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminm&action=totp_device_confirm&id=2&dev=2",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 836,
+        "height": 637
+      },
+      "sha256": "cf0dbe1fe1fa9fb3e1674b0b33efb317b1dafea1585d70f3a4bf951ddb2f393f",
+      "review_status": "pending"
+    },
+    {
+      "id": "account/totp-device-list",
+      "legacy": {
+        "media_id": "navody:vps:totp_device_list.png",
+        "revision": 1558338041,
+        "md5": "667ac6970e75c1a0478f9dea0e99b67f",
+        "sha256": "febceb9a497a399102c42913a1674698e6d412701fb75a3f112458dda5c23527"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:uzivatele"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:account:cs:totp-device-list.png",
+        "permanent_media_id": "screenshots:vpsadmin:account:cs:totp-device-list.png"
+      },
+      "language": "cs",
+      "topic": "account",
+      "scenario": "account",
+      "checkpoint": "account/totp-device-list",
+      "driver": "webui",
+      "fixtures": [
+        "account"
+      ],
+      "description": "Current TOTP device list with an unconfirmed documentation device",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/account/cs/totp-device-list.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminm&action=totp_devices&id=2",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 836,
+        "height": 181
+      },
+      "sha256": "fb90823c40ee1525ee50de9c601737dd6837ac6e8b790b196b17ee81b774f0b0",
+      "review_status": "pending"
+    },
+    {
+      "id": "account/session-settings",
+      "legacy": {
+        "media_id": "navody:vps:user-session-control.png",
+        "revision": 1704216127,
+        "md5": "d010c139604abdd742d76957a0b053da",
+        "sha256": "218c1a4d5e4a993033bf3bf5881cf4770a15d70b66f05586db44591375528a75"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:uzivatele"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:account:cs:session-settings.png",
+        "permanent_media_id": "screenshots:vpsadmin:account:cs:session-settings.png"
+      },
+      "language": "cs",
+      "topic": "account",
+      "scenario": "account",
+      "checkpoint": "account/session-settings",
+      "driver": "webui",
+      "fixtures": [
+        "account"
+      ],
+      "description": "Current Czech session settings",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/account/cs/session-settings.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminm&section=members&action=edit&id=2",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 205
+      },
+      "sha256": "3a6ab9ccc62ad821f9ae2ed51a89bb4b697f21d0156d71d885a32b5092908dc4",
+      "review_status": "pending"
+    },
+    {
+      "id": "account/session-list",
+      "legacy": {
+        "media_id": "navody:vps:user-session-log.png",
+        "revision": 1704216098,
+        "md5": "0d498a4472514a2b47af91cfc133c280",
+        "sha256": "9dd518ffe6c4a37b4df5ba4e017f614247f17298c00e57b50d3cda692b4704d5"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:uzivatele"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:account:cs:session-list.png",
+        "permanent_media_id": "screenshots:vpsadmin:account:cs:session-list.png"
+      },
+      "language": "cs",
+      "topic": "account",
+      "scenario": "account",
+      "checkpoint": "account/session-list",
+      "driver": "webui",
+      "fixtures": [
+        "account"
+      ],
+      "description": "Current Czech user-session list",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/account/cs/session-list.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminm&section=members&action=user_sessions&id=2",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 394
+      },
+      "sha256": "ccf146f069f62472f30097029b3d0fde4e2aed434ec5131b7b6cce67cd08dc65",
+      "review_status": "pending"
+    },
+    {
+      "id": "rescue-mode/boot-form",
+      "legacy": {
+        "media_id": "navody:vps:vpsadminos:vps-details-boot.png",
+        "revision": 1613655705,
+        "md5": "fbc2b458577cecda4f249f0d3153a2cf",
+        "sha256": "69745edf16e9a0ed1d6f158a082878dbd01b2630b67ebb0b48ddc7adcfde6dcb"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:vpsadminos:oprava"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:rescue-mode:cs:boot-form.png",
+        "permanent_media_id": "screenshots:vpsadmin:rescue-mode:cs:boot-form.png"
+      },
+      "language": "cs",
+      "topic": "rescue-mode",
+      "scenario": "console",
+      "checkpoint": "rescue-mode/boot-form",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "nixos-generations"
+      ],
+      "description": "Current Czech rescue-mode boot form",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/rescue-mode/cs/boot-form.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=adminvps&action=info&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 312
+      },
+      "sha256": "ef731f232e590fbe0ba5076ad804614951abbd328005354e0305daa57264422e",
+      "review_status": "pending"
+    },
+    {
+      "id": "rescue-mode/console",
+      "legacy": {
+        "media_id": "navody:vps:vpsadminos:vps-console-boot.png",
+        "revision": 1613655706,
+        "md5": "dfbb2d206f5d7d24e4b2f877225c1405",
+        "sha256": "17d7e287e7028d391f68e281b4d5dd306bf93d0503e5035d1f6904d62eb76a08"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:vpsadminos:oprava"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:rescue-mode:cs:console.png",
+        "permanent_media_id": "screenshots:vpsadmin:rescue-mode:cs:console.png"
+      },
+      "language": "cs",
+      "topic": "rescue-mode",
+      "scenario": "console",
+      "checkpoint": "rescue-mode/console",
+      "driver": "console",
+      "fixtures": [
+        "base-vps",
+        "nixos-generations"
+      ],
+      "description": "Current VPS status and remote-console action for rescue mode",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/rescue-mode/cs/console.png",
+      "capture": {
+        "driver": "console",
+        "page": "/?page=console&veid=1",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 764,
+        "height": 602
+      },
+      "sha256": "207270a36255d1fca30af1fc3211d01844d751352dda7764d04398ba58c5eef3",
+      "review_status": "pending"
+    },
+    {
+      "id": "backups/vps-backups",
+      "legacy": {
+        "media_id": "navody:vps:backups.png",
+        "revision": 1438593420,
+        "md5": "9be926a26e6a31c5d885a7dda9478cad",
+        "sha256": "0ad9669882803bfed996c568eb25f5fe7d54f3d32d0d3163ba5b2a7d3b2b3829"
+      },
+      "wiki": {
+        "source_pages": [
+          "navody:vps:zalohy"
+        ],
+        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:backups:cs:vps-backups.png",
+        "permanent_media_id": "screenshots:vpsadmin:backups:cs:vps-backups.png"
+      },
+      "language": "cs",
+      "topic": "backups",
+      "scenario": "storage",
+      "checkpoint": "backups/vps-backups",
+      "driver": "webui",
+      "fixtures": [
+        "base-vps",
+        "snapshot"
+      ],
+      "description": "Current Czech VPS backup page",
+      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+      "viewport": {
+        "width": 1440,
+        "height": 1100,
+        "device_scale_factor": 1
+      },
+      "output": "screenshots/backups/cs/vps-backups.png",
+      "capture": {
+        "driver": "webui",
+        "page": "/?page=backup&action=vps",
+        "runner": "vpsadmin-kb-captures/schema-2"
+      },
+      "dimensions": {
+        "width": 821,
+        "height": 185
+      },
+      "sha256": "2b313bef15f708fe659ba41c6b3ebd3e6294625c0780b0bbbabac551a9848898",
+      "review_status": "pending"
+    }
+  ]
+}

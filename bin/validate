@@ -1,0 +1,174 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'digest'
+require 'json'
+
+ROOT = File.expand_path('..', __dir__)
+MANIFEST_PATH = File.join(ROOT, 'captures.json')
+RESULTS_PATH = File.join(ROOT, 'tmp/capture-results.json')
+UPDATE = ARGV.delete('--update')
+ALLOW_MISSING = ARGV.delete('--allow-missing')
+abort "Unknown arguments: #{ARGV.join(' ')}" unless ARGV.empty?
+
+manifest = JSON.parse(File.read(MANIFEST_PATH))
+assets = manifest.fetch('assets')
+errors = []
+
+errors << "expected schema 2, found #{manifest['schema'].inspect}" unless manifest['schema'] == 2
+errors << "expected 60 assets, found #{assets.length}" unless assets.length == 60
+references = assets.sum { |asset| asset.dig('wiki', 'source_pages')&.length.to_i }
+errors << "expected 63 page references, found #{references}" unless references == 63
+
+%w[id checkpoint output].each do |field|
+  duplicates = assets.group_by { |asset| asset.fetch(field) }
+                     .select { |_value, matches| matches.length > 1 }.keys
+  errors << "duplicate #{field}: #{duplicates.join(', ')}" unless duplicates.empty?
+end
+
+[
+  ['legacy media ID', ->(asset) { asset.dig('legacy', 'media_id') }],
+  ['draft media ID', ->(asset) { asset.dig('wiki', 'draft_media_id') }],
+  ['permanent media ID', ->(asset) { asset.dig('wiki', 'permanent_media_id') }]
+].each do |label, value|
+  duplicates = assets.group_by(&value).select { |_id, matches| matches.length > 1 }.keys
+  errors << "duplicate #{label}: #{duplicates.join(', ')}" unless duplicates.empty?
+end
+
+allowed_fixtures = %w[
+  account base-vps nixos-generations public-key second-vps snapshot
+  traffic-samples
+]
+allowed_statuses = %w[pending reviewed uploaded]
+actual = {}
+
+assets.each do |asset|
+  id = asset.fetch('id')
+  topic = asset.fetch('topic')
+  language = asset.fetch('language')
+  checkpoint = asset.fetch('checkpoint')
+  slug = checkpoint.split('/').last
+  expected_output = "screenshots/#{topic}/#{language}/#{slug}.png"
+  expected_draft = [
+    manifest.fetch('draft_namespace'), 'media', 'vpsadmin', topic, language,
+    "#{slug}.png"
+  ].join(':')
+  expected_permanent = ['screenshots', 'vpsadmin', topic, language, "#{slug}.png"].join(':')
+
+  errors << "#{id}: ID must be semantic" unless id.match?(/\A[a-z0-9-]+\/[a-z][a-z0-9-]*\z/)
+  errors << "#{id}: checkpoint must equal ID" unless checkpoint == id
+  errors << "#{id}: unexpected output #{asset['output']}" unless asset['output'] == expected_output
+  errors << "#{id}: unexpected draft media ID" unless asset.dig('wiki', 'draft_media_id') == expected_draft
+  errors << "#{id}: unexpected permanent media ID" \
+    unless asset.dig('wiki', 'permanent_media_id') == expected_permanent
+  errors << "#{id}: top-level revision counters are not supported" if asset.key?('revision')
+  errors << "#{id}: unsupported driver #{asset['driver']}" \
+    unless %w[webui console cli].include?(asset['driver'])
+  errors << "#{id}: missing scenario module" \
+    unless File.exist?(File.join(ROOT, 'scenarios', "#{asset.fetch('scenario')}.cjs"))
+  errors << "#{id}: invalid vpsAdmin commit" \
+    unless asset.fetch('vpsadmin_commit').match?(/\A[0-9a-f]{40}\z/)
+  errors << "#{id}: invalid review status #{asset['review_status'].inspect}" \
+    unless allowed_statuses.include?(asset['review_status'])
+  unknown_fixtures = asset.fetch('fixtures') - allowed_fixtures
+  errors << "#{id}: unknown fixtures #{unknown_fixtures.join(', ')}" unless unknown_fixtures.empty?
+  errors << "#{id}: has no source pages" if asset.dig('wiki', 'source_pages')&.empty? != false
+
+  file = File.join(ROOT, asset.fetch('output'))
+  unless File.exist?(file)
+    errors << "#{id}: missing #{asset['output']}" unless ALLOW_MISSING
+    next
+  end
+
+  data = File.binread(file)
+  errors << "#{id}: not a PNG" unless data.start_with?("\x89PNG\r\n\x1a\n".b)
+  width, height = data.byteslice(16, 8)&.unpack('NN')
+  errors << "#{id}: invalid dimensions" unless width&.positive? && height&.positive?
+  actual[id] = {
+    'dimensions' => { 'width' => width, 'height' => height },
+    'sha256' => Digest::SHA256.hexdigest(data)
+  }
+end
+
+unless ALLOW_MISSING
+  duplicate_hashes = actual.group_by { |_id, values| values.fetch('sha256') }
+                           .select { |_digest, matches| matches.length > 1 }
+  duplicate_hashes.each_value do |matches|
+    errors << "identical PNGs: #{matches.map(&:first).join(', ')}"
+  end
+end
+
+results = []
+if UPDATE
+  if File.exist?(RESULTS_PATH)
+    results = JSON.parse(File.read(RESULTS_PATH))
+  else
+    errors << "capture results are missing: #{RESULTS_PATH}"
+  end
+
+  duplicate_result_ids = results.group_by { |item| item.fetch('id') }
+                                .select { |_id, matches| matches.length > 1 }.keys
+  errors << "duplicate capture result IDs: #{duplicate_result_ids.join(', ')}" \
+    unless duplicate_result_ids.empty?
+
+  assets_by_id = assets.to_h { |asset| [asset.fetch('id'), asset] }
+  results.each do |result|
+    asset = assets_by_id[result.fetch('id')]
+    unless asset
+      errors << "unexpected capture result: #{result.fetch('id')}"
+      next
+    end
+
+    %w[checkpoint driver output].each do |field|
+      errors << "#{asset['id']}: capture result #{field} differs" \
+        unless result[field] == asset[field]
+    end
+    values = actual[asset.fetch('id')]
+    errors << "#{asset['id']}: capture result file is missing" unless values
+    if values && result['sha256'] != values['sha256']
+      errors << "#{asset['id']}: capture result SHA-256 differs from file"
+    end
+    if asset['review_status'] != 'pending' && values && asset['sha256'] != values['sha256']
+      errors << "#{asset['id']}: #{asset['review_status']} capture cannot be overwritten"
+    end
+  end
+
+  if errors.empty?
+    results_by_id = results.to_h { |item| [item.fetch('id'), item] }
+    assets.each do |asset|
+      result = results_by_id[asset.fetch('id')]
+      next unless result
+
+      values = actual.fetch(asset.fetch('id'))
+      asset['dimensions'] = values.fetch('dimensions')
+      asset['sha256'] = values.fetch('sha256')
+      asset['capture'] = {
+        'driver' => result.fetch('driver'),
+        'page' => result.fetch('page'),
+        'runner' => 'vpsadmin-kb-captures/schema-2'
+      }
+    end
+    File.write(MANIFEST_PATH, "#{JSON.pretty_generate(manifest)}\n")
+  end
+elsif !ALLOW_MISSING
+  assets.each do |asset|
+    values = actual[asset.fetch('id')]
+    next unless values
+
+    errors << "#{asset['id']}: dimensions differ" unless asset['dimensions'] == values['dimensions']
+    errors << "#{asset['id']}: SHA-256 differs" unless asset['sha256'] == values['sha256']
+    errors << "#{asset['id']}: capture provenance is missing" unless asset['capture']
+    errors << "#{asset['id']}: capture driver differs" \
+      if asset['capture'] && asset.dig('capture', 'driver') != asset['driver']
+    errors << "#{asset['id']}: capture runner differs" \
+      if asset['capture'] && asset.dig('capture', 'runner') != 'vpsadmin-kb-captures/schema-2'
+  end
+end
+
+if errors.empty?
+  present = actual.length
+  puts "Valid inventory: #{assets.length} assets, #{references} references, #{present} PNGs"
+else
+  warn errors.join("\n")
+  exit 1
+end

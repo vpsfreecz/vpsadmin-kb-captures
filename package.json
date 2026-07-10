@@ -1,0 +1,10 @@
+{
+  "name": "vpsadmin-kb-captures",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "capture": "node runner/capture.cjs",
+    "check": "bin/check",
+    "validate": "ruby bin/validate"
+  }
+}

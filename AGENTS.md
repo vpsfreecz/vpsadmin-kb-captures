@@ -1,0 +1,26 @@
+# vpsAdmin KB Capture Repository
+
+This repository owns reproducible screenshots used by the vpsFree.cz
+knowledge bases. Screenshots are generated artifacts. Never edit them by hand.
+
+Every asset in `captures.json` must map to exactly one scenario and checkpoint.
+A scenario may produce several related screenshots, but every checkpoint must
+be independently addressable and have deterministic fixture requirements,
+locale, viewport, masking rules, and source-page references.
+
+Use the pinned Nix development shell. Run captures through `bin/capture` and
+validation through `bin/validate`. Test IP addresses must come from
+documentation ranges and test identities must use `example.test`. Never
+capture passwords, tokens, TOTP secrets, QR codes, recovery codes, real member
+data, or production infrastructure identifiers.
+
+Capture scripts may modify only their dedicated development cluster. They must
+be safe to rerun and must not stop, reset, or reuse another initiative's
+cluster. Wiki uploads are deliberately outside the capture command and require
+an explicit, separately reviewed DokuWiki publication workflow.
+
+Use stable, semantic screenshot IDs and filenames. Do not encode display order
+or revision counters in them; Git and DokuWiki retain revision history. Never
+reuse or overwrite a legacy production media ID during the initial migration.
+After publication, a refreshed capture updates the same canonical media ID so
+existing pages do not require reference-only edits.

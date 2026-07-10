@@ -1,0 +1,6 @@
+/result
+/review
+/tmp
+/.devcluster
+*.tmp
+.direnv/

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_dir=$(cd -- "$(dirname -- "$0")/.." && pwd)
+cd "$repo_dir"
+
+for file in runner/*.cjs lib/*.cjs fixtures/*.cjs scenarios/*.cjs tools/*.cjs; do
+  node --check "$file"
+done
+bash -n bin/capture bin/contact-sheet bin/devcluster
+shellcheck bin/capture bin/contact-sheet bin/devcluster
+jq empty captures.json cluster/default-config.json
+ruby -c bin/validate
+ruby -c tools/import-manifest.rb
+bin/validate

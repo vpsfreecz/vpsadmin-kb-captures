@@ -1,0 +1,234 @@
+{
+  "nodes": {
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "vpsadmin",
+          "vpsadminos",
+          "impermanence",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1768598210,
+        "narHash": "sha256-kkgA32s/f4jaa4UG+2f8C225Qvclxnqs76mf8zvTVPg=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "c47b2cc64a629f8e075de52e4742de688f930dc6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "impermanence": {
+      "inputs": {
+        "home-manager": "home-manager",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1769548169,
+        "narHash": "sha256-03+JxvzmfwRu+5JafM0DLbxgHttOQZkUtDWBmeUkN8Y=",
+        "owner": "nix-community",
+        "repo": "impermanence",
+        "rev": "7b1d382faf603b6d264f58627330f9faa5cba149",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "impermanence",
+        "type": "github"
+      }
+    },
+    "netlinkrb": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1562850306,
+        "narHash": "sha256-0bXTWUdUDr2XP+bEIfIbxXap8Niva/IoPXTxFeXXImg=",
+        "owner": "vpsfreecz",
+        "repo": "netlinkrb",
+        "rev": "d9de53d843d2586ffa5b7b404887fa801c697ddf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vpsfreecz",
+        "repo": "netlinkrb",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1768564909,
+        "narHash": "sha256-Kell/SpJYVkHWMvnhqJz/8DqQg2b6PguxVWOuadbHCc=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "e4bae1bd10c9c57b2cf517953ab70060a828ee6f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgsUnstable": {
+      "locked": {
+        "lastModified": 1783224372,
+        "narHash": "sha256-8i/87eeoqiGE4yOTjwSA3Eh/ziJRQEmd/unYU+K27sk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "d407951447dcd00442e97087bf374aad70c04cea",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1783148766,
+        "narHash": "sha256-uslt2pqShTIXDdAHRHv2QkYLsVdY8Oqwz0EA48/RSM8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "a50de1b7d8a586adc18d2395c19de7d6058e6030",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-26.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": [
+          "vpsadminos",
+          "nixpkgs"
+        ],
+        "toolsNixpkgs": "toolsNixpkgs",
+        "vpsadmin": "vpsadmin",
+        "vpsadminos": [
+          "vpsadmin",
+          "vpsadminos"
+        ],
+        "vpsfStatus": "vpsfStatus"
+      }
+    },
+    "ruby-lxc": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1780499941,
+        "narHash": "sha256-guAdOSP9MyCL3BQ1LGXAhcCoXgEU1fUE69d2ATMqUGE=",
+        "owner": "vpsfreecz",
+        "repo": "ruby-lxc",
+        "rev": "004bf35eb90d41ba60b347b5b1e73d868a4f95d9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vpsfreecz",
+        "ref": "2026-06-03-nixos-26-05-port",
+        "repo": "ruby-lxc",
+        "type": "github"
+      }
+    },
+    "toolsNixpkgs": {
+      "locked": {
+        "lastModified": 1783522502,
+        "narHash": "sha256-iffAls3iaNTyJC2faYcUXSI+Gp02cDjYl+MygxKl2GI=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "0bb7ec54c8483066ec9d7720e780a5caa71f8612",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "vpsadmin": {
+      "inputs": {
+        "nixpkgs": [
+          "vpsadmin",
+          "vpsadminos",
+          "nixpkgs"
+        ],
+        "vpsadminos": "vpsadminos"
+      },
+      "locked": {
+        "lastModified": 1783690753,
+        "narHash": "sha256-yybEWJN9vDqhGvEnHp/A2qM1kgE1Z6nMKNCaTX9gyEk=",
+        "owner": "vpsfreecz",
+        "repo": "vpsadmin",
+        "rev": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vpsfreecz",
+        "repo": "vpsadmin",
+        "rev": "299147166ecb8459c712ed8a5c4dd14f673663fc",
+        "type": "github"
+      }
+    },
+    "vpsadminos": {
+      "inputs": {
+        "impermanence": "impermanence",
+        "netlinkrb": "netlinkrb",
+        "nixpkgs": "nixpkgs_2",
+        "nixpkgsUnstable": "nixpkgsUnstable",
+        "ruby-lxc": "ruby-lxc"
+      },
+      "locked": {
+        "lastModified": 1783331081,
+        "narHash": "sha256-sJS1tI/SqjOGBm/8RqEIi7M/rSFVtzTIshYdZYmPqWA=",
+        "owner": "vpsfreecz",
+        "repo": "vpsadminos",
+        "rev": "849282e6be436743a47fb0e592041e6fba9ad41f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vpsfreecz",
+        "ref": "staging",
+        "repo": "vpsadminos",
+        "type": "github"
+      }
+    },
+    "vpsfStatus": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "vpsadmin": [
+          "vpsadmin"
+        ],
+        "vpsadminos": [
+          "vpsadminos"
+        ]
+      },
+      "locked": {
+        "lastModified": 1783669700,
+        "narHash": "sha256-fiaFXRCldKuaiEFNO+TSvzrgYOCW8xOsEjDRND97Pss=",
+        "owner": "vpsfreecz",
+        "repo": "vpsf-status",
+        "rev": "29853c364e2fa072152d2de4f17e57f1e802b9f3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vpsfreecz",
+        "ref": "master",
+        "repo": "vpsf-status",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

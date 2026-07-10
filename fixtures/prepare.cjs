@@ -1,0 +1,255 @@
+const fs = require('fs');
+const path = require('path');
+const { execFileSync, spawnSync } = require('child_process');
+
+const {
+  goto,
+  preparePage,
+  selectFirstOption,
+  selectFirstRadio,
+  submitLast,
+} = require('../lib/webui.cjs');
+
+function idFromUrl(raw, name) {
+  const value = new URL(raw).searchParams.get(name);
+  return value ? Number(value) : null;
+}
+
+async function findOwnedVps(page, hostname) {
+  await goto(page, '/?page=adminvps&action=list');
+  const hrefs = await page.locator('#content-in tr').evaluateAll((rows, expected) =>
+    rows.flatMap((row) => {
+      const cells = Array.from(row.cells).map((cell) => cell.textContent.trim());
+      if (!cells.includes(expected)) return [];
+      return Array.from(row.querySelectorAll(
+        'a[href*="page=adminvps"][href*="action=info"][href*="veid="]',
+      )).map((link) => link.href);
+    }), hostname);
+  const ids = [...new Set(hrefs.map((href) => idFromUrl(href, 'veid')).filter(Boolean))];
+  if (ids.length > 1) {
+    throw new Error(`Fixture hostname ${hostname} belongs to multiple VPSes: ${ids.join(', ')}`);
+  }
+  return ids[0] || null;
+}
+
+async function createVps(page, hostname, boot) {
+  await goto(page, '/?page=adminvps&action=new-step-1');
+  const environmentForm = page.locator('form[name="newvps-step1"]');
+  if ((await environmentForm.count()) > 0) {
+    await selectFirstRadio(environmentForm, 'environment');
+    await submitLast(environmentForm);
+    await page.waitForLoadState('domcontentloaded');
+    await preparePage(page);
+  }
+
+  let form = page.locator('form[name="newvps-step2"]');
+  await selectFirstRadio(form, 'location');
+  await submitLast(form);
+  await page.waitForLoadState('domcontentloaded');
+  await preparePage(page);
+
+  form = page.locator('form[name="newvps-step2"]');
+  await page.locator('details').first().evaluate((details) => { details.open = true; }).catch(() => {});
+  await selectFirstRadio(form, 'os_template');
+  await submitLast(form);
+  await page.waitForLoadState('domcontentloaded');
+  await preparePage(page);
+
+  form = page.locator('form[name="newvps-step3"]');
+  await submitLast(form);
+  await page.waitForLoadState('domcontentloaded');
+  await preparePage(page);
+
+  form = page.locator('form[action*="action=new-submit"]');
+  await form.locator('input[name="hostname"]').fill(hostname);
+  const userNamespace = form.locator('select[name="user_namespace_map"]');
+  if ((await userNamespace.count()) > 0) await selectFirstOption(userNamespace);
+  const noUserData = form.locator('input[name="user_data_type"][value="none"]');
+  if ((await noUserData.count()) > 0) await noUserData.check({ force: true });
+  const bootInput = form.locator('input[name="boot_after_create"]');
+  if ((await bootInput.count()) > 0 && (await bootInput.isChecked()) !== boot) {
+    await bootInput.setChecked(boot);
+  }
+  await submitLast(form);
+  await page.waitForLoadState('domcontentloaded');
+  const id = idFromUrl(page.url(), 'veid');
+  if (!id) throw new Error(`Unable to identify newly created VPS at ${page.url()}`);
+  return id;
+}
+
+async function waitForRunning(page, vpsId) {
+  const deadline = Date.now() + 10 * 60_000;
+  let startRequested = false;
+  while (Date.now() < deadline) {
+    await goto(page, `/?page=adminvps&action=info&veid=${vpsId}`);
+    const text = await page.locator('#content-in').innerText();
+    if (/Běží|Running/i.test(text)) return;
+    if (!startRequested && /Vypnuto|Stopped/i.test(text)) {
+      const start = page.locator(`a[href*="run=start"][href*="veid=${vpsId}"]`).first();
+      if ((await start.count()) > 0) {
+        await start.click();
+        startRequested = true;
+      }
+    }
+    await page.waitForTimeout(3_000);
+  }
+  throw new Error(`VPS #${vpsId} did not reach the running state`);
+}
+
+async function rootDatasetId(page, vpsId) {
+  await goto(page, `/?page=adminvps&action=info&veid=${vpsId}`);
+  const href = await page
+    .locator('a[href*="page=dataset"][href*="dataset="]')
+    .first()
+    .getAttribute('href');
+  return href ? idFromUrl(new URL(href, page.url()).href, 'dataset') : 1;
+}
+
+async function vpsNodeMachine(page, vpsId) {
+  await goto(page, `/?page=adminvps&action=info&veid=${vpsId}`);
+  const rows = await page.locator('#content-in table').first().locator('tr').evaluateAll(
+    (elements) => elements.map((row) =>
+      Array.from(row.cells).map((cell) => cell.textContent.trim())),
+  );
+  const node = rows.find((row) => row[0]?.replace(/:$/, '') === 'Node');
+  const match = node?.slice(1).join(' ').match(/node(\d+)/i);
+  return match ? `node${match[1]}` : 'node1';
+}
+
+async function ensurePublicKey(page) {
+  await goto(page, '/?page=adminm&action=pubkeys&id=2');
+  const matches = await page.getByText('Dokumentační klíč', { exact: true }).count();
+  if (matches > 1) throw new Error('Multiple public keys use the fixture label Dokumentační klíč');
+  if (matches === 1) return;
+  await goto(page, '/?page=adminm&action=pubkey_add&id=2');
+  const form = page.locator('form').filter({ has: page.locator('textarea[name="key"]') }).first();
+  const label = form.locator('input[name="label"], input[name="name"]');
+  if ((await label.count()) > 0) await label.fill('Dokumentační klíč');
+  const keyType = Buffer.from('ssh-ed25519');
+  const length = (value) => {
+    const result = Buffer.alloc(4);
+    result.writeUInt32BE(value);
+    return result;
+  };
+  const blob = Buffer.concat([
+    length(keyType.length),
+    keyType,
+    length(32),
+    Buffer.alloc(32, 1),
+  ]).toString('base64');
+  await form.locator('textarea[name="key"]').fill(
+    `ssh-ed25519 ${blob} docs@example.test`,
+  );
+  await submitLast(form);
+  await page.waitForLoadState('domcontentloaded');
+}
+
+async function ensureSnapshot(page, datasetId) {
+  await goto(page, '/?page=backup&action=vps');
+  let rows = page.locator('#content-in tr', { hasText: 'Dokumentační snapshot' });
+  let count = await rows.count();
+  if (count > 1) throw new Error('Multiple snapshots use the fixture label Dokumentační snapshot');
+  if (count === 0) {
+    await goto(page, `/?page=backup&action=snapshot&dataset=${datasetId}`);
+    const form = page.locator('form[action*="action=snapshot_create"]');
+    await form.locator('input[name="label"]').fill('Dokumentační snapshot');
+    await submitLast(form);
+    const deadline = Date.now() + 5 * 60_000;
+    while (Date.now() < deadline) {
+      await goto(page, '/?page=backup&action=vps');
+      rows = page.locator('#content-in tr', { hasText: 'Dokumentační snapshot' });
+      count = await rows.count();
+      if (count > 0) break;
+      await page.waitForTimeout(3_000);
+    }
+  }
+  if (count > 1) throw new Error('Multiple snapshots use the fixture label Dokumentační snapshot');
+  const exportLink = rows.first().locator('a[href*="page=export"][href*="snapshot="]').first();
+  if ((await exportLink.count()) === 0) throw new Error('Documentation snapshot was not created');
+  const href = new URL(await exportLink.getAttribute('href'), page.url());
+  return {
+    id: idFromUrl(href.href, 'snapshot'),
+    exportCreateRoute: `${href.pathname}${href.search}`,
+  };
+}
+
+function ensureNixosGenerations(cluster, node, vpsId) {
+  const script = [
+    'set -eu',
+    'root=$(osctl ct show -H -o rootfs "$1")',
+    'mkdir -p "$root/nix/var/nix/profiles" "$root/nix/store/kb-docs-system-1" "$root/nix/store/kb-docs-system-2" /nix/store/kb-docs-system-1 /nix/store/kb-docs-system-2',
+    "printf '%s\\n' '24.11 (Vicuña)' | tee \"$root/nix/store/kb-docs-system-1/nixos-version\" /nix/store/kb-docs-system-1/nixos-version >/dev/null",
+    "printf '%s\\n' '25.05 (Warbler)' | tee \"$root/nix/store/kb-docs-system-2/nixos-version\" /nix/store/kb-docs-system-2/nixos-version >/dev/null",
+    'touch "$root/nix/store/kb-docs-system-1/init" "$root/nix/store/kb-docs-system-2/init" /nix/store/kb-docs-system-1/init /nix/store/kb-docs-system-2/init',
+    'ln -sfn /nix/store/kb-docs-system-1 "$root/nix/var/nix/profiles/system-1-link"',
+    'ln -sfn /nix/store/kb-docs-system-2 "$root/nix/var/nix/profiles/system-2-link"',
+    'touch -h -t 202501011000.00 "$root/nix/var/nix/profiles/system-1-link" || true',
+    'touch -h -t 202506011000.00 "$root/nix/var/nix/profiles/system-2-link" || true',
+  ].join('; ');
+  execFileSync(
+    cluster.commandPath,
+    cluster.sshArgs(node, ['bash', '-s', '--', String(vpsId)]),
+    { input: `${script}\n`, stdio: ['pipe', 'pipe', 'pipe'] },
+  );
+}
+
+function generateTrafficSamples(cluster, node, vpsId) {
+  const result = spawnSync(cluster.commandPath, cluster.sshArgs(node, [
+    'osctl', 'ct', 'exec', String(vpsId),
+    '/bin/busybox', 'ping', '-c', '200', '-i', '0.02', '-W', '1', '198.51.100.1',
+  ]), { encoding: 'utf8', timeout: 15_000 });
+  if (result.error || ![0, 1].includes(result.status) || !result.stdout.includes('PING')) {
+    throw new Error(
+      `Unable to generate traffic for VPS #${vpsId}: ${result.error || result.stderr}`,
+    );
+  }
+}
+
+function networkInterface(cluster, node, vpsId) {
+  const output = execFileSync(
+    cluster.commandPath,
+    cluster.sshArgs(node, [
+      'osctl', 'ct', 'exec', String(vpsId), '/bin/ls', '/sys/class/net',
+    ]),
+    { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] },
+  );
+  const excluded = new Set(['erspan0', 'gre0', 'gretap0', 'ip6tnl0', 'lo', 'tunl0']);
+  const interfaces = output.trim().split(/\s+/).filter((name) => !excluded.has(name));
+  if (interfaces.length !== 1) {
+    throw new Error(`Expected one fixture network interface, found: ${interfaces.join(', ')}`);
+  }
+  return interfaces[0];
+}
+
+async function prepareFixtures({ cluster, page, required, repoRoot }) {
+  const requiredSet = new Set(required);
+  const vpsId = await findOwnedVps(page, 'kb-cs-example') ||
+    await createVps(page, 'kb-cs-example', true);
+  await waitForRunning(page, vpsId);
+  const datasetId = await rootDatasetId(page, vpsId);
+  const node = await vpsNodeMachine(page, vpsId);
+  const fixtures = { vpsId, datasetId, node, hostname: 'kb-cs-example' };
+  fixtures.networkInterface = networkInterface(cluster, node, vpsId);
+
+  if (requiredSet.has('second-vps')) {
+    fixtures.secondVpsId = await findOwnedVps(page, 'kb-cs-playground') ||
+      await createVps(page, 'kb-cs-playground', false);
+  }
+  if (requiredSet.has('public-key')) await ensurePublicKey(page);
+  if (requiredSet.has('snapshot')) {
+    fixtures.snapshot = await ensureSnapshot(page, datasetId);
+  }
+  if (requiredSet.has('nixos-generations')) {
+    ensureNixosGenerations(cluster, node, vpsId);
+  }
+  if (requiredSet.has('traffic-samples')) {
+    generateTrafficSamples(cluster, node, vpsId);
+  }
+
+  const target = path.join(repoRoot, 'tmp/fixtures.json');
+  fs.mkdirSync(path.dirname(target), { recursive: true });
+  fs.writeFileSync(target, `${JSON.stringify(fixtures, null, 2)}\n`);
+  return fixtures;
+}
+
+module.exports = { generateTrafficSamples, prepareFixtures };
