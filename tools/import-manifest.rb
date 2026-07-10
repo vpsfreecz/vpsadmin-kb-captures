@@ -79,12 +79,8 @@ assets = source.fetch('assets').map do |asset|
     },
     'wiki' => {
       'source_pages' => asset.fetch('source_pages'),
-      'draft_media_id' => [
-        source.fetch('draft_namespace'), 'media', 'vpsadmin', topic,
-        asset.fetch('language'), "#{slug}.png"
-      ].join(':'),
-      'permanent_media_id' => [
-        'screenshots', 'vpsadmin', topic, asset.fetch('language'), "#{slug}.png"
+      'media_id' => [
+        asset.fetch('language'), 'screenshots', 'vpsadmin', topic, "#{slug}.png"
       ].join(':')
     },
     'language' => asset.fetch('language'),
@@ -96,7 +92,7 @@ assets = source.fetch('assets').map do |asset|
     'description' => prototype && (prototype['description'] || prototype['capture']),
     'vpsadmin_commit' => asset.fetch('vpsadmin_commit'),
     'viewport' => asset.fetch('viewport'),
-    'output' => "screenshots/#{topic}/#{asset.fetch('language')}/#{slug}.png",
+    'output' => "screenshots/#{asset.fetch('language')}/#{topic}/#{slug}.png",
     'capture' => nil,
     'dimensions' => nil,
     'sha256' => nil,
@@ -105,10 +101,9 @@ assets = source.fetch('assets').map do |asset|
 end
 
 manifest = {
-  'schema' => 2,
+  'schema' => 3,
   'project' => 'vpsAdmin KB screenshot inventory',
   'wiki' => source.fetch('wiki'),
-  'draft_namespace' => source.fetch('draft_namespace'),
   'assets' => assets
 }
 

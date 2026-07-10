@@ -30,7 +30,7 @@ the ignored `.devcluster/` directory.
 The capture command reads the cluster's generated test accounts, verifies the
 pinned vpsAdmin revision, creates or reuses only fixtures owned by this
 repository, selects the requested locale, and writes PNG files under
-`screenshots/<topic>/<language>/`. Fixtures can create the two documentation
+`screenshots/<language>/<topic>/`. Fixtures can create the two documentation
 VPSes, a labeled snapshot, a public key, an unconfirmed TOTP device, console
 generation metadata, and network traffic. Never point the tooling at a shared
 or production cluster.
@@ -44,17 +44,17 @@ lifecycle and inspection commands.
 Screenshots use stable semantic paths, for example:
 
 ```text
-screenshots/console/cs/web-console.png
-screenshots/datasets/cs/create-dataset-form.png
+screenshots/cs/console/web-console.png
+screenshots/cs/datasets/create-dataset-form.png
 ```
 
-The corresponding DokuWiki media IDs follow the same topic, language, and
-semantic slug. Display-order prefixes and revision suffixes are deliberately
-absent: scenario code defines capture order, while Git and DokuWiki provide
-revision history.
+The corresponding DokuWiki media IDs put the language namespace first, for
+example `cs:screenshots:vpsadmin:console:web-console.png`. Display-order
+prefixes and revision suffixes are deliberately absent: scenario code defines
+capture order, while Git and DokuWiki provide revision history.
 
 `captures.json` records the legacy KB media ID and source pages, canonical
-draft and permanent media IDs, language, topic, scenario/checkpoint, driver,
+media ID, language, topic, scenario/checkpoint, driver,
 fixtures, pinned vpsAdmin commit, viewport, dimensions, SHA-256, and capture
 provenance. One scenario can emit several related screenshots, but every
 individual bitmap has an independently addressable semantic checkpoint.

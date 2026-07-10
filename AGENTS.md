@@ -19,7 +19,9 @@ be safe to rerun and must not stop, reset, or reuse another initiative's
 cluster. Wiki uploads are deliberately outside the capture command and require
 an explicit, separately reviewed DokuWiki publication workflow.
 
-Use stable, semantic screenshot IDs and filenames. Do not encode display order
+Use stable, semantic screenshot IDs and filenames under
+`screenshots/<language>/<topic>/<view>.png`. DokuWiki IDs use
+`<language>:screenshots:vpsadmin:<topic>:<view>.png`. Do not encode display order
 or revision counters in them; Git and DokuWiki retain revision history. Never
 reuse or overwrite a legacy production media ID during the initial migration.
 After publication, a refreshed capture updates the same canonical media ID so

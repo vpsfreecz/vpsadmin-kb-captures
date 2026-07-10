@@ -1,8 +1,7 @@
 {
-  "schema": 2,
+  "schema": 3,
   "project": "vpsAdmin KB screenshot inventory",
   "wiki": "kb.vpsfree.cz",
-  "draft_namespace": "drafts:2026-07-10-kb-czech-fixes",
   "assets": [
     {
       "id": "getting-started/members-list",
@@ -16,8 +15,7 @@
         "source_pages": [
           "informace:novacci"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:getting-started:cs:members-list.png",
-        "permanent_media_id": "screenshots:vpsadmin:getting-started:cs:members-list.png"
+        "media_id": "cs:screenshots:vpsadmin:getting-started:members-list.png"
       },
       "language": "cs",
       "topic": "getting-started",
@@ -35,11 +33,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/getting-started/cs/members-list.png",
+      "output": "screenshots/cs/getting-started/members-list.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminm",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -60,8 +58,7 @@
         "source_pages": [
           "informace:novacci"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:getting-started:cs:vps-list.png",
-        "permanent_media_id": "screenshots:vpsadmin:getting-started:cs:vps-list.png"
+        "media_id": "cs:screenshots:vpsadmin:getting-started:vps-list.png"
       },
       "language": "cs",
       "topic": "getting-started",
@@ -79,11 +76,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/getting-started/cs/vps-list.png",
+      "output": "screenshots/cs/getting-started/vps-list.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=list",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -104,8 +101,7 @@
         "source_pages": [
           "informace:novacci"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:getting-started:cs:vps-details.png",
-        "permanent_media_id": "screenshots:vpsadmin:getting-started:cs:vps-details.png"
+        "media_id": "cs:screenshots:vpsadmin:getting-started:vps-details.png"
       },
       "language": "cs",
       "topic": "getting-started",
@@ -123,11 +119,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/getting-started/cs/vps-details.png",
+      "output": "screenshots/cs/getting-started/vps-details.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=info&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -148,8 +144,7 @@
         "source_pages": [
           "informace:novacci"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:getting-started:cs:ssh-connection.png",
-        "permanent_media_id": "screenshots:vpsadmin:getting-started:cs:ssh-connection.png"
+        "media_id": "cs:screenshots:vpsadmin:getting-started:ssh-connection.png"
       },
       "language": "cs",
       "topic": "getting-started",
@@ -167,11 +162,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/getting-started/cs/ssh-connection.png",
+      "output": "screenshots/cs/getting-started/ssh-connection.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=info&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -192,8 +187,7 @@
         "source_pages": [
           "informace:novacci"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:getting-started:cs:vps-action-menu.png",
-        "permanent_media_id": "screenshots:vpsadmin:getting-started:cs:vps-action-menu.png"
+        "media_id": "cs:screenshots:vpsadmin:getting-started:vps-action-menu.png"
       },
       "language": "cs",
       "topic": "getting-started",
@@ -211,11 +205,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/getting-started/cs/vps-action-menu.png",
+      "output": "screenshots/cs/getting-started/vps-action-menu.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=info&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 316,
@@ -236,8 +230,7 @@
         "source_pages": [
           "informace:novacci"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:getting-started:cs:deploy-public-key.png",
-        "permanent_media_id": "screenshots:vpsadmin:getting-started:cs:deploy-public-key.png"
+        "media_id": "cs:screenshots:vpsadmin:getting-started:deploy-public-key.png"
       },
       "language": "cs",
       "topic": "getting-started",
@@ -255,11 +248,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/getting-started/cs/deploy-public-key.png",
+      "output": "screenshots/cs/getting-started/deploy-public-key.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=info&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -280,8 +273,7 @@
         "source_pages": [
           "informace:novacci"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:traffic:cs:vps-monthly-transfers.png",
-        "permanent_media_id": "screenshots:vpsadmin:traffic:cs:vps-monthly-transfers.png"
+        "media_id": "cs:screenshots:vpsadmin:traffic:vps-monthly-transfers.png"
       },
       "language": "cs",
       "topic": "traffic",
@@ -299,11 +291,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/traffic/cs/vps-monthly-transfers.png",
+      "output": "screenshots/cs/traffic/vps-monthly-transfers.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=info&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -325,8 +317,7 @@
           "navody:server:ssh",
           "navody:vps:sprava"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:ssh-keys:cs:add-public-key.png",
-        "permanent_media_id": "screenshots:vpsadmin:ssh-keys:cs:add-public-key.png"
+        "media_id": "cs:screenshots:vpsadmin:ssh-keys:add-public-key.png"
       },
       "language": "cs",
       "topic": "ssh-keys",
@@ -344,11 +335,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/ssh-keys/cs/add-public-key.png",
+      "output": "screenshots/cs/ssh-keys/add-public-key.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminm&action=pubkey_add&id=2",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 836,
@@ -370,8 +361,7 @@
           "navody:server:ssh",
           "navody:vps:sprava"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:ssh-keys:cs:deploy-public-key.png",
-        "permanent_media_id": "screenshots:vpsadmin:ssh-keys:cs:deploy-public-key.png"
+        "media_id": "cs:screenshots:vpsadmin:ssh-keys:deploy-public-key.png"
       },
       "language": "cs",
       "topic": "ssh-keys",
@@ -389,11 +379,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/ssh-keys/cs/deploy-public-key.png",
+      "output": "screenshots/cs/ssh-keys/deploy-public-key.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=info&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -414,8 +404,7 @@
         "source_pages": [
           "navody:vps:datasety"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:datasets:cs:vps-dataset-list.png",
-        "permanent_media_id": "screenshots:vpsadmin:datasets:cs:vps-dataset-list.png"
+        "media_id": "cs:screenshots:vpsadmin:datasets:vps-dataset-list.png"
       },
       "language": "cs",
       "topic": "datasets",
@@ -433,11 +422,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/datasets/cs/vps-dataset-list.png",
+      "output": "screenshots/cs/datasets/vps-dataset-list.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=info&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -458,8 +447,7 @@
         "source_pages": [
           "navody:vps:datasety"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:datasets:cs:create-dataset-form.png",
-        "permanent_media_id": "screenshots:vpsadmin:datasets:cs:create-dataset-form.png"
+        "media_id": "cs:screenshots:vpsadmin:datasets:create-dataset-form.png"
       },
       "language": "cs",
       "topic": "datasets",
@@ -477,11 +465,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/datasets/cs/create-dataset-form.png",
+      "output": "screenshots/cs/datasets/create-dataset-form.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=dataset&action=new&role=hypervisor&parent=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 836,
@@ -502,8 +490,7 @@
         "source_pages": [
           "navody:vps:datasety"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:datasets:cs:mount-list.png",
-        "permanent_media_id": "screenshots:vpsadmin:datasets:cs:mount-list.png"
+        "media_id": "cs:screenshots:vpsadmin:datasets:mount-list.png"
       },
       "language": "cs",
       "topic": "datasets",
@@ -521,11 +508,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/datasets/cs/mount-list.png",
+      "output": "screenshots/cs/datasets/mount-list.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=info&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -546,8 +533,7 @@
         "source_pages": [
           "navody:vps:datasety"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:datasets:cs:mount-dataset-form.png",
-        "permanent_media_id": "screenshots:vpsadmin:datasets:cs:mount-dataset-form.png"
+        "media_id": "cs:screenshots:vpsadmin:datasets:mount-dataset-form.png"
       },
       "language": "cs",
       "topic": "datasets",
@@ -565,11 +551,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/datasets/cs/mount-dataset-form.png",
+      "output": "screenshots/cs/datasets/mount-dataset-form.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=dataset&action=mount&dataset=1&vps=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 836,
@@ -590,8 +576,7 @@
         "source_pages": [
           "navody:vps:exporty"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:exports:cs:nas-export-list.png",
-        "permanent_media_id": "screenshots:vpsadmin:exports:cs:nas-export-list.png"
+        "media_id": "cs:screenshots:vpsadmin:exports:nas-export-list.png"
       },
       "language": "cs",
       "topic": "exports",
@@ -609,11 +594,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/exports/cs/nas-export-list.png",
+      "output": "screenshots/cs/exports/nas-export-list.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=nas",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 836,
@@ -634,8 +619,7 @@
         "source_pages": [
           "navody:vps:exporty"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:exports:cs:backup-export-list.png",
-        "permanent_media_id": "screenshots:vpsadmin:exports:cs:backup-export-list.png"
+        "media_id": "cs:screenshots:vpsadmin:exports:backup-export-list.png"
       },
       "language": "cs",
       "topic": "exports",
@@ -653,11 +637,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/exports/cs/backup-export-list.png",
+      "output": "screenshots/cs/exports/backup-export-list.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=backup&action=vps",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 836,
@@ -678,8 +662,7 @@
         "source_pages": [
           "navody:vps:exporty"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:exports:cs:create-export-form.png",
-        "permanent_media_id": "screenshots:vpsadmin:exports:cs:create-export-form.png"
+        "media_id": "cs:screenshots:vpsadmin:exports:create-export-form.png"
       },
       "language": "cs",
       "topic": "exports",
@@ -697,11 +680,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/exports/cs/create-export-form.png",
+      "output": "screenshots/cs/exports/create-export-form.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=export&action=create&dataset=1&snapshot=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 836,
@@ -722,8 +705,7 @@
         "source_pages": [
           "navody:vps:exporty"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:exports:cs:export-details.png",
-        "permanent_media_id": "screenshots:vpsadmin:exports:cs:export-details.png"
+        "media_id": "cs:screenshots:vpsadmin:exports:export-details.png"
       },
       "language": "cs",
       "topic": "exports",
@@ -741,11 +723,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/exports/cs/export-details.png",
+      "output": "screenshots/cs/exports/export-details.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=export&action=create&dataset=1&snapshot=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 836,
@@ -766,8 +748,7 @@
         "source_pages": [
           "navody:vps:ip_adresy"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:networking:cs:ip-address-list.png",
-        "permanent_media_id": "screenshots:vpsadmin:networking:cs:ip-address-list.png"
+        "media_id": "cs:screenshots:vpsadmin:networking:ip-address-list.png"
       },
       "language": "cs",
       "topic": "networking",
@@ -785,11 +766,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/networking/cs/ip-address-list.png",
+      "output": "screenshots/cs/networking/ip-address-list.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=networking&action=ip_addresses",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 836,
@@ -810,8 +791,7 @@
         "source_pages": [
           "navody:vps:ip_adresy"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:networking:cs:routed-addresses.png",
-        "permanent_media_id": "screenshots:vpsadmin:networking:cs:routed-addresses.png"
+        "media_id": "cs:screenshots:vpsadmin:networking:routed-addresses.png"
       },
       "language": "cs",
       "topic": "networking",
@@ -829,11 +809,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/networking/cs/routed-addresses.png",
+      "output": "screenshots/cs/networking/routed-addresses.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=info&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -854,8 +834,7 @@
         "source_pages": [
           "navody:vps:ip_adresy"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:networking:cs:interface-addresses.png",
-        "permanent_media_id": "screenshots:vpsadmin:networking:cs:interface-addresses.png"
+        "media_id": "cs:screenshots:vpsadmin:networking:interface-addresses.png"
       },
       "language": "cs",
       "topic": "networking",
@@ -873,11 +852,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/networking/cs/interface-addresses.png",
+      "output": "screenshots/cs/networking/interface-addresses.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=info&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -898,8 +877,7 @@
         "source_pages": [
           "navody:vps:konzole"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:console:cs:open-web-console.png",
-        "permanent_media_id": "screenshots:vpsadmin:console:cs:open-web-console.png"
+        "media_id": "cs:screenshots:vpsadmin:console:open-web-console.png"
       },
       "language": "cs",
       "topic": "console",
@@ -917,11 +895,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/console/cs/open-web-console.png",
+      "output": "screenshots/cs/console/open-web-console.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=info&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -942,8 +920,7 @@
         "source_pages": [
           "navody:vps:konzole"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:console:cs:web-console.png",
-        "permanent_media_id": "screenshots:vpsadmin:console:cs:web-console.png"
+        "media_id": "cs:screenshots:vpsadmin:console:web-console.png"
       },
       "language": "cs",
       "topic": "console",
@@ -961,11 +938,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/console/cs/web-console.png",
+      "output": "screenshots/cs/console/web-console.png",
       "capture": {
         "driver": "console",
         "page": "/?page=console&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 764,
@@ -986,8 +963,7 @@
         "source_pages": [
           "navody:vps:kvm-openrc"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:vps-details:cs:feature-settings.png",
-        "permanent_media_id": "screenshots:vpsadmin:vps-details:cs:feature-settings.png"
+        "media_id": "cs:screenshots:vpsadmin:vps-details:feature-settings.png"
       },
       "language": "cs",
       "topic": "vps-details",
@@ -1004,11 +980,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/vps-details/cs/feature-settings.png",
+      "output": "screenshots/cs/vps-details/feature-settings.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=info&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -1029,8 +1005,7 @@
         "source_pages": [
           "navody:vps:kvm-openrc"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:vps-details:cs:datasets.png",
-        "permanent_media_id": "screenshots:vpsadmin:vps-details:cs:datasets.png"
+        "media_id": "cs:screenshots:vpsadmin:vps-details:datasets.png"
       },
       "language": "cs",
       "topic": "vps-details",
@@ -1047,11 +1022,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/vps-details/cs/datasets.png",
+      "output": "screenshots/cs/vps-details/datasets.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=info&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -1072,8 +1047,7 @@
         "source_pages": [
           "navody:vps:obnova_webu_zo_zalohy"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:restore-backups:cs:playground-vps-list.png",
-        "permanent_media_id": "screenshots:vpsadmin:restore-backups:cs:playground-vps-list.png"
+        "media_id": "cs:screenshots:vpsadmin:restore-backups:playground-vps-list.png"
       },
       "language": "cs",
       "topic": "restore-backups",
@@ -1091,11 +1065,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/restore-backups/cs/playground-vps-list.png",
+      "output": "screenshots/cs/restore-backups/playground-vps-list.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=list",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -1116,8 +1090,7 @@
         "source_pages": [
           "navody:vps:obnova_webu_zo_zalohy"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:restore-backups:cs:backup-list.png",
-        "permanent_media_id": "screenshots:vpsadmin:restore-backups:cs:backup-list.png"
+        "media_id": "cs:screenshots:vpsadmin:restore-backups:backup-list.png"
       },
       "language": "cs",
       "topic": "restore-backups",
@@ -1135,11 +1108,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/restore-backups/cs/backup-list.png",
+      "output": "screenshots/cs/restore-backups/backup-list.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=backup&action=vps",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 653,
@@ -1160,8 +1133,7 @@
         "source_pages": [
           "navody:vps:obnova_webu_zo_zalohy"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:restore-backups:cs:mount-backup-form.png",
-        "permanent_media_id": "screenshots:vpsadmin:restore-backups:cs:mount-backup-form.png"
+        "media_id": "cs:screenshots:vpsadmin:restore-backups:mount-backup-form.png"
       },
       "language": "cs",
       "topic": "restore-backups",
@@ -1179,11 +1151,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/restore-backups/cs/mount-backup-form.png",
+      "output": "screenshots/cs/restore-backups/mount-backup-form.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=export&action=create&dataset=1&snapshot=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -1204,8 +1176,7 @@
         "source_pages": [
           "navody:vps:playgroundvps"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:playground:cs:create-vps-form.png",
-        "permanent_media_id": "screenshots:vpsadmin:playground:cs:create-vps-form.png"
+        "media_id": "cs:screenshots:vpsadmin:playground:create-vps-form.png"
       },
       "language": "cs",
       "topic": "playground",
@@ -1223,11 +1194,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/playground/cs/create-vps-form.png",
+      "output": "screenshots/cs/playground/create-vps-form.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=new-step-4&user=&location=1&os_template=3&memory=1024&cpu=1&swap=512&diskspace=4096&ipv4=1&ipv4_private=0&ipv6=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 836,
@@ -1249,8 +1220,7 @@
           "navody:vps:playgroundvps",
           "navody:vps:sprava"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:playground:cs:clone-vps-form.png",
-        "permanent_media_id": "screenshots:vpsadmin:playground:cs:clone-vps-form.png"
+        "media_id": "cs:screenshots:vpsadmin:playground:clone-vps-form.png"
       },
       "language": "cs",
       "topic": "playground",
@@ -1268,11 +1238,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/playground/cs/clone-vps-form.png",
+      "output": "screenshots/cs/playground/clone-vps-form.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=clone-step-2&veid=1&user=&location=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 836,
@@ -1293,8 +1263,7 @@
         "source_pages": [
           "navody:vps:playgroundvps"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:playground:cs:swap-vps-action.png",
-        "permanent_media_id": "screenshots:vpsadmin:playground:cs:swap-vps-action.png"
+        "media_id": "cs:screenshots:vpsadmin:playground:swap-vps-action.png"
       },
       "language": "cs",
       "topic": "playground",
@@ -1312,11 +1281,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/playground/cs/swap-vps-action.png",
+      "output": "screenshots/cs/playground/swap-vps-action.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=swap&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 836,
@@ -1337,8 +1306,7 @@
         "source_pages": [
           "navody:vps:playgroundvps"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:playground:cs:swap-vps-preview.png",
-        "permanent_media_id": "screenshots:vpsadmin:playground:cs:swap-vps-preview.png"
+        "media_id": "cs:screenshots:vpsadmin:playground:swap-vps-preview.png"
       },
       "language": "cs",
       "topic": "playground",
@@ -1356,11 +1324,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/playground/cs/swap-vps-preview.png",
+      "output": "screenshots/cs/playground/swap-vps-preview.png",
       "capture": {
         "driver": "webui",
         "page": "/?vps=2&page=adminvps&action=swap_preview&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 836,
@@ -1381,8 +1349,7 @@
         "source_pages": [
           "navody:vps:prenosy"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:traffic:cs:monthly-traffic.png",
-        "permanent_media_id": "screenshots:vpsadmin:traffic:cs:monthly-traffic.png"
+        "media_id": "cs:screenshots:vpsadmin:traffic:monthly-traffic.png"
       },
       "language": "cs",
       "topic": "traffic",
@@ -1400,11 +1367,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/traffic/cs/monthly-traffic.png",
+      "output": "screenshots/cs/traffic/monthly-traffic.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=networking&action=traffic",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 836,
@@ -1425,8 +1392,7 @@
         "source_pages": [
           "navody:vps:prenosy"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:traffic:cs:live-monitor-web.png",
-        "permanent_media_id": "screenshots:vpsadmin:traffic:cs:live-monitor-web.png"
+        "media_id": "cs:screenshots:vpsadmin:traffic:live-monitor-web.png"
       },
       "language": "cs",
       "topic": "traffic",
@@ -1444,11 +1410,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/traffic/cs/live-monitor-web.png",
+      "output": "screenshots/cs/traffic/live-monitor-web.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=networking&action=live",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 836,
@@ -1469,8 +1435,7 @@
         "source_pages": [
           "navody:vps:prenosy"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:traffic:cs:live-monitor-cli.png",
-        "permanent_media_id": "screenshots:vpsadmin:traffic:cs:live-monitor-cli.png"
+        "media_id": "cs:screenshots:vpsadmin:traffic:live-monitor-cli.png"
       },
       "language": "cs",
       "topic": "traffic",
@@ -1488,11 +1453,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/traffic/cs/live-monitor-cli.png",
+      "output": "screenshots/cs/traffic/live-monitor-cli.png",
       "capture": {
         "driver": "cli",
         "page": "about:blank",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 1072,
@@ -1513,8 +1478,7 @@
         "source_pages": [
           "navody:vps:prostredi"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:environments:cs:resource-package-detail.png",
-        "permanent_media_id": "screenshots:vpsadmin:environments:cs:resource-package-detail.png"
+        "media_id": "cs:screenshots:vpsadmin:environments:resource-package-detail.png"
       },
       "language": "cs",
       "topic": "environments",
@@ -1531,11 +1495,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/environments/cs/resource-package-detail.png",
+      "output": "screenshots/cs/environments/resource-package-detail.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminm&section=members&action=resource_packages&id=2",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 836,
@@ -1556,8 +1520,7 @@
         "source_pages": [
           "navody:vps:prostredi"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:environments:cs:cluster-resources.png",
-        "permanent_media_id": "screenshots:vpsadmin:environments:cs:cluster-resources.png"
+        "media_id": "cs:screenshots:vpsadmin:environments:cluster-resources.png"
       },
       "language": "cs",
       "topic": "environments",
@@ -1574,11 +1537,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/environments/cs/cluster-resources.png",
+      "output": "screenshots/cs/environments/cluster-resources.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminm&section=members&action=cluster_resources&id=2",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 836,
@@ -1599,8 +1562,7 @@
         "source_pages": [
           "navody:vps:prostredi"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:environments:cs:environment-configs.png",
-        "permanent_media_id": "screenshots:vpsadmin:environments:cs:environment-configs.png"
+        "media_id": "cs:screenshots:vpsadmin:environments:environment-configs.png"
       },
       "language": "cs",
       "topic": "environments",
@@ -1617,11 +1579,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/environments/cs/environment-configs.png",
+      "output": "screenshots/cs/environments/environment-configs.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminm&section=members&action=env_cfg&id=2",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 836,
@@ -1642,8 +1604,7 @@
         "source_pages": [
           "navody:vps:rdns"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:reverse-dns:cs:configure-reverse-record.png",
-        "permanent_media_id": "screenshots:vpsadmin:reverse-dns:cs:configure-reverse-record.png"
+        "media_id": "cs:screenshots:vpsadmin:reverse-dns:configure-reverse-record.png"
       },
       "language": "cs",
       "topic": "reverse-dns",
@@ -1661,11 +1622,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/reverse-dns/cs/configure-reverse-record.png",
+      "output": "screenshots/cs/reverse-dns/configure-reverse-record.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=networking&action=hostaddr_ptr&id=1&veid=1&return=%2F%3Fpage%3Dadminvps%26action%3Dinfo%26veid%3D1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 836,
@@ -1686,8 +1647,7 @@
         "source_pages": [
           "navody:vps:sprava"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:vps-management:cs:create-vps-form.png",
-        "permanent_media_id": "screenshots:vpsadmin:vps-management:cs:create-vps-form.png"
+        "media_id": "cs:screenshots:vpsadmin:vps-management:create-vps-form.png"
       },
       "language": "cs",
       "topic": "vps-management",
@@ -1704,11 +1664,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/vps-management/cs/create-vps-form.png",
+      "output": "screenshots/cs/vps-management/create-vps-form.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=new-step-4&user=&location=1&os_template=3&memory=1024&cpu=1&swap=512&diskspace=4096&ipv4=1&ipv4_private=0&ipv6=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 836,
@@ -1729,8 +1689,7 @@
         "source_pages": [
           "navody:vps:sprava"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:vps-management:cs:set-root-password.png",
-        "permanent_media_id": "screenshots:vpsadmin:vps-management:cs:set-root-password.png"
+        "media_id": "cs:screenshots:vpsadmin:vps-management:set-root-password.png"
       },
       "language": "cs",
       "topic": "vps-management",
@@ -1747,11 +1706,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/vps-management/cs/set-root-password.png",
+      "output": "screenshots/cs/vps-management/set-root-password.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=info&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -1772,8 +1731,7 @@
         "source_pages": [
           "navody:vps:sprava"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:vps-management:cs:reinstall-form.png",
-        "permanent_media_id": "screenshots:vpsadmin:vps-management:cs:reinstall-form.png"
+        "media_id": "cs:screenshots:vpsadmin:vps-management:reinstall-form.png"
       },
       "language": "cs",
       "topic": "vps-management",
@@ -1790,11 +1748,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/vps-management/cs/reinstall-form.png",
+      "output": "screenshots/cs/vps-management/reinstall-form.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=info&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -1815,8 +1773,7 @@
         "source_pages": [
           "navody:vps:sprava"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:vps-management:cs:resource-settings.png",
-        "permanent_media_id": "screenshots:vpsadmin:vps-management:cs:resource-settings.png"
+        "media_id": "cs:screenshots:vpsadmin:vps-management:resource-settings.png"
       },
       "language": "cs",
       "topic": "vps-management",
@@ -1833,11 +1790,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/vps-management/cs/resource-settings.png",
+      "output": "screenshots/cs/vps-management/resource-settings.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=info&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -1858,8 +1815,7 @@
         "source_pages": [
           "navody:vps:sprava"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:vps-management:cs:hostname-form.png",
-        "permanent_media_id": "screenshots:vpsadmin:vps-management:cs:hostname-form.png"
+        "media_id": "cs:screenshots:vpsadmin:vps-management:hostname-form.png"
       },
       "language": "cs",
       "topic": "vps-management",
@@ -1876,11 +1832,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/vps-management/cs/hostname-form.png",
+      "output": "screenshots/cs/vps-management/hostname-form.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=info&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -1901,8 +1857,7 @@
         "source_pages": [
           "navody:vps:sprava"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:vps-management:cs:feature-settings.png",
-        "permanent_media_id": "screenshots:vpsadmin:vps-management:cs:feature-settings.png"
+        "media_id": "cs:screenshots:vpsadmin:vps-management:feature-settings.png"
       },
       "language": "cs",
       "topic": "vps-management",
@@ -1919,11 +1874,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/vps-management/cs/feature-settings.png",
+      "output": "screenshots/cs/vps-management/feature-settings.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=info&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -1944,8 +1899,7 @@
         "source_pages": [
           "navody:vps:sprava"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:vps-management:cs:outage-windows.png",
-        "permanent_media_id": "screenshots:vpsadmin:vps-management:cs:outage-windows.png"
+        "media_id": "cs:screenshots:vpsadmin:vps-management:outage-windows.png"
       },
       "language": "cs",
       "topic": "vps-management",
@@ -1962,11 +1916,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/vps-management/cs/outage-windows.png",
+      "output": "screenshots/cs/vps-management/outage-windows.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=info&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -1987,8 +1941,7 @@
         "source_pages": [
           "navody:vps:start_menu"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:start-menu:cs:vps-action.png",
-        "permanent_media_id": "screenshots:vpsadmin:start-menu:cs:vps-action.png"
+        "media_id": "cs:screenshots:vpsadmin:start-menu:vps-action.png"
       },
       "language": "cs",
       "topic": "start-menu",
@@ -2006,11 +1959,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/start-menu/cs/vps-action.png",
+      "output": "screenshots/cs/start-menu/vps-action.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=info&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -2031,8 +1984,7 @@
         "source_pages": [
           "navody:vps:start_menu"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:start-menu:cs:main-menu.png",
-        "permanent_media_id": "screenshots:vpsadmin:start-menu:cs:main-menu.png"
+        "media_id": "cs:screenshots:vpsadmin:start-menu:main-menu.png"
       },
       "language": "cs",
       "topic": "start-menu",
@@ -2050,11 +2002,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/start-menu/cs/main-menu.png",
+      "output": "screenshots/cs/start-menu/main-menu.png",
       "capture": {
         "driver": "console",
         "page": "/?page=console&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 764,
@@ -2075,8 +2027,7 @@
         "source_pages": [
           "navody:vps:start_menu"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:start-menu:cs:nixos-generation-action.png",
-        "permanent_media_id": "screenshots:vpsadmin:start-menu:cs:nixos-generation-action.png"
+        "media_id": "cs:screenshots:vpsadmin:start-menu:nixos-generation-action.png"
       },
       "language": "cs",
       "topic": "start-menu",
@@ -2094,11 +2045,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/start-menu/cs/nixos-generation-action.png",
+      "output": "screenshots/cs/start-menu/nixos-generation-action.png",
       "capture": {
         "driver": "console",
         "page": "/?page=console&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 764,
@@ -2119,8 +2070,7 @@
         "source_pages": [
           "navody:vps:start_menu"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:start-menu:cs:generation-list.png",
-        "permanent_media_id": "screenshots:vpsadmin:start-menu:cs:generation-list.png"
+        "media_id": "cs:screenshots:vpsadmin:start-menu:generation-list.png"
       },
       "language": "cs",
       "topic": "start-menu",
@@ -2138,11 +2088,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/start-menu/cs/generation-list.png",
+      "output": "screenshots/cs/start-menu/generation-list.png",
       "capture": {
         "driver": "console",
         "page": "/?page=console&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 764,
@@ -2163,8 +2113,7 @@
         "source_pages": [
           "navody:vps:userns"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:userns:cs:map.png",
-        "permanent_media_id": "screenshots:vpsadmin:userns:cs:map.png"
+        "media_id": "cs:screenshots:vpsadmin:userns:map.png"
       },
       "language": "cs",
       "topic": "userns",
@@ -2181,11 +2130,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/userns/cs/map.png",
+      "output": "screenshots/cs/userns/map.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=info&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -2206,8 +2155,7 @@
         "source_pages": [
           "navody:vps:uzivatele"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:account:cs:email-roles.png",
-        "permanent_media_id": "screenshots:vpsadmin:account:cs:email-roles.png"
+        "media_id": "cs:screenshots:vpsadmin:account:email-roles.png"
       },
       "language": "cs",
       "topic": "account",
@@ -2224,11 +2172,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/account/cs/email-roles.png",
+      "output": "screenshots/cs/account/email-roles.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminm&section=members&action=edit&id=2",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 782,
@@ -2249,8 +2197,7 @@
         "source_pages": [
           "navody:vps:uzivatele"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:account:cs:mail-template-recipients.png",
-        "permanent_media_id": "screenshots:vpsadmin:account:cs:mail-template-recipients.png"
+        "media_id": "cs:screenshots:vpsadmin:account:mail-template-recipients.png"
       },
       "language": "cs",
       "topic": "account",
@@ -2267,11 +2214,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/account/cs/mail-template-recipients.png",
+      "output": "screenshots/cs/account/mail-template-recipients.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminm&section=members&action=template_recipients&id=2",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 781,
@@ -2292,8 +2239,7 @@
         "source_pages": [
           "navody:vps:uzivatele"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:account:cs:multifactor-status.png",
-        "permanent_media_id": "screenshots:vpsadmin:account:cs:multifactor-status.png"
+        "media_id": "cs:screenshots:vpsadmin:account:multifactor-status.png"
       },
       "language": "cs",
       "topic": "account",
@@ -2310,11 +2256,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/account/cs/multifactor-status.png",
+      "output": "screenshots/cs/account/multifactor-status.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminm&section=members&action=edit&id=2",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 482,
@@ -2335,8 +2281,7 @@
         "source_pages": [
           "navody:vps:uzivatele"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:account:cs:totp-confirm.png",
-        "permanent_media_id": "screenshots:vpsadmin:account:cs:totp-confirm.png"
+        "media_id": "cs:screenshots:vpsadmin:account:totp-confirm.png"
       },
       "language": "cs",
       "topic": "account",
@@ -2353,11 +2298,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/account/cs/totp-confirm.png",
+      "output": "screenshots/cs/account/totp-confirm.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminm&action=totp_device_confirm&id=2&dev=2",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 836,
@@ -2378,8 +2323,7 @@
         "source_pages": [
           "navody:vps:uzivatele"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:account:cs:totp-device-list.png",
-        "permanent_media_id": "screenshots:vpsadmin:account:cs:totp-device-list.png"
+        "media_id": "cs:screenshots:vpsadmin:account:totp-device-list.png"
       },
       "language": "cs",
       "topic": "account",
@@ -2396,11 +2340,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/account/cs/totp-device-list.png",
+      "output": "screenshots/cs/account/totp-device-list.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminm&action=totp_devices&id=2",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 836,
@@ -2421,8 +2365,7 @@
         "source_pages": [
           "navody:vps:uzivatele"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:account:cs:session-settings.png",
-        "permanent_media_id": "screenshots:vpsadmin:account:cs:session-settings.png"
+        "media_id": "cs:screenshots:vpsadmin:account:session-settings.png"
       },
       "language": "cs",
       "topic": "account",
@@ -2439,11 +2382,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/account/cs/session-settings.png",
+      "output": "screenshots/cs/account/session-settings.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminm&section=members&action=edit&id=2",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -2464,8 +2407,7 @@
         "source_pages": [
           "navody:vps:uzivatele"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:account:cs:session-list.png",
-        "permanent_media_id": "screenshots:vpsadmin:account:cs:session-list.png"
+        "media_id": "cs:screenshots:vpsadmin:account:session-list.png"
       },
       "language": "cs",
       "topic": "account",
@@ -2482,11 +2424,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/account/cs/session-list.png",
+      "output": "screenshots/cs/account/session-list.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminm&section=members&action=user_sessions&id=2",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -2507,8 +2449,7 @@
         "source_pages": [
           "navody:vps:vpsadminos:oprava"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:rescue-mode:cs:boot-form.png",
-        "permanent_media_id": "screenshots:vpsadmin:rescue-mode:cs:boot-form.png"
+        "media_id": "cs:screenshots:vpsadmin:rescue-mode:boot-form.png"
       },
       "language": "cs",
       "topic": "rescue-mode",
@@ -2526,11 +2467,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/rescue-mode/cs/boot-form.png",
+      "output": "screenshots/cs/rescue-mode/boot-form.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=adminvps&action=info&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,
@@ -2551,8 +2492,7 @@
         "source_pages": [
           "navody:vps:vpsadminos:oprava"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:rescue-mode:cs:console.png",
-        "permanent_media_id": "screenshots:vpsadmin:rescue-mode:cs:console.png"
+        "media_id": "cs:screenshots:vpsadmin:rescue-mode:console.png"
       },
       "language": "cs",
       "topic": "rescue-mode",
@@ -2570,11 +2510,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/rescue-mode/cs/console.png",
+      "output": "screenshots/cs/rescue-mode/console.png",
       "capture": {
         "driver": "console",
         "page": "/?page=console&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 764,
@@ -2595,8 +2535,7 @@
         "source_pages": [
           "navody:vps:zalohy"
         ],
-        "draft_media_id": "drafts:2026-07-10-kb-czech-fixes:media:vpsadmin:backups:cs:vps-backups.png",
-        "permanent_media_id": "screenshots:vpsadmin:backups:cs:vps-backups.png"
+        "media_id": "cs:screenshots:vpsadmin:backups:vps-backups.png"
       },
       "language": "cs",
       "topic": "backups",
@@ -2614,11 +2553,11 @@
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/backups/cs/vps-backups.png",
+      "output": "screenshots/cs/backups/vps-backups.png",
       "capture": {
         "driver": "webui",
         "page": "/?page=backup&action=vps",
-        "runner": "vpsadmin-kb-captures/schema-2"
+        "runner": "vpsadmin-kb-captures/schema-3"
       },
       "dimensions": {
         "width": 821,

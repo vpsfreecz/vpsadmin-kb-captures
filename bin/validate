@@ -15,7 +15,7 @@ manifest = JSON.parse(File.read(MANIFEST_PATH))
 assets = manifest.fetch('assets')
 errors = []
 
-errors << "expected schema 2, found #{manifest['schema'].inspect}" unless manifest['schema'] == 2
+errors << "expected schema 3, found #{manifest['schema'].inspect}" unless manifest['schema'] == 3
 errors << "expected 60 assets, found #{assets.length}" unless assets.length == 60
 references = assets.sum { |asset| asset.dig('wiki', 'source_pages')&.length.to_i }
 errors << "expected 63 page references, found #{references}" unless references == 63
@@ -28,8 +28,7 @@ end
 
 [
   ['legacy media ID', ->(asset) { asset.dig('legacy', 'media_id') }],
-  ['draft media ID', ->(asset) { asset.dig('wiki', 'draft_media_id') }],
-  ['permanent media ID', ->(asset) { asset.dig('wiki', 'permanent_media_id') }]
+  ['media ID', ->(asset) { asset.dig('wiki', 'media_id') }]
 ].each do |label, value|
   duplicates = assets.group_by(&value).select { |_id, matches| matches.length > 1 }.keys
   errors << "duplicate #{label}: #{duplicates.join(', ')}" unless duplicates.empty?
@@ -48,19 +47,13 @@ assets.each do |asset|
   language = asset.fetch('language')
   checkpoint = asset.fetch('checkpoint')
   slug = checkpoint.split('/').last
-  expected_output = "screenshots/#{topic}/#{language}/#{slug}.png"
-  expected_draft = [
-    manifest.fetch('draft_namespace'), 'media', 'vpsadmin', topic, language,
-    "#{slug}.png"
-  ].join(':')
-  expected_permanent = ['screenshots', 'vpsadmin', topic, language, "#{slug}.png"].join(':')
+  expected_output = "screenshots/#{language}/#{topic}/#{slug}.png"
+  expected_media = [language, 'screenshots', 'vpsadmin', topic, "#{slug}.png"].join(':')
 
   errors << "#{id}: ID must be semantic" unless id.match?(/\A[a-z0-9-]+\/[a-z][a-z0-9-]*\z/)
   errors << "#{id}: checkpoint must equal ID" unless checkpoint == id
   errors << "#{id}: unexpected output #{asset['output']}" unless asset['output'] == expected_output
-  errors << "#{id}: unexpected draft media ID" unless asset.dig('wiki', 'draft_media_id') == expected_draft
-  errors << "#{id}: unexpected permanent media ID" \
-    unless asset.dig('wiki', 'permanent_media_id') == expected_permanent
+  errors << "#{id}: unexpected media ID" unless asset.dig('wiki', 'media_id') == expected_media
   errors << "#{id}: top-level revision counters are not supported" if asset.key?('revision')
   errors << "#{id}: unsupported driver #{asset['driver']}" \
     unless %w[webui console cli].include?(asset['driver'])
@@ -145,7 +138,7 @@ if UPDATE
       asset['capture'] = {
         'driver' => result.fetch('driver'),
         'page' => result.fetch('page'),
-        'runner' => 'vpsadmin-kb-captures/schema-2'
+        'runner' => 'vpsadmin-kb-captures/schema-3'
       }
     end
     File.write(MANIFEST_PATH, "#{JSON.pretty_generate(manifest)}\n")
@@ -161,7 +154,7 @@ elsif !ALLOW_MISSING
     errors << "#{asset['id']}: capture driver differs" \
       if asset['capture'] && asset.dig('capture', 'driver') != asset['driver']
     errors << "#{asset['id']}: capture runner differs" \
-      if asset['capture'] && asset.dig('capture', 'runner') != 'vpsadmin-kb-captures/schema-2'
+      if asset['capture'] && asset.dig('capture', 'runner') != 'vpsadmin-kb-captures/schema-3'
   end
 end
 
