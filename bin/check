@@ -7,9 +7,11 @@ cd "$repo_dir"
 for file in runner/*.cjs lib/*.cjs fixtures/*.cjs scenarios/*.cjs tools/*.cjs; do
   node --check "$file"
 done
+node tools/check-terminal.cjs
 bash -n bin/capture bin/contact-sheet bin/devcluster
 shellcheck bin/capture bin/contact-sheet bin/devcluster
-jq empty captures.json cluster/default-config.json
+jq empty captures.json cluster/default-config.json fixtures/production-shape.json
 ruby -c bin/validate
+ruby -c cluster/seed-production-shape.rb
 ruby -c tools/import-manifest.rb
 bin/validate

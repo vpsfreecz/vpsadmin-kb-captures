@@ -38,6 +38,8 @@ let
 
   seed = import (vpsadmin.outPath + "/api/db/seeds/test.nix");
   locationDomain = seed.location.domain;
+  productionShape = builtins.fromJSON (builtins.readFile ../../fixtures/production-shape.json);
+  productionShapeSeed = builtins.readFile ../seed-production-shape.rb;
 
   defaultConfig = builtins.fromJSON (builtins.readFile ../default-config.json);
   devConfig =
@@ -49,6 +51,8 @@ let
   domains = devConfig.domains;
   tmpDomains = devConfig.tmpDomains;
   serviceIp = devConfig.services.ip;
+  serviceMemoryMiB = devConfig.services.memoryMiB or 4096;
+  serviceCpus = devConfig.services.cpus or 4;
   serviceRootDiskMiB = devConfig.services.rootDiskMiB or (12 * 1024);
   zfsTransferStartDelay = devConfig.nodectld.zfsTransferStartDelay or 0;
   devGateway = devConfig.network.gateway;
@@ -261,6 +265,7 @@ let
       name,
       ip,
       role,
+      location ? null,
       maxVps ? if role == "node" then 30 else 0,
       cpus ? 4,
       memoryMiB ? 8192,
@@ -292,6 +297,7 @@ let
         name
         ip
         role
+        location
         maxVps
         cpus
         memoryMiB
@@ -376,6 +382,7 @@ let
       cpus
       memoryMiB
       swapMiB
+      location
       ;
   }) nodeList;
   portReservationRecords = builtins.concatLists (map (node: node.portReservations) nodeList);
@@ -452,6 +459,8 @@ let
     require 'ipaddress'
     require 'json'
 
+    ${productionShapeSeed}
+
     def upsert_sys_config(category, name, value, min_user_level: 0, data_type: 'String')
       record = SysConfig.find_or_initialize_by(category: category, name: name)
       record.assign_attributes(
@@ -469,17 +478,12 @@ let
     upsert_sys_config('core', 'support_mail', 'support@devcluster.test')
     upsert_sys_config('core', 'webauthn_rp_name', 'vpsAdmin dev')
 
-    environment = Environment.find(${toString seed.environment.id})
-    location = Location.find(${toString seed.location.id})
-
     webui_client = Oauth2Client.find_by(client_id: 'vpsadmin-webui-test')
     if webui_client
       webui_client.update!(
         redirect_uri: 'https://${domains.webui}/?page=login&action=callback'
       )
     end
-
-    location.update!(remote_console_server: 'https://${domains.console}')
 
     nodes = JSON.parse(${builtins.toJSON (builtins.toJSON nodeRecords)})
     nodes.each do |attrs|
@@ -488,6 +492,21 @@ let
       node.assign_attributes(attrs)
       node.save!
     end
+
+    production_shape = JSON.parse(${builtins.toJSON (builtins.toJSON productionShape)})
+    node_locations = JSON.parse(${
+      builtins.toJSON (builtins.toJSON (builtins.listToAttrs (map (node: {
+        name = node.name;
+        value = node.location;
+      }) nodeList)))
+    })
+    capture_infrastructure = upsert_capture_infrastructure!(
+      production_shape,
+      node_locations: node_locations,
+      console_url: 'https://${domains.console}'
+    )
+    environment = capture_infrastructure.fetch(:environments).fetch('production')
+    location = capture_infrastructure.fetch(:locations).fetch('praha')
 
     dns_servers = JSON.parse(${builtins.toJSON (builtins.toJSON dnsServerRecords)})
     dns_servers.each do |attrs|
@@ -601,7 +620,7 @@ let
 
     node_inventory = JSON.parse(${builtins.toJSON (builtins.toJSON nodeInventoryRecords)})
     node_inventory.each do |attrs|
-      next unless attrs.fetch('role') == 'node'
+      next unless %w[node storage].include?(attrs.fetch('role'))
 
       node = Node.find(attrs.fetch('id'))
       status = NodeCurrentStatus.find_or_initialize_by(node: node)
@@ -630,7 +649,7 @@ let
 
     pool_config = JSON.parse(${builtins.toJSON (builtins.toJSON devConfig.seed.pools)})
     node_inventory.each do |attrs|
-      next unless attrs.fetch('role') == 'node'
+      next unless %w[node storage].include?(attrs.fetch('role'))
 
       node = Node.find(attrs.fetch('id'))
       pool = Pool.find_by(node: node, filesystem: pool_config.fetch('filesystem')) ||
@@ -639,7 +658,7 @@ let
       pool.assign_attributes(
         label: pool_config.fetch('label'),
         filesystem: pool_config.fetch('filesystem'),
-        role: pool_config.fetch('role', 'hypervisor'),
+        role: attrs.fetch('role') == 'storage' ? 'primary' : pool_config.fetch('role', 'hypervisor'),
         max_datasets: pool_config.fetch('maxDatasets'),
         total_space: pool_config.fetch('totalSpaceMiB'),
         available_space: pool_config.fetch('availableSpaceMiB'),
@@ -677,7 +696,7 @@ let
       )
     end
 
-    def upsert_network(location, attrs)
+    def upsert_network(location, attrs, primary:)
       network = Network.find_or_initialize_by(
         address: attrs.fetch('address'),
         prefix: attrs.fetch('prefix')
@@ -690,7 +709,7 @@ let
         split_access: attrs.fetch('splitAccess'),
         split_prefix: attrs.fetch('splitPrefix'),
         purpose: attrs.fetch('purpose'),
-        primary_location: location
+        primary_location: primary ? location : network.primary_location
       )
       network.save!
 
@@ -699,12 +718,14 @@ let
         network: network
       )
       loc_net.assign_attributes(
-        primary: true,
+        primary: primary,
         priority: attrs.fetch('priority', 10),
         autopick: attrs.fetch('autopick', true),
         userpick: attrs.fetch('userpick', true)
       )
       loc_net.save!
+
+      return unless primary
 
       attrs.fetch('addresses').each_with_index do |addr, idx|
         ip = IpAddress.find_by(ip_addr: addr)
@@ -741,7 +762,12 @@ let
     upsert_reverse_dns_zones(seed_networks, seed_dns_servers, admin)
 
     seed_networks.each do |attrs|
-      upsert_network(location, attrs)
+      upsert_network(location, attrs, primary: true)
+      upsert_network(
+        capture_infrastructure.fetch(:locations).fetch('playground'),
+        attrs,
+        primary: false
+      )
     end
 
     refresh_ip_reverse_zones
@@ -921,6 +947,15 @@ let
     JSON.parse(${builtins.toJSON (builtins.toJSON devConfig.seed.users)}).each do |attrs|
       upsert_dev_user(admin, environment, attrs, user_resources)
     end
+
+    upsert_capture_users!(
+      production_shape,
+      infrastructure: capture_infrastructure,
+      admin: admin,
+      user_logins: JSON.parse(${
+        builtins.toJSON (builtins.toJSON (map (attrs: attrs.login) devConfig.seed.users))
+      })
+    )
 
     def legacy_mail_recipients_available?
       defined?(EmailRecipient) &&
@@ -1810,8 +1845,8 @@ let
         (nodeModule node)
       ];
 
-      boot.qemu.memory = if node.role == "storage" then 4096 else 8192;
-      boot.qemu.cpus = 4;
+      boot.qemu.memory = node.memoryMiB;
+      boot.qemu.cpus = node.cpus;
 
       vpsadmin.test.node = {
         socketAddress = node.ip;
@@ -1852,9 +1887,9 @@ in
   machines = {
     services = {
       spin = "nixos";
-      memory = 8192;
-      cpus = 4;
-      cores = 4;
+      memory = serviceMemoryMiB;
+      cpus = serviceCpus;
+      cores = serviceCpus;
       diskSize = serviceRootDiskMiB;
       networks = machineNetworks "services";
       sharedFileSystems = sharedFileSystems;

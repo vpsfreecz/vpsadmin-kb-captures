@@ -15,7 +15,7 @@ Enter the pinned shell, start an isolated cluster, and run the captures:
 
 ```sh
 nix develop
-bin/devcluster start kb-captures --topology single
+bin/devcluster start kb-captures --topology screenshots
 bin/capture --cluster kb-captures --language cs
 bin/validate --update
 bin/validate
@@ -31,9 +31,16 @@ The capture command reads the cluster's generated test accounts, verifies the
 pinned vpsAdmin revision, creates or reuses only fixtures owned by this
 repository, selects the requested locale, and writes PNG files under
 `screenshots/<language>/<topic>/`. Fixtures can create the two documentation
-VPSes, a labeled snapshot, a public key, an unconfirmed TOTP device, console
-generation metadata, and network traffic. Never point the tooling at a shared
-or production cluster.
+VPSes (`vps` and `playground-vps`), a mounted `data` subdataset, a `nas`
+dataset on `backuper1`, a labeled snapshot, a public key, an unconfirmed TOTP
+device, console generation metadata, and network traffic. Never point the
+tooling at a shared or production cluster.
+
+The committed fixture shape mirrors the public production labels and resource
+values needed by the documentation: Production, Playground, Praha storage,
+Staging, their five locations, and the public package catalog. It deliberately
+uses stable local IDs and `example.test` domains. Large resource values remain
+decimal strings so IPv6 quantities are not rounded by JSON implementations.
 
 Use `--scenario NAME` to recapture a functional group or
 `--checkpoint TOPIC/VIEW` for one asset. Run `bin/devcluster --help` for cluster

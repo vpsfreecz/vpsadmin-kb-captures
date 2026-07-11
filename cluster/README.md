@@ -4,10 +4,16 @@ This directory contains the complete NixOS/vpsAdminOS cluster definition and
 seed configuration used by `bin/devcluster`. The flake lock pins its upstream
 software revisions.
 
-The default `single` topology contains a services VM and one vpsAdminOS node.
-Seed data uses only `example.test` identities and documentation address ranges.
-Screenshot scenarios add their labeled, idempotent fixtures through the WebUI
-after the base cluster is ready.
+The capture topology contains a services VM, Production node `node1`,
+Playground node `node2`, and Praha storage machine `backuper1`. The declarative
+seed in `fixtures/production-shape.json` reproduces the public environment,
+location, cluster-resource, and package labels needed by the screenshots while
+using only `example.test` domains, local IDs, and documentation address ranges.
+VM memory and CPU sizes are deliberately modest and independent of the public
+resource catalog so the complete topology can run alongside normal developer
+workloads.
+Screenshot scenarios then add their labeled, idempotent VPS, dataset, mount,
+NAS, snapshot, account, console, and traffic fixtures through the WebUI.
 
 All mutable state is outside this directory in the ignored `.devcluster/`
 tree. Do not place credentials, generated certificates, SSH keys, or VM state

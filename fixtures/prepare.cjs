@@ -32,18 +32,20 @@ async function findOwnedVps(page, hostname) {
   return ids[0] || null;
 }
 
-async function createVps(page, hostname, boot) {
+async function createVpsIn(page, hostname, boot, environmentLabel, locationLabel) {
   await goto(page, '/?page=adminvps&action=new-step-1');
   const environmentForm = page.locator('form[name="newvps-step1"]');
   if ((await environmentForm.count()) > 0) {
-    await selectFirstRadio(environmentForm, 'environment');
+    const row = environmentForm.locator('tr', { hasText: environmentLabel }).first();
+    await row.locator('input[type="radio"][name="environment"]').check({ force: true });
     await submitLast(environmentForm);
     await page.waitForLoadState('domcontentloaded');
     await preparePage(page);
   }
 
   let form = page.locator('form[name="newvps-step2"]');
-  await selectFirstRadio(form, 'location');
+  const locationRow = form.locator('tr', { hasText: locationLabel }).first();
+  await locationRow.locator('input[type="radio"][name="location"]').check({ force: true });
   await submitLast(form);
   await page.waitForLoadState('domcontentloaded');
   await preparePage(page);
@@ -102,7 +104,106 @@ async function rootDatasetId(page, vpsId) {
     .locator('a[href*="page=dataset"][href*="dataset="]')
     .first()
     .getAttribute('href');
-  return href ? idFromUrl(new URL(href, page.url()).href, 'dataset') : 1;
+  if (!href) throw new Error(`Fixture VPS #${vpsId} has no root dataset link`);
+  const id = idFromUrl(new URL(href, page.url()).href, 'dataset');
+  if (!id) throw new Error(`Fixture VPS #${vpsId} has an invalid root dataset link: ${href}`);
+  return id;
+}
+
+async function datasetIdsByName(page, name) {
+  return page.locator('#content-in tr').evaluateAll((rows, expected) => {
+    const escaped = expected.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const pattern = new RegExp(`(?:^|/)${escaped}(?:\\s|$)`);
+    return [...new Set(rows.flatMap((row) => {
+      if (!pattern.test(row.textContent.trim())) return [];
+      return Array.from(row.querySelectorAll('a[href*="page=dataset"]')).flatMap((link) => {
+        const url = new URL(link.href);
+        const value = url.searchParams.get('dataset') || url.searchParams.get('id');
+        return value && /^\d+$/.test(value) ? [Number(value)] : [];
+      });
+    }))];
+  }, name);
+}
+
+async function waitForDataset(page, route, name) {
+  const deadline = Date.now() + 5 * 60_000;
+  while (Date.now() < deadline) {
+    await goto(page, route);
+    const ids = await datasetIdsByName(page, name);
+    if (ids.length > 1) throw new Error(`Multiple fixture datasets match ${name}: ${ids.join(', ')}`);
+    if (ids.length === 1) return ids[0];
+    await page.waitForTimeout(3_000);
+  }
+  throw new Error(`Dataset ${name} did not become visible at ${route}`);
+}
+
+async function ensureChildDataset(page, vpsId, parentId) {
+  const route = `/?page=adminvps&action=info&veid=${vpsId}`;
+  await goto(page, route);
+  const existing = await datasetIdsByName(page, 'data');
+  if (existing.length > 1) {
+    throw new Error(`Multiple fixture datasets match data: ${existing.join(', ')}`);
+  }
+  if (existing.length === 1) return existing[0];
+
+  await goto(page, `/?page=dataset&action=new&role=hypervisor&parent=${parentId}`);
+  const form = page.locator('form[action*="page=dataset"][action*="action=new"]');
+  await form.locator('input[name="name"]').fill('data');
+  await submitLast(form);
+  return waitForDataset(page, route, 'data');
+}
+
+async function ensureMount(page, vpsId, datasetId) {
+  const route = `/?page=adminvps&action=info&veid=${vpsId}`;
+  await goto(page, route);
+  const existing = await page.locator('#content-in tr', { hasText: '/srv/data' }).count();
+  if (existing > 1) throw new Error('Multiple fixture mounts use /srv/data');
+  if (existing === 1) return;
+  await goto(page, `/?page=dataset&action=mount&dataset=${datasetId}&vps=${vpsId}`);
+  const form = page.locator('form[action*="action=mount"]');
+  await form.locator('input[name="mountpoint"]').fill('/srv/data');
+  await submitLast(form);
+  const deadline = Date.now() + 5 * 60_000;
+  while (Date.now() < deadline) {
+    await goto(page, route);
+    if ((await page.locator('#content-in tr', { hasText: '/srv/data' }).count()) > 0) return;
+    await page.waitForTimeout(3_000);
+  }
+  throw new Error('Fixture mount /srv/data did not become visible');
+}
+
+async function ensureNasDataset(page) {
+  const route = '/?page=nas';
+  await goto(page, route);
+  const existing = await datasetIdsByName(page, 'nas');
+  if (existing.length > 1) {
+    throw new Error(`Multiple fixture datasets match nas: ${existing.join(', ')}`);
+  }
+  if (existing.length === 0) {
+    const createHrefs = await page.locator(
+      'a[href*="page=dataset"][href*="action=new"][href*="role=primary"][href*="parent="]',
+    ).evaluateAll((links) => [...new Set(links.map((link) => link.href))]);
+    if (createHrefs.length !== 1) {
+      throw new Error(`Expected one NAS dataset root, found ${createHrefs.length}`);
+    }
+    const [createHref] = createHrefs;
+    await goto(page, new URL(createHref, page.url()).href);
+    const form = page.locator('form[action*="page=dataset"][action*="action=new"]');
+    await form.locator('input[name="name"]').fill('nas');
+    await submitLast(form);
+  }
+  const id = await waitForDataset(page, route, 'nas');
+  await goto(page, route);
+  const row = page.locator(
+    '#content-in tr',
+    { has: page.locator(`a[href*="page=export"][href*="dataset=${id}"]`) },
+  ).first();
+  const exportHref = await row.locator(
+    'a[href*="page=export"][href*="action=create"][href*="dataset="]',
+  ).first().getAttribute('href');
+  if (!exportHref) throw new Error('NAS fixture dataset has no export action');
+  const url = new URL(exportHref, page.url());
+  return { id, exportCreateRoute: `${url.pathname}${url.search}` };
 }
 
 async function vpsNodeMachine(page, vpsId) {
@@ -223,17 +324,21 @@ function networkInterface(cluster, node, vpsId) {
 
 async function prepareFixtures({ cluster, page, required, repoRoot }) {
   const requiredSet = new Set(required);
-  const vpsId = await findOwnedVps(page, 'kb-cs-example') ||
-    await createVps(page, 'kb-cs-example', true);
+  const vpsId = await findOwnedVps(page, 'vps') ||
+    await createVpsIn(page, 'vps', true, 'Production', 'Praha');
   await waitForRunning(page, vpsId);
   const datasetId = await rootDatasetId(page, vpsId);
   const node = await vpsNodeMachine(page, vpsId);
-  const fixtures = { vpsId, datasetId, node, hostname: 'kb-cs-example' };
+  const fixtures = { vpsId, datasetId, node, hostname: 'vps' };
   fixtures.networkInterface = networkInterface(cluster, node, vpsId);
 
+  fixtures.childDatasetId = await ensureChildDataset(page, vpsId, datasetId);
+  await ensureMount(page, vpsId, fixtures.childDatasetId);
+  fixtures.nas = await ensureNasDataset(page);
+
   if (requiredSet.has('second-vps')) {
-    fixtures.secondVpsId = await findOwnedVps(page, 'kb-cs-playground') ||
-      await createVps(page, 'kb-cs-playground', false);
+    fixtures.secondVpsId = await findOwnedVps(page, 'playground-vps') ||
+      await createVpsIn(page, 'playground-vps', false, 'Playground', 'Playground');
   }
   if (requiredSet.has('public-key')) await ensurePublicKey(page);
   if (requiredSet.has('snapshot')) {

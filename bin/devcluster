@@ -20,7 +20,7 @@ Usage:
   devcluster urls <slug>
   devcluster config <slug>
   devcluster refresh <slug>
-  devcluster update <slug> [services|node1|node2|storage1|all]
+  devcluster update <slug> [services|node1|node2|backuper1|all]
   devcluster restart <slug> <machine> <service>
   devcluster ssh <slug> <machine> [ssh-options...] [-- <remote-command>...]
   devcluster reset <slug>

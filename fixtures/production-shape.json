@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "environments": [
+    {
+      "key": "production",
+      "label": "Production",
+      "domain": "production.example.test",
+      "canCreateVps": true,
+      "canDestroyVps": true,
+      "vpsLifetime": 0,
+      "maxVpsCount": 5,
+      "userIpOwnership": true,
+      "locations": [
+        { "key": "praha", "label": "Praha", "domain": "praha.example.test", "hasIpv6": true },
+        { "key": "brno", "label": "Brno", "domain": "brno.example.test", "hasIpv6": true }
+      ],
+      "defaultPackage": "standard-production"
+    },
+    {
+      "key": "playground",
+      "label": "Playground",
+      "domain": "playground.example.test",
+      "canCreateVps": true,
+      "canDestroyVps": true,
+      "vpsLifetime": 2592000,
+      "maxVpsCount": 2,
+      "userIpOwnership": false,
+      "locations": [
+        { "key": "playground", "label": "Playground", "domain": "playground-location.example.test", "hasIpv6": true }
+      ],
+      "defaultPackage": "standard-playground"
+    },
+    {
+      "key": "praha-storage",
+      "label": "Praha storage",
+      "domain": "storage.example.test",
+      "canCreateVps": false,
+      "canDestroyVps": false,
+      "vpsLifetime": 0,
+      "maxVpsCount": 0,
+      "userIpOwnership": false,
+      "locations": [
+        { "key": "praha-storage", "label": "Praha Storage", "domain": "praha-storage.example.test", "hasIpv6": false }
+      ],
+      "defaultPackage": "standard-nas"
+    },
+    {
+      "key": "staging",
+      "label": "Staging",
+      "domain": "staging.example.test",
+      "canCreateVps": true,
+      "canDestroyVps": true,
+      "vpsLifetime": 7776000,
+      "maxVpsCount": 4,
+      "userIpOwnership": false,
+      "locations": [
+        { "key": "staging", "label": "Staging", "domain": "staging-location.example.test", "hasIpv6": true }
+      ],
+      "defaultPackage": "standard-staging"
+    }
+  ],
+  "resources": [
+    { "name": "memory", "label": "Memory", "type": "numeric", "min": "512", "max": "131072", "stepSize": "1" },
+    { "name": "swap", "label": "Swap", "type": "numeric", "min": "0", "max": "12288", "stepSize": "1" },
+    { "name": "cpu", "label": "CPU", "type": "numeric", "min": "1", "max": "32", "stepSize": "1" },
+    { "name": "diskspace", "label": "Disk space", "type": "numeric", "min": "1024", "max": "10485760", "stepSize": "1" },
+    { "name": "ipv4", "label": "IPv4 address", "type": "object", "min": "0", "max": "64", "stepSize": "1" },
+    { "name": "ipv6", "label": "IPv6 address", "type": "object", "min": "0", "max": "340282366920938463463374607431768211456", "stepSize": "1" },
+    { "name": "ipv4_private", "label": "Private IPv4 address", "type": "object", "min": "0", "max": "1024", "stepSize": "1" }
+  ],
+  "packages": [
+    { "key": "standard-production", "label": "Standard Production", "items": { "memory": "4096", "cpu": "8", "diskspace": "122880", "ipv4": "1", "ipv6": "590295810358705651712", "ipv4_private": "0" } },
+    { "key": "standard-playground", "label": "Standard Playground", "items": { "memory": "4096", "cpu": "8", "diskspace": "122880", "ipv4": "1", "ipv6": "590295810358705651712", "ipv4_private": "0" } },
+    { "key": "standard-staging", "label": "Standard Staging", "items": { "memory": "32768", "swap": "8192", "cpu": "16", "diskspace": "327680", "ipv4": "1", "ipv6": "590295810358705651712", "ipv4_private": "4" } },
+    { "key": "standard-nas", "label": "Standard NAS", "items": { "diskspace": "256000" } },
+    { "key": "membership-expansion", "label": "Membership Expansion", "items": { "memory": "4096", "cpu": "8", "diskspace": "122880" } },
+    { "key": "extra-public-ipv4", "label": "Extra Public IPv4 Address", "items": { "ipv4": "1" } },
+    { "key": "private-ipv4-32", "label": "Private IPv4 /32 (1 addresses)", "items": { "ipv4_private": "1" } },
+    { "key": "private-ipv4-31", "label": "Private IPv4 /31 (2 addresses)", "items": { "ipv4_private": "2" } },
+    { "key": "private-ipv4-30", "label": "Private IPv4 /30 (4 addresses)", "items": { "ipv4_private": "4" } },
+    { "key": "private-ipv4-29", "label": "Private IPv4 /29 (8 addresses)", "items": { "ipv4_private": "8" } },
+    { "key": "private-ipv4-28", "label": "Private IPv4 /28 (16 addresses)", "items": { "ipv4_private": "16" } },
+    { "key": "private-ipv4-27", "label": "Private IPv4 /27 (32 addresses)", "items": { "ipv4_private": "32" } },
+    { "key": "membership-expansion-ipv4", "label": "Membership Expansion + IPv4", "items": { "memory": "4096", "cpu": "8", "diskspace": "122880", "ipv4": "1" } },
+    { "key": "hdd-20", "label": "HDD +20 GB", "items": { "diskspace": "20480" } },
+    { "key": "hdd-50", "label": "HDD +50 GB", "items": { "diskspace": "51200" } },
+    { "key": "hdd-100", "label": "HDD +100 GB", "items": { "diskspace": "102400" } },
+    { "key": "hdd-120", "label": "HDD +120 GB", "items": { "diskspace": "122880" } },
+    { "key": "hdd-130", "label": "HDD +130 GB", "items": { "diskspace": "133120" } },
+    { "key": "hdd-150", "label": "HDD +150 GB", "items": { "diskspace": "153600" } },
+    { "key": "hdd-200", "label": "HDD +200 GB", "items": { "diskspace": "204800" } },
+    { "key": "hdd-250", "label": "HDD +250 GB", "items": { "diskspace": "256000" } },
+    { "key": "nas-250", "label": "NAS +250 GB", "items": { "diskspace": "256000" } },
+    { "key": "godlike", "label": "Godlike", "items": { "memory": "1048576", "swap": "1048576", "cpu": "8192", "diskspace": "20971520", "ipv4": "256", "ipv4_private": "256" } },
+    { "key": "ipv6-48", "label": "IPv6 1x /48", "items": { "ipv6": "1208925819614629174706176" } },
+    { "key": "private-ipv4-24", "label": "Private IPv4 /24 (256 addresses)", "items": { "ipv4_private": "256" } },
+    { "key": "ipv6-39", "label": "IPv6 1x /39", "items": { "ipv6": "618970019642690137449562112" } },
+    { "key": "ram-swap-4g", "label": "RAM +4 GB (SWAP)", "items": { "memory": "4096" } }
+  ],
+  "defaultVpsResources": {
+    "production": { "memory": "4096", "swap": "0", "cpu": "8", "diskspace": "122880", "ipv4": "1", "ipv6": "1" },
+    "playground": { "memory": "4096", "swap": "0", "cpu": "8", "diskspace": "122880" },
+    "praha-storage": { "memory": "4096", "swap": "0", "cpu": "8", "diskspace": "122880" },
+    "staging": { "memory": "32768", "swap": "8192", "cpu": "16", "diskspace": "327680", "ipv4": "1", "ipv6": "1", "ipv4_private": "0" }
+  }
+}

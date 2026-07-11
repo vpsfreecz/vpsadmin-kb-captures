@@ -32,6 +32,8 @@
   "services": {
     "ip": "172.16.106.53",
     "name": "vpsadmin-services",
+    "memoryMiB": 4096,
+    "cpus": 4,
     "rootDiskMiB": 12288
   },
   "nodectld": {
@@ -43,9 +45,10 @@
       "name": "dev-node1",
       "ip": "172.16.106.41",
       "role": "node",
+      "location": "praha",
       "maxVps": 30,
       "cpus": 4,
-      "memoryMiB": 8192,
+      "memoryMiB": 4096,
       "swapMiB": 0,
       "sshPort": 10122
     },
@@ -54,20 +57,22 @@
       "name": "dev-node2",
       "ip": "172.16.106.42",
       "role": "node",
+      "location": "playground",
       "maxVps": 30,
       "cpus": 4,
-      "memoryMiB": 8192,
+      "memoryMiB": 4096,
       "swapMiB": 0,
       "sshPort": 10222
     },
-    "storage1": {
+    "backuper1": {
       "id": 201,
-      "name": "dev-storage1",
+      "name": "dev-backuper1",
       "ip": "172.16.106.45",
       "role": "storage",
+      "location": "praha-storage",
       "maxVps": 0,
       "cpus": 4,
-      "memoryMiB": 4096,
+      "memoryMiB": 2048,
       "swapMiB": 0,
       "sshPort": 10322
     }
@@ -75,7 +80,8 @@
   "topologies": {
     "single": ["node1"],
     "dual": ["node1", "node2"],
-    "storage": ["node1", "node2", "storage1"]
+    "storage": ["node1", "node2", "backuper1"],
+    "screenshots": ["node1", "node2", "backuper1"]
   },
   "mail": {
     "capture": {
