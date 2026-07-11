@@ -969,6 +969,17 @@ let
       })
     )
 
+    with_devcluster_admin_session(admin) do
+      ensure_capture_nas_dataset!(
+        user: User.find_by!(login: 'test-user1'),
+        pool: Pool.joins(:node).find_by!(
+          role: :primary,
+          nodes: { name: 'dev-backuper1' }
+        ),
+        quota: 256_000
+      )
+    end
+
     def legacy_mail_recipients_available?
       defined?(EmailRecipient) &&
         defined?(NotificationTemplateEmailRecipient) &&

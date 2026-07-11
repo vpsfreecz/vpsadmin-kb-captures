@@ -214,37 +214,30 @@ async function ensureMount(page, vpsId, datasetId) {
 
 async function ensureNasDataset(page) {
   const route = '/?page=nas';
-  await goto(page, route);
-  const existing = await datasetIdsByName(page, 'nas');
-  if (existing.length > 1) {
-    throw new Error(`Multiple fixture datasets match nas: ${existing.join(', ')}`);
-  }
-  if (existing.length === 0) {
-    const createHrefs = await page.locator(
-      'a[href*="page=dataset"][href*="action=new"][href*="role=primary"][href*="parent="]',
-    ).evaluateAll((links) => [...new Set(links.map((link) => link.href))]);
-    if (createHrefs.length !== 1) {
-      throw new Error(`Expected one NAS dataset root, found ${createHrefs.length}`);
+  const deadline = Date.now() + 5 * 60_000;
+  while (Date.now() < deadline) {
+    await goto(page, route);
+    const ids = await datasetIdsByName(page, 'nas');
+    if (ids.length > 1) {
+      throw new Error(`Multiple fixture datasets match nas: ${ids.join(', ')}`);
     }
-    const [createHref] = createHrefs;
-    await goto(page, new URL(createHref, page.url()).href);
-    const form = page.locator('form[action*="page=dataset"][action*="action=new"]');
-    await form.locator('input[name="name"]').fill('nas');
-    await setDatasetQuota(form, 'quota', '250');
-    await submitLast(form);
+    if (ids.length === 1) {
+      const [id] = ids;
+      const row = page.locator(
+        '#content-in tr',
+        { has: page.locator(`a[href*="page=export"][href*="dataset=${id}"]`) },
+      ).first();
+      const exportHref = await row.locator(
+        'a[href*="page=export"][href*="action=create"][href*="dataset="]',
+      ).first().getAttribute('href');
+      if (exportHref) {
+        const url = new URL(exportHref, page.url());
+        return { id, exportCreateRoute: `${url.pathname}${url.search}` };
+      }
+    }
+    await page.waitForTimeout(3_000);
   }
-  const id = await waitForDataset(page, route, 'nas');
-  await goto(page, route);
-  const row = page.locator(
-    '#content-in tr',
-    { has: page.locator(`a[href*="page=export"][href*="dataset=${id}"]`) },
-  ).first();
-  const exportHref = await row.locator(
-    'a[href*="page=export"][href*="action=create"][href*="dataset="]',
-  ).first().getAttribute('href');
-  if (!exportHref) throw new Error('NAS fixture dataset has no export action');
-  const url = new URL(exportHref, page.url());
-  return { id, exportCreateRoute: `${url.pathname}${url.search}` };
+  throw new Error('Preseeded NAS fixture dataset did not become exportable');
 }
 
 async function vpsNodeMachine(page, vpsId) {

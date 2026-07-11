@@ -186,3 +186,102 @@ def upsert_capture_users!(shape, infrastructure:, admin:, user_logins:)
     end
   end
 end
+
+def validate_capture_nas_dataset!(dataset:, user:, pool:, quota:)
+  errors = []
+  errors << "full_name=#{dataset.full_name.inspect}" unless dataset.full_name == 'nas'
+  errors << "vps_id=#{dataset.vps_id.inspect}" unless dataset.vps_id.nil?
+  errors << "ancestry=#{dataset.ancestry.inspect}" unless dataset.ancestry.nil?
+  errors << "object_state=#{dataset.object_state.inspect}" unless dataset.object_state == 'active'
+  errors << "confirmed=#{dataset.confirmed.inspect}" unless dataset.confirmed?
+  errors << 'user_editable=false' unless dataset.user_editable?
+  errors << 'user_create=false' unless dataset.user_create?
+  errors << 'user_destroy=false' unless dataset.user_destroy?
+
+  dips = dataset.dataset_in_pools.includes(pool: { node: { location: :environment } }).to_a
+  if dips.length != 1 || dips.first.pool_id != pool.id
+    copies = dips.map { |dip| "#{dip.id}:#{dip.pool.label}:#{dip.pool.role}" }
+    errors << "copies=#{copies.join(',').presence || 'none'}"
+  end
+
+  dip = dips.find { |candidate| candidate.pool_id == pool.id }
+  if dip
+    errors << "dip_label=#{dip.label.inspect}" unless dip.label == 'nas'
+    errors << "dip_confirmed=#{dip.confirmed.inspect}" unless dip.confirmed?
+
+    properties = dip.dataset_properties.where(name: 'quota').to_a
+    if properties.length != 1
+      errors << "quota_properties=#{properties.length}"
+    else
+      property = properties.first
+      errors << "quota=#{property.value.inspect}" unless property.value.to_i == quota
+      errors << "quota_inherited=#{property.inherited.inspect}" if property.inherited?
+      errors << "quota_confirmed=#{property.confirmed.inspect}" unless property.confirmed?
+    end
+
+    uses = ClusterResourceUse.for_obj(dip).includes(
+      user_cluster_resource: %i[user environment cluster_resource]
+    ).select do |use|
+      use.user_cluster_resource.cluster_resource.name == 'diskspace'
+    end
+    if uses.length != 1
+      errors << "diskspace_uses=#{uses.length}"
+    else
+      use = uses.first
+      resource = use.user_cluster_resource
+      errors << "diskspace=#{use.value.inspect}" unless use.value.to_i == quota
+      errors << "diskspace_enabled=#{use.enabled.inspect}" unless use.enabled?
+      errors << "diskspace_confirmed=#{use.confirmed.inspect}" unless use.confirmed?
+      errors << "diskspace_user=#{resource.user.login}" unless resource.user_id == user.id
+      if resource.environment_id != pool.node.location.environment_id
+        errors << "diskspace_environment=#{resource.environment.label}"
+      end
+    end
+  end
+
+  return dataset if errors.empty?
+
+  raise "capture NAS fixture drift for #{user.login}: #{errors.join('; ')}"
+end
+
+def ensure_capture_nas_dataset!(user:, pool:, quota:)
+  matches = Dataset.where(
+    user:,
+    vps_id: nil,
+    ancestry: nil,
+    name: 'nas'
+  ).to_a
+  raise "multiple capture NAS datasets found for #{user.login}" if matches.length > 1
+
+  if matches.one?
+    return validate_capture_nas_dataset!(
+      dataset: matches.first,
+      user:,
+      pool:,
+      quota:
+    )
+  end
+
+  dataset = Dataset.new(
+    name: 'nas',
+    user:,
+    user_editable: true,
+    user_create: true,
+    user_destroy: true,
+    object_state: :active,
+    confirmed: Dataset.confirmed(:confirm_create)
+  )
+  raise ActiveRecord::RecordInvalid, dataset unless dataset.valid?
+
+  _chain, dips = TransactionChains::Dataset::Create.fire(
+    pool,
+    nil,
+    [dataset],
+    {
+      properties: { quota: },
+      user:,
+      label: 'nas'
+    }
+  )
+  dips.last.dataset
+end
