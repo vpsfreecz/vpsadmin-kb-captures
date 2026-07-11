@@ -10,6 +10,7 @@ done
 node tools/check-terminal.cjs
 node tools/check-console.cjs
 node tools/check-crop.cjs
+node tools/check-font.cjs
 node tools/check-provenance.cjs
 node tools/check-dataset-links.cjs
 bash -n bin/capture bin/contact-sheet bin/devcluster

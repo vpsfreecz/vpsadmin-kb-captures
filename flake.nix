@@ -60,6 +60,9 @@
         };
       };
       toolPkgs = import toolsNixpkgs { inherit system; };
+      fontConfig = toolPkgs.makeFontsConf {
+        fontDirectories = [ toolPkgs.liberation_ttf ];
+      };
 
       clusterTest = import ./cluster/nix/test.nix {
         inherit
@@ -133,6 +136,8 @@
           nodejs
           openssh
           openssl
+          fontconfig
+          liberation_ttf
           playwright-test
           procps
           ruby
@@ -143,6 +148,7 @@
 
         PLAYWRIGHT_BROWSERS_PATH = "${toolPkgs.playwright-driver.browsers}";
         NODE_PATH = "${toolPkgs.playwright-test}/lib/node_modules";
+        FONTCONFIG_FILE = fontConfig;
       };
     };
 }

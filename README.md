@@ -81,5 +81,10 @@ margin is added after the bounds are combined, keeping complete table borders
 without restoring unused block width. Scenarios still select the semantic
 region; the crop helper only tightens its bounds.
 
+The Nix shell provides a pinned Fontconfig setup with Liberation Mono. This is
+used explicitly by synthetic terminals and satisfies the Courier fallback used
+by the WebUI console, so terminal cell measurements do not depend on fonts
+installed on the capture host.
+
 Captures are intentionally operator-run. This repository contains no GitHub
 Actions workflow and no DokuWiki uploader.
