@@ -39,6 +39,14 @@ let
   seed = import (vpsadmin.outPath + "/api/db/seeds/test.nix");
   locationDomain = seed.location.domain;
   productionShape = builtins.fromJSON (builtins.readFile ../../fixtures/production-shape.json);
+  productionLocationDomains = builtins.listToAttrs (
+    builtins.concatLists (
+      map (
+        environment:
+        map (location: nameValuePair location.key location.domain) environment.locations
+      ) productionShape.environments
+    )
+  );
   productionShapeSeed = builtins.readFile ../seed-production-shape.rb;
 
   defaultConfig = builtins.fromJSON (builtins.readFile ../default-config.json);
@@ -304,7 +312,9 @@ let
         swapMiB
         sshPort
         ;
-      domainName = "${name}.${locationDomain}";
+      nodeLocationDomain =
+        if location == null then locationDomain else productionLocationDomains.${location};
+      domainName = "${name}.${nodeLocationDomain}";
       seedRecord = {
         inherit id name;
         location_id = seed.location.id;
@@ -1853,7 +1863,7 @@ let
         servicesAddress = serviceIp;
         nodeId = node.id;
         nodeName = node.name;
-        inherit locationDomain;
+        locationDomain = node.nodeLocationDomain;
         socketPeers = {
           vpsadmin-services = serviceIp;
         }
