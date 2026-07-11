@@ -45,12 +45,36 @@ async function run({ page, session }) {
   if (session.wants('account/totp-confirm')) {
     await totpConfirmation(page);
     const form = page.locator('form[action*="action=totp_device_confirm"]');
-    const sensitive = form.locator('tr', { hasText: /QR kód|Tajný klíč|QR code|Secret key/ });
+    await form.evaluate((element) => {
+      for (const input of element.querySelectorAll('input[type="hidden"]')) {
+        if (/secret|otp|totp|uri/i.test(`${input.name} ${input.id}`)) input.value = '';
+      }
+      for (const row of element.querySelectorAll('tr')) {
+        const label = row.cells[0]?.textContent.trim() || '';
+        if (/QR kód|QR code/i.test(label)) {
+          for (const link of row.querySelectorAll('a')) link.removeAttribute('href');
+          for (const image of row.querySelectorAll('img, canvas, svg')) image.remove();
+          const placeholder = document.createElement('div');
+          placeholder.setAttribute('aria-label', 'Bezpečná ukázka QR kódu');
+          placeholder.style.cssText = [
+            'width:176px',
+            'height:176px',
+            'border:12px solid white',
+            'outline:1px solid #777',
+            'background:repeating-conic-gradient(#111 0 25%,#fff 0 50%) 0/22px 22px',
+            'box-shadow:inset 0 0 0 48px rgba(255,255,255,.72)',
+          ].join(';');
+          row.cells[1]?.appendChild(placeholder);
+        }
+        if (/Tajný klíč|Secret key/i.test(label) && row.cells[1]) {
+          row.cells[1].textContent = '•••• •••• •••• ••••';
+        }
+      }
+    });
     await session.locator(
       page,
       'account/totp-confirm',
       page.locator('#content-in'),
-      { mask: [sensitive] },
     );
   }
 

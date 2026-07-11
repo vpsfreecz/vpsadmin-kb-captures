@@ -7,11 +7,14 @@ const {
 } = require('../lib/webui.cjs');
 
 async function run({ fixtures, page, session }) {
-  await walkCreateVps(page);
-  await page.locator('input[name="hostname"]').fill('kb-cs-playground-preview');
+  await walkCreateVps(page, {
+    environmentLabel: 'Playground',
+    locationLabel: 'Playground',
+  });
+  await page.locator('input[name="hostname"]').fill('playground-vps');
   await session.locator(page, 'playground/create-vps-form', page.locator('#content-in'));
 
-  await walkCloneVps(page, fixtures.vpsId);
+  await walkCloneVps(page, fixtures.vpsId, 'Playground');
   await session.locator(page, 'playground/clone-vps-form', page.locator('#content-in'));
 
   await goto(page, `/?page=adminvps&action=swap&veid=${fixtures.vpsId}`);

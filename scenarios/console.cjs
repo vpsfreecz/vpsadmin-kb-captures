@@ -5,7 +5,7 @@ const {
   setStartMenuTimeout,
   waitForConsoleText,
 } = require('../lib/console.cjs');
-const { goto, preparePage, selectFirstOption, submitLast } = require('../lib/webui.cjs');
+const { goto } = require('../lib/webui.cjs');
 
 async function captureConsole(session, page, frame, checkpoint) {
   await session.locator(
@@ -16,16 +16,14 @@ async function captureConsole(session, page, frame, checkpoint) {
   );
 }
 
-async function bootRescue(page, vpsId) {
-  await goto(page, `/?page=adminvps&action=info&veid=${vpsId}`);
-  const form = page.locator(`form[action*="action=boot"][action*="veid=${vpsId}"]`);
-  await selectFirstOption(form.locator('select[name="os_template"]'));
-  const noMount = form.locator('input[name="mount_root_dataset"][value="no"]');
-  if ((await noMount.count()) > 0) await noMount.check({ force: true });
-  await submitLast(form);
-  await page.waitForLoadState('domcontentloaded');
-  await preparePage(page);
-  await page.waitForTimeout(3_000);
+async function captureWebConsole(session, page, frame, checkpoint, includeSidebar = false) {
+  const targets = [
+    page.getByText(/Vzdálená konzole pro VPS/).first(),
+    frame.locator('#terminal .xterm-screen').first(),
+    frame.locator('.keyboardContainer').first(),
+  ];
+  if (includeSidebar) targets.push(page.locator('#aside').first());
+  await session.shot(page, checkpoint, targets, { padding: 6 });
 }
 
 async function run({ fixtures, page, session }) {
@@ -54,7 +52,7 @@ async function run({ fixtures, page, session }) {
     }
     if (/Start Menu/.test(initial)) await send(remote.frame, 'i');
     await waitForConsoleText(remote.frame, guestBoot);
-    await captureConsole(session, page, remote.frame, 'console/web-console');
+    await captureWebConsole(session, page, remote.frame, 'console/web-console');
 
     await restartFromConsole(page);
     await waitForConsoleText(remote.frame, /Start Menu/);
@@ -72,13 +70,13 @@ async function run({ fixtures, page, session }) {
     await send(remote.frame, 'i');
     await waitForConsoleText(remote.frame, guestBoot);
 
-    await bootRescue(page, vps);
-    remote = await openRemoteConsole(page, vps);
-    await waitForConsoleText(remote.frame, /Start Menu|(?:[\w.-]+ login:)|OpenRC|Alpine Linux|Debian GNU\/Linux|Linux version/i);
-    const rows = await remote.frame.locator('#terminal .xterm-rows').innerText();
-    if (/Start Menu/.test(rows)) await send(remote.frame, 'i');
-    await waitForConsoleText(remote.frame, guestBoot);
-    await captureConsole(session, page, remote.frame, 'rescue-mode/console');
+    await captureWebConsole(
+      session,
+      page,
+      remote.frame,
+      'rescue-mode/vps-console-boot',
+      true,
+    );
   } finally {
     await setStartMenuTimeout(page, vps, 5);
     await goto(page, `/?page=adminvps&action=info&veid=${vps}`);

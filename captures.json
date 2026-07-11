@@ -2481,7 +2481,7 @@
       "review_status": "pending"
     },
     {
-      "id": "rescue-mode/console",
+      "id": "rescue-mode/vps-console-boot",
       "legacy": {
         "media_id": "navody:vps:vpsadminos:vps-console-boot.png",
         "revision": 1613655706,
@@ -2492,25 +2492,25 @@
         "source_pages": [
           "navody:vps:vpsadminos:oprava"
         ],
-        "media_id": "cs:screenshots:vpsadmin:rescue-mode:console.png"
+        "media_id": "cs:screenshots:vpsadmin:rescue-mode:vps-console-boot.png"
       },
       "language": "cs",
       "topic": "rescue-mode",
       "scenario": "console",
-      "checkpoint": "rescue-mode/console",
+      "checkpoint": "rescue-mode/vps-console-boot",
       "driver": "console",
       "fixtures": [
         "base-vps",
         "nixos-generations"
       ],
-      "description": "Current VPS status and remote-console action for rescue mode",
+      "description": "Whole web console with the rescue-mode controls in the sidebar",
       "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
       "viewport": {
         "width": 1440,
         "height": 1100,
         "device_scale_factor": 1
       },
-      "output": "screenshots/cs/rescue-mode/console.png",
+      "output": "screenshots/cs/rescue-mode/vps-console-boot.png",
       "capture": {
         "driver": "console",
         "page": "/?page=console&veid=1",
