@@ -563,7 +563,7 @@ build_config() {
   nix build \
     --impure \
     --out-link "$(result_link "$slug")" \
-    "path:$CLUSTER_DIR#cluster-config"
+    "git+file://$CLUSTER_DIR#cluster-config"
 }
 
 ssh_opts() {
@@ -828,7 +828,7 @@ start_cluster() {
   local -a command=(
     nix run
     --impure
-    "path:$CLUSTER_DIR#runner"
+    "git+file://$CLUSTER_DIR#runner"
     --
     start
     --config "$(config_path "$slug")"
