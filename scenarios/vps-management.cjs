@@ -21,7 +21,14 @@ async function run({ fixtures, page, session }) {
     'vps-details/feature-settings',
     features.locator('xpath=following-sibling::*[1]'),
   );
-  await session.section(page, 'vps-details/datasets', 'Datasety');
+  const datasets = page.locator('#content-in h2', { hasText: /^\s*Datasety\s*$/ }).first();
+  const mounts = page.locator('#content-in h2', { hasText: /^\s*Mounty\s*$/ }).first();
+  await session.shot(page, 'vps-details/datasets', [
+    datasets,
+    datasets.locator('xpath=following-sibling::*[1]'),
+    mounts,
+    mounts.locator('xpath=following-sibling::*[1]'),
+  ]);
   await session.section(page, 'userns/map', 'UID/GID mapování');
 }
 
