@@ -102,5 +102,8 @@
     "playground": { "memory": "4096", "swap": "0", "cpu": "8", "diskspace": "122880" },
     "praha-storage": { "memory": "4096", "swap": "0", "cpu": "8", "diskspace": "122880" },
     "staging": { "memory": "32768", "swap": "8192", "cpu": "16", "diskspace": "327680", "ipv4": "1", "ipv6": "1", "ipv4_private": "0" }
+  },
+  "captureUserResourceHeadroom": {
+    "production": { "diskspace": "1024" }
   }
 }

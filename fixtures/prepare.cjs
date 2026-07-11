@@ -167,6 +167,11 @@ async function waitForDataset(page, route, name) {
   throw new Error(`Dataset ${name} did not become visible at ${route}`);
 }
 
+async function setDatasetQuota(form, field, value) {
+  await form.locator(`input[name="${field}"]`).fill(value);
+  await form.locator('select[name="quota_unit"]').selectOption('g');
+}
+
 async function ensureChildDataset(page, vpsId, parentId) {
   const route = `/?page=adminvps&action=info&veid=${vpsId}`;
   await goto(page, route);
@@ -179,6 +184,7 @@ async function ensureChildDataset(page, vpsId, parentId) {
   await goto(page, `/?page=dataset&action=new&role=hypervisor&parent=${parentId}`);
   const form = page.locator('form[action*="page=dataset"][action*="action=new"]');
   await form.locator('input[name="name"]').fill('data');
+  await setDatasetQuota(form, 'refquota', '1');
   await submitLast(form);
   return waitForDataset(page, route, 'data');
 }
@@ -220,6 +226,7 @@ async function ensureNasDataset(page) {
     await goto(page, new URL(createHref, page.url()).href);
     const form = page.locator('form[action*="page=dataset"][action*="action=new"]');
     await form.locator('input[name="name"]').fill('nas');
+    await setDatasetQuota(form, 'quota', '250');
     await submitLast(form);
   }
   const id = await waitForDataset(page, route, 'nas');

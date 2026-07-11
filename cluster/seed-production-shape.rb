@@ -132,6 +132,10 @@ def upsert_capture_users!(shape, infrastructure:, admin:, user_logins:)
       default_values = default_package.cluster_resource_package_items.to_h do |item|
         [item.cluster_resource_id, item.value]
       end
+      headroom = shape.fetch('captureUserResourceHeadroom', {}).fetch(
+        env_attrs.fetch('key'),
+        {}
+      )
 
       config = EnvironmentUserConfig.find_or_initialize_by(environment:, user:)
       config.assign_attributes(
@@ -152,7 +156,8 @@ def upsert_capture_users!(shape, infrastructure:, admin:, user_logins:)
           cluster_resource_package: personal,
           cluster_resource: resource
         )
-        item.value = 0
+        extra_value = headroom.fetch(resource.name, 0).to_i
+        item.value = extra_value
         item.save!
 
         user_resource = UserClusterResource.find_or_initialize_by(
@@ -160,7 +165,7 @@ def upsert_capture_users!(shape, infrastructure:, admin:, user_logins:)
           environment:,
           cluster_resource: resource
         )
-        user_resource.value = default_values.fetch(resource.id, 0)
+        user_resource.value = default_values.fetch(resource.id, 0) + extra_value
         user_resource.save!
       end
 
