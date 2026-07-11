@@ -238,6 +238,32 @@
         ]
       },
       {
+        "label": "Dev public IPv6",
+        "address": "2001:db8:106::",
+        "prefix": 64,
+        "ipVersion": 6,
+        "role": "public_access",
+        "managed": true,
+        "splitAccess": "no_access",
+        "splitPrefix": 128,
+        "purpose": "any",
+        "autopick": true,
+        "userpick": true,
+        "reverseZone": false,
+        "addresses": [
+          "2001:db8:106::10",
+          "2001:db8:106::11",
+          "2001:db8:106::12",
+          "2001:db8:106::13",
+          "2001:db8:106::14",
+          "2001:db8:106::15",
+          "2001:db8:106::16",
+          "2001:db8:106::17",
+          "2001:db8:106::18",
+          "2001:db8:106::19"
+        ]
+      },
+      {
         "label": "Dev private IPv4",
         "address": "10.106.0.0",
         "prefix": 24,
