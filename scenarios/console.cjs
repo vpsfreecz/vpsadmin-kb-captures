@@ -1,5 +1,6 @@
 const {
   openRemoteConsole,
+  normalizeGuestConsole,
   restartFromConsole,
   send,
   setStartMenuTimeout,
@@ -22,13 +23,28 @@ async function captureWebConsole(session, page, frame, checkpoint, includeSideba
     frame.locator('#terminal .xterm-screen').first(),
     frame.locator('.keyboardContainer').first(),
   ];
-  if (includeSidebar) targets.push(page.locator('#aside').first());
+  if (includeSidebar) {
+    await page.locator('#vps-action-status').evaluate((element) => {
+      element.textContent = '';
+    });
+    await page.locator('#aside .webui-tip, #aside #transactions').evaluateAll((elements) => {
+      for (const element of elements) element.style.display = 'none';
+    });
+    await page.evaluate(() => new Promise((resolve) => {
+      requestAnimationFrame(() => requestAnimationFrame(resolve));
+    }));
+    targets.push(
+      page.locator('#aside > h3').first(),
+      page.locator('#aside #boot-button').locator('xpath=ancestor::table[1]'),
+    );
+  }
   await session.shot(page, checkpoint, targets, { padding: 6 });
 }
 
 async function run({ fixtures, page, session }) {
   const vps = fixtures.vpsId;
   const guestBoot = /(?:[\w.-]+ login:)|OpenRC|Alpine Linux|Debian GNU\/Linux|Linux version/i;
+  let normalBootVerified = false;
   try {
     await goto(page, `/?page=adminvps&action=info&veid=${vps}`);
     await session.titleAndFirstTable(page, 'console/open-web-console');
@@ -68,7 +84,9 @@ async function run({ fixtures, page, session }) {
 
     await send(remote.frame, '\u001b');
     await send(remote.frame, 'i');
-    await waitForConsoleText(remote.frame, guestBoot);
+    await waitForConsoleText(remote.frame, /vps login:/i);
+    normalBootVerified = true;
+    await normalizeGuestConsole(remote.frame);
 
     await captureWebConsole(
       session,
@@ -79,14 +97,37 @@ async function run({ fixtures, page, session }) {
     );
   } finally {
     await setStartMenuTimeout(page, vps, 5);
-    await goto(page, `/?page=adminvps&action=info&veid=${vps}`);
-    const restart = page.locator(`a[href*="run=restart"][href*="veid=${vps}"]`).first();
-    if ((await restart.count()) === 0) {
-      throw new Error(`Unable to restore normal boot for VPS #${vps}`);
+    if (normalBootVerified) {
+      const deadline = Date.now() + 5 * 60_000;
+      let running = false;
+      while (Date.now() < deadline) {
+        await goto(page, `/?page=adminvps&action=info&veid=${vps}`);
+        const details = await page.locator('#content-in').innerText();
+        if (/Status:\s*(?:běží|running)/i.test(details)) {
+          running = true;
+          break;
+        }
+        await page.waitForTimeout(2_000);
+      }
+      if (!running) {
+        throw new Error(`VPS #${vps} did not remain in normal boot`);
+      }
+    } else {
+      const deadline = Date.now() + 5 * 60_000;
+      let restart;
+      while (Date.now() < deadline) {
+        await goto(page, `/?page=adminvps&action=info&veid=${vps}`);
+        restart = page.locator(`a[href*="run=restart"][href*="veid=${vps}"]`).first();
+        if ((await restart.count()) > 0) break;
+        await page.waitForTimeout(2_000);
+      }
+      if (!restart || (await restart.count()) === 0) {
+        throw new Error(`Unable to restore normal boot for VPS #${vps}`);
+      }
+      await restart.click();
+      await page.waitForLoadState('domcontentloaded');
+      await page.waitForTimeout(12_000);
     }
-    await restart.click();
-    await page.waitForLoadState('domcontentloaded');
-    await page.waitForTimeout(12_000);
   }
 }
 
