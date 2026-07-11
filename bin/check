@@ -8,6 +8,7 @@ for file in runner/*.cjs lib/*.cjs fixtures/*.cjs scenarios/*.cjs tools/*.cjs; d
   node --check "$file"
 done
 node tools/check-terminal.cjs
+node tools/check-provenance.cjs
 node tools/check-dataset-links.cjs
 bash -n bin/capture bin/contact-sheet bin/devcluster
 shellcheck bin/capture bin/contact-sheet bin/devcluster
