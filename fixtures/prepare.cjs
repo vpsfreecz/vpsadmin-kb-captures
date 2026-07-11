@@ -184,6 +184,10 @@ async function ensureChildDataset(page, vpsId, parentId) {
   await goto(page, `/?page=dataset&action=new&role=hypervisor&parent=${parentId}`);
   const form = page.locator('form[action*="page=dataset"][action*="action=new"]');
   await form.locator('input[name="name"]').fill('data');
+  const automount = form.locator('input[name="automount"]');
+  if ((await automount.count()) > 0 && await automount.isChecked()) {
+    await automount.uncheck();
+  }
   await setDatasetQuota(form, 'refquota', '1');
   await submitLast(form);
   return waitForDataset(page, route, 'data');
