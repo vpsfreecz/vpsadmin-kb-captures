@@ -681,14 +681,16 @@ mkdir -p "/$pool_parent/hook/ct"
 
 for _ in $(seq 1 180); do
   if test -S /run/osctl/osctld.sock \
-    && osctl pool list -H -o name 2>/dev/null | grep -Fx "$pool_name" >/dev/null; then
+    && osctl pool list -H -o name 2>/dev/null | grep -Fx "$pool_name" >/dev/null \
+    && osctl --pool "$pool_name" group show /default >/dev/null 2>&1; then
     break
   fi
   sleep 1
 done
 
-if ! test -S /run/osctl/osctld.sock; then
-  echo "osctld was not ready in time" >&2
+if ! test -S /run/osctl/osctld.sock \
+  || ! osctl --pool "$pool_name" group show /default >/dev/null 2>&1; then
+  echo "osctld pool $pool_name and group /default were not ready in time" >&2
   exit 1
 fi
 
