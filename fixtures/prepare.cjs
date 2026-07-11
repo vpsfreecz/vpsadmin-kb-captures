@@ -32,8 +32,35 @@ async function findOwnedVps(page, hostname) {
   return ids[0] || null;
 }
 
-async function createVpsIn(page, hostname, boot, environmentLabel, locationLabel) {
-  await goto(page, '/?page=adminvps&action=new-step-1');
+async function findUserId(page, login) {
+  await goto(
+    page,
+    `/?page=adminm&section=members&action=list&login=${encodeURIComponent(login)}`,
+  );
+  const ids = await page.locator('#content-in tr').evaluateAll((rows, expected) =>
+    rows.flatMap((row) => {
+      const cells = Array.from(row.cells).map((cell) => cell.textContent.trim());
+      if (cells[1] !== expected || !/^\d+$/.test(cells[0] || '')) return [];
+      return [Number(cells[0])];
+    }), login);
+  const uniqueIds = [...new Set(ids)];
+  if (uniqueIds.length !== 1) {
+    throw new Error(
+      `Expected one fixture user ${login}, found IDs: ${uniqueIds.join(', ') || 'none'}`,
+    );
+  }
+  return uniqueIds[0];
+}
+
+async function createVpsIn(
+  page,
+  userId,
+  hostname,
+  boot,
+  environmentLabel,
+  locationLabel,
+) {
+  await goto(page, `/?page=adminvps&action=new-step-1&user=${userId}`);
   const environmentForm = page.locator('form[name="newvps-step1"]');
   if ((await environmentForm.count()) > 0) {
     const row = environmentForm.locator('tr', { hasText: environmentLabel }).first();
@@ -75,7 +102,10 @@ async function createVpsIn(page, hostname, boot, environmentLabel, locationLabel
   await submitLast(form);
   await page.waitForLoadState('domcontentloaded');
   const id = idFromUrl(page.url(), 'veid');
-  if (!id) throw new Error(`Unable to identify newly created VPS at ${page.url()}`);
+  if (!id) {
+    const content = (await page.locator('body').innerText()).replace(/\s+/g, ' ').trim();
+    throw new Error(`Unable to identify newly created VPS at ${page.url()}: ${content}`);
+  }
   return id;
 }
 
@@ -324,8 +354,9 @@ function networkInterface(cluster, node, vpsId) {
 
 async function prepareFixtures({ cluster, page, required, repoRoot }) {
   const requiredSet = new Set(required);
+  const userId = await findUserId(page, 'test-user1');
   const vpsId = await findOwnedVps(page, 'vps') ||
-    await createVpsIn(page, 'vps', true, 'Production', 'Praha');
+    await createVpsIn(page, userId, 'vps', true, 'Production', 'Praha');
   await waitForRunning(page, vpsId);
   const datasetId = await rootDatasetId(page, vpsId);
   const node = await vpsNodeMachine(page, vpsId);
@@ -338,7 +369,14 @@ async function prepareFixtures({ cluster, page, required, repoRoot }) {
 
   if (requiredSet.has('second-vps')) {
     fixtures.secondVpsId = await findOwnedVps(page, 'playground-vps') ||
-      await createVpsIn(page, 'playground-vps', false, 'Playground', 'Playground');
+      await createVpsIn(
+        page,
+        userId,
+        'playground-vps',
+        false,
+        'Playground',
+        'Playground',
+      );
   }
   if (requiredSet.has('public-key')) await ensurePublicKey(page);
   if (requiredSet.has('snapshot')) {
