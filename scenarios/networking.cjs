@@ -20,11 +20,7 @@ async function run({ cluster, fixtures, page, proxyUrl, repoRoot, session }) {
     'networking/interface-addresses',
     page.locator('form[action*="action=hostaddr_add"]'),
   );
-  const reverseHref = await page.locator(
-    'a[href*="page=networking"][href*="action=hostaddr_ptr"]',
-  ).first().getAttribute('href');
-  if (!reverseHref) throw new Error('No reverse-record action is available for the fixture VPS');
-  await goto(page, reverseHref);
+  await goto(page, fixtures.reverseRecordRoute);
   await session.locator(
     page,
     'reverse-dns/configure-reverse-record',

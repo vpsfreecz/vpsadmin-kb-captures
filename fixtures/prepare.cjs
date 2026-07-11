@@ -212,6 +212,40 @@ async function ensureMount(page, vpsId, datasetId) {
   throw new Error('Fixture mount /srv/data did not become visible');
 }
 
+async function ensureInterfaceAddress(page, vpsId) {
+  const route = `/?page=adminvps&action=info&veid=${vpsId}`;
+  const deadline = Date.now() + 5 * 60_000;
+  let assignmentRequested = false;
+
+  while (Date.now() < deadline) {
+    await goto(page, route);
+    const form = page.locator('form[action*="action=hostaddr_add"]');
+    const reverse = form.locator(
+      'a[href*="page=networking"][href*="action=hostaddr_ptr"]',
+    );
+    if ((await reverse.count()) > 0) {
+      const href = new URL(await reverse.first().getAttribute('href'), page.url());
+      return `${href.pathname}${href.search}`;
+    }
+
+    if (!assignmentRequested) {
+      await selectFirstOption(form.locator('select[name="hostaddr_public_v4"]'));
+      await Promise.all([
+        page.waitForNavigation({ waitUntil: 'domcontentloaded' }),
+        form.evaluate((element) => element.requestSubmit()),
+      ]);
+      const resultText = (await page.locator('#perex').innerText()).replace(/\s+/g, ' ').trim();
+      if (!/Plánováno přidání IP adresy|Addition of IP address planned/i.test(resultText)) {
+        throw new Error(`Interface address assignment did not succeed: ${resultText}`);
+      }
+      assignmentRequested = true;
+    }
+    await page.waitForTimeout(3_000);
+  }
+
+  throw new Error('Fixture public IPv4 address did not become an interface address');
+}
+
 async function ensureNasDataset(page) {
   const route = '/?page=nas';
   const deadline = Date.now() + 5 * 60_000;
@@ -366,6 +400,7 @@ async function prepareFixtures({ cluster, page, required, repoRoot }) {
   const node = await vpsNodeMachine(page, vpsId);
   const fixtures = { vpsId, datasetId, node, hostname: 'vps' };
   fixtures.networkInterface = networkInterface(cluster, node, vpsId);
+  fixtures.reverseRecordRoute = await ensureInterfaceAddress(page, vpsId);
 
   fixtures.childDatasetId = await ensureChildDataset(page, vpsId, datasetId);
   await ensureMount(page, vpsId, fixtures.childDatasetId);
