@@ -10,8 +10,16 @@ async function run({ cluster, fixtures, page, proxyUrl, repoRoot, session }) {
     'traffic/vps-monthly-transfers',
     page.locator('form', { hasText: 'Přenosy za' }).first(),
   );
-  await session.section(page, 'networking/routed-addresses', 'Routované adresy');
-  await session.section(page, 'networking/interface-addresses', 'Adresy rozhraní');
+  await session.locator(
+    page,
+    'networking/routed-addresses',
+    page.locator('form[action*="action=iproute_select"]'),
+  );
+  await session.locator(
+    page,
+    'networking/interface-addresses',
+    page.locator('form[action*="action=hostaddr_add"]'),
+  );
   const reverseHref = await page.locator(
     'a[href*="page=networking"][href*="action=hostaddr_ptr"]',
   ).first().getAttribute('href');
