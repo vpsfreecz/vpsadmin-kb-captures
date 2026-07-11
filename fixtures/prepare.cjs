@@ -2,6 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const { execFileSync, spawnSync } = require('child_process');
 
+const { datasetIdsFromHrefs } = require('../lib/dataset-links.cjs');
+
 const {
   goto,
   preparePage,
@@ -141,18 +143,16 @@ async function rootDatasetId(page, vpsId) {
 }
 
 async function datasetIdsByName(page, name) {
-  return page.locator('#content-in tr').evaluateAll((rows, expected) => {
+  const hrefs = await page.locator('#content-in tr').evaluateAll((rows, expected) => {
     const escaped = expected.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const pattern = new RegExp(`(?:^|/)${escaped}(?:\\s|$)`);
     return [...new Set(rows.flatMap((row) => {
       if (!pattern.test(row.textContent.trim())) return [];
-      return Array.from(row.querySelectorAll('a[href*="page=dataset"]')).flatMap((link) => {
-        const url = new URL(link.href);
-        const value = url.searchParams.get('dataset') || url.searchParams.get('id');
-        return value && /^\d+$/.test(value) ? [Number(value)] : [];
-      });
+      return Array.from(row.querySelectorAll('a[href*="page=dataset"]'))
+        .map((link) => link.href);
     }))];
   }, name);
+  return datasetIdsFromHrefs(hrefs);
 }
 
 async function waitForDataset(page, route, name) {
