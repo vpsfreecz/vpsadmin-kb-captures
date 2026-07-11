@@ -18,5 +18,6 @@ shellcheck bin/capture bin/contact-sheet bin/devcluster
 jq empty captures.json cluster/default-config.json fixtures/production-shape.json
 ruby -c bin/validate
 ruby -c cluster/seed-production-shape.rb
+ruby tools/check-seed.rb
 ruby -c tools/import-manifest.rb
 bin/validate

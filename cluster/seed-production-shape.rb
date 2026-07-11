@@ -187,13 +187,20 @@ def upsert_capture_users!(shape, infrastructure:, admin:, user_logins:)
   end
 end
 
+def capture_nas_confirmation_state(states)
+  return :confirmed if states.length == 4 && states.all? { |state| state == :confirmed }
+  return :pending if states.length == 4 && states.all? { |state| state == :confirm_create }
+
+  :drift
+end
+
 def validate_capture_nas_dataset!(dataset:, user:, pool:, quota:)
   errors = []
+  confirmation_states = [dataset.confirmed]
   errors << "full_name=#{dataset.full_name.inspect}" unless dataset.full_name == 'nas'
   errors << "vps_id=#{dataset.vps_id.inspect}" unless dataset.vps_id.nil?
   errors << "ancestry=#{dataset.ancestry.inspect}" unless dataset.ancestry.nil?
   errors << "object_state=#{dataset.object_state.inspect}" unless dataset.object_state == 'active'
-  errors << "confirmed=#{dataset.confirmed.inspect}" unless dataset.confirmed?
   errors << 'user_editable=false' unless dataset.user_editable?
   errors << 'user_create=false' unless dataset.user_create?
   errors << 'user_destroy=false' unless dataset.user_destroy?
@@ -207,16 +214,16 @@ def validate_capture_nas_dataset!(dataset:, user:, pool:, quota:)
   dip = dips.find { |candidate| candidate.pool_id == pool.id }
   if dip
     errors << "dip_label=#{dip.label.inspect}" unless dip.label == 'nas'
-    errors << "dip_confirmed=#{dip.confirmed.inspect}" unless dip.confirmed?
+    confirmation_states << dip.confirmed
 
     properties = dip.dataset_properties.where(name: 'quota').to_a
     if properties.length != 1
       errors << "quota_properties=#{properties.length}"
     else
       property = properties.first
+      confirmation_states << property.confirmed
       errors << "quota=#{property.value.inspect}" unless property.value.to_i == quota
       errors << "quota_inherited=#{property.inherited.inspect}" if property.inherited?
-      errors << "quota_confirmed=#{property.confirmed.inspect}" unless property.confirmed?
     end
 
     uses = ClusterResourceUse.for_obj(dip).includes(
@@ -229,14 +236,19 @@ def validate_capture_nas_dataset!(dataset:, user:, pool:, quota:)
     else
       use = uses.first
       resource = use.user_cluster_resource
+      confirmation_states << use.confirmed
       errors << "diskspace=#{use.value.inspect}" unless use.value.to_i == quota
       errors << "diskspace_enabled=#{use.enabled.inspect}" unless use.enabled?
-      errors << "diskspace_confirmed=#{use.confirmed.inspect}" unless use.confirmed?
       errors << "diskspace_user=#{resource.user.login}" unless resource.user_id == user.id
       if resource.environment_id != pool.node.location.environment_id
         errors << "diskspace_environment=#{resource.environment.label}"
       end
     end
+  end
+
+  confirmation_state = capture_nas_confirmation_state(confirmation_states)
+  if confirmation_state == :drift
+    errors << "confirmation_states=#{confirmation_states.map(&:inspect).join(',')}"
   end
 
   return dataset if errors.empty?
