@@ -1,5 +1,5 @@
 {
-  "schema": 3,
+  "schema": 4,
   "project": "vpsAdmin KB screenshot inventory",
   "wiki": "kb.vpsfree.cz",
   "assets": [
@@ -173,49 +173,6 @@
         "height": 182
       },
       "sha256": "67e9057b6e1296574513a6394bff2925d37e3344bdfd0603ce6b5f3664e5bba3",
-      "review_status": "pending"
-    },
-    {
-      "id": "getting-started/vps-action-menu",
-      "legacy": {
-        "media_id": "informace:details2.png",
-        "revision": 1482171449,
-        "md5": "d45ef8a461bbcb69d89b47c9f6776a08",
-        "sha256": "cc2cb1dc74ad60a8edd35f9c0f96371c462a45a26a1721715efe8bf22e139a56"
-      },
-      "wiki": {
-        "source_pages": [
-          "informace:novacci"
-        ],
-        "media_id": "cs:screenshots:vpsadmin:getting-started:vps-action-menu.png"
-      },
-      "language": "cs",
-      "topic": "getting-started",
-      "scenario": "getting-started",
-      "checkpoint": "getting-started/vps-action-menu",
-      "driver": "webui",
-      "fixtures": [
-        "base-vps",
-        "public-key"
-      ],
-      "description": "Current VPS action sidebar",
-      "vpsadmin_commit": "299147166ecb8459c712ed8a5c4dd14f673663fc",
-      "viewport": {
-        "width": 1440,
-        "height": 1100,
-        "device_scale_factor": 1
-      },
-      "output": "screenshots/cs/getting-started/vps-action-menu.png",
-      "capture": {
-        "driver": "webui",
-        "page": "/?page=adminvps&action=info&veid=1",
-        "runner": "vpsadmin-kb-captures/schema-3"
-      },
-      "dimensions": {
-        "width": 198,
-        "height": 430
-      },
-      "sha256": "a8668b5ca20bb85b5c778180668205bf0bd15e96527bea96aeeff3915d62bab7",
       "review_status": "pending"
     },
     {
@@ -1687,6 +1644,7 @@
       },
       "wiki": {
         "source_pages": [
+          "informace:novacci",
           "navody:vps:sprava"
         ],
         "media_id": "cs:screenshots:vpsadmin:vps-management:set-root-password.png"
@@ -1717,7 +1675,15 @@
         "height": 247
       },
       "sha256": "44149e4c5ba1a80cefe98bd78ad4f15afeed2708fe1c9be0aa02cbad21aa2676",
-      "review_status": "pending"
+      "review_status": "pending",
+      "legacy_aliases": [
+        {
+          "media_id": "informace:details2.png",
+          "revision": 1482171449,
+          "md5": "d45ef8a461bbcb69d89b47c9f6776a08",
+          "sha256": "cc2cb1dc74ad60a8edd35f9c0f96371c462a45a26a1721715efe8bf22e139a56"
+        }
+      ]
     },
     {
       "id": "vps-management/reinstall-form",

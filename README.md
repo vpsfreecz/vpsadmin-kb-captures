@@ -62,7 +62,7 @@ example `cs:screenshots:vpsadmin:console:web-console.png`. Display-order
 prefixes and revision suffixes are deliberately absent: scenario code defines
 capture order, while Git and DokuWiki provide revision history.
 
-`captures.json` records the legacy KB media ID and source pages, canonical
+`captures.json` records the legacy KB media IDs and source pages, canonical
 media ID, language, topic, scenario/checkpoint, driver,
 fixtures, pinned vpsAdmin commit, viewport, dimensions, SHA-256, and capture
 provenance. One scenario can emit several related screenshots, but every

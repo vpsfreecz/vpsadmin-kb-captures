@@ -15,8 +15,8 @@ manifest = JSON.parse(File.read(MANIFEST_PATH))
 assets = manifest.fetch('assets')
 errors = []
 
-errors << "expected schema 3, found #{manifest['schema'].inspect}" unless manifest['schema'] == 3
-errors << "expected 60 assets, found #{assets.length}" unless assets.length == 60
+errors << "expected schema 4, found #{manifest['schema'].inspect}" unless manifest['schema'] == 4
+errors << "expected 59 assets, found #{assets.length}" unless assets.length == 59
 references = assets.sum { |asset| asset.dig('wiki', 'source_pages')&.length.to_i }
 errors << "expected 63 page references, found #{references}" unless references == 63
 
@@ -26,13 +26,16 @@ errors << "expected 63 page references, found #{references}" unless references =
   errors << "duplicate #{field}: #{duplicates.join(', ')}" unless duplicates.empty?
 end
 
-[
-  ['legacy media ID', ->(asset) { asset.dig('legacy', 'media_id') }],
-  ['media ID', ->(asset) { asset.dig('wiki', 'media_id') }]
-].each do |label, value|
-  duplicates = assets.group_by(&value).select { |_id, matches| matches.length > 1 }.keys
-  errors << "duplicate #{label}: #{duplicates.join(', ')}" unless duplicates.empty?
+legacy_media_ids = assets.flat_map do |asset|
+  [asset.fetch('legacy'), *asset.fetch('legacy_aliases', [])].map { |item| item.fetch('media_id') }
 end
+duplicate_legacy_media_ids = legacy_media_ids.tally.select { |_id, count| count > 1 }.keys
+unless duplicate_legacy_media_ids.empty?
+  errors << "duplicate legacy media ID: #{duplicate_legacy_media_ids.join(', ')}"
+end
+duplicate_media_ids = assets.group_by { |asset| asset.dig('wiki', 'media_id') }
+                            .select { |_id, matches| matches.length > 1 }.keys
+errors << "duplicate media ID: #{duplicate_media_ids.join(', ')}" unless duplicate_media_ids.empty?
 
 allowed_fixtures = %w[
   account base-vps nixos-generations public-key second-vps snapshot
@@ -61,6 +64,10 @@ assets.each do |asset|
     unless File.exist?(File.join(ROOT, 'scenarios', "#{asset.fetch('scenario')}.cjs"))
   errors << "#{id}: invalid vpsAdmin commit" \
     unless asset.fetch('vpsadmin_commit').match?(/\A[0-9a-f]{40}\z/)
+  asset.fetch('legacy_aliases', []).each do |legacy|
+    errors << "#{id}: invalid legacy alias" \
+      unless %w[media_id revision md5 sha256].all? { |field| legacy.key?(field) }
+  end
   errors << "#{id}: invalid review status #{asset['review_status'].inspect}" \
     unless allowed_statuses.include?(asset['review_status'])
   unknown_fixtures = asset.fetch('fixtures') - allowed_fixtures
@@ -138,7 +145,7 @@ if UPDATE
       asset['capture'] = {
         'driver' => result.fetch('driver'),
         'page' => result.fetch('page'),
-        'runner' => 'vpsadmin-kb-captures/schema-3'
+        'runner' => 'vpsadmin-kb-captures/schema-4'
       }
     end
     File.write(MANIFEST_PATH, "#{JSON.pretty_generate(manifest)}\n")
@@ -154,9 +161,23 @@ elsif !ALLOW_MISSING
     errors << "#{asset['id']}: capture driver differs" \
       if asset['capture'] && asset.dig('capture', 'driver') != asset['driver']
     errors << "#{asset['id']}: capture runner differs" \
-      if asset['capture'] && asset.dig('capture', 'runner') != 'vpsadmin-kb-captures/schema-3'
+      if asset['capture'] && asset.dig('capture', 'runner') != 'vpsadmin-kb-captures/schema-4'
   end
 end
+
+password = assets.find { |asset| asset.fetch('id') == 'vps-management/set-root-password' }
+if password
+  expected_sources = %w[informace:novacci navody:vps:sprava]
+  errors << 'set-root-password: unexpected source pages' \
+    unless password.dig('wiki', 'source_pages') == expected_sources
+  aliases = password.fetch('legacy_aliases', []).map { |item| item.fetch('media_id') }
+  errors << 'set-root-password: informace:details2.png is not a legacy alias' \
+    unless aliases == ['informace:details2.png']
+else
+  errors << 'set-root-password: capture is missing'
+end
+errors << 'vps-action-menu: obsolete capture is still present' \
+  if assets.any? { |asset| asset.fetch('id') == 'getting-started/vps-action-menu' }
 
 if errors.empty?
   present = actual.length

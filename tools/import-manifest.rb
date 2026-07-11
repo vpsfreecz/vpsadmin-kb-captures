@@ -77,6 +77,7 @@ assets = source.fetch('assets').map do |asset|
       'md5' => asset.fetch('legacy_hash'),
       'sha256' => asset.fetch('legacy_sha256')
     },
+    'legacy_aliases' => [],
     'wiki' => {
       'source_pages' => asset.fetch('source_pages'),
       'media_id' => [
@@ -101,7 +102,7 @@ assets = source.fetch('assets').map do |asset|
 end
 
 manifest = {
-  'schema' => 3,
+  'schema' => 4,
   'project' => 'vpsAdmin KB screenshot inventory',
   'wiki' => source.fetch('wiki'),
   'assets' => assets

@@ -12,14 +12,6 @@ async function run({ fixtures, page, session }) {
   await goto(page, `/?page=adminvps&action=info&veid=${vps}`);
   await session.titleAndFirstTable(page, 'getting-started/vps-details');
   await session.section(page, 'getting-started/ssh-connection', 'SSH připojení');
-  await session.shot(
-    page,
-    'getting-started/vps-action-menu',
-    [
-      page.locator('#aside h3').first(),
-      page.locator('#aside ul').first(),
-    ],
-  );
   await session.section(
     page,
     'getting-started/deploy-public-key',
