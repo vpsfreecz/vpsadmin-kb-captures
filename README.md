@@ -41,6 +41,8 @@ values needed by the documentation: Production, Playground, Praha storage,
 Staging, their five locations, and the public package catalog. It deliberately
 uses stable local IDs and `example.test` domains. Large resource values remain
 decimal strings so IPv6 quantities are not rounded by JSON implementations.
+The nodes use sparse 320 GiB tank images so the production-sized fixture
+packages pass pool-capacity checks without allocating that space up front.
 
 Use `--scenario NAME` to recapture a functional group or
 `--checkpoint TOPIC/VIEW` for one asset. Run `bin/devcluster --help` for cluster

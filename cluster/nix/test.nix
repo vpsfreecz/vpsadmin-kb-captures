@@ -277,6 +277,7 @@ let
       maxVps ? if role == "node" then 30 else 0,
       cpus ? 4,
       memoryMiB ? 8192,
+      tankDiskGiB ? 320,
       swapMiB ? 0,
       sshPort ? null,
     }:
@@ -309,6 +310,7 @@ let
         maxVps
         cpus
         memoryMiB
+        tankDiskGiB
         swapMiB
         sshPort
         ;
@@ -1843,7 +1845,7 @@ let
       {
         type = "file";
         device = "${machineName}-tank.img";
-        size = "20G";
+        size = "${toString node.tankDiskGiB}G";
       }
     ];
     networks = machineNetworks machineName;

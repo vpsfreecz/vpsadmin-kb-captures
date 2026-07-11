@@ -49,6 +49,7 @@
       "maxVps": 30,
       "cpus": 4,
       "memoryMiB": 4096,
+      "tankDiskGiB": 320,
       "swapMiB": 0,
       "sshPort": 10122
     },
@@ -61,6 +62,7 @@
       "maxVps": 30,
       "cpus": 4,
       "memoryMiB": 4096,
+      "tankDiskGiB": 320,
       "swapMiB": 0,
       "sshPort": 10222
     },
@@ -73,6 +75,7 @@
       "maxVps": 0,
       "cpus": 4,
       "memoryMiB": 2048,
+      "tankDiskGiB": 320,
       "swapMiB": 0,
       "sshPort": 10322
     }
