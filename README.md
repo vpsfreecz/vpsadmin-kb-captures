@@ -74,10 +74,12 @@ Review the image and manifest diffs, then run strict `bin/validate`.
 `bin/contact-sheet [TOPIC_OR_SCENARIO]` writes an ignored visual review sheet
 under `tmp/`.
 
-Capture bounds are derived from visible text, controls, images, terminal
-surfaces, and other meaningful content inside each selected region. This keeps
-form titles and table contents while excluding unused block width. Scenarios
-still select the semantic region; the crop helper only tightens its bounds.
+Capture bounds are derived from visible text, controls, complete table and
+fieldset boxes, images, terminal surfaces, and other meaningful content inside
+each selected region. Headings retain their full line height. An eight-pixel
+margin is added after the bounds are combined, keeping complete table borders
+without restoring unused block width. Scenarios still select the semantic
+region; the crop helper only tightens its bounds.
 
 Captures are intentionally operator-run. This repository contains no GitHub
 Actions workflow and no DokuWiki uploader.

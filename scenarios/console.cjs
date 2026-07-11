@@ -19,7 +19,7 @@ async function captureConsole(session, page, frame, checkpoint) {
 
 async function captureWebConsole(session, page, frame, checkpoint, includeSidebar = false) {
   const targets = [
-    page.getByText(/Vzdálená konzole pro VPS/).first(),
+    page.locator('#perex h1', { hasText: /Vzdálená konzole pro VPS/ }).first(),
     frame.locator('#terminal .xterm-screen').first(),
     frame.locator('.keyboardContainer').first(),
   ];
@@ -38,7 +38,7 @@ async function captureWebConsole(session, page, frame, checkpoint, includeSideba
       page.locator('#aside #boot-button').locator('xpath=ancestor::table[1]'),
     );
   }
-  await session.shot(page, checkpoint, targets, { padding: 6 });
+  await session.shot(page, checkpoint, targets);
 }
 
 async function run({ fixtures, page, session }) {
