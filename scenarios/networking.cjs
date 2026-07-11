@@ -10,16 +10,8 @@ async function run({ cluster, fixtures, page, proxyUrl, repoRoot, session }) {
     'traffic/vps-monthly-transfers',
     page.locator('form', { hasText: 'Přenosy za' }).first(),
   );
-  await session.locator(
-    page,
-    'networking/routed-addresses',
-    page.locator('form', { hasText: 'Routované adresy' }).first(),
-  );
-  await session.locator(
-    page,
-    'networking/interface-addresses',
-    page.locator('form', { hasText: 'Adresy rozhraní' }).first(),
-  );
+  await session.section(page, 'networking/routed-addresses', 'Routované adresy');
+  await session.section(page, 'networking/interface-addresses', 'Adresy rozhraní');
   const reverseHref = await page.locator(
     'a[href*="page=networking"][href*="action=hostaddr_ptr"]',
   ).first().getAttribute('href');
@@ -44,7 +36,12 @@ async function run({ cluster, fixtures, page, proxyUrl, repoRoot, session }) {
     const output = await runTrafficMonitor({ cluster, fixtures, proxyUrl, repoRoot });
     const terminal = await page.context().newPage();
     try {
-      await renderTerminal(terminal, 'vpsfreectl network top', output);
+      await renderTerminal(
+        terminal,
+        cluster.consoleBaseUrl,
+        'vpsfreectl network top',
+        output,
+      );
       await session.locator(
         terminal,
         'traffic/live-monitor-cli',
