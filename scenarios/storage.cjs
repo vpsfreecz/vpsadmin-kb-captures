@@ -33,11 +33,11 @@ async function run({ fixtures, page, session }) {
   const toggle = page.locator('.advanced-option-toggle');
   await toggle.click();
   await page.locator('.advanced-option').first().waitFor({ state: 'visible' });
-  await page.evaluate(() => {
-    for (const element of document.querySelectorAll('.advanced-option')) {
-      element.style.display = '';
-      element.style.opacity = '1';
-    }
+  await page.waitForFunction(() => {
+    const options = Array.from(document.querySelectorAll('.advanced-option'));
+    return options.length > 0 && options.every((element) =>
+      Number.parseFloat(getComputedStyle(element).opacity) >= 0.999,
+    );
   });
   await session.locator(page, 'exports/export-details', page.locator('#content-in'));
 
