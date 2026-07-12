@@ -3,10 +3,11 @@
 This repository owns reproducible screenshots used by the vpsFree.cz
 knowledge bases. Screenshots are generated artifacts. Never edit them by hand.
 
-Every asset in `captures.json` must map to exactly one scenario and checkpoint.
-A scenario may produce several related screenshots, but every checkpoint must
-be independently addressable and have deterministic fixture requirements,
-locale, viewport, masking rules, and source-page references.
+Every concept in `captures.json` must map to exactly one scenario and
+checkpoint and provide both Czech and English variants. A scenario may produce
+several related screenshots, but every checkpoint and language variant must be
+independently addressable and have deterministic fixture requirements, locale,
+viewport, masking rules, and source-page references.
 
 Use the pinned Nix development shell. Run captures through `bin/capture` and
 validation through `bin/validate`. Test IP addresses must come from

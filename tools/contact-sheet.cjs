@@ -8,9 +8,12 @@ const { chromiumExecutable } = require('../lib/browser.cjs');
 
 const repoRoot = path.resolve(__dirname, '..');
 const group = process.argv[2];
+const language = process.argv[3] || 'cs';
 const manifest = JSON.parse(fs.readFileSync(path.join(repoRoot, 'captures.json')));
-const assets = manifest.assets.filter((asset) =>
-  !group || asset.topic === group || asset.scenario === group);
+const assets = manifest.assets.flatMap((asset) => {
+  const variant = asset.variants?.[language];
+  return variant ? [{ ...asset, ...variant, language, variants: undefined }] : [];
+}).filter((asset) => !group || asset.topic === group || asset.scenario === group);
 if (assets.length === 0) throw new Error(`No assets match topic or scenario ${group}`);
 
 async function main() {
@@ -45,7 +48,7 @@ async function main() {
     }, cards);
     await page.waitForFunction(() => Array.from(document.images).every((image) => image.complete));
     await page.screenshot({
-      path: path.join(repoRoot, 'tmp', `contact-sheet-${group || 'all'}.png`),
+      path: path.join(repoRoot, 'tmp', `contact-sheet-${language}-${group || 'all'}.png`),
       fullPage: true,
     });
   } finally {

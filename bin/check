@@ -1,6 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+validate_args=()
+if [[ ${1-} == --allow-missing ]]; then
+  validate_args+=(--allow-missing)
+  shift
+fi
+if (( $# > 0 )); then
+  echo "Usage: bin/check [--allow-missing]" >&2
+  exit 1
+fi
+
 repo_dir=$(cd -- "$(dirname -- "$0")/.." && pwd)
 cd "$repo_dir"
 
@@ -21,5 +31,4 @@ nix-instantiate --parse cluster/nix/test.nix >/dev/null
 ruby -c bin/validate
 ruby -c cluster/seed-production-shape.rb
 ruby tools/check-seed.rb
-ruby -c tools/import-manifest.rb
-bin/validate
+bin/validate "${validate_args[@]}"

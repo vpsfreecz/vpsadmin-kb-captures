@@ -38,15 +38,14 @@ async function main() {
   if (session.assets.length === 0) throw new Error('No inventory entries match the request');
 
   const actualCommit = pinnedVpsadminCommit();
-  const expectedCommits = [...new Set(session.assets.map((asset) => asset.vpsadmin_commit))];
-  if (expectedCommits.length !== 1 || expectedCommits[0] !== actualCommit) {
+  if (manifest.vpsadmin_commit !== actualCommit) {
     throw new Error(
-      `Inventory expects vpsAdmin ${expectedCommits.join(', ')}, found ${actualCommit}`,
+      `Inventory expects vpsAdmin ${manifest.vpsadmin_commit}, found ${actualCommit}`,
     );
   }
 
   const cluster = new DevCluster({ repoRoot, slug: options.cluster });
-  const capture = await launchBrowser(cluster, options.viewport);
+  const capture = await launchBrowser(cluster, options.viewport, options.language);
   const page = await capture.context.newPage();
   try {
     await login(page, cluster, options.language);
@@ -54,6 +53,7 @@ async function main() {
     const fixtures = await prepareFixtures({
       cluster,
       page,
+      language: options.language,
       required,
       repoRoot,
     });

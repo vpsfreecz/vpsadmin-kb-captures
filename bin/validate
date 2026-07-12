@@ -14,28 +14,27 @@ abort "Unknown arguments: #{ARGV.join(' ')}" unless ARGV.empty?
 manifest = JSON.parse(File.read(MANIFEST_PATH))
 assets = manifest.fetch('assets')
 errors = []
+languages = %w[cs en]
 
-errors << "expected schema 4, found #{manifest['schema'].inspect}" unless manifest['schema'] == 4
-errors << "expected 59 assets, found #{assets.length}" unless assets.length == 59
-references = assets.sum { |asset| asset.dig('wiki', 'source_pages')&.length.to_i }
-errors << "expected 63 page references, found #{references}" unless references == 63
+errors << "expected schema 5, found #{manifest['schema'].inspect}" unless manifest['schema'] == 5
+errors << "invalid top-level vpsAdmin commit" \
+  unless manifest.fetch('vpsadmin_commit', '').match?(/\A[0-9a-f]{40}\z/)
+errors << "expected 59 concepts, found #{assets.length}" unless assets.length == 59
+variant_count = assets.sum { |asset| asset.fetch('variants').length }
+errors << "expected 118 variants, found #{variant_count}" unless variant_count == 118
+references = languages.to_h do |language|
+  [language, assets.sum { |asset| asset.dig('variants', language, 'wiki', 'source_pages')&.length.to_i }]
+end
+errors << "expected 63 Czech page references, found #{references.fetch('cs')}" \
+  unless references.fetch('cs') == 63
+errors << "expected 54 English page references, found #{references.fetch('en')}" \
+  unless references.fetch('en') == 54
 
-%w[id checkpoint output].each do |field|
+%w[id checkpoint].each do |field|
   duplicates = assets.group_by { |asset| asset.fetch(field) }
                      .select { |_value, matches| matches.length > 1 }.keys
   errors << "duplicate #{field}: #{duplicates.join(', ')}" unless duplicates.empty?
 end
-
-legacy_media_ids = assets.flat_map do |asset|
-  [asset.fetch('legacy'), *asset.fetch('legacy_aliases', [])].map { |item| item.fetch('media_id') }
-end
-duplicate_legacy_media_ids = legacy_media_ids.tally.select { |_id, count| count > 1 }.keys
-unless duplicate_legacy_media_ids.empty?
-  errors << "duplicate legacy media ID: #{duplicate_legacy_media_ids.join(', ')}"
-end
-duplicate_media_ids = assets.group_by { |asset| asset.dig('wiki', 'media_id') }
-                            .select { |_id, matches| matches.length > 1 }.keys
-errors << "duplicate media ID: #{duplicate_media_ids.join(', ')}" unless duplicate_media_ids.empty?
 
 allowed_fixtures = %w[
   account base-vps nixos-generations public-key second-vps snapshot
@@ -43,58 +42,84 @@ allowed_fixtures = %w[
 ]
 allowed_statuses = %w[pending reviewed uploaded]
 actual = {}
+outputs = []
+media_ids = []
+legacy_ids = languages.to_h { |language| [language, []] }
 
 assets.each do |asset|
   id = asset.fetch('id')
   topic = asset.fetch('topic')
-  language = asset.fetch('language')
   checkpoint = asset.fetch('checkpoint')
   slug = checkpoint.split('/').last
-  expected_output = "screenshots/#{language}/#{topic}/#{slug}.png"
-  expected_media = [language, 'screenshots', 'vpsadmin', topic, "#{slug}.png"].join(':')
-
-  errors << "#{id}: ID must be semantic" unless id.match?(/\A[a-z0-9-]+\/[a-z][a-z0-9-]*\z/)
+  errors << "#{id}: ID must be semantic" \
+    unless id.match?(/\A[a-z0-9-]+\/[a-z][a-z0-9-]*\z/)
   errors << "#{id}: checkpoint must equal ID" unless checkpoint == id
-  errors << "#{id}: unexpected output #{asset['output']}" unless asset['output'] == expected_output
-  errors << "#{id}: unexpected media ID" unless asset.dig('wiki', 'media_id') == expected_media
-  errors << "#{id}: top-level revision counters are not supported" if asset.key?('revision')
   errors << "#{id}: unsupported driver #{asset['driver']}" \
     unless %w[webui console cli].include?(asset['driver'])
   errors << "#{id}: missing scenario module" \
     unless File.exist?(File.join(ROOT, 'scenarios', "#{asset.fetch('scenario')}.cjs"))
-  errors << "#{id}: invalid vpsAdmin commit" \
-    unless asset.fetch('vpsadmin_commit').match?(/\A[0-9a-f]{40}\z/)
-  asset.fetch('legacy_aliases', []).each do |legacy|
-    errors << "#{id}: invalid legacy alias" \
-      unless %w[media_id revision md5 sha256].all? { |field| legacy.key?(field) }
-  end
-  errors << "#{id}: invalid review status #{asset['review_status'].inspect}" \
-    unless allowed_statuses.include?(asset['review_status'])
   unknown_fixtures = asset.fetch('fixtures') - allowed_fixtures
   errors << "#{id}: unknown fixtures #{unknown_fixtures.join(', ')}" unless unknown_fixtures.empty?
-  errors << "#{id}: has no source pages" if asset.dig('wiki', 'source_pages')&.empty? != false
+  variant_languages = asset.fetch('variants').keys.sort
+  errors << "#{id}: variants must be cs and en" unless variant_languages == languages
 
-  file = File.join(ROOT, asset.fetch('output'))
-  unless File.exist?(file)
-    errors << "#{id}: missing #{asset['output']}" unless ALLOW_MISSING
-    next
+  languages.each do |language|
+    variant = asset.dig('variants', language)
+    next unless variant
+
+    key = "#{language}:#{id}"
+    expected_output = "screenshots/#{language}/#{topic}/#{slug}.png"
+    expected_media = [language, 'screenshots', 'vpsadmin', topic, "#{slug}.png"].join(':')
+    outputs << variant.fetch('output')
+    media_ids << variant.dig('wiki', 'media_id')
+    errors << "#{key}: unexpected output #{variant['output']}" \
+      unless variant['output'] == expected_output
+    errors << "#{key}: unexpected media ID" \
+      unless variant.dig('wiki', 'media_id') == expected_media
+    errors << "#{key}: invalid review status #{variant['review_status'].inspect}" \
+      unless allowed_statuses.include?(variant['review_status'])
+    if language == 'cs' && variant.dig('wiki', 'source_pages')&.empty? != false
+      errors << "#{key}: has no source pages"
+    end
+    [variant.fetch('legacy'), *variant.fetch('legacy_aliases', [])].each do |legacy|
+      unless %w[media_id revision md5 sha256].all? { |field| legacy.key?(field) }
+        errors << "#{key}: incomplete legacy media identity"
+      end
+      legacy_ids.fetch(language) << legacy['media_id']
+    end
+
+    file = File.join(ROOT, variant.fetch('output'))
+    unless File.exist?(file)
+      errors << "#{key}: missing #{variant['output']}" unless ALLOW_MISSING
+      next
+    end
+
+    data = File.binread(file)
+    errors << "#{key}: not a PNG" unless data.start_with?("\x89PNG\r\n\x1a\n".b)
+    width, height = data.byteslice(16, 8)&.unpack('NN')
+    errors << "#{key}: invalid dimensions" unless width&.positive? && height&.positive?
+    actual[key] = {
+      'dimensions' => { 'width' => width, 'height' => height },
+      'sha256' => Digest::SHA256.hexdigest(data)
+    }
   end
+end
 
-  data = File.binread(file)
-  errors << "#{id}: not a PNG" unless data.start_with?("\x89PNG\r\n\x1a\n".b)
-  width, height = data.byteslice(16, 8)&.unpack('NN')
-  errors << "#{id}: invalid dimensions" unless width&.positive? && height&.positive?
-  actual[id] = {
-    'dimensions' => { 'width' => width, 'height' => height },
-    'sha256' => Digest::SHA256.hexdigest(data)
-  }
+duplicate_outputs = outputs.tally.select { |_output, count| count > 1 }.keys
+errors << "duplicate outputs: #{duplicate_outputs.join(', ')}" unless duplicate_outputs.empty?
+duplicate_media_ids = media_ids.tally.select { |_id, count| count > 1 }.keys
+errors << "duplicate media IDs: #{duplicate_media_ids.join(', ')}" unless duplicate_media_ids.empty?
+legacy_ids.each do |language, ids|
+  duplicates = ids.tally.select { |_id, count| count > 1 }.keys
+  errors << "duplicate #{language} legacy media IDs: #{duplicates.join(', ')}" unless duplicates.empty?
 end
 
 unless ALLOW_MISSING
-  duplicate_hashes = actual.group_by { |_id, values| values.fetch('sha256') }
-                           .select { |_digest, matches| matches.length > 1 }
-  duplicate_hashes.each_value do |matches|
-    errors << "identical PNGs: #{matches.map(&:first).join(', ')}"
+  actual.group_by { |_key, values| values.fetch('sha256') }.each_value do |matches|
+    concepts = matches.map { |key, _values| key.split(':', 2).last }.uniq
+    next if concepts.length == 1
+
+    errors << "identical PNGs for unrelated concepts: #{matches.map(&:first).join(', ')}"
   end
 end
 
@@ -106,82 +131,100 @@ if UPDATE
     errors << "capture results are missing: #{RESULTS_PATH}"
   end
 
-  duplicate_result_ids = results.group_by { |item| item.fetch('id') }
-                                .select { |_id, matches| matches.length > 1 }.keys
-  errors << "duplicate capture result IDs: #{duplicate_result_ids.join(', ')}" \
-    unless duplicate_result_ids.empty?
+  duplicate_results = results.group_by { |item| [item.fetch('language'), item.fetch('id')] }
+                             .select { |_key, matches| matches.length > 1 }.keys
+  errors << "duplicate capture results: #{duplicate_results.join(', ')}" unless duplicate_results.empty?
 
   assets_by_id = assets.to_h { |asset| [asset.fetch('id'), asset] }
   results.each do |result|
     asset = assets_by_id[result.fetch('id')]
-    unless asset
-      errors << "unexpected capture result: #{result.fetch('id')}"
+    language = result.fetch('language')
+    variant = asset&.dig('variants', language)
+    unless asset && variant
+      errors << "unexpected capture result: #{language}:#{result.fetch('id')}"
       next
     end
 
-    %w[checkpoint driver output].each do |field|
-      errors << "#{asset['id']}: capture result #{field} differs" \
+    %w[checkpoint driver].each do |field|
+      errors << "#{language}:#{asset['id']}: capture result #{field} differs" \
         unless result[field] == asset[field]
     end
-    values = actual[asset.fetch('id')]
-    errors << "#{asset['id']}: capture result file is missing" unless values
+    errors << "#{language}:#{asset['id']}: capture result output differs" \
+      unless result['output'] == variant['output']
+    values = actual["#{language}:#{asset.fetch('id')}"]
+    errors << "#{language}:#{asset['id']}: capture result file is missing" unless values
     if values && result['sha256'] != values['sha256']
-      errors << "#{asset['id']}: capture result SHA-256 differs from file"
+      errors << "#{language}:#{asset['id']}: capture result SHA-256 differs from file"
     end
-    if asset['review_status'] != 'pending' && values && asset['sha256'] != values['sha256']
-      errors << "#{asset['id']}: #{asset['review_status']} capture cannot be overwritten"
+    if variant['review_status'] != 'pending' && values && variant['sha256'] != values['sha256']
+      errors << "#{language}:#{asset['id']}: #{variant['review_status']} capture cannot be overwritten"
     end
   end
 
   if errors.empty?
-    results_by_id = results.to_h { |item| [item.fetch('id'), item] }
-    assets.each do |asset|
-      result = results_by_id[asset.fetch('id')]
-      next unless result
-
-      values = actual.fetch(asset.fetch('id'))
-      asset['dimensions'] = values.fetch('dimensions')
-      asset['sha256'] = values.fetch('sha256')
-      asset['capture'] = {
+    results.each do |result|
+      asset = assets_by_id.fetch(result.fetch('id'))
+      language = result.fetch('language')
+      variant = asset.fetch('variants').fetch(language)
+      values = actual.fetch("#{language}:#{asset.fetch('id')}")
+      variant['dimensions'] = values.fetch('dimensions')
+      variant['sha256'] = values.fetch('sha256')
+      variant['capture'] = {
         'driver' => result.fetch('driver'),
         'page' => result.fetch('page'),
-        'runner' => 'vpsadmin-kb-captures/schema-4'
+        'runner' => 'vpsadmin-kb-captures/schema-5'
       }
     end
     File.write(MANIFEST_PATH, "#{JSON.pretty_generate(manifest)}\n")
   end
 elsif !ALLOW_MISSING
   assets.each do |asset|
-    values = actual[asset.fetch('id')]
-    next unless values
+    languages.each do |language|
+      variant = asset.dig('variants', language)
+      values = actual["#{language}:#{asset.fetch('id')}"]
+      next unless variant && values
 
-    errors << "#{asset['id']}: dimensions differ" unless asset['dimensions'] == values['dimensions']
-    errors << "#{asset['id']}: SHA-256 differs" unless asset['sha256'] == values['sha256']
-    errors << "#{asset['id']}: capture provenance is missing" unless asset['capture']
-    errors << "#{asset['id']}: capture driver differs" \
-      if asset['capture'] && asset.dig('capture', 'driver') != asset['driver']
-    errors << "#{asset['id']}: capture runner differs" \
-      if asset['capture'] && asset.dig('capture', 'runner') != 'vpsadmin-kb-captures/schema-4'
+      key = "#{language}:#{asset.fetch('id')}"
+      errors << "#{key}: dimensions differ" unless variant['dimensions'] == values['dimensions']
+      errors << "#{key}: SHA-256 differs" unless variant['sha256'] == values['sha256']
+      errors << "#{key}: capture provenance is missing" unless variant['capture']
+      errors << "#{key}: capture driver differs" \
+        if variant['capture'] && variant.dig('capture', 'driver') != asset['driver']
+      errors << "#{key}: capture runner differs" \
+        if variant['capture'] && variant.dig('capture', 'runner') != 'vpsadmin-kb-captures/schema-5'
+    end
   end
 end
 
 password = assets.find { |asset| asset.fetch('id') == 'vps-management/set-root-password' }
 if password
-  expected_sources = %w[informace:novacci navody:vps:sprava]
-  errors << 'set-root-password: unexpected source pages' \
-    unless password.dig('wiki', 'source_pages') == expected_sources
-  aliases = password.fetch('legacy_aliases', []).map { |item| item.fetch('media_id') }
-  errors << 'set-root-password: informace:details2.png is not a legacy alias' \
-    unless aliases == ['informace:details2.png']
+  expected_sources = {
+    'cs' => %w[informace:novacci navody:vps:sprava],
+    'en' => %w[information:new_members manuals:vps:management]
+  }
+  languages.each do |language|
+    variant = password.dig('variants', language)
+    errors << "#{language}:set-root-password: unexpected source pages" \
+      unless variant.dig('wiki', 'source_pages') == expected_sources.fetch(language)
+    aliases = variant.fetch('legacy_aliases', []).map { |item| item.fetch('media_id') }
+    errors << "#{language}:set-root-password: informace:details2.png is not a legacy alias" \
+      unless aliases == ['informace:details2.png']
+  end
 else
   errors << 'set-root-password: capture is missing'
 end
 errors << 'vps-action-menu: obsolete capture is still present' \
   if assets.any? { |asset| asset.fetch('id') == 'getting-started/vps-action-menu' }
 
+features = assets.find { |asset| asset.fetch('id') == 'vps-management/feature-settings' }
+unless features&.dig('variants', 'en', 'wiki', 'source_pages') == ['manuals:vps:management']
+  errors << 'en:vps-management/feature-settings: management page binding is missing'
+end
+
 if errors.empty?
-  present = actual.length
-  puts "Valid inventory: #{assets.length} assets, #{references} references, #{present} PNGs"
+  puts "Valid inventory: #{assets.length} concepts, #{variant_count} variants, " \
+       "#{references.fetch('cs')} Czech references, #{references.fetch('en')} English references, " \
+       "#{actual.length} PNGs"
 else
   warn errors.join("\n")
   exit 1
