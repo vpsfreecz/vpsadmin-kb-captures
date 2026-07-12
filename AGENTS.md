@@ -20,6 +20,11 @@ be safe to rerun and must not stop, reset, or reuse another initiative's
 cluster. Wiki uploads are deliberately outside the capture command and require
 an explicit, separately reviewed DokuWiki publication workflow.
 
+When a vpsAdmin feature changes anything visible in the WebUI, follow
+`docs/webui-change-workflow.md`. It is the canonical cross-repository procedure
+for pinning the feature revision, interpreting contract drift, regenerating
+screenshots, preparing KB candidates, staging, and approval-gated publication.
+
 Use stable, semantic screenshot IDs and filenames under
 `screenshots/<language>/<topic>/<view>.png`. DokuWiki IDs use
 `<language>:screenshots:vpsadmin:<topic>:<view>.png`. Do not encode display order

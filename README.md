@@ -96,6 +96,9 @@ Actions workflow and no DokuWiki uploader.
 
 ## Documentation contract
 
+For the complete cross-repository procedure triggered by a vpsAdmin WebUI
+change, see [`docs/webui-change-workflow.md`](docs/webui-change-workflow.md).
+
 `contract/navigation.yml` assigns stable semantic IDs to documented WebUI
 controls and navigation paths. It binds current English/Czech gettext labels,
 coupled source fingerprints, affected KB pages, and screenshot concepts.
