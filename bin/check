@@ -32,8 +32,11 @@ nix-instantiate --parse cluster/nix/test.nix >/dev/null
 ruby -c bin/validate
 ruby -c cluster/seed-production-shape.rb
 ruby -c tools/check-contract.rb
+ruby -c tools/check-kb-annotations.rb
 ruby tools/check-seed.rb
 ruby tools/check-contract.rb
+ruby tools/check-kb-annotations.rb
 ruby tools/test-contract.rb
+ruby tools/test-kb-annotations.rb
 node tools/test-browser.cjs
 bin/validate "${validate_args[@]}"

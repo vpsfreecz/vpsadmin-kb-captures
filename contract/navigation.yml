@@ -339,6 +339,18 @@ paths:
       cs: [navody:vps:uzivatele]
       en: [manuals:vps:users]
 
+  - id: member.advanced-email-configuration.open
+    steps: [member.edit-profile, member.advanced-email-configuration]
+    pages:
+      cs: [navody:vps:uzivatele]
+      en: [manuals:vps:users]
+
+  - id: member.totp-devices.open
+    steps: [member.edit-profile, member.totp-devices]
+    pages:
+      cs: [navody:vps:uzivatele]
+      en: [manuals:vps:users]
+
   - id: member.sessions.open
     steps: [member.edit-profile, member.sessions]
     pages:

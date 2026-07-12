@@ -105,3 +105,16 @@ affected ID together with its Czech/English pages and capture concepts.
 Fingerprints cover the normalized production declaration around each landmark;
 test files cannot satisfy them. DokuWiki annotation inventory will use the path
 IDs without making this repository responsible for publishing pages.
+
+`contract/kb-annotations.yml` is the complete page-level inventory for those
+paths. Every affected Czech/English page has either an expected annotation
+count or an explicit reason why the page has no in-prose navigation phrase.
+Validate a locally prepared candidate set with:
+
+```sh
+ruby tools/check-kb-annotations.rb --candidate-index /path/to/index.json
+```
+
+The checker rejects unknown IDs, malformed tags, count drift, and newly
+unclassified affected pages. Fetching, staging, and publishing DokuWiki pages
+remain outside this repository.
