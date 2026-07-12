@@ -261,18 +261,6 @@ bindings:
   page: manuals:vps:vpsadminos:recovery
   path: vps.boot-rescue.open
   count: 1
-- language: en
-  page: manuals:vps:vpsadminos:storage
-  path: backups.vps.open
-  count: 1
-- language: en
-  page: manuals:vps:vpsadminos:storage
-  path: exports.export-dataset.open
-  count: 1
-- language: en
-  page: manuals:vps:vpsadminos:storage
-  path: exports.open
-  count: 1
 exceptions:
 - language: cs
   page: navody:vps:sprava

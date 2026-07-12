@@ -928,22 +928,20 @@ discoveries:
   page: manuals:vps:vpsadminos:storage
   text: Another way is to go to //Exports// -> //Export dataset//, which will show
     you a form when you can select which dataset you'd like to export.
-  paths:
-  - exports.export-dataset.open
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
 - id: aad476bb53ab5a17
   language: en
   page: manuals:vps:vpsadminos:storage
   text: 'Snapshots can be exported from menu //Backups// -> //VPS backups// or //NAS
     backups//:'
-  paths:
-  - backups.vps.open
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
 - id: cdc6aa8893c00b45
   language: en
   page: manuals:vps:vpsadminos:storage
   text: "===== Exports ===== There's a new entry in vpsAdmin main menu called //Exports//.
     Datasets can be exported either by going to a list of NAS datasets in menu //NAS//:"
-  paths:
-  - exports.open
+  reason: Mentions WebUI content or an unlocalized control, not a navigation label
+    changed by this release.
 page_counts:
   cs: 116
   en: 70

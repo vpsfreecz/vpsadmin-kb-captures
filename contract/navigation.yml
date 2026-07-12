@@ -434,7 +434,7 @@ paths:
     steps: [backups.menu, backups.vps]
     pages:
       cs: [navody:vps:zalohy, navody:vps:obnova_webu_zo_zalohy, navody:vps:exporty]
-      en: [manuals:vps:backups, manuals:vps:exports, manuals:vps:vpsadminos:storage]
+      en: [manuals:vps:backups, manuals:vps:exports]
 
   - id: vps.create.open
     steps: [vps.create]
@@ -500,10 +500,10 @@ paths:
     steps: [exports.menu, exports.export-dataset]
     pages:
       cs: [navody:vps:exporty]
-      en: [manuals:vps:exports, manuals:vps:vpsadminos:storage]
+      en: [manuals:vps:exports]
 
   - id: exports.open
     steps: [exports.menu]
     pages:
       cs: [navody:vps:exporty]
-      en: [manuals:vps:exports, manuals:vps:vpsadminos:storage]
+      en: [manuals:vps:exports]
