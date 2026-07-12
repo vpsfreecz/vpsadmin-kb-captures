@@ -17,11 +17,11 @@ async function captureConsole(session, page, frame, checkpoint) {
   );
 }
 
-async function captureWebConsole(session, page, frame, checkpoint, includeSidebar = false) {
+async function captureWebConsole(session, page, checkpoint, includeSidebar = false) {
+  await page.locator('#perex').scrollIntoViewIfNeeded();
   const targets = [
     page.locator('#perex h1', { hasText: /Vzdálená konzole pro VPS/ }).first(),
-    frame.locator('#terminal .xterm-screen').first(),
-    frame.locator('.keyboardContainer').first(),
+    page.locator('#vpsadmin-console-frame'),
   ];
   if (includeSidebar) {
     await page.locator('#vps-action-status').evaluate((element) => {
@@ -68,7 +68,7 @@ async function run({ fixtures, page, session }) {
     }
     if (/Start Menu/.test(initial)) await send(remote.frame, 'i');
     await waitForConsoleText(remote.frame, guestBoot);
-    await captureWebConsole(session, page, remote.frame, 'console/web-console');
+    await captureWebConsole(session, page, 'console/web-console');
 
     await restartFromConsole(page);
     await waitForConsoleText(remote.frame, /Start Menu/);
@@ -91,7 +91,6 @@ async function run({ fixtures, page, session }) {
     await captureWebConsole(
       session,
       page,
-      remote.frame,
       'rescue-mode/vps-console-boot',
       true,
     );
