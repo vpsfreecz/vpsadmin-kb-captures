@@ -86,7 +86,7 @@
         "width": 712,
         "height": 146
       },
-      "sha256": "bc24bd677df4bd8d189a1ddf3683051dcc39f078568e0556a9bf86313954dd15",
+      "sha256": "02c3dc4da73b3ed7da3189384ceac47cedea54de9ff3c96a953a15e337177b6a",
       "review_status": "pending"
     },
     {
@@ -129,7 +129,7 @@
         "width": 568,
         "height": 508
       },
-      "sha256": "00ae82caf26e42521b17ce09865aacc195bff31c009f82668e144c173a27cfcb",
+      "sha256": "34f15fc9c4a4bb6687dd17f4faadc5961e738d568bc2beaa0453f258c76b438f",
       "review_status": "pending"
     },
     {
@@ -389,7 +389,7 @@
         "width": 821,
         "height": 205
       },
-      "sha256": "ca4b3a455a8e2f8d8a87a75fd1ad803ffa14f02d60c032828c21a4754401c185",
+      "sha256": "0e6e4a8f2374de492095d0387368cc5307a53adc60a1154a9cee35b196bb061e",
       "review_status": "pending"
     },
     {
@@ -432,7 +432,7 @@
         "width": 821,
         "height": 283
       },
-      "sha256": "40476e216d5c9764baabe2c3dd7b1ee6fae8b5202f8487da59f4308a91626cac",
+      "sha256": "78f83e1a5077684930d4a5fd8ae823cb6f1f2a7e52611e1a394c6ebb4d808faf",
       "review_status": "pending"
     },
     {
@@ -518,7 +518,7 @@
         "width": 668,
         "height": 213
       },
-      "sha256": "7972df341e5ffbdbc8fdc7446836d1a7875bd1cef7b61c31ad04efe20728d3d8",
+      "sha256": "dfaa0328f985ed178f16a9670883997abc148ead4504c000eb4cb48bd919f693",
       "review_status": "pending"
     },
     {
@@ -561,7 +561,7 @@
         "width": 821,
         "height": 156
       },
-      "sha256": "6d9b4f0e95aad5e6cab627081d0e2ef98744cb21656bac7cdaf55099dfcd3f65",
+      "sha256": "4c51c5fe752d5da5135b0456cb55228f2725e5207b9e489cd66b959dcee77fca",
       "review_status": "pending"
     },
     {
@@ -604,7 +604,7 @@
         "width": 593,
         "height": 404
       },
-      "sha256": "55ce5a48438287a395efb9f342b9b1512d83b7aa7595867baf230d638276000b",
+      "sha256": "91b38e85f3c7e3e59957f1dbb9fa8c3117e9a375e1d1d7c17239772dd2d34213",
       "review_status": "pending"
     },
     {
@@ -733,7 +733,7 @@
         "width": 671,
         "height": 312
       },
-      "sha256": "ec1a7aec65b1314720535a0d00053ec875d959d1b047de3462463a6587dc4975",
+      "sha256": "e24d4935f73b8ab227b392b59ddaa2e52adcfea59dc77878fe15de07c2417842",
       "review_status": "pending"
     },
     {
@@ -862,7 +862,7 @@
         "width": 568,
         "height": 508
       },
-      "sha256": "1f2e9a9a831da9fba20b854ecb72057d801da3d4516d79dbedb7c892e82b21e2",
+      "sha256": "2776303d83ddd79a70e682c10df2d4621b472429d462a89902621392d574710c",
       "review_status": "pending"
     },
     {
@@ -905,7 +905,7 @@
         "width": 810,
         "height": 961
       },
-      "sha256": "6b8e79a9127d4a2e6f5e1e59cc97c62c97b39d2e6d49e0cd2d8b1b03aa3c33de",
+      "sha256": "a49f3cb4c94c65a4fc3797a35d4d81e52d1a93752752062e20ac89741b92dfa2",
       "review_status": "pending"
     },
     {
@@ -989,7 +989,7 @@
         "width": 821,
         "height": 344
       },
-      "sha256": "026d2bca63070c3c467623769aa8685a9a483f653038388e31d000be5368fd6a",
+      "sha256": "2bb7e5d12c91cc812145ee9f1a50cc20e3f08a2ff08a2c3349637dd5e1562e2a",
       "review_status": "pending"
     },
     {
@@ -1032,7 +1032,7 @@
         "width": 712,
         "height": 146
       },
-      "sha256": "f91c6f1418c63e6be957340c6321c32294956c93c9d2685b0fe679dc02701790",
+      "sha256": "6be664556eb5fbe41527cb140bf59a3e626652eb62374465785d1f6b67671e8e",
       "review_status": "pending"
     },
     {
@@ -1075,7 +1075,7 @@
         "width": 593,
         "height": 95
       },
-      "sha256": "d758ca7b3e992c32277a8cca569fc1807a3a927c58249929570d310a2c3a5fab",
+      "sha256": "c0926c5874fbee423c33057e38080e562038471e77dbb6f508235aac93d9336f",
       "review_status": "pending"
     },
     {
@@ -1154,14 +1154,14 @@
       "output": "screenshots/cs/playground/create-vps-form.png",
       "capture": {
         "driver": "webui",
-        "page": "/?page=adminvps&action=new-step-4&user=&location=3&os_template=3&memory=4096&cpu=8&diskspace=122880&ipv4=1&ipv6=1",
+        "page": "/?page=adminvps&action=new-step-4&user=&location=3&os_template=1&memory=4096&cpu=8&diskspace=122880&ipv4=1&ipv6=1",
         "runner": "vpsadmin-kb-captures/schema-4"
       },
       "dimensions": {
         "width": 652,
         "height": 554
       },
-      "sha256": "d9f8560c481e2ddbefa85924d7e427c756d4c20d15e07e0651f22ee1ed1d0eb0",
+      "sha256": "43cadae03c75b983ef8732787f26ce4cdaef98a6d0553e9a7fec96919b3bf4fe",
       "review_status": "pending"
     },
     {
@@ -1334,7 +1334,7 @@
         "width": 443,
         "height": 312
       },
-      "sha256": "b67011e89da4d935fb4a41b04e76e2abe48a9a512dd03bf9fb375c5e13b1f993",
+      "sha256": "9720e9c8b83831f6c5476805bd1c9c85494743131d2d2c7f4cda1c31942b9882",
       "review_status": "pending"
     },
     {
@@ -1375,9 +1375,9 @@
       },
       "dimensions": {
         "width": 821,
-        "height": 363
+        "height": 389
       },
-      "sha256": "93026d9d559f2b53cc16ffc03e85654513d6265647c3478abf08c913d64480e5",
+      "sha256": "cc561eda67df1fde0915f249461fe416bd06cb15efc8fd939fce0a2a56e6fceb",
       "review_status": "pending"
     },
     {
@@ -1420,7 +1420,7 @@
         "width": 863,
         "height": 439
       },
-      "sha256": "96e5ea1aaa1fa5653131e3cdded03ea4b7493b3515e92812df3ab0323508c071",
+      "sha256": "a1dac45e6f8a3de6e01a8d5f6220b39efaa5cf273c761add10e7b01f942ba195",
       "review_status": "pending"
     },
     {
@@ -1589,7 +1589,7 @@
         "width": 411,
         "height": 187
       },
-      "sha256": "3559952c42b68cc427557998ecd091168c969b8d0d6616851d4227eafefb27e9",
+      "sha256": "209e7376dc6c074cbab304cdc2d5b596d1cbe3dc48ffbe40173ceb0aacbf0f5b",
       "review_status": "pending"
     },
     {
@@ -1624,14 +1624,14 @@
       "output": "screenshots/cs/vps-management/create-vps-form.png",
       "capture": {
         "driver": "webui",
-        "page": "/?page=adminvps&action=new-step-4&user=&location=1&os_template=3&memory=4096&cpu=8&diskspace=122880&ipv4=1&ipv6=1",
+        "page": "/?page=adminvps&action=new-step-4&user=&location=1&os_template=1&memory=4096&cpu=8&diskspace=122880&ipv4=1&ipv6=1",
         "runner": "vpsadmin-kb-captures/schema-4"
       },
       "dimensions": {
         "width": 652,
         "height": 554
       },
-      "sha256": "d15af9e06bbfcfdda6320d243ebdcaebce7850f7dd509e799927f77892b73dcd",
+      "sha256": "2757096aa831c780456d38e00e2c454025f6a5c615fd128fcc1957925317e8bb",
       "review_status": "pending"
     },
     {
@@ -1671,10 +1671,10 @@
         "runner": "vpsadmin-kb-captures/schema-4"
       },
       "dimensions": {
-        "width": 571,
+        "width": 505,
         "height": 254
       },
-      "sha256": "a37d7960219697516f117c580da071a2214232154a981cb3201762d4cdcff2dc",
+      "sha256": "4dde148dee9aaaa4b816a20977d5c68059b8b797465d6015037c2f2476f0e98b",
       "review_status": "pending",
       "legacy_aliases": [
         {
@@ -1724,7 +1724,7 @@
         "width": 604,
         "height": 242
       },
-      "sha256": "cfe59a182955645ad568444ce7ccb93354846b4176e7c82a497407ee093321d9",
+      "sha256": "4a8c3dd95a6958d0a9c0294d28ea0abdcccb361a6b4c16ae49ce621767277517",
       "review_status": "pending"
     },
     {
@@ -2443,7 +2443,7 @@
         "width": 782,
         "height": 292
       },
-      "sha256": "6abf7a3b0f06765349ae34c2a03d3fdc54a5cbf4b596206f87a311f9c6baf81f",
+      "sha256": "3da1c3fe5dac48e8de63c65041e89793d71a85739f8d3248bd133e169f438a03",
       "review_status": "pending"
     },
     {
@@ -2486,7 +2486,7 @@
         "width": 1150,
         "height": 961
       },
-      "sha256": "51a260e7db19099ff4c0785e5dd341ba2f4bde157fdfc586f3834ba862c0e5f4",
+      "sha256": "e799d09b59f0fa66d7a0c93d69c59a552379bbc58da8f6f465917a658a63bbbd",
       "review_status": "pending"
     },
     {
@@ -2529,7 +2529,7 @@
         "width": 593,
         "height": 185
       },
-      "sha256": "23734704f6d0a90271de0c971c4bf7e6773677d331f1b121490aa108af37d44a",
+      "sha256": "8028816bbc87745f840b1133d2c53a173265754da53d8a0e7a9ecb0d086bd67b",
       "review_status": "pending"
     }
   ]
