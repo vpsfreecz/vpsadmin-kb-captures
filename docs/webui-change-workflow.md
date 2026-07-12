@@ -177,6 +177,9 @@ bin/kb-release verify --manifest work/SLUG/kb-release-en.yml
 
 Review both sites through their staging hostnames. Verify normal page IDs,
 screenshots, rendered navigation markers, and bidirectional language links.
+Only one manifest can be the pending promotion at a time; staging the second
+language intentionally replaces the first pending record. Both page sets remain
+available for review.
 
 ## 7. Publish only after explicit approval
 
@@ -185,18 +188,29 @@ separate operator decisions. The plugin must be deployed before annotated
 pages. Never treat a green check, staging review, merge approval, or a general
 “continue” as production-write approval.
 
-After direct approval for the exact manifest:
+After direct approval, stage, verify, and immediately promote each exact
+manifest separately. Restaging here recreates its pending digest; it must not
+change the already reviewed candidate files.
 
 ```sh
+bin/kb-release stage --manifest work/SLUG/kb-release-cs.yml --yes
+bin/kb-release verify --manifest work/SLUG/kb-release-cs.yml
 bin/kb-release promote --manifest work/SLUG/kb-release-cs.yml \
   --yes --approved-production
+
+bin/kb-release stage --manifest work/SLUG/kb-release-en.yml --yes
+bin/kb-release verify --manifest work/SLUG/kb-release-en.yml
 bin/kb-release promote --manifest work/SLUG/kb-release-en.yml \
   --yes --approved-production
+
+bin/kb-stage release --yes
 ```
 
 Verify production after promotion. Roll back pages before removing the plugin;
 do not remove the plugin while published pages still contain its syntax unless
-fallback rendering has been proven.
+fallback rendering has been proven. If review is abandoned while a manifest is
+pending, `bin/kb-stage release --yes` refuses to discard it; use
+`--discard-pending` only as an explicit abandonment decision.
 
 ## Completion checklist
 
