@@ -93,8 +93,8 @@ def upsert_capture_infrastructure!(shape, node_locations:, console_url:)
     )
   end
 
-  node_locations.each do |node_name, location_key|
-    Node.find_by!(name: node_name).update!(location: locations.fetch(location_key))
+  node_locations.each do |attrs|
+    Node.find(attrs.fetch('id')).update!(location: locations.fetch(attrs.fetch('location')))
   end
 
   {

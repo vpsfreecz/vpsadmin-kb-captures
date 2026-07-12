@@ -39,8 +39,10 @@ tooling at a shared or production cluster.
 The committed fixture shape mirrors the public production labels and resource
 values needed by the documentation: Production, Playground, Praha storage,
 Staging, their five locations, and the public package catalog. It deliberately
-uses stable local IDs and `example.test` domains. Large resource values remain
-decimal strings so IPv6 quantities are not rounded by JSON implementations.
+uses stable local IDs, documentation-safe environment domains, and the
+production location domains `prg`, `brq`, `pgnd`, and `stg`. Large resource
+values remain decimal strings so IPv6 quantities are not rounded by JSON
+implementations.
 The nodes use sparse 320 GiB tank images so the production-sized fixture
 packages pass pool-capacity checks without allocating that space up front.
 

@@ -378,7 +378,6 @@ let
   nodeHostNames =
     node:
     [
-      node.name
       node.domainName
     ]
     ++ lib.optional (node ? serverName) node.serverName;
@@ -507,10 +506,9 @@ let
 
     production_shape = JSON.parse(${builtins.toJSON (builtins.toJSON productionShape)})
     node_locations = JSON.parse(${
-      builtins.toJSON (builtins.toJSON (builtins.listToAttrs (map (node: {
-        name = node.name;
-        value = node.location;
-      }) nodeList)))
+      builtins.toJSON (builtins.toJSON (map (node: {
+        inherit (node) id location;
+      }) nodeList))
     })
     capture_infrastructure = upsert_capture_infrastructure!(
       production_shape,
@@ -972,9 +970,9 @@ let
     with_devcluster_admin_session(admin) do
       ensure_capture_nas_dataset!(
         user: User.find_by!(login: 'test-user1'),
-        pool: Pool.joins(:node).find_by!(
+        pool: Pool.find_by!(
           role: :primary,
-          nodes: { name: 'dev-backuper1' }
+          node_id: ${toString availableNodes.backuper1.id}
         ),
         quota: 256_000
       )
@@ -1787,7 +1785,9 @@ let
       fileSystems = sharedMounts;
 
       networking = {
-        hosts = devHosts;
+        hosts = devHosts // {
+          "${node.ip}" = lib.unique ((devHosts.${node.ip} or [ ]) ++ [ node.name ]);
+        };
         custom = lib.mkIf (networkModeChecked == "bridge") (
           lib.mkAfter ''
             ip route replace default via ${devGateway} dev eth1
@@ -1846,7 +1846,7 @@ let
         socketPeers = {
           vpsadmin-services = serviceIp;
         }
-        // listToAttrs (map (peer: nameValuePair peer.name peer.ip) allNodeList);
+        // listToAttrs (map (peer: nameValuePair peer.domainName peer.ip) allNodeList);
       };
     };
 
@@ -1880,7 +1880,7 @@ let
         socketPeers = {
           vpsadmin-services = serviceIp;
         }
-        // listToAttrs (map (peer: nameValuePair peer.name peer.ip) allNodeList);
+        // listToAttrs (map (peer: nameValuePair peer.domainName peer.ip) allNodeList);
       };
 
       vpsadmin.nodectld.settings.vpsadmin.queues = {

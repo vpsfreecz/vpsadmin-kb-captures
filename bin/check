@@ -11,11 +11,13 @@ node tools/check-terminal.cjs
 node tools/check-console.cjs
 node tools/check-crop.cjs
 node tools/check-font.cjs
+node tools/check-topology.cjs
 node tools/check-provenance.cjs
 node tools/check-dataset-links.cjs
 bash -n bin/capture bin/contact-sheet bin/devcluster
 shellcheck bin/capture bin/contact-sheet bin/devcluster
 jq empty captures.json cluster/default-config.json fixtures/production-shape.json
+nix-instantiate --parse cluster/nix/test.nix >/dev/null
 ruby -c bin/validate
 ruby -c cluster/seed-production-shape.rb
 ruby tools/check-seed.rb

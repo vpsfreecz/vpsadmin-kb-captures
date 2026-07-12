@@ -42,7 +42,7 @@
   "nodes": {
     "node1": {
       "id": 101,
-      "name": "dev-node1",
+      "name": "node1",
       "ip": "172.16.106.41",
       "role": "node",
       "location": "praha",
@@ -55,7 +55,7 @@
     },
     "node2": {
       "id": 102,
-      "name": "dev-node2",
+      "name": "node1",
       "ip": "172.16.106.42",
       "role": "node",
       "location": "playground",
@@ -68,7 +68,7 @@
     },
     "backuper1": {
       "id": 201,
-      "name": "dev-backuper1",
+      "name": "backuper1",
       "ip": "172.16.106.45",
       "role": "storage",
       "location": "praha-storage",

@@ -11,8 +11,8 @@
       "maxVpsCount": 5,
       "userIpOwnership": true,
       "locations": [
-        { "key": "praha", "label": "Praha", "domain": "praha.example.test", "hasIpv6": true },
-        { "key": "brno", "label": "Brno", "domain": "brno.example.test", "hasIpv6": true }
+        { "key": "praha", "label": "Praha", "domain": "prg", "hasIpv6": true },
+        { "key": "brno", "label": "Brno", "domain": "brq", "hasIpv6": true }
       ],
       "defaultPackage": "standard-production"
     },
@@ -26,7 +26,7 @@
       "maxVpsCount": 2,
       "userIpOwnership": false,
       "locations": [
-        { "key": "playground", "label": "Playground", "domain": "playground-location.example.test", "hasIpv6": true }
+        { "key": "playground", "label": "Playground", "domain": "pgnd", "hasIpv6": true }
       ],
       "defaultPackage": "standard-playground"
     },
@@ -40,7 +40,7 @@
       "maxVpsCount": 0,
       "userIpOwnership": false,
       "locations": [
-        { "key": "praha-storage", "label": "Praha Storage", "domain": "praha-storage.example.test", "hasIpv6": false }
+        { "key": "praha-storage", "label": "Praha Storage", "domain": "prg", "hasIpv6": false }
       ],
       "defaultPackage": "standard-nas"
     },
@@ -54,7 +54,7 @@
       "maxVpsCount": 4,
       "userIpOwnership": false,
       "locations": [
-        { "key": "staging", "label": "Staging", "domain": "staging-location.example.test", "hasIpv6": true }
+        { "key": "staging", "label": "Staging", "domain": "stg", "hasIpv6": true }
       ],
       "defaultPackage": "standard-staging"
     }
