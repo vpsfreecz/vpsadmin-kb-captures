@@ -1,13 +1,14 @@
 const { goto } = require('../lib/webui.cjs');
+const { label } = require('../lib/i18n.cjs');
 
-async function run({ fixtures, page, session }) {
+async function run({ fixtures, language, page, session }) {
   const vps = fixtures.vpsId;
   const dataset = fixtures.datasetId;
   const childDataset = fixtures.childDatasetId;
 
   await goto(page, `/?page=adminvps&action=info&veid=${vps}`);
-  await session.section(page, 'datasets/vps-dataset-list', 'Datasety');
-  await session.section(page, 'datasets/mount-list', 'Mounty');
+  await session.section(page, 'datasets/vps-dataset-list', label(language, 'datasets'));
+  await session.section(page, 'datasets/mount-list', label(language, 'mounts'));
 
   await goto(page, `/?page=dataset&action=new&role=hypervisor&parent=${dataset}`);
   await session.locator(page, 'datasets/create-dataset-form', page.locator('#content-in'));

@@ -16,7 +16,7 @@ Enter the pinned shell, start an isolated cluster, and run the captures:
 ```sh
 nix develop
 bin/devcluster start kb-captures --topology screenshots
-bin/capture --cluster kb-captures --language cs
+bin/capture --cluster kb-captures --language en
 bin/validate --update
 bin/validate
 bin/devcluster stop kb-captures
@@ -65,17 +65,19 @@ example `cs:screenshots:vpsadmin:console:web-console.png`. Display-order
 prefixes and revision suffixes are deliberately absent: scenario code defines
 capture order, while Git and DokuWiki provide revision history.
 
-`captures.json` records the legacy KB media IDs and source pages, canonical
-media ID, language, topic, scenario/checkpoint, driver,
-fixtures, pinned vpsAdmin commit, viewport, dimensions, SHA-256, and capture
-provenance. One scenario can emit several related screenshots, but every
-individual bitmap has an independently addressable semantic checkpoint.
+`captures.json` contains 59 language-neutral screenshot concepts. Every
+concept has Czech and English variants with independent legacy/source-page
+bindings, canonical media ID, output, dimensions, SHA-256, review state, and
+capture provenance. Topic, scenario/checkpoint, driver, fixtures, viewport,
+and the pinned vpsAdmin commit are shared. A scenario can emit several related
+screenshots, but every bitmap has an independently addressable semantic
+checkpoint and language variant.
 
 `bin/validate --update` accepts capture results only when their ID, checkpoint,
 driver, output path, and SHA-256 agree with the manifest and generated file.
 Review the image and manifest diffs, then run strict `bin/validate`.
-`bin/contact-sheet [TOPIC_OR_SCENARIO]` writes an ignored visual review sheet
-under `tmp/`.
+`bin/contact-sheet [TOPIC_OR_SCENARIO] [cs|en]` writes an ignored visual review
+sheet under `tmp/`. The language defaults to Czech.
 
 Capture bounds are derived from visible text, controls, complete table and
 fieldset boxes, images, terminal surfaces, and other meaningful content inside

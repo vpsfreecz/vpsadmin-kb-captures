@@ -24,6 +24,7 @@ node tools/check-font.cjs
 node tools/check-topology.cjs
 node tools/check-provenance.cjs
 node tools/check-dataset-links.cjs
+node tools/check-i18n.cjs
 bash -n bin/capture bin/contact-sheet bin/devcluster
 shellcheck bin/capture bin/contact-sheet bin/devcluster
 jq empty captures.json cluster/default-config.json fixtures/production-shape.json

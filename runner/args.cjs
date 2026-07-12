@@ -1,6 +1,5 @@
 function parseArgs(argv) {
   const options = {
-    language: 'cs',
     viewport: { width: 1440, height: 1100 },
   };
 
@@ -40,6 +39,9 @@ function parseArgs(argv) {
     if (!options.cluster) {
       throw new Error('--cluster is required');
     }
+    if (!options.language) {
+      throw new Error('--language is required');
+    }
     if (!['cs', 'en'].includes(options.language)) {
       throw new Error('--language must be cs or en');
     }
@@ -49,7 +51,7 @@ function parseArgs(argv) {
 }
 
 const usage = `Usage:
-  bin/capture --cluster SLUG [--language cs|en]
+  bin/capture --cluster SLUG --language cs|en
     [--scenario NAME] [--checkpoint SCENARIO/CHECKPOINT]
 `;
 

@@ -3,6 +3,7 @@ const path = require('path');
 const { execFileSync, spawnSync } = require('child_process');
 
 const { datasetIdsFromHrefs } = require('../lib/dataset-links.cjs');
+const { fixturesFor } = require('../lib/i18n.cjs');
 
 const {
   DEFAULT_OS_TEMPLATE,
@@ -285,15 +286,15 @@ async function vpsNodeMachine(page, vpsId) {
   return match ? `node${match[1]}` : 'node1';
 }
 
-async function ensurePublicKey(page) {
+async function ensurePublicKey(page, publicKeyLabel) {
   await goto(page, '/?page=adminm&action=pubkeys&id=2');
-  const matches = await page.getByText('Dokumentační klíč', { exact: true }).count();
-  if (matches > 1) throw new Error('Multiple public keys use the fixture label Dokumentační klíč');
+  const matches = await page.getByText(publicKeyLabel, { exact: true }).count();
+  if (matches > 1) throw new Error(`Multiple public keys use the fixture label ${publicKeyLabel}`);
   if (matches === 1) return;
   await goto(page, '/?page=adminm&action=pubkey_add&id=2');
   const form = page.locator('form').filter({ has: page.locator('textarea[name="key"]') }).first();
   const label = form.locator('input[name="label"], input[name="name"]');
-  if ((await label.count()) > 0) await label.fill('Dokumentační klíč');
+  if ((await label.count()) > 0) await label.fill(publicKeyLabel);
   const keyType = Buffer.from('ssh-ed25519');
   const length = (value) => {
     const result = Buffer.alloc(4);
@@ -313,20 +314,20 @@ async function ensurePublicKey(page) {
   await page.waitForLoadState('domcontentloaded');
 }
 
-async function ensureSnapshot(page, datasetId) {
+async function ensureSnapshot(page, datasetId, snapshotLabel) {
   await goto(page, '/?page=backup&action=vps');
-  let rows = page.locator('#content-in tr', { hasText: 'Dokumentační snapshot' });
+  let rows = page.locator('#content-in tr', { hasText: snapshotLabel });
   let count = await rows.count();
   if (count > 1) throw new Error('Multiple snapshots use the fixture label Dokumentační snapshot');
   if (count === 0) {
     await goto(page, `/?page=backup&action=snapshot&dataset=${datasetId}`);
     const form = page.locator('form[action*="action=snapshot_create"]');
-    await form.locator('input[name="label"]').fill('Dokumentační snapshot');
+    await form.locator('input[name="label"]').fill(snapshotLabel);
     await submitLast(form);
     const deadline = Date.now() + 5 * 60_000;
     while (Date.now() < deadline) {
       await goto(page, '/?page=backup&action=vps');
-      rows = page.locator('#content-in tr', { hasText: 'Dokumentační snapshot' });
+      rows = page.locator('#content-in tr', { hasText: snapshotLabel });
       count = await rows.count();
       if (count > 0) break;
       await page.waitForTimeout(3_000);
@@ -390,8 +391,9 @@ function networkInterface(cluster, node, vpsId) {
   return interfaces[0];
 }
 
-async function prepareFixtures({ cluster, page, required, repoRoot }) {
+async function prepareFixtures({ cluster, language, page, required, repoRoot }) {
   const requiredSet = new Set(required);
+  const fixtureLabels = fixturesFor(language);
   const userId = await findUserId(page, 'test-user1');
   const vpsId = await findOwnedVps(page, 'vps') ||
     await createVpsIn(page, userId, 'vps', true, 'Production', 'Praha');
@@ -417,9 +419,9 @@ async function prepareFixtures({ cluster, page, required, repoRoot }) {
         'Playground',
       );
   }
-  if (requiredSet.has('public-key')) await ensurePublicKey(page);
+  if (requiredSet.has('public-key')) await ensurePublicKey(page, fixtureLabels.publicKey);
   if (requiredSet.has('snapshot')) {
-    fixtures.snapshot = await ensureSnapshot(page, datasetId);
+    fixtures.snapshot = await ensureSnapshot(page, datasetId, fixtureLabels.snapshot);
   }
   if (requiredSet.has('nixos-generations')) {
     ensureNixosGenerations(cluster, node, vpsId);

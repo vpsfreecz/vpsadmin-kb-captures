@@ -8,6 +8,7 @@ const {
   waitForConsoleText,
 } = require('../lib/console.cjs');
 const { goto } = require('../lib/webui.cjs');
+const { label } = require('../lib/i18n.cjs');
 
 async function captureConsole(session, page, frame, checkpoint) {
   await session.locator(
@@ -18,10 +19,10 @@ async function captureConsole(session, page, frame, checkpoint) {
   );
 }
 
-async function captureWebConsole(session, page, checkpoint, includeSidebar = false) {
+async function captureWebConsole(session, page, checkpoint, language, includeSidebar = false) {
   await page.locator('#perex').scrollIntoViewIfNeeded();
   const targets = [
-    page.locator('#perex h1', { hasText: /Vzdálená konzole pro VPS/ }).first(),
+    page.locator('#perex h1', { hasText: label(language, 'remoteConsoleForVps') }).first(),
     page.locator('#vpsadmin-console-frame'),
   ];
   if (includeSidebar) {
@@ -42,18 +43,18 @@ async function captureWebConsole(session, page, checkpoint, includeSidebar = fal
   await session.shot(page, checkpoint, targets);
 }
 
-async function run({ cluster, fixtures, page, session }) {
+async function run({ cluster, fixtures, language, page, session }) {
   const vps = fixtures.vpsId;
   const guestBoot = /(?:[\w.-]+ login:)|Debian GNU\/Linux/i;
   let normalBootVerified = false;
   try {
     await goto(page, `/?page=adminvps&action=info&veid=${vps}`);
     await session.titleAndFirstTable(page, 'console/open-web-console');
-    await session.section(page, 'start-menu/vps-action', 'Start menu');
+    await session.section(page, 'start-menu/vps-action', label(language, 'startMenu'));
     await session.section(
       page,
       'rescue-mode/boot-form',
-      'Spustit VPS ze šablony (nouzový režim)',
+      label(language, 'rescueMode'),
     );
 
     await setStartMenuTimeout(page, vps, 60);
@@ -80,7 +81,7 @@ async function run({ cluster, fixtures, page, session }) {
       banner,
       { includeRemoteWelcome: true },
     );
-    await captureWebConsole(session, page, 'console/web-console');
+    await captureWebConsole(session, page, 'console/web-console', language);
 
     await restartFromConsole(page);
     await waitForConsoleText(remote.frame, /Start Menu/);
@@ -104,6 +105,7 @@ async function run({ cluster, fixtures, page, session }) {
       session,
       page,
       'rescue-mode/vps-console-boot',
+      language,
       true,
     );
   } finally {

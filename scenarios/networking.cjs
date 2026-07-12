@@ -1,14 +1,15 @@
 const { renderTerminal, runTrafficMonitor } = require('../lib/terminal.cjs');
 const { goto } = require('../lib/webui.cjs');
+const { label } = require('../lib/i18n.cjs');
 
-async function run({ cluster, fixtures, page, proxyUrl, repoRoot, session }) {
+async function run({ cluster, fixtures, language, page, proxyUrl, repoRoot, session }) {
   const vps = fixtures.vpsId;
 
   await goto(page, `/?page=adminvps&action=info&veid=${vps}`);
   await session.locator(
     page,
     'traffic/vps-monthly-transfers',
-    page.locator('form', { hasText: 'Přenosy za' }).first(),
+    page.locator('form', { hasText: label(language, 'transfersIn') }).first(),
   );
   await session.locator(
     page,

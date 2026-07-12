@@ -1,8 +1,10 @@
 const { goto, preparePage, submitLast } = require('../lib/webui.cjs');
+const { fixturesFor, label } = require('../lib/i18n.cjs');
 
-async function totpConfirmation(page) {
+async function totpConfirmation(page, language) {
+  const deviceLabel = fixturesFor(language).totpDevice;
   await goto(page, '/?page=adminm&action=totp_devices&id=2');
-  const rows = page.locator('#content-in tr', { hasText: 'Dokumentační zařízení' });
+  const rows = page.locator('#content-in tr', { hasText: deviceLabel });
   const count = await rows.count();
   if (count > 1) throw new Error('Multiple TOTP devices use the fixture label');
   if (count === 1) {
@@ -22,17 +24,17 @@ async function totpConfirmation(page) {
 
   await goto(page, '/?page=adminm&action=totp_device_add&id=2');
   const add = page.locator('form[action*="action=totp_device_add"]');
-  await add.locator('input[name="label"]').fill('Dokumentační zařízení');
+  await add.locator('input[name="label"]').fill(deviceLabel);
   await submitLast(add);
   await page.waitForLoadState('domcontentloaded');
   await preparePage(page);
 }
 
-async function run({ page, session }) {
+async function run({ language, page, session }) {
   await goto(page, '/?page=adminm&section=members&action=edit&id=2');
-  await session.tableByText(page, 'account/email-roles', 'E-mailové role');
-  await session.tableByText(page, 'account/multifactor-status', 'Dvoufaktorová autentizace');
-  await session.tableByText(page, 'account/session-settings', 'Nastavení relací');
+  await session.tableByText(page, 'account/email-roles', label(language, 'emailRoles'));
+  await session.tableByText(page, 'account/multifactor-status', label(language, 'multifactorStatus'));
+  await session.tableByText(page, 'account/session-settings', label(language, 'sessionSettings'));
 
   await goto(page, '/?page=adminm&section=members&action=template_recipients&id=2');
   const recipientRows = page.locator('#content-in table').first().locator('tr');
@@ -43,7 +45,7 @@ async function run({ page, session }) {
   );
 
   if (session.wants('account/totp-confirm')) {
-    await totpConfirmation(page);
+    await totpConfirmation(page, language);
     const form = page.locator('form[action*="action=totp_device_confirm"]');
     await form.evaluate((element) => {
       for (const input of element.querySelectorAll('input[type="hidden"]')) {
