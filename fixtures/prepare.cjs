@@ -5,10 +5,11 @@ const { execFileSync, spawnSync } = require('child_process');
 const { datasetIdsFromHrefs } = require('../lib/dataset-links.cjs');
 
 const {
+  DEFAULT_OS_TEMPLATE,
   goto,
   preparePage,
   selectFirstOption,
-  selectFirstRadio,
+  selectRadioByRowText,
   submitLast,
 } = require('../lib/webui.cjs');
 
@@ -80,8 +81,7 @@ async function createVpsIn(
   await preparePage(page);
 
   form = page.locator('form[name="newvps-step2"]');
-  await page.locator('details').first().evaluate((details) => { details.open = true; }).catch(() => {});
-  await selectFirstRadio(form, 'os_template');
+  await selectRadioByRowText(form, 'os_template', DEFAULT_OS_TEMPLATE);
   await submitLast(form);
   await page.waitForLoadState('domcontentloaded');
   await preparePage(page);
@@ -365,7 +365,7 @@ function ensureNixosGenerations(cluster, node, vpsId) {
 function generateTrafficSamples(cluster, node, vpsId) {
   const result = spawnSync(cluster.commandPath, cluster.sshArgs(node, [
     'osctl', 'ct', 'exec', String(vpsId),
-    '/bin/busybox', 'ping', '-c', '200', '-i', '0.02', '-W', '1', '198.51.100.1',
+    '/bin/ping', '-c', '200', '-i', '0.02', '-W', '1', '198.51.100.1',
   ]), { encoding: 'utf8', timeout: 15_000 });
   if (result.error || ![0, 1].includes(result.status) || !result.stdout.includes('PING')) {
     throw new Error(

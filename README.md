@@ -29,7 +29,8 @@ the ignored `.devcluster/` directory.
 
 The capture command reads the cluster's generated test accounts, verifies the
 pinned vpsAdmin revision, creates or reuses only fixtures owned by this
-repository, selects the requested locale, and writes PNG files under
+repository, selects the requested locale and the exact `Debian (latest)` VPS
+template, and writes PNG files under
 `screenshots/<language>/<topic>/`. Fixtures can create the two documentation
 VPSes (`vps` and `playground-vps`), a mounted `data` subdataset, a `nas`
 dataset on `backuper1`, a labeled snapshot, a public key, an unconfirmed TOTP

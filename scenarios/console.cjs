@@ -1,4 +1,5 @@
 const {
+  debianConsoleBanner,
   openRemoteConsole,
   normalizeGuestConsole,
   restartFromConsole,
@@ -41,9 +42,9 @@ async function captureWebConsole(session, page, checkpoint, includeSidebar = fal
   await session.shot(page, checkpoint, targets);
 }
 
-async function run({ fixtures, page, session }) {
+async function run({ cluster, fixtures, page, session }) {
   const vps = fixtures.vpsId;
-  const guestBoot = /(?:[\w.-]+ login:)|OpenRC|Alpine Linux|Debian GNU\/Linux|Linux version/i;
+  const guestBoot = /(?:[\w.-]+ login:)|Debian GNU\/Linux/i;
   let normalBootVerified = false;
   try {
     await goto(page, `/?page=adminvps&action=info&veid=${vps}`);
@@ -60,7 +61,7 @@ async function run({ fixtures, page, session }) {
     await send(remote.frame, '\r');
     let initial = await waitForConsoleText(
       remote.frame,
-      /Start Menu|emergency shell|\/ #|(?:[\w.-]+ login:)|OpenRC|Alpine Linux|Debian GNU\/Linux|Linux version/i,
+      /Start Menu|emergency shell|\/ #|(?:[\w.-]+ login:)|Debian GNU\/Linux/i,
     );
     if (/emergency shell|\/ #/i.test(initial)) {
       await send(remote.frame, 'exit\r');
@@ -68,6 +69,17 @@ async function run({ fixtures, page, session }) {
     }
     if (/Start Menu/.test(initial)) await send(remote.frame, 'i');
     await waitForConsoleText(remote.frame, guestBoot);
+    const banner = debianConsoleBanner(
+      cluster,
+      fixtures.node,
+      fixtures.vpsId,
+      fixtures.hostname,
+    );
+    await normalizeGuestConsole(
+      remote.frame,
+      banner,
+      { includeRemoteWelcome: true },
+    );
     await captureWebConsole(session, page, 'console/web-console');
 
     await restartFromConsole(page);
@@ -86,7 +98,7 @@ async function run({ fixtures, page, session }) {
     await send(remote.frame, 'i');
     await waitForConsoleText(remote.frame, /vps login:/i);
     normalBootVerified = true;
-    await normalizeGuestConsole(remote.frame);
+    await normalizeGuestConsole(remote.frame, banner);
 
     await captureWebConsole(
       session,
