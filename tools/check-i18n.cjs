@@ -34,3 +34,4 @@ const session = new CaptureSession({
 assert.strictEqual(session.assets.length, 1);
 assert.strictEqual(session.assets[0].language, 'en');
 assert.strictEqual(session.assets[0].output, 'screenshots/en/topic/view.png');
+assert.strictEqual(typeof session.documentationSection, 'function');

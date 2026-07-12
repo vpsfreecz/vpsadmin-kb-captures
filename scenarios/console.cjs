@@ -51,10 +51,10 @@ async function run({ cluster, fixtures, language, page, session }) {
     await goto(page, `/?page=adminvps&action=info&veid=${vps}`);
     await session.titleAndFirstTable(page, 'console/open-web-console');
     await session.section(page, 'start-menu/vps-action', label(language, 'startMenu'));
-    await session.section(
+    await session.documentationSection(
       page,
       'rescue-mode/boot-form',
-      label(language, 'rescueMode'),
+      'vps.boot-rescue',
     );
 
     await setStartMenuTimeout(page, vps, 60);

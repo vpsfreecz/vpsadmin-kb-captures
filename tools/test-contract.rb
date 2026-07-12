@@ -93,6 +93,21 @@ class ContractCheckerTest < Minitest::Test
     end
   end
 
+  def test_semantic_selector_drift_is_rejected
+    with_capture_source_copy do |capture_source|
+      path = File.join(capture_source, 'scenarios/vps-management.cjs')
+      replace_in_file(path, 'await session.documentationSection(', 'await session.section(')
+      _out, error, status = run_checker(
+        CONTRACT,
+        CAPTURES,
+        capture_source: capture_source
+      )
+
+      refute(status.success?)
+      assert_match(%r{semantic selector changed for vps-management/feature-settings}, error)
+    end
+  end
+
   def test_invalid_language_namespace_is_rejected
     _out, error, status = check_mutated_contract do |contract|
       contract.fetch('paths').first.fetch('pages')['en'] = ['navody:wrong-language']
@@ -136,6 +151,20 @@ class ContractCheckerTest < Minitest::Test
         FileUtils.mkdir_p(File.dirname(destination))
         FileUtils.cp(File.join(@vpsadmin, relative), destination)
         FileUtils.chmod(0o644, destination)
+      end
+      yield dir
+    end
+  end
+
+  def with_capture_source_copy
+    contract = YAML.safe_load_file(CONTRACT)
+    files = contract.fetch('semantic_selectors').map { |selector| selector.dig('source', 'path') }
+
+    Dir.mktmpdir do |dir|
+      files.uniq.each do |relative|
+        destination = File.join(dir, relative)
+        FileUtils.mkdir_p(File.dirname(destination))
+        FileUtils.cp(File.join(ROOT, relative), destination)
       end
       yield dir
     end

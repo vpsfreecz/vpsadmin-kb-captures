@@ -14,11 +14,13 @@ async function run({ fixtures, language, page, session }) {
   await session.section(page, 'vps-management/reinstall-form', label(language, 'reinstallSystem'));
   await session.section(page, 'vps-management/resource-settings', label(language, 'resources'));
   await session.section(page, 'vps-management/hostname-form', 'Hostname');
-  await session.section(page, 'vps-management/feature-settings', label(language, 'features'));
+  await session.documentationSection(
+    page,
+    'vps-management/feature-settings',
+    'vps.features',
+  );
   await session.section(page, 'vps-management/outage-windows', label(language, 'maintenanceWindows'));
-  const features = page.locator('#content-in h2', {
-    hasText: new RegExp(`^\\s*${label(language, 'features')}\\s*$`),
-  }).first();
+  const features = page.locator('[data-vpsadmin-doc-id="vps.features"]').first();
   await session.locator(
     page,
     'vps-details/feature-settings',

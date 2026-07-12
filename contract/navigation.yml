@@ -267,7 +267,40 @@ controls:
       contains: "table_title(_('Deploy to VPS'), 'userdata.deploy')"
       fingerprint: a170202ae14d283bdf849343f3a49c3538ad1d5ae3e12db9037f58bde40da243
 
-semantic_selectors: []
+semantic_selectors:
+  - capture: vps-management/feature-settings
+    control: vps.features
+    source:
+      path: scenarios/vps-management.cjs
+      declaration: |
+        await session.documentationSection(
+          page,
+          'vps-management/feature-settings',
+          'vps.features',
+        );
+
+  - capture: vps-details/feature-settings
+    control: vps.features
+    source:
+      path: scenarios/vps-management.cjs
+      declaration: |
+        const features = page.locator('[data-vpsadmin-doc-id="vps.features"]').first();
+        await session.locator(
+          page,
+          'vps-details/feature-settings',
+          features.locator('xpath=following-sibling::*[1]'),
+        );
+
+  - capture: rescue-mode/boot-form
+    control: vps.boot-rescue
+    source:
+      path: scenarios/console.cjs
+      declaration: |
+        await session.documentationSection(
+          page,
+          'rescue-mode/boot-form',
+          'vps.boot-rescue',
+        );
 
 paths:
   - id: member.payment-instructions.open
