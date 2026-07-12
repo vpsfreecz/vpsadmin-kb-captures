@@ -1,5 +1,5 @@
 schema: 1
-vpsadmin_revision: f76c0cf9585757e9aaa94664cc6d5f6983766df9
+vpsadmin_revision: 1c575161c5e02ff144fc9878d6063db41fb1b1bc
 languages:
   - cs
   - en
@@ -18,6 +18,37 @@ controls:
         - path: webui/lib/xtemplate.lib.php
           contains: L_EDIT_PROFILE
       fingerprint: 2d14b2163811f698eb2c0e4900424014dcd52a7f24aa87f467c4458eebdc0a6b
+
+  - id: vps.menu
+    label: { en: VPS, cs: VPS }
+    source:
+      path: webui/public/index.php
+      contains: "?page=adminvps"
+      fingerprint: 780cff337602656a3feac47e2f02c3f929ad98e9b7bb5018fbd0bd021676d41e
+
+  - id: userdata.menu
+    label: { en: User data, cs: User data }
+    source:
+      path: webui/forms/vps.forms.php
+      contains: "?page=userdata&action=list"
+      related:
+        - path: webui/pages/page_adminm.php
+          contains: "'userdata.menu'"
+      fingerprint: 8a6173a7206fbefb8ceb420ffce3d8f9a8d47d946881eab61ec01e8ba9d826cd
+
+  - id: exports.menu
+    label: { en: Exports, cs: Exporty }
+    source:
+      path: webui/public/index.php
+      contains: "?page=export"
+      fingerprint: d46ad0f6d48188d47e8a785faf6835df258ef4cb5e053eee4bd46b08decde61a
+
+  - id: exports.export-dataset
+    label: { en: Export dataset, cs: Export datasetu }
+    source:
+      path: webui/forms/export.forms.php
+      contains: "action=export_dataset"
+      fingerprint: 000a0c5eee5fb9797b209a8e9abdd7cfa6c907a6776c0dadcfc8fee410d0bc61
 
   - id: member.payment-instructions
     label: { en: Payment instructions, cs: Pokyny k platbě }
@@ -113,7 +144,7 @@ controls:
     source:
       path: webui/public/index.php
       contains: "?page=networking"
-      fingerprint: 67b61764725032409e6843f4037a989d08a3b65ee83d64a9cfe91f1e14390e6f
+      fingerprint: 1f6d92c67f80732ab85d5496b725bc3502c56cfb689ea3ff0a37ac8429144a1a
 
   - id: networking.routable-addresses
     label: { en: Routable addresses, cs: Routované adresy }
@@ -303,6 +334,12 @@ semantic_selectors:
         );
 
 paths:
+  - id: member.edit-profile.open
+    steps: [member.edit-profile]
+    pages:
+      cs: [navody:vps:uzivatele]
+      en: [manuals:vps:users]
+
   - id: member.payment-instructions.open
     steps: [member.edit-profile, member.payment-instructions]
     pages:
@@ -396,8 +433,8 @@ paths:
   - id: backups.vps.open
     steps: [backups.menu, backups.vps]
     pages:
-      cs: [navody:vps:zalohy, navody:vps:obnova_webu_zo_zalohy]
-      en: [manuals:vps:backups]
+      cs: [navody:vps:zalohy, navody:vps:obnova_webu_zo_zalohy, navody:vps:exporty]
+      en: [manuals:vps:backups, manuals:vps:exports, manuals:vps:vpsadminos:storage]
 
   - id: vps.create.open
     steps: [vps.create]
@@ -426,8 +463,8 @@ paths:
   - id: datasets.mount.open
     steps: [datasets.mount]
     pages:
-      cs: [navody:vps:oprava]
-      en: [manuals:vps:repair]
+      cs: [navody:vps:oprava, navody:distribuce:nixos:impermanence]
+      en: [manuals:vps:repair, manuals:distributions:nixos:impermanence]
 
   - id: vps.features.open
     steps: [vps.features]
@@ -441,8 +478,32 @@ paths:
       cs: [navody:vps:vpsadminos:oprava, navody:distribuce:nixos:impermanence]
       en: [manuals:vps:vpsadminos:recovery, manuals:distributions:nixos:impermanence]
 
-  - id: userdata.deploy.open
-    steps: [member.edit-profile, userdata.deploy]
+  - id: userdata.manage-vps.open
+    steps: [vps.menu, userdata.menu]
     pages:
       cs: [navody:vps:userdata]
       en: [manuals:vps:userdata]
+
+  - id: userdata.manage-profile.open
+    steps: [member.edit-profile, userdata.menu]
+    pages:
+      cs: [navody:vps:userdata]
+      en: [manuals:vps:userdata]
+
+  - id: userdata.deploy.open
+    steps: [vps.menu, userdata.menu, userdata.deploy]
+    pages:
+      cs: [navody:vps:userdata]
+      en: [manuals:vps:userdata]
+
+  - id: exports.export-dataset.open
+    steps: [exports.menu, exports.export-dataset]
+    pages:
+      cs: [navody:vps:exporty]
+      en: [manuals:vps:exports, manuals:vps:vpsadminos:storage]
+
+  - id: exports.open
+    steps: [exports.menu]
+    pages:
+      cs: [navody:vps:exporty]
+      en: [manuals:vps:exports, manuals:vps:vpsadminos:storage]

@@ -7,6 +7,10 @@ bindings:
   count: 1
 - language: cs
   page: navody:distribuce:nixos:impermanence
+  path: datasets.mount.open
+  count: 1
+- language: cs
+  page: navody:distribuce:nixos:impermanence
   path: vps.boot-rescue.open
   count: 1
 - language: cs
@@ -33,6 +37,18 @@ bindings:
   page: navody:vps:datasety
   path: datasets.create.open
   count: 2
+- language: cs
+  page: navody:vps:exporty
+  path: backups.vps.open
+  count: 1
+- language: cs
+  page: navody:vps:exporty
+  path: exports.export-dataset.open
+  count: 1
+- language: cs
+  page: navody:vps:exporty
+  path: exports.open
+  count: 1
 - language: cs
   page: navody:vps:ip_adresy
   path: networking.routable-addresses.open
@@ -90,9 +106,21 @@ bindings:
   path: userdata.deploy.open
   count: 1
 - language: cs
+  page: navody:vps:userdata
+  path: userdata.manage-profile.open
+  count: 1
+- language: cs
+  page: navody:vps:userdata
+  path: userdata.manage-vps.open
+  count: 1
+- language: cs
   page: navody:vps:uzivatele
   path: member.advanced-email-configuration.open
   count: 1
+- language: cs
+  page: navody:vps:uzivatele
+  path: member.edit-profile.open
+  count: 4
 - language: cs
   page: navody:vps:uzivatele
   path: member.passkeys.open
@@ -116,6 +144,10 @@ bindings:
 - language: en
   page: information:membership_fees
   path: member.payment-instructions.open
+  count: 1
+- language: en
+  page: manuals:distributions:nixos:impermanence
+  path: datasets.mount.open
   count: 1
 - language: en
   page: manuals:distributions:nixos:impermanence
@@ -144,6 +176,18 @@ bindings:
 - language: en
   page: manuals:vps:environment
   path: member.environment-configs.open
+  count: 1
+- language: en
+  page: manuals:vps:exports
+  path: backups.vps.open
+  count: 1
+- language: en
+  page: manuals:vps:exports
+  path: exports.export-dataset.open
+  count: 1
+- language: en
+  page: manuals:vps:exports
+  path: exports.open
   count: 1
 - language: en
   page: manuals:vps:ip_addresses
@@ -186,9 +230,21 @@ bindings:
   path: userdata.deploy.open
   count: 1
 - language: en
+  page: manuals:vps:userdata
+  path: userdata.manage-profile.open
+  count: 1
+- language: en
+  page: manuals:vps:userdata
+  path: userdata.manage-vps.open
+  count: 1
+- language: en
   page: manuals:vps:users
   path: member.advanced-email-configuration.open
   count: 1
+- language: en
+  page: manuals:vps:users
+  path: member.edit-profile.open
+  count: 4
 - language: en
   page: manuals:vps:users
   path: member.passkeys.open
@@ -204,6 +260,18 @@ bindings:
 - language: en
   page: manuals:vps:vpsadminos:recovery
   path: vps.boot-rescue.open
+  count: 1
+- language: en
+  page: manuals:vps:vpsadminos:storage
+  path: backups.vps.open
+  count: 1
+- language: en
+  page: manuals:vps:vpsadminos:storage
+  path: exports.export-dataset.open
+  count: 1
+- language: en
+  page: manuals:vps:vpsadminos:storage
+  path: exports.open
   count: 1
 exceptions:
 - language: cs

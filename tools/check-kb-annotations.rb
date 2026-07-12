@@ -4,14 +4,17 @@
 require 'json'
 require 'optparse'
 require 'yaml'
+require_relative 'kb_navigation_discovery'
 
 options = {
   navigation: File.expand_path('../contract/navigation.yml', __dir__),
-  annotations: File.expand_path('../contract/kb-annotations.yml', __dir__)
+  annotations: File.expand_path('../contract/kb-annotations.yml', __dir__),
+  inventory: File.expand_path('../contract/kb-navigation-inventory.yml', __dir__)
 }
 OptionParser.new do |parser|
   parser.on('--navigation FILE') { |value| options[:navigation] = File.expand_path(value) }
   parser.on('--annotations FILE') { |value| options[:annotations] = File.expand_path(value) }
+  parser.on('--inventory FILE') { |value| options[:inventory] = File.expand_path(value) }
   parser.on('--candidate-index FILE') { |value| options[:candidate_index] = File.expand_path(value) }
 end.parse!
 
@@ -89,6 +92,51 @@ if options[:candidate_index]
   end
   unless actual == expected
     abort "candidate annotation counts differ; expected=#{expected.inspect}, actual=#{actual.inspect}"
+  end
+
+  inventory = YAML.safe_load_file(options.fetch(:inventory))
+  abort 'KB navigation inventory schema must be 1' unless inventory.fetch('schema') == 1
+  page_counts = index.fetch('pages').group_by { |page| page.fetch('language') }
+                     .transform_values(&:length)
+  unless page_counts == inventory.fetch('page_counts')
+    abort "candidate page inventory differs; expected=#{inventory.fetch('page_counts').inspect}, actual=#{page_counts.inspect}"
+  end
+
+  discoveries = index.fetch('pages').flat_map do |page|
+    KbNavigationDiscovery.discover(
+      language: page.fetch('language'),
+      page: page.fetch('id'),
+      content: File.read(File.join(root, page.fetch('file')))
+    )
+  end
+  discovered_by_id = discoveries.to_h { |entry| [entry.fetch('id'), entry] }
+  inventory_entries = inventory.fetch('discoveries')
+  inventory_by_id = inventory_entries.to_h { |entry| [entry.fetch('id'), entry] }
+  abort 'duplicate discovered navigation IDs' unless discovered_by_id.length == discoveries.length
+  abort 'duplicate inventoried navigation IDs' unless inventory_by_id.length == inventory_entries.length
+
+  unless discovered_by_id.keys.sort == inventory_by_id.keys.sort
+    missing = discovered_by_id.keys - inventory_by_id.keys
+    stale = inventory_by_id.keys - discovered_by_id.keys
+    abort "independent navigation inventory mismatch; unclassified=#{missing.inspect}, stale=#{stale.inspect}"
+  end
+
+  discoveries.each do |discovery|
+    inventoried = inventory_by_id.fetch(discovery.fetch('id'))
+    %w[language page text].each do |key|
+      abort "#{discovery.fetch('id')}: inventory #{key} drift" unless inventoried.fetch(key) == discovery.fetch(key)
+    end
+    expected_paths = inventoried.fetch('paths', []).sort
+    actual_paths = discovery.fetch('paths', []).sort
+    unless expected_paths == actual_paths
+      abort "#{discovery.fetch('id')}: inventoried paths differ; expected=#{expected_paths.inspect}, actual=#{actual_paths.inspect}"
+    end
+    reason = inventoried['reason']
+    if expected_paths.empty?
+      abort "#{discovery.fetch('id')}: unbound discovery reason must not be blank" unless reason.is_a?(String) && !reason.strip.empty?
+    elsif reason
+      abort "#{discovery.fetch('id')}: bound discovery must not have an exception reason"
+    end
   end
 end
 
