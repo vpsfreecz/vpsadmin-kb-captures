@@ -83,10 +83,10 @@
         "runner": "vpsadmin-kb-captures/schema-4"
       },
       "dimensions": {
-        "width": 821,
-        "height": 201
+        "width": 712,
+        "height": 146
       },
-      "sha256": "162a68ad00da6ad0a7624def4b398f96826bfcc86dfea55211ff402ed4df95d2",
+      "sha256": "bc24bd677df4bd8d189a1ddf3683051dcc39f078568e0556a9bf86313954dd15",
       "review_status": "pending"
     },
     {
@@ -129,7 +129,7 @@
         "width": 568,
         "height": 508
       },
-      "sha256": "3ff5c5ca6b1f5b20dd0ee60d988adda70c3b8a8c748b08ce128ed2b76af547ea",
+      "sha256": "00ae82caf26e42521b17ce09865aacc195bff31c009f82668e144c173a27cfcb",
       "review_status": "pending"
     },
     {
@@ -862,7 +862,7 @@
         "width": 568,
         "height": 508
       },
-      "sha256": "c0fc53a32312b038720fd8544610d04e5fcc5b0f87a2d255fa1fac21291989e8",
+      "sha256": "1f2e9a9a831da9fba20b854ecb72057d801da3d4516d79dbedb7c892e82b21e2",
       "review_status": "pending"
     },
     {
@@ -902,10 +902,10 @@
         "runner": "vpsadmin-kb-captures/schema-4"
       },
       "dimensions": {
-        "width": 791,
-        "height": 921
+        "width": 810,
+        "height": 961
       },
-      "sha256": "55cf67db7f32ef2f84a83d853c3bf40c4b5a9dc4feb999a81296fca4952b5610",
+      "sha256": "6b8e79a9127d4a2e6f5e1e59cc97c62c97b39d2e6d49e0cd2d8b1b03aa3c33de",
       "review_status": "pending"
     },
     {
@@ -1029,10 +1029,10 @@
         "runner": "vpsadmin-kb-captures/schema-4"
       },
       "dimensions": {
-        "width": 821,
-        "height": 201
+        "width": 712,
+        "height": 146
       },
-      "sha256": "d6453ece857efcc1fa4e858aafa33860acdf403f9c26c8a85960195be1c9ab8d",
+      "sha256": "f91c6f1418c63e6be957340c6321c32294956c93c9d2685b0fe679dc02701790",
       "review_status": "pending"
     },
     {
@@ -1205,7 +1205,7 @@
         "width": 821,
         "height": 520
       },
-      "sha256": "5576dc3ce0449aa1e865c7a19b67b3b57330a929601e880976074a5e3f814d92",
+      "sha256": "d69c5953b71b6f843963dbefb4f192a3874cd0f9f122603ab08df5334d0a3b96",
       "review_status": "pending"
     },
     {
@@ -1288,10 +1288,10 @@
         "runner": "vpsadmin-kb-captures/schema-4"
       },
       "dimensions": {
-        "width": 821,
-        "height": 884
+        "width": 494,
+        "height": 838
       },
-      "sha256": "7e234db6b6b266464606319c41c9adbe6eab5228dc0f407f35e2bfc7c31d3cb9",
+      "sha256": "05983cd0fbceef2f2af1646683352ab46e0c80763e245216c790fb2bdab35d45",
       "review_status": "pending"
     },
     {
@@ -1334,7 +1334,7 @@
         "width": 443,
         "height": 312
       },
-      "sha256": "75c95c96e5177e21e026e0d00a75118bca29ce2ba68f98ba05bffb845ce8831f",
+      "sha256": "b67011e89da4d935fb4a41b04e76e2abe48a9a512dd03bf9fb375c5e13b1f993",
       "review_status": "pending"
     },
     {
@@ -1377,7 +1377,7 @@
         "width": 821,
         "height": 363
       },
-      "sha256": "f548619778da9780aa1a80c381e408b4083315d245bcf204f411dee5981f9981",
+      "sha256": "93026d9d559f2b53cc16ffc03e85654513d6265647c3478abf08c913d64480e5",
       "review_status": "pending"
     },
     {
@@ -1420,7 +1420,7 @@
         "width": 863,
         "height": 439
       },
-      "sha256": "d85e46ec3567bd4749b987d2abb4202d73e9abf80597f9411b7ce17b0509f3d7",
+      "sha256": "96e5ea1aaa1fa5653131e3cdded03ea4b7493b3515e92812df3ab0323508c071",
       "review_status": "pending"
     },
     {
@@ -2484,9 +2484,9 @@
       },
       "dimensions": {
         "width": 1150,
-        "height": 939
+        "height": 961
       },
-      "sha256": "233a7a7ebbf9e54b6a6e12264fa591c135bdb3a2b2a5f786cf3b325bd0868ff6",
+      "sha256": "51a260e7db19099ff4c0785e5dd341ba2f4bde157fdfc586f3834ba862c0e5f4",
       "review_status": "pending"
     },
     {
