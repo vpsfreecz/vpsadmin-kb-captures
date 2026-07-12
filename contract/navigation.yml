@@ -1,0 +1,403 @@
+schema: 1
+vpsadmin_revision: f76c0cf9585757e9aaa94664cc6d5f6983766df9
+languages:
+  - cs
+  - en
+page_namespaces:
+  cs: [informace, navody]
+  en: [information, manuals]
+source_context_lines: 1
+
+controls:
+  - id: member.edit-profile
+    label: { en: Edit profile, cs: Upravit profil }
+    source:
+      path: webui/template/template.html
+      contains: L_EDIT_PROFILE
+      related:
+        - path: webui/lib/xtemplate.lib.php
+          contains: L_EDIT_PROFILE
+      fingerprint: 2d14b2163811f698eb2c0e4900424014dcd52a7f24aa87f467c4458eebdc0a6b
+
+  - id: member.payment-instructions
+    label: { en: Payment instructions, cs: Pokyny k platbě }
+    source:
+      path: webui/pages/page_adminm.php
+      contains: "action=payment_instructions"
+      fingerprint: ce30cfc971a8771dbd09718ccc00fefbcabe60f6a950b4fd1f2ab503aa66d185
+
+  - id: member.public-keys
+    label: { en: Public keys, cs: Veřejné klíče }
+    source:
+      path: webui/pages/page_adminm.php
+      contains: "action=pubkeys"
+      fingerprint: 82a62335809cd562321876c9e1fc4167c0229db1d78c2dbffc81d553f68f5bdf
+    captures:
+      - ssh-keys/deploy-public-key
+
+  - id: member.public-keys.add
+    label: { en: Add public key, cs: Přidat veřejný klíč }
+    source:
+      path: webui/pages/page_adminm.php
+      contains: "action=pubkey_add"
+      fingerprint: 45ed2246443be0b033c97c03092c8c653eb232dcfc82675fdbcdc96b97e0b553
+    captures:
+      - ssh-keys/add-public-key
+
+  - id: member.metrics-access-tokens
+    label: { en: Metrics access tokens, cs: Přístupové tokeny k metrikám }
+    source:
+      path: webui/pages/page_adminm.php
+      contains: "action=metrics"
+      fingerprint: 51ef126b71b46ed9f5846a0318bb6a8aaa7365085ae48055773ce8cfae9baf50
+
+  - id: member.cluster-resources
+    label: { en: Cluster resources, cs: Prostředky clusteru }
+    source:
+      path: webui/pages/page_adminm.php
+      contains: "action=cluster_resources"
+      fingerprint: 98bac9d1ba9c08ba1f661ee4c93292ce47596a8a6bb835a96ec4a65b158cec89
+    captures:
+      - environments/cluster-resources
+      - environments/resource-package-detail
+
+  - id: member.environment-configs
+    label: { en: Environment configs, cs: Konfigurace prostředí }
+    source:
+      path: webui/pages/page_adminm.php
+      contains: "action=env_cfg"
+      fingerprint: e03acd8b25cf789a1532ff45c62b49e0c5b6c27a8224f92809acf9266c96103c
+    captures:
+      - environments/environment-configs
+
+  - id: member.advanced-email-configuration
+    label: { en: Advanced e-mail configuration, cs: Pokročilá konfigurace e-mailu }
+    source:
+      path: webui/pages/page_adminm.php
+      contains: "action=template_recipients"
+      fingerprint: a21d29ff82087c0bf7da3ca992aee0d6de20ae4e4b54abd8054c9ba0218b65a4
+    captures:
+      - account/mail-template-recipients
+      - account/email-roles
+
+  - id: member.totp-devices
+    label: { en: TOTP devices, cs: TOTP zařízení }
+    source:
+      path: webui/pages/page_adminm.php
+      contains: "action=totp_devices"
+      fingerprint: d7d9403a101337dd9204c5d96f666c6e6c78d5351da9077fc917a9ef45264006
+    captures:
+      - account/totp-confirm
+      - account/totp-device-list
+      - account/multifactor-status
+
+  - id: member.passkeys
+    label: { en: Passkeys, cs: Přístupové klíče }
+    source:
+      path: webui/pages/page_adminm.php
+      contains: "action=webauthn_list"
+      fingerprint: 32a2e20407e0de30d8af7fa7db0293a8fed4744dcd42d667bfe43af4cfc68ef8
+
+  - id: member.sessions
+    label: { en: Sessions, cs: Relace }
+    source:
+      path: webui/pages/page_adminm.php
+      contains: "action=user_sessions"
+      fingerprint: 0c081e64e85e939facfbd884bb08f7b8af5fbd04a365b57fba0a3d8f0697b2d3
+    captures:
+      - account/session-list
+      - account/session-settings
+
+  - id: networking.menu
+    label: { en: Networking, cs: Sítě }
+    source:
+      path: webui/public/index.php
+      contains: "?page=networking"
+      fingerprint: 67b61764725032409e6843f4037a989d08a3b65ee83d64a9cfe91f1e14390e6f
+
+  - id: networking.routable-addresses
+    label: { en: Routable addresses, cs: Routované adresy }
+    source:
+      path: webui/pages/page_networking.php
+      contains: "action=ip_addresses"
+      fingerprint: 0504e423287ea37b19ad04f434368c614fcfe94a589437e5a25a3f900828913f
+    captures:
+      - networking/ip-address-list
+      - networking/routed-addresses
+      - networking/interface-addresses
+
+  - id: networking.monthly-traffic
+    label: { en: List monthly traffic, cs: Seznam měsíčního provozu }
+    source:
+      path: webui/pages/page_networking.php
+      contains: "action=traffic"
+      fingerprint: 021a257bf93cd8862f1a1d23a29613ab82d8449dc59df1a92d29f67f3dd80975
+    captures:
+      - traffic/monthly-traffic
+      - traffic/vps-monthly-transfers
+
+  - id: networking.live-monitor
+    label: { en: Live monitor, cs: Live monitor }
+    source:
+      path: webui/pages/page_networking.php
+      contains: "action=live"
+      fingerprint: bad469dfb85e471bbb4861455c6a219c3c2f55bddcbdbc1c63699f8239030105
+    captures:
+      - traffic/live-monitor-web
+      - traffic/live-monitor-cli
+
+  - id: dns.menu
+    label: { en: DNS, cs: DNS }
+    source:
+      path: webui/public/index.php
+      contains: "?page=dns"
+      fingerprint: 9297933197a903d22c9984e442dec634313559fe7080a6ba48855b87865cca0c
+
+  - id: dns.primary-zones
+    label: { en: Primary zones, cs: Primární zóny }
+    source:
+      path: webui/forms/dns.forms.php
+      contains: "action=primary_zone_list"
+      fingerprint: bcb5f0b1578cedd22416ad9edf340909b65ca21d73aa61775c917ab87ad20132
+
+  - id: dns.secondary-zones
+    label: { en: Secondary zones, cs: Sekundární zóny }
+    source:
+      path: webui/forms/dns.forms.php
+      contains: "action=secondary_zone_list"
+      fingerprint: f678cc620d77fedf5c53165d1c39cd60de217a9b5d40a29d83d95faa256fce12
+
+  - id: dns.tsig-keys
+    label: { en: TSIG keys, cs: TSIG klíče }
+    source:
+      path: webui/forms/dns.forms.php
+      contains: "action=tsig_key_list"
+      fingerprint: ba9bbc8bc4c444ff6799c7356c4db2ff9b797d620946a2390edd9877adc01aaa
+
+  - id: backups.menu
+    label: { en: Backups, cs: Zálohy }
+    source:
+      path: webui/public/index.php
+      contains: "?page=backup"
+      fingerprint: ae9b0e75d94bafb85fc24b06c4797b5c0acf87fe90bfcc1cbce3c12ce5692243
+
+  - id: backups.vps
+    label: { en: VPS backups, cs: Zálohy VPS }
+    source:
+      path: webui/forms/backup.forms.php
+      contains: "action=vps"
+      fingerprint: 586c20762234e476b6fc5dae4dc2b6d39027d2212f6de0bc825412f8cb8bb880
+    captures:
+      - backups/vps-backups
+
+  - id: datasets.create
+    label: { en: Create dataset, cs: Vytvořit dataset }
+    source:
+      path: webui/forms/dataset.forms.php
+      contains: "action=new"
+      fingerprint: 111aa84621734d1ef6401e3fba95d96635d32d3deab6edff8245604356caf940
+    captures:
+      - datasets/create-dataset-form
+
+  - id: datasets.mount
+    label: { en: Mount, cs: Mount }
+    source:
+      path: webui/forms/dataset.forms.php
+      contains: "action=mount"
+      fingerprint: 643be6db2f657fb18dab241ee8970adc6bf2a501d246e70a2e47055008d3b5f5
+    captures:
+      - datasets/mount-list
+      - datasets/mount-dataset-form
+
+  - id: vps.create
+    label: { en: New VPS, cs: Nové VPS }
+    source:
+      path: webui/forms/vps.forms.php
+      contains: "action=new-step-0"
+      fingerprint: 0ad8e32e49a436ac87bf85cad7346382391253338a1b4ceb7f4c277f400a3d11
+    captures:
+      - vps-management/create-vps-form
+      - playground/create-vps-form
+
+  - id: vps.clone
+    label: { en: Clone VPS, cs: Klonovat VPS }
+    source:
+      path: webui/forms/vps.forms.php
+      contains: "action=clone-step-0"
+      fingerprint: 6856b4b6f82983986e51f9fc5e354ceeb997327a352622803eeb80799257fd83
+    captures:
+      - playground/clone-vps-form
+
+  - id: vps.swap
+    label: { en: Swap VPS, cs: Prohodit VPS }
+    source:
+      path: webui/forms/vps.forms.php
+      contains: "action=swap"
+      fingerprint: 40d3efbec7dd6e18f1809ddebbcd5826300664fb5fee68f536a9ac0ee9ae21cb
+    captures:
+      - playground/swap-vps-action
+      - playground/swap-vps-preview
+
+  - id: vps.features
+    label: { en: Features, cs: Funkce }
+    source:
+      path: webui/pages/page_adminvps.php
+      contains: "table_title(_('Features'), 'vps.features')"
+      fingerprint: 5b3e6338907fb45434349f79e7550dd252a70203821ab6d25890f20a13729d9d
+    captures:
+      - vps-management/feature-settings
+      - vps-details/feature-settings
+
+  - id: vps.boot-rescue
+    label:
+      en: Boot VPS from template (rescue mode)
+      cs: Spustit VPS ze šablony (nouzový režim)
+    source:
+      path: webui/pages/page_adminvps.php
+      contains: "Boot VPS from template (rescue mode)"
+      fingerprint: 8d100286b00d730199657653572f29d0185a37baeb7ca5a0bf4828c9f06cb4c3
+    captures:
+      - rescue-mode/boot-form
+      - rescue-mode/vps-console-boot
+
+  - id: userdata.deploy
+    label: { en: Deploy to VPS, cs: Nasadit do VPS }
+    source:
+      path: webui/forms/userdata.forms.php
+      contains: "table_title(_('Deploy to VPS'), 'userdata.deploy')"
+      fingerprint: a170202ae14d283bdf849343f3a49c3538ad1d5ae3e12db9037f58bde40da243
+
+semantic_selectors: []
+
+paths:
+  - id: member.payment-instructions.open
+    steps: [member.edit-profile, member.payment-instructions]
+    pages:
+      cs: [informace:platby]
+      en: [information:membership_fees]
+
+  - id: member.public-keys.add
+    steps: [member.edit-profile, member.public-keys, member.public-keys.add]
+    pages:
+      cs: [navody:server:ssh, navody:vps:sprava]
+      en: [manuals:vps:management]
+
+  - id: member.metrics-access-tokens.open
+    steps: [member.edit-profile, member.metrics-access-tokens]
+    pages:
+      cs: [navody:vps:metriky]
+      en: [manuals:vps:metrics]
+
+  - id: member.cluster-resources.open
+    steps: [member.edit-profile, member.cluster-resources]
+    pages:
+      cs: [navody:vps:prostredi]
+      en: [manuals:vps:environment]
+
+  - id: member.environment-configs.open
+    steps: [member.edit-profile, member.environment-configs]
+    pages:
+      cs: [navody:vps:prostredi]
+      en: [manuals:vps:environment]
+
+  - id: member.passkeys.open
+    steps: [member.edit-profile, member.passkeys]
+    pages:
+      cs: [navody:vps:uzivatele]
+      en: [manuals:vps:users]
+
+  - id: member.sessions.open
+    steps: [member.edit-profile, member.sessions]
+    pages:
+      cs: [navody:vps:uzivatele]
+      en: [manuals:vps:users]
+
+  - id: networking.routable-addresses.open
+    steps: [networking.menu, networking.routable-addresses]
+    pages:
+      cs: [navody:vps:ip_adresy]
+      en: [manuals:vps:ip_addresses]
+
+  - id: networking.monthly-traffic.open
+    steps: [networking.menu, networking.monthly-traffic]
+    pages:
+      cs: [navody:vps:prenosy]
+      en: [manuals:vps:traffic]
+
+  - id: networking.live-monitor.open
+    steps: [networking.menu, networking.live-monitor]
+    pages:
+      cs: [navody:vps:prenosy]
+      en: [manuals:vps:traffic]
+
+  - id: dns.primary-zones.open
+    steps: [dns.menu, dns.primary-zones]
+    pages:
+      cs: [navody:server:primarni_dns]
+      en: [manuals:server:primary_dns]
+
+  - id: dns.secondary-zones.open
+    steps: [dns.menu, dns.secondary-zones]
+    pages:
+      cs: [navody:server:sekundarni_dns]
+      en: [manuals:server:secondary_dns]
+
+  - id: dns.tsig-keys.open
+    steps: [dns.menu, dns.tsig-keys]
+    pages:
+      cs: [navody:server:sekundarni_dns]
+      en: [manuals:server:secondary_dns]
+
+  - id: backups.vps.open
+    steps: [backups.menu, backups.vps]
+    pages:
+      cs: [navody:vps:zalohy, navody:vps:obnova_webu_zo_zalohy]
+      en: [manuals:vps:backups]
+
+  - id: vps.create.open
+    steps: [vps.create]
+    pages:
+      cs: [navody:vps:playgroundvps, navody:vps:obnova_webu_zo_zalohy]
+      en: [manuals:vps:playgroundvps, manuals:vps:management]
+
+  - id: vps.clone.open
+    steps: [vps.clone]
+    pages:
+      cs: [navody:vps:playgroundvps]
+      en: [manuals:vps:playgroundvps, manuals:vps:management]
+
+  - id: vps.swap.open
+    steps: [vps.swap]
+    pages:
+      cs: [navody:vps:playgroundvps]
+      en: [manuals:vps:playgroundvps]
+
+  - id: datasets.create.open
+    steps: [datasets.create]
+    pages:
+      cs: [navody:vps:datasety]
+      en: [manuals:vps:datasets]
+
+  - id: datasets.mount.open
+    steps: [datasets.mount]
+    pages:
+      cs: [navody:vps:oprava]
+      en: [manuals:vps:repair]
+
+  - id: vps.features.open
+    steps: [vps.features]
+    pages:
+      cs: [navody:vps:sprava, navody:distribuce:nixos:impermanence]
+      en: [manuals:vps:management, manuals:distributions:nixos:impermanence]
+
+  - id: vps.boot-rescue.open
+    steps: [vps.boot-rescue]
+    pages:
+      cs: [navody:vps:vpsadminos:oprava, navody:distribuce:nixos:impermanence]
+      en: [manuals:vps:vpsadminos:recovery, manuals:distributions:nixos:impermanence]
+
+  - id: userdata.deploy.open
+    steps: [member.edit-profile, userdata.deploy]
+    pages:
+      cs: [navody:vps:userdata]
+      en: [manuals:vps:userdata]

@@ -93,3 +93,15 @@ installed on the capture host.
 
 Captures are intentionally operator-run. This repository contains no GitHub
 Actions workflow and no DokuWiki uploader.
+
+## Documentation contract
+
+`contract/navigation.yml` assigns stable semantic IDs to documented WebUI
+controls and navigation paths. It binds current English/Czech gettext labels,
+coupled source fingerprints, affected KB pages, and screenshot concepts.
+`bin/check` compares the contract with the pinned vpsAdmin source and capture
+inventory. A label, route, landmark, or semantic-selector change reports every
+affected ID together with its Czech/English pages and capture concepts.
+Fingerprints cover the normalized production declaration around each landmark;
+test files cannot satisfy them. DokuWiki annotation inventory will use the path
+IDs without making this repository responsible for publishing pages.

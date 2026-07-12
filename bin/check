@@ -31,5 +31,8 @@ jq empty captures.json cluster/default-config.json fixtures/production-shape.jso
 nix-instantiate --parse cluster/nix/test.nix >/dev/null
 ruby -c bin/validate
 ruby -c cluster/seed-production-shape.rb
+ruby -c tools/check-contract.rb
 ruby tools/check-seed.rb
+ruby tools/check-contract.rb
+ruby tools/test-contract.rb
 bin/validate "${validate_args[@]}"

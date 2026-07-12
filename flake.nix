@@ -2,7 +2,7 @@
   description = "Reproducible vpsAdmin knowledge-base screenshots";
 
   inputs = {
-    vpsadmin.url = "github:vpsfreecz/vpsadmin/af3b885a82955dbeb06a102948c35a82bf74acc4";
+    vpsadmin.url = "github:vpsfreecz/vpsadmin/f76c0cf9585757e9aaa94664cc6d5f6983766df9";
     vpsadminos.follows = "vpsadmin/vpsadminos";
     vpsfStatus = {
       url = "github:vpsfreecz/vpsf-status/master";
@@ -149,6 +149,7 @@
         PLAYWRIGHT_BROWSERS_PATH = "${toolPkgs.playwright-driver.browsers}";
         NODE_PATH = "${toolPkgs.playwright-test}/lib/node_modules";
         FONTCONFIG_FILE = fontConfig;
+        VPSADMIN_KB_VPSADMIN_SOURCE = vpsadmin.outPath;
       };
     };
 }
