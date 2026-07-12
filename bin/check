@@ -35,4 +35,5 @@ ruby -c tools/check-contract.rb
 ruby tools/check-seed.rb
 ruby tools/check-contract.rb
 ruby tools/test-contract.rb
+node tools/test-browser.cjs
 bin/validate "${validate_args[@]}"
