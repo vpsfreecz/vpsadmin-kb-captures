@@ -289,3 +289,18 @@ exceptions:
   path: vps.features.open
   reason: Features is only the article section heading, not an in-prose navigation
     instruction.
+- language: en
+  page: manuals:vps:vpsadminos:storage
+  path: backups.vps.open
+  reason: Legacy duplicate has no Czech counterpart and is intentionally not annotated
+    or released.
+- language: en
+  page: manuals:vps:vpsadminos:storage
+  path: exports.export-dataset.open
+  reason: Legacy duplicate has no Czech counterpart and is intentionally not annotated
+    or released.
+- language: en
+  page: manuals:vps:vpsadminos:storage
+  path: exports.open
+  reason: Legacy duplicate has no Czech counterpart and is intentionally not annotated
+    or released.

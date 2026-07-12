@@ -16,6 +16,7 @@ OptionParser.new do |parser|
   parser.on('--annotations FILE') { |value| options[:annotations] = File.expand_path(value) }
   parser.on('--inventory FILE') { |value| options[:inventory] = File.expand_path(value) }
   parser.on('--candidate-index FILE') { |value| options[:candidate_index] = File.expand_path(value) }
+  parser.on('--source-index FILE') { |value| options[:source_index] = File.expand_path(value) }
 end.parse!
 
 navigation = YAML.safe_load_file(options.fetch(:navigation))
@@ -66,9 +67,36 @@ unless covered_keys == expected_keys
 end
 
 if options[:candidate_index]
+  abort '--source-index is required with --candidate-index' unless options[:source_index]
   index_path = options.fetch(:candidate_index)
   index = JSON.parse(File.read(index_path))
   root = File.dirname(index_path)
+  source_index_path = options.fetch(:source_index)
+  source_index = JSON.parse(File.read(source_index_path))
+  source_root = File.dirname(source_index_path)
+  inventory = YAML.safe_load_file(options.fetch(:inventory))
+  abort 'KB navigation inventory schema must be 1' unless inventory.fetch('schema') == 1
+  candidate_pages = index.fetch('pages')
+  source_pages = source_index.flat_map do |language, entries|
+    entries.map { |entry| entry.merge('language' => language) }
+  end
+  candidate_keys = candidate_pages.map { |page| page.values_at('language', 'id') }
+  source_keys = source_pages.map { |page| page.values_at('language', 'id') }
+  inventory_keys = inventory.fetch('page_ids').flat_map do |language, page_ids|
+    page_ids.map { |page_id| [language, page_id] }
+  end
+  abort 'duplicate candidate page IDs' unless candidate_keys.uniq.length == candidate_keys.length
+  abort 'duplicate candidate page files' unless candidate_pages.map { |page| page.fetch('file') }.uniq.length == candidate_pages.length
+  abort 'duplicate source page IDs' unless source_keys.uniq.length == source_keys.length
+  abort 'duplicate source page files' unless source_pages.map { |page| page.fetch('file') }.uniq.length == source_pages.length
+  unless candidate_keys.sort == inventory_keys.sort && source_keys.sort == inventory_keys.sort
+    abort "page identity inventory differs; expected=#{inventory_keys.sort.inspect}, " \
+          "candidate=#{candidate_keys.sort.inspect}, source=#{source_keys.sort.inspect}"
+  end
+  candidate_paragraphs = candidate_pages.to_h do |page|
+    content = File.read(File.join(root, page.fetch('file')))
+    [[page.fetch('language'), page.fetch('id')], KbNavigationDiscovery.paragraphs(content)]
+  end
   actual = Hash.new(0)
   tag_pattern = /<vpsadmin-nav\s+id="([a-z][a-z0-9.-]*)">(.*?)<\/vpsadmin-nav>/m
 
@@ -94,19 +122,11 @@ if options[:candidate_index]
     abort "candidate annotation counts differ; expected=#{expected.inspect}, actual=#{actual.inspect}"
   end
 
-  inventory = YAML.safe_load_file(options.fetch(:inventory))
-  abort 'KB navigation inventory schema must be 1' unless inventory.fetch('schema') == 1
-  page_counts = index.fetch('pages').group_by { |page| page.fetch('language') }
-                     .transform_values(&:length)
-  unless page_counts == inventory.fetch('page_counts')
-    abort "candidate page inventory differs; expected=#{inventory.fetch('page_counts').inspect}, actual=#{page_counts.inspect}"
-  end
-
-  discoveries = index.fetch('pages').flat_map do |page|
+  discoveries = source_pages.flat_map do |page|
     KbNavigationDiscovery.discover(
       language: page.fetch('language'),
       page: page.fetch('id'),
-      content: File.read(File.join(root, page.fetch('file')))
+      content: File.read(File.join(source_root, page.fetch('file')))
     )
   end
   discovered_by_id = discoveries.to_h { |entry| [entry.fetch('id'), entry] }
@@ -123,21 +143,42 @@ if options[:candidate_index]
 
   discoveries.each do |discovery|
     inventoried = inventory_by_id.fetch(discovery.fetch('id'))
-    %w[language page text].each do |key|
+    %w[language page paragraph text].each do |key|
       abort "#{discovery.fetch('id')}: inventory #{key} drift" unless inventoried.fetch(key) == discovery.fetch(key)
     end
     expected_paths = inventoried.fetch('paths', []).sort
-    actual_paths = discovery.fetch('paths', []).sort
-    unless expected_paths == actual_paths
+    expected_paths.each do |path_id|
+      path = paths_by_id[path_id]
+      abort "#{discovery.fetch('id')}: unknown inventoried path #{path_id}" unless path
+      unless path.fetch('pages').fetch(discovery.fetch('language')).include?(discovery.fetch('page'))
+        abort "#{discovery.fetch('id')}: inventoried path #{path_id} does not affect this page"
+      end
+    end
+
+    candidate_paragraph = candidate_paragraphs
+                          .fetch([discovery.fetch('language'), discovery.fetch('page')])
+                          .fetch(discovery.fetch('paragraph'))
+    actual_paths = candidate_paragraph.scan(tag_pattern).map(&:first).sort
+    reason = inventoried['reason']
+    if reason
+      abort "#{discovery.fetch('id')}: exception reason must not be blank" unless reason.is_a?(String) && !reason.strip.empty?
+      abort "#{discovery.fetch('id')}: excepted source paragraph contains candidate tags" unless actual_paths.empty?
+    elsif expected_paths.empty?
+      abort "#{discovery.fetch('id')}: discovery needs paths or an exception reason"
+    elsif expected_paths != actual_paths
       abort "#{discovery.fetch('id')}: inventoried paths differ; expected=#{expected_paths.inspect}, actual=#{actual_paths.inspect}"
     end
-    reason = inventoried['reason']
-    if expected_paths.empty?
-      abort "#{discovery.fetch('id')}: unbound discovery reason must not be blank" unless reason.is_a?(String) && !reason.strip.empty?
-    elsif reason
-      abort "#{discovery.fetch('id')}: bound discovery must not have an exception reason"
+  end
+
+
+  discovery_locations = discoveries.map { |entry| entry.values_at('language', 'page', 'paragraph') }
+  tagged_locations = candidate_pages.flat_map do |page|
+    candidate_paragraphs.fetch([page.fetch('language'), page.fetch('id')]).each_with_index.filter_map do |paragraph, paragraph_index|
+      [page.fetch('language'), page.fetch('id'), paragraph_index] if paragraph.include?('<vpsadmin-nav')
     end
   end
+  missed = tagged_locations - discovery_locations
+  abort "independent scanner missed annotated paragraphs: #{missed.inspect}" unless missed.empty?
 end
 
 puts "Valid KB annotation inventory: #{bindings.length} bindings, #{exceptions.length} exceptions"

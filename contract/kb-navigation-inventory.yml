@@ -1,9 +1,199 @@
 ---
 schema: 1
+page_ids:
+  cs:
+  - domu
+  - drafts:2026-07-02-kb-staging:bot-ignore-test
+  - grafika
+  - informace:admin_cheatsheet
+  - informace:admini
+  - informace:chat
+  - informace:chyby_a_napady
+  - informace:co_nedelat
+  - informace:db_spravcu
+  - informace:dokumenty
+  - informace:faq
+  - informace:infrastruktura
+  - informace:internal_address_plan
+  - informace:ip_adresy
+  - informace:jabber
+  - informace:jak_psat
+  - informace:kam_psat
+  - informace:komunikace
+  - informace:lide
+  - informace:mapofhw
+  - informace:mapofnetwork
+  - informace:novacci
+  - informace:ochranasoukromi
+  - informace:parametry_vps
+  - informace:platby
+  - informace:podpora
+  - informace:projekty
+  - informace:projekty:ipv6tunel
+  - informace:sdruzeni
+  - informace:sklad
+  - informace:srazy
+  - informace:swap
+  - informace:vpsadminos
+  - informace:vymena_ip
+  - informace:zacatek
+  - navody:distribuce:alpine
+  - navody:distribuce:distribuce
+  - navody:distribuce:gentoo
+  - navody:distribuce:guix
+  - navody:distribuce:nixos
+  - navody:distribuce:nixos:impermanence
+  - navody:distribuce:nixos:nginx
+  - navody:distribuce:nixos:zaciname
+  - navody:meet
+  - navody:server:drupal
+  - navody:server:firewall
+  - navody:server:glusterfs
+  - navody:server:gre
+  - navody:server:mailgun
+  - navody:server:mailserver-nixos
+  - navody:server:nginx
+  - navody:server:openshift_centos
+  - navody:server:postfix
+  - navody:server:primarni_dns
+  - navody:server:sekundarni_dns
+  - navody:server:ssh
+  - navody:server:sysloger
+  - navody:server:wireguard
+  - navody:server:wireguard:openwrt
+  - navody:uzivatele:moreplavec
+  - navody:uzivatele:stepan_schejbal
+  - navody:vps:api
+  - navody:vps:api:arch
+  - navody:vps:api:centos
+  - navody:vps:api:macos
+  - navody:vps:api:ubuntu
+  - navody:vps:api:windows
+  - navody:vps:cgroups
+  - navody:vps:datasety
+  - navody:vps:exporty
+  - navody:vps:incidenty
+  - navody:vps:ip_adresy
+  - navody:vps:konzole
+  - navody:vps:kvm
+  - navody:vps:kvm-openrc
+  - navody:vps:metriky
+  - navody:vps:obnova_webu_zo_zalohy
+  - navody:vps:odstavky_a_vypadky
+  - navody:vps:oprava
+  - navody:vps:playgroundvps
+  - navody:vps:plny_disk
+  - navody:vps:prenosy
+  - navody:vps:prostredi
+  - navody:vps:rdns
+  - navody:vps:sprava
+  - navody:vps:stagingvps
+  - navody:vps:start_menu
+  - navody:vps:userdata
+  - navody:vps:userns
+  - navody:vps:uzivatele
+  - navody:vps:vpsadmin
+  - navody:vps:vpsadminos
+  - navody:vps:vpsadminos:docker
+  - navody:vps:vpsadminos:hacking
+  - navody:vps:vpsadminos:libvirt
+  - navody:vps:vpsadminos:oprava
+  - navody:vps:vpsadminos:snap
+  - navody:vps:zalohy
+  - nixos
+  - novnc
+  - private:acct
+  - private:dluh
+  - private:private
+  - systemd
+  - uzivatele:aither
+  - uzivatele:jirutka
+  - uzivatele:kerrycze
+  - uzivatele:krcmar
+  - uzivatele:pavlix
+  - vpsadminos
+  - wiki:dokuwiki
+  - wiki:playground
+  - wiki:sirotci
+  - wiki:syntax
+  - wiki:todo
+  - wiki:trash:navigace
+  en:
+  - home
+  - information:admins
+  - information:association
+  - information:bugs_and_ideas
+  - information:chat
+  - information:communication
+  - information:faq
+  - information:getting_started
+  - information:infrastructure
+  - information:internal_address_plan
+  - information:ip_addresses
+  - information:ip_replacement
+  - information:kb
+  - information:membership_fees
+  - information:new_members
+  - information:people
+  - information:projects
+  - information:support
+  - information:vps_params
+  - information:vpsadminos
+  - information:what_not_to_do
+  - information:where_to_write
+  - manuals:distributions:distributions
+  - manuals:distributions:guix
+  - manuals:distributions:nixos
+  - manuals:distributions:nixos:impermanence
+  - manuals:server:mailserver-nixos
+  - manuals:server:postfix
+  - manuals:server:primary_dns
+  - manuals:server:secondary_dns
+  - manuals:vps:api
+  - manuals:vps:api:macos
+  - manuals:vps:api:windows
+  - manuals:vps:backups
+  - manuals:vps:cgroups
+  - manuals:vps:console
+  - manuals:vps:datasets
+  - manuals:vps:environment
+  - manuals:vps:exports
+  - manuals:vps:full_disk
+  - manuals:vps:incidents
+  - manuals:vps:ip_addresses
+  - manuals:vps:kvm
+  - manuals:vps:management
+  - manuals:vps:metrics
+  - manuals:vps:outages
+  - manuals:vps:playgroundvps
+  - manuals:vps:rdns
+  - manuals:vps:repair
+  - manuals:vps:stagingvps
+  - manuals:vps:start_menu
+  - manuals:vps:traffic
+  - manuals:vps:userdata
+  - manuals:vps:userns
+  - manuals:vps:users
+  - manuals:vps:vpsadmin
+  - manuals:vps:vpsadminos
+  - manuals:vps:vpsadminos:docker
+  - manuals:vps:vpsadminos:recovery
+  - manuals:vps:vpsadminos:storage
+  - novnc
+  - private:acct
+  - private:dluh
+  - private:private
+  - wiki:dokuwiki
+  - wiki:playground
+  - wiki:sirotci
+  - wiki:syntax
+  - wiki:todo
+  - wiki:trash:navigace
 discoveries:
-- id: ffc6728df1b6376f
+- id: 957b2bd14af24092
   language: cs
   page: informace:db_spravcu
+  paragraph: 4
   text: "===== Jaromír Dvořáček a ServerNaMiru.cz ===== * Jako původně **systémák**
     a následně **projekťák** podporuji týmy vývojářů už 10+ let. Zaměřuji se na pochopení
     reálných byznysových potřeb a nejkratší cestu k cíli. Vedu stabilní a dlouhodobě
@@ -17,33 +207,81 @@ discoveries:
     950 Kč a [[https://muj.servernamiru.cz/sluzby-a-ceny/|měsíční paušály]] * kontakty:
     [[https://muj.servernamiru.cz/kontakty/|Server na míru]], [[vas@servernamiru.cz]]"
   reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
-- id: '0279b1259d333d67'
+- id: be7d7808db21a14a
+  language: cs
+  page: informace:jabber
+  paragraph: 4
+  text: "* Buddies -> Add Chat... * room: vpsFree.cz * server: conference.vpsfree.cz
+    * handle: <tvuj_nick> * password: [[http://lists.vpsfree.cz/pipermail/community-list/2012-August/000815.html|Najdete
+    tady]] * [ x ] Autojoin when account connects * [ x ] Remain in chat after window
+    is closed"
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: ea97c14112d69d4c
+  language: cs
+  page: informace:jabber
+  paragraph: 6
+  text: "* V hlavním okně nad Contact Listem kliknout na znak mirandy (vlevo-nahoře)
+    * Najet myší na jabber účet přes který chcete vstoupit do místnosti * Services->Create/Join
+    groupchat * Vyplňte údaje a následně vidíte jabber místnost jako nový jabber kontakt
+    ve vašem contact listu."
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 1f7eed5630861960
   language: cs
   page: informace:kam_psat
+  paragraph: 1
   text: "===== Podpora ===== * problémy s platbou * nebootující VPS * problémy s připojením
     * problémy s vpsAdminem * ostatní problémy vyžadující zásah admina * přečtěte
     si [[podpora|jak psát na podporu]] * -> [[mailto:podpora@vpsfree.cz|podpora@vpsfree.cz]]"
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: fdde4f2e138f8522
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: dc9b5dae6bbf5569
+  language: cs
+  page: informace:kam_psat
+  paragraph: 2
+  text: "===== Discourse / IRC / Matrix ===== * dotazy ohledně konfigurace software
+    / služby * doporučení řešení (mám použít Apache nebo Nginx?) * ostatní community-related
+    věci typu srazy apod. * -> [[https://discourse.vpsfree.cz/t/vitej-na-vpsfree-cz-discourse/17|Discourse]]
+    nebo [[chat|IRC / Matrix]]"
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: cd3b2b13911bf99b
+  language: cs
+  page: informace:komunikace
+  paragraph: 14
+  text: "* Pavel Šnajdr * IRC: freenode. net -> #vpsfree -> snajpa * E-mail: pavel.snajdr
+    zavináč vpsfree.cz * Lokace: Brno * Mobil: +420 720 107 791"
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 63b62d35b4dafe5b
+  language: cs
+  page: informace:novacci
+  paragraph: 1
+  text: "===== Jaké jsou platební údaje k zaplacení členského příspěvku ===== * Platí
+    se na účet 2200041594/2010 (ČR) nebo 2601502873/8330 (SR-EUR). * IBAN: CZ0420100000002200041594,
+    SK2083300000002601502873 * Variabilní symbol je vždy ID člena, které nalezneš
+    po přihlášení do vpsAdminu v sekci **Členové**. * Ve stejné sekci také nalezneš
+    datum, do kdy máš zaplacené členství. * Preferujeme platby na tři měsíce, tj.
+    900 Kč nebo 36 eur. * Další podrobnosti naleznete v [[platby|sekci o platbách]]."
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 4cf82390965e9193
+  language: cs
+  page: informace:novacci
+  paragraph: 17
+  text: "==== Jak zjistím, jaký traffic má moje VPS? ==== V detailu VPS u síťového
+    rozhraní:"
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: c22228f2029235cd
   language: cs
   page: informace:platby
+  paragraph: 10
   text: Po přihlášení do vpsAdminu přejděte do **Upravit profil** -> **Pokyny k platbě**,
     zde se zobrazují QR kódy pro platbu členského příspěvku. QR kódy se taktéž zobrazují
     v e-mailových upomínkách k platbě.
   paths:
   - member.payment-instructions.open
-- id: 1e1c2014241053e2
+- id: c712550abe9f13a5
   language: cs
   page: informace:vymena_ip
-  text: V detailu VPS ve vpsAdminu ve formuláři „Adresy rozhraní“ si ji přidej zpět.
-    Případně, pokud jsi smazal i routu, přidáš ji kousek výše ve formuláři „Routované
-    adresy“. Původní adresy budou k dispozici až do 1. května 2024.
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: 2bbeafd2bf23affc
-  language: cs
-  page: informace:vymena_ip
+  paragraph: 6
   text: Nové adresy byly do VPS naroutovány, o jaké adresy se jedná zjistíš z mailu,
     který jsme ti poslali. Pokud jsi žádný mail nedostal a nemáš žádnou IP z rozsahů
     uvedených výše, výměna se tě netýká. Až budeš chtít výměnu provést, nové adresy
@@ -51,11 +289,39 @@ discoveries:
     rozhraní“. Na rozhraní můžeš mít více adres a výměnu tak provádět postupně. Až
     původní adresy nebudou potřeba, pomocí stejného formuláře ve vpsAdminu je můžeš
     z VPS odstranit.
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: 4bfdc9ee753ed8f0
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 7a716daf0e77d75f
+  language: cs
+  page: informace:vymena_ip
+  paragraph: 25
+  text: V detailu VPS ve vpsAdminu ve formuláři „Adresy rozhraní“ si ji přidej zpět.
+    Případně, pokud jsi smazal i routu, přidáš ji kousek výše ve formuláři „Routované
+    adresy“. Původní adresy budou k dispozici až do 1. května 2024.
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: b3e817258e6177c5
   language: cs
   page: navody:distribuce:nixos:impermanence
+  paragraph: 8
+  text: "==== 2. Spuštění VPS v rescue módu ==== V detailu VPS použijte formulář **Spustit
+    VPS ze šablony (nouzový režim)**. Nejlepší je vybrat jinou distribuci než NixOS,
+    aby zde nebyl adresář ''/nix''. Použijte např. Alpine nebo Debian."
+  paths:
+  - vps.boot-rescue.open
+- id: ff6424ee5947162c
+  language: cs
+  page: navody:distribuce:nixos:impermanence
+  paragraph: 9
+  text: "==== 3. Vytvoření VPS subdatasetu pro Nix store ==== V detailu VPS vytvořte
+    subdataset ''nix'', který bude připojen na ''/nix'' (proto jsme v předchozím kroku
+    nechtěli bootovat do NixOS). Možná budete muset uvolnit nějaké místo na disku,
+    abyste mohli vytvořit dataset, což lze provést zmenšením root datasetu."
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: e26d1c4e22b5e74b
+  language: cs
+  page: navody:distribuce:nixos:impermanence
+  paragraph: 11
   text: "==== 5. Připojení root datasetu do /persistent ==== V režimu impermanence
     bude váš kořenový souborový systém dočasný a při každém startu vymazán. Naše trvalé
     úložiště připojíme do ''/persistent''. Může to být root dataset, nebo můžete vytvořit
@@ -64,17 +330,10 @@ discoveries:
     ho do ''/persistent''."
   paths:
   - datasets.mount.open
-- id: 88b4944e2a648bfa
+- id: c028c8b05ce8af54
   language: cs
   page: navody:distribuce:nixos:impermanence
-  text: "==== 2. Spuštění VPS v rescue módu ==== V detailu VPS použijte formulář **Spustit
-    VPS ze šablony (nouzový režim)**. Nejlepší je vybrat jinou distribuci než NixOS,
-    aby zde nebyl adresář ''/nix''. Použijte např. Alpine nebo Debian."
-  paths:
-  - vps.boot-rescue.open
-- id: cf28f656b560510d
-  language: cs
-  page: navody:distribuce:nixos:impermanence
+  paragraph: 18
   text: "==== 8. Zapnutí funkce impermanence ==== V detailu VPS ve formuláři **Funkce**
     zapněte funkci **NixOS Impermanence**. To nakonfiguruje VPS tak, aby při startu
     používal čistý, dočasný dataset. Jeho obsah bude při každém restartu ztracen a
@@ -82,37 +341,25 @@ discoveries:
     jsme připravili v kroku **7**."
   paths:
   - vps.features.open
-- id: a00211233909ea9e
+- id: 401d1ce48c76ff56
   language: cs
   page: navody:meet
+  paragraph: 4
   text: 'Pokud chcete použít mobilní telefon, nainstalujte si aplikaci Jitsi Meet:
     [[https://apps.apple.com/us/app/jitsi-meet/id1165103905|App Store]] nebo [[https://play.google.com/store/apps/details?id=org.jitsi.meet|Google
     Play]]. Doporučujeme v nastavení (tři čárky vlevo nahoře → settings) změnit server
     na meet.vpsfree.cz.'
   reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
-- id: 3adb3d54faec2502
+- id: 17cdb2d1b37afe4a
+  language: cs
+  page: navody:server:firewall
+  paragraph: 20
+  text: iptables-save > /etc/iptables.rules
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 9a6b2af18e511372
   language: cs
   page: navody:server:primarni_dns
-  text: "===== DNSSEC ===== DNSSEC podporujeme, pro nastavení však musíš předat DNSKEY/DS
-    záznam nadřazené zóně, o postupu se informuj u svého registrátora. DNSSEC se aktivuje
-    v detailu zóny ve vpsAdminu, klíče jsou automaticky vygenerovány a zóna podepsána;
-    používáme výchozí politiku BINDu. DNSKEY/DS záznamy si zobrazíš kliknutím na **Zobrazit
-    záznamy DNSKEY a DS** v detailu zóny."
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: 53d95795df7b246f
-  language: cs
-  page: navody:server:primarni_dns
-  text: "===== Vlastní sekundární servery ===== Ve VPS si můžeš spustit vlastní DNS
-    server a použít ho jako další sekundární server. Ve vpsAdminu jej přidáš v detailu
-    zóny přes formulář **Sekundární servery**. vpsAdmin ti pak ukáže, jak by mohla
-    vypadat jeho konfigurace. Až budeš mít server funkční, můžeš ho u registrátora
-    domény přidat mezi nameservery."
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: b4d7b49cc2157cb4
-  language: cs
-  page: navody:server:primarni_dns
+  paragraph: 1
   text: "- V menu **DNS** -> **Primární zóny** si vytvoříš zónu pro tvou doménu. Název
     zóny je jednoduše název domény, tj. nejčastěji doména druhého řádu. Můžeš však
     delegovat i domény vyšších řádů. - U registrátora domény je potřeba přenastavit
@@ -120,17 +367,41 @@ discoveries:
     a //ns4.vpsfree.cz//). - DNS záznamy dále nastavuješ přes rozhraní vpsAdminu."
   paths:
   - dns.primary-zones.open
-- id: 295ac0a1e5e866e3
+- id: 1a7d63f34a803a97
+  language: cs
+  page: navody:server:primarni_dns
+  paragraph: 4
+  text: "===== DNSSEC ===== DNSSEC podporujeme, pro nastavení však musíš předat DNSKEY/DS
+    záznam nadřazené zóně, o postupu se informuj u svého registrátora. DNSSEC se aktivuje
+    v detailu zóny ve vpsAdminu, klíče jsou automaticky vygenerovány a zóna podepsána;
+    používáme výchozí politiku BINDu. DNSKEY/DS záznamy si zobrazíš kliknutím na **Zobrazit
+    záznamy DNSKEY a DS** v detailu zóny."
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 4a7962206f511ddd
+  language: cs
+  page: navody:server:primarni_dns
+  paragraph: 5
+  text: "===== Vlastní sekundární servery ===== Ve VPS si můžeš spustit vlastní DNS
+    server a použít ho jako další sekundární server. Ve vpsAdminu jej přidáš v detailu
+    zóny přes formulář **Sekundární servery**. vpsAdmin ti pak ukáže, jak by mohla
+    vypadat jeho konfigurace. Až budeš mít server funkční, můžeš ho u registrátora
+    domény přidat mezi nameservery."
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: d8b4b3a65530cad2
   language: cs
   page: navody:server:sekundarni_dns
+  paragraph: 1
   text: Jednotlivé zóny nastavíš v menu DNS -> Sekundární zóny. Po vytvoření zóny
     pomocí formuláře „Primární servery“ přidáš adresu svého primárního autoritativního
     serveru, který ti běží ve VPS.
   paths:
   - dns.secondary-zones.open
-- id: ee66aafaa73394f1
+- id: 31189185490c3ad0
   language: cs
   page: navody:server:sekundarni_dns
+  paragraph: 5
   text: "===== TSIG ===== Přenos zón mezi primárními a sekundárními servery lze dále
     zabezpečit pomocí TSIG. V menu DNS -> TSIG klíče si nejprve vytvoříme sdílený
     klíč. Každý klíč je identifikován libovolným názvem, zvoleným algoritmem a tajným
@@ -139,58 +410,116 @@ discoveries:
     znázorněno, jak TSIG nastavit na primárním serveru."
   paths:
   - dns.tsig-keys.open
-- id: 36d47088caa96a86
+- id: efcdb2c9669acefd
   language: cs
   page: navody:server:ssh
+  paragraph: 18
+  text: Nyní se můžeme přihlásit pomocí PuTTY a soukromého klíče, který zadáme v sekci
+    SSH -> Auth.
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 9607cdf26e134018
+  language: cs
+  page: navody:server:ssh
+  paragraph: 21
   text: vpsAdmin umí do nově vytvořeného VPS vložit klíče automaticky. Nejprve mu
     jej musíme předat. To uděláme po přihlášení v Upravit profil → Veřejné klíče →
     vpravo v panelu Přidat veřejný klíč.
   paths:
   - member.public-keys.add
-- id: 2e15426c5e197b3e
+- id: 14b06416efd25863
+  language: cs
+  page: navody:server:ssh
+  paragraph: 23
+  text: U každého klíče si můžeme vybrat, jestli se má do nových/reinstalovaných VPS
+    nahrávat automaticky. Klíče můžeme kdykoliv do běžícího VPS také nahrát pomocí
+    formuláře v detailech VPS, hned pod formulářem na nastavení hesla.
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 64e46da4a658533a
+  language: cs
+  page: navody:server:wireguard
+  paragraph: 11
+  text: "# wg genkey | tee wg-private.key | wg pubkey > wg-public.key"
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 28ea810da301f69f
+  language: cs
+  page: navody:server:wireguard:openwrt
+  paragraph: 8
+  text: Následně je potřeba ve webovém rozhraní openwrt vlézt do interfaces > wg0
+    (náš nový interface wireguardu) a dovyplnit chybějící položky - především endpoint
+    host, Allowed IP (bacha to je většinou 0.0.0.0/0 - jiná je adresa klienta nastavená
+    už na druhé straně tunelu - serveru), MTU, v sekci peerů vytvořit peer (tj. server
+    kde běží wireguard a přes který to chceme provozovat).
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: f8b214e37dd8927d
   language: cs
   page: navody:uzivatele:stepan_schejbal
+  paragraph: 18
+  text: Nastavení firewallu se dělá pomocí balíku //shorewall// , detaily viz. [[http://
+    | http://shorewall.net/standalone.htm]] , [[http:// | https://wiki.debian.org/HowTo/shorewall]]
+    .
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 0d6d0dd0950f223a
+  language: cs
+  page: navody:uzivatele:stepan_schejbal
+  paragraph: 58
   text: Některé komponenty (např. redmine) potřebují posílat emaily přes sendmail
     interface (např. jejich SMTP klient z nějakého důvodu nefunguje se SMTP serverem).
     Proto se dá nainstalovat lepší SMTP klient, který podporuje sendmail interface.
     Detaily viz. [[http:// | http://msmtp.sourceforge.net/doc/msmtp.html]] .
   reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
-- id: a03fe96df7c8402f
+- id: a815ad143cfa4fb6
   language: cs
   page: navody:uzivatele:stepan_schejbal
-  text: Nastavení firewallu se dělá pomocí balíku //shorewall// , detaily viz. [[http://
-    | http://shorewall.net/standalone.htm]] , [[http:// | https://wiki.debian.org/HowTo/shorewall]]
-    .
+  paragraph: 68
+  text: apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
+    apt-get install apt-transport-https ca-certificates echo "deb https://oss-binaries.phusionpassenger.com/apt/passenger
+    wheezy main" > /etc/apt/sources.list.d/passenger.list chmod 600 /etc/apt/sources.list.d/passenger.list
+    apt-get update apt-get install nginx-extras passenger
   reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
-- id: fce6d5cc74a4a791
+- id: 505e79299f674724
   language: cs
   page: navody:uzivatele:stepan_schejbal
+  paragraph: 136
   text: Detaily viz. [[http:// | http://www.modrails.com/documentation/Users%20guide%20Nginx.html#install_on_debian_ubuntu]]
     .
   reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
-- id: 64fad33e0024431b
+- id: 56bad3f648be6ed0
+  language: cs
+  page: navody:vps:cgroups
+  paragraph: 5
+  text: "===== Nastavení verze cgroups ===== V detailu VPS lze nastavit verzi cgroups,
+    kterou VPS vyžaduje. Pro většinu konfigurací by mělo stačit se spolehnout na podporu
+    cgroups v2 v distribuci. Výchozí nastavení se tedy řídí použitou distribucí, která
+    je uvedena ve vpsAdminu. VPS, u kterých to nastavení a distribuce umožňuje, budeme
+    postupně a dle možností přesouvat na nody s cgroups v2."
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 9b7396d04464e891
   language: cs
   page: navody:vps:datasety
+  paragraph: 1
   text: Dataset ve vpsAdminu reprezentuje přímo ZFS dataset v zpoolu. Datasety se
     používají jednak na data z VPS (každá VPS je v jednom datasetu) a také NAS, jen
     se zobrazují na různých místech. Datasety VPS se nacházejí v detailu VPS a datasety
     NASu v menu NAS. S datasety VPS a NASu můžeme provádět stejné operace, jako třeba
     [[navody:vps:zalohy|vytváření a obnovy snapshotů]], mountovat je do různých VPS,
     apod. Tyto operace jsou popsány níže.
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: 895034387b708a6e
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: af6108ce93367a9e
   language: cs
   page: navody:vps:datasety
+  paragraph: 4
   text: "===== Vytvoření datasetu ===== Dataset VPS vytváříme z detailů VPS, dataset
     na NASu z menu NAS. V menu na pravé straně je odkaz //Vytvořit dataset//, popř.
     v seznamu datasetů klikneme na ikonu {{:navody:vps:vps_add.png}} a tím vytvoříme
     subdataset zvoleného datasetu."
   paths:
   - datasets.create.open
-- id: b211552168865d9f
+- id: 3b6222e8a4c6539e
   language: cs
   page: navody:vps:datasety
+  paragraph: 6
   text: Pokud vytváříme dataset pomocí menu //Vytvořit dataset//, je nutné vyplnit
     políčko //Rodičovský dataset//, tj. nadřazený dataset. Název datasetu nesmí začínat
     lomítkem, ale můžeme ho použít pro vytvoření zanořeného datasetu v jednom kroku,
@@ -199,72 +528,109 @@ discoveries:
     nově vytvořený dataset se také připojí.
   paths:
   - datasets.create.open
-- id: 116c153fe8aa4533
+- id: f9e81e441998f920
+  language: cs
+  page: navody:vps:datasety
+  paragraph: 18
+  text: 'Mounty lze vidět v detailech VPS:'
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 535c53b34ee8b0b1
   language: cs
   page: navody:vps:exporty
+  paragraph: 1
   text: "==== Vytvoření exportu ==== Exporty najedeme v hlavním menu vpsAdminu, položka
     //Exporty//. Nový export datasetu lze vytvořit buď ze seznamu datasetů v menu
     //NAS//:"
   paths:
   - exports.open
-- id: 584a789867612fc9
+- id: ae457640b6eb9dce
   language: cs
   page: navody:vps:exporty
-  text: 'Snapshoty lze exportovat z menu //Zálohy// -> //Zálohy VPS//, popř. //Zálohy
-    NAS//:'
-  paths:
-  - backups.vps.open
-- id: 7fab96eafaeb0fa4
-  language: cs
-  page: navody:vps:exporty
+  paragraph: 3
   text: Nebo z menu //Exporty// -> //Export datasetu//, kde se zobrazí formulář s
     výběrem datasetů k exportu.
   paths:
   - exports.export-dataset.open
-- id: 6545cb86d0bc51cd
+- id: 0e6ad466738d3f5e
+  language: cs
+  page: navody:vps:exporty
+  paragraph: 4
+  text: 'Snapshoty lze exportovat z menu //Zálohy// -> //Zálohy VPS//, popř. //Zálohy
+    NAS//:'
+  paths:
+  - backups.vps.open
+- id: 50e86ddff7b99b48
   language: cs
   page: navody:vps:ip_adresy
+  paragraph: 10
   text: V menu Sítě -> Routované adresy je k dispozici seznam adres. Zobrazují se
     zde adresy vlastněné nebo přidělené k VPS a adresy, které jsou k dispozici. Přimo
     z tohoto seznamu je možné adresy přiřazovat k VPS.
   paths:
   - networking.routable-addresses.open
-- id: 8e8973d65d81f59e
+- id: 47b816c70d9c83e6
   language: cs
   page: navody:vps:ip_adresy
+  paragraph: 14
+  text: 'Ve vpsAdminu jsou na správu rout a adres na rozhraní dva formuláře v nastavení
+    VPS:'
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: b252e2d081162a54
+  language: cs
+  page: navody:vps:ip_adresy
+  paragraph: 17
   text: Z každé sítě vpsAdminu umožňuje přidat první adresu na síťové rozhraní. Pokud
     jich potřebujete více, můžete si další IP adresy do vpsAdminu přidat. U seznamu
     routovaných adres v detailu VPS klikneme na ikonku s popiskem „Spravovat adresy
     hostitelů“ a potom „Přidat adresy hostitelů“.
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: b59bf7f799a27536
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: b907eca365e34783
   language: cs
-  page: navody:vps:ip_adresy
-  text: 'Ve vpsAdminu jsou na správu rout a adres na rozhraní dva formuláře v nastavení
-    VPS:'
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: 991849841167849d
+  page: navody:vps:konzole
+  paragraph: 3
+  text: Při startu nebo restartu VPS se v konzoli objeví [[navody:vps:start_menu|start
+    menu]]. ===== Webové rozhraní =====
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: b185b9b1e31d0c48
   language: cs
   page: navody:vps:kvm
+  paragraph: 1
   text: "===== Konfigurace ===== Nejprve je potřeba ve vpsAdminu v detailu VPS zapnout
     následující vlastnosti:"
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: 3770e5ce9333717e
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 9428dc22a9b17203
+  language: cs
+  page: navody:vps:kvm
+  paragraph: 10
+  text: "(**//562.586.65.25//** > Adresa tvého NFS serveru; **//4562//** > číslo tvého
+    datasetu na NFS serveru)"
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 32569d814bf029e0
+  language: cs
+  page: navody:vps:kvm
+  paragraph: 25
+  text: Vytvoření nového virtálu spočívá pouze v přípravě image disku, vytvoření symlinku
+    pro init skript a úpravě jednoduchého konfiguračního skriptu. Nechť se nový virtuál
+    jmenuje třeba „myvirt.“
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 320e2111299a2a09
   language: cs
   page: navody:vps:kvm-openrc
+  paragraph: 4
   text: ==== 2. Konfigurace VPS ==== Ve vpsadmin je nutné v detailu povolit funkce
     "TUN/TAP" a "KVM"\\ Dále je vhodné si rozdělit dataset na hlavní dataset(zde bude
     hostující OS VPS) a na subdataset (zde bude disk k našemu KVM). Doproučuji rozdělit
     stejně jako na obrázku níže. 5GiB bude pro hostující OS více, než dostatečné a
     115 GiB pro KVM disk\\
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: 619e59d81afc177d
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 6d291b8a104c8295
   language: cs
   page: navody:vps:metriky
+  paragraph: 2
   text: Pro nastavení si ve vpsAdminu v **Upravit profil** -> **Přístupové tokeny
     k metrikám** vytvořte přístupový token. Zobrazí se vám tzv. scrape URL, kterou
     přidáte do vašeho monitoringu. Statusy VPS se aktualizují co 2 minuty, takže nemá
@@ -272,109 +638,236 @@ discoveries:
     v prohlížeči.
   paths:
   - member.metrics-access-tokens.open
-- id: 90f21926a595f622
+- id: 42e70cd419946f38
   language: cs
   page: navody:vps:metriky
+  paragraph: 3
   text: Metrika ''vpsadmin_metrics_version'' (pokud jste si nezměnili prefix) udává
     verzi metrik. Pokud bychom dělali zpětně nekompatibilní změny, první číslo se
     navýší, tj. např. ''1.0 -> 2.0''. Číslo za desetinnou čárkou se může zvyšovat,
     když přidáme nějaké nové metriky, ale význam původních metrik se nezmění.
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: c0939fcc0a2967cc
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 41620c06a0e29265
+  language: cs
+  page: navody:vps:obnova_webu_zo_zalohy
+  paragraph: 5
+  text: Najskôr vytvoríme VPS na hranie dajme tomu s názvom "//hracie//" [VPS]. Pod
+    cestou "//VPS > Nové VPS//" v "//Lokace//" vyberieme "//Playground//" a klikneme
+    na "//Další//". Nastavenia (verzia operačného systému...) zvolíme identické s
+    našim ostrým serverom.
+  paths:
+  - vps.create.open
+- id: 68b42bd69e898d99
+  language: cs
+  page: navody:vps:obnova_webu_zo_zalohy
+  paragraph: 7
+  text: Na ceste "//Zálohy > Zálohy VPS//" klikneme na "//Mount//" pri "//snapshote//"
+    (zálohe), z ktorej chceme navrátiť údaje.
+  paths:
+  - backups.vps.open
+- id: c21dc410ba8d1b79
+  language: cs
+  page: navody:vps:obnova_webu_zo_zalohy
+  paragraph: 35
+  text: "* ''nano /mnt/data1/var/www/zachnanovanadomena.sk/wp-config.php'' * ''mysqldump
+    -u prihlasovacie_meno -p'prihlasovacie_heslo' nazov_databazy | gzip -9 > nazov_databazy_zaloha.sql.gz''"
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 4235c743ecb5ccc1
   language: cs
   page: navody:vps:oprava
+  paragraph: 9
   text: Mount vytvoříme v detailu záchranné VPS akcí **Mount**, kde vybereme dataset
     rozbité VPS.
   paths:
   - datasets.mount.open
-- id: d13f4f6e5bbf05b2
+- id: 3fd13cd63a6a78fb
   language: cs
   page: navody:vps:playgroundvps
+  paragraph: 5
+  text: Čistou VPS vytvoříme v sekci VPS kliknutím na odkaz „Nové VPS“ v pravém sloupci
+    vpsAdminu. Následně musíme zvolit, že chceme založit nový VPS v prostředí Playground.
+  paths:
+  - vps.create.open
+- id: 95a01455b0f40079
+  language: cs
+  page: navody:vps:playgroundvps
+  paragraph: 10
   text: Klonování se provádí v detailu VPS, který chceme naklonovat. V pravém sloupci
     klikněte na **Klonovat VPS** a poté zvolte klonování do prostředí Playground.
   paths:
   - vps.clone.open
-- id: c7beabc8b19989e8
+- id: 001def2a75591360
+  language: cs
+  page: navody:vps:playgroundvps
+  paragraph: 13
+  text: Tento proces může chvíli trvat v závislosti na velikosti a typu dat na klonované
+    VPS. Proces klonování je možné sledovat v sekci **Transakce**.
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 3079da175f4bee77
+  language: cs
+  page: navody:vps:playgroundvps
+  paragraph: 15
+  text: Na playground nebo i [[navody:vps:vpsadminos#testovaci_prostredi|staging]]
+    VPS si můžeš připravit nový systém nebo konfiguraci a potom toto nové VPS přenést
+    do produkce. Funkce **Prohodit VPS** přenese playground VPS do produkce, vymění
+    se IP adresy a původní produkční VPS se přenese zase na playground. **Prohodit
+    VPS** lze provést z detailu produkční VPS.
+  paths:
+  - vps.swap.open
+  - vps.swap.open
+- id: 664311888828a860
+  language: cs
+  page: navody:vps:playgroundvps
+  paragraph: 17
+  text: Je důležité vyvolat swap z detailu produkční VPS a ne naopak. Tento VPS se
+    pak považuje za hlavní a je u něj minimalizována nedostupnost.
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 54f505822f55c5f6
   language: cs
   page: navody:vps:plny_disk
+  paragraph: 4
   text: "===== NAS ===== Nedaří-li se mazáním dat uvolnit místo na NASu, nejspíše
     je drží snapshot. Velikost snapshotů se totiž [[navody:vps:datasety#kvoty_datasetu|počítá
     do zabraného místa na NASu]]. Pro uvolnění místa je nutné snapshoty smazat, to
     můžeme udělat ve vpsAdminu v menu Zálohy -> NAS."
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: 501a8565398d6a86
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: eaca9f69069a00eb
   language: cs
   page: navody:vps:prenosy
-  text: vpsAdmin měří přenesené data co 10 sekund a z toho počítá průměr za sekundu,
-    zobrazit si je můžeme buď v Sítě -> Live monitor a nebo přes [[navody:vps:api|vpsfreectl]].
-  paths:
-  - networking.live-monitor.open
-- id: fb7087aec9bd7399
-  language: cs
-  page: navody:vps:prenosy
+  paragraph: 2
   text: V menu Sítě -> Seznam měsíčního provozu se můžeme podívat na měsíční přehledy
     přenesených dat.
   paths:
   - networking.monthly-traffic.open
-- id: 0c7d0fc0871ba3cf
+- id: 7b183c64c2797375
+  language: cs
+  page: navody:vps:prenosy
+  paragraph: 5
+  text: vpsAdmin měří přenesené data co 10 sekund a z toho počítá průměr za sekundu,
+    zobrazit si je můžeme buď v Sítě -> Live monitor a nebo přes [[navody:vps:api|vpsfreectl]].
+  paths:
+  - networking.live-monitor.open
+- id: 4bc05f2c4a2e1691
+  language: cs
+  page: navody:vps:prostredi
+  paragraph: 3
+  text: Přehled přidělených prostředků v prostředích je vidět v Upravit profil → Prostředky
+    clusteru.
+  paths:
+  - member.cluster-resources.open
+- id: d1e75eb97a094f3c
+  language: cs
+  page: navody:vps:prostredi
+  paragraph: 5
+  text: Nastavení prostředí najdete v Upravit profil → Konfigurace prostředí.
+  paths:
+  - member.environment-configs.open
+- id: c757a9ae822b709a
   language: cs
   page: navody:vps:rdns
+  paragraph: 2
+  text: Pro nastavení reverzních záznamů už není potřeba psát na podporu, vpsAdmin
+    se dočkal integrace s DNS servery. Reverzní záznamy tak nastavíte přímo z detailu
+    VPS, popř. z nového menu DNS.
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: e775fd2c390a2c20
+  language: cs
+  page: navody:vps:rdns
+  paragraph: 8
   text: Všechny reverzní záznamy pro [[informace:ip_adresy|rozsahy IP adres]] vpsFree.cz
     jsou delegovány na naše DNS servery. Reverzní záznamy pro jednotlivé IP adresy
     nastavíte ve vpsAdminu v detailu VPS, formulář „Adresy rozhraní“, popř. v menu
     DNS.
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: 16a27d5886d7f738
-  language: cs
-  page: navody:vps:rdns
-  text: Pro nastavení reverzních záznamů už není potřeba psát na podporu, vpsAdmin
-    se dočkal integrace s DNS servery. Reverzní záznamy tak nastavíte přímo z detailu
-    VPS, popř. z nového menu DNS.
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: 7091d25d84c2f181
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: e453db6c7a79d7ac
   language: cs
   page: navody:vps:sprava
-  text: Hostname VPS je možné změnit přímo ve vpsAdmin a při každém startu VPS dojde
-    automaticky k přepsání volby v ''/etc/hosts''. Hostname je ale možné spravovat
-    i manuálně, mimo vpsAdmin. V detailu VPS je možné zvolit, kterou variantu preferujete.
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: efca7ff64dcd2311
-  language: cs
-  page: navody:vps:sprava
+  paragraph: 12
   text: vpsAdmin umí do nově vytvořeného VPS vložit klíče automaticky. Nejprve mu
     jej musíme předat. To uděláme po přihlášení v Upravit profil → Veřejné klíče →
     vpravo v panelu Přidat veřejný klíč.
   paths:
   - member.public-keys.add
-- id: a1217a57523998d0
+- id: bc976daffeb68fb4
   language: cs
-  page: navody:vps:start_menu
-  text: "===== NixOS generace ===== U VPS s NixOS start menu obsahuje položku **Select
-    NixOS generation**. Tato volba umožnuje spustit systém z libovolné generace systému."
+  page: navody:vps:sprava
+  paragraph: 14
+  text: U každého klíče si můžeme vybrat, jestli se má do nových/reinstalovaných VPS
+    nahrávat automaticky. Klíče můžeme kdykoliv do běžícího VPS také nahrát pomocí
+    formuláře v detailech VPS, hned pod formulářem na nastavení hesla.
   reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
-- id: af9217b6cdce5298
+- id: 84733bae530e2ac0
+  language: cs
+  page: navody:vps:sprava
+  paragraph: 23
+  text: V detailu VPS je možné měnit parametry VPS. Minimální konfigurace VPS je 1
+    CPU, 256 MB RAM a 512 MB disku. Maximální konfigurace je 8 CPU, 16 GB RAM, diskový
+    prostor není omezen.
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 9782da387777db3e
+  language: cs
+  page: navody:vps:sprava
+  paragraph: 27
+  text: Hostname VPS je možné změnit přímo ve vpsAdmin a při každém startu VPS dojde
+    automaticky k přepsání volby v ''/etc/hosts''. Hostname je ale možné spravovat
+    i manuálně, mimo vpsAdmin. V detailu VPS je možné zvolit, kterou variantu preferujete.
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: df8114a1b7bd4df8
   language: cs
   page: navody:vps:start_menu
-  text: Ve výchozím stavu je zapnuto na všech VPS běžících na vpsAdminOS. Na vstup
-    uživatele čeká 5 sekund. Menu lze vypnout nastavením timeoutu na **0**.
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: f6aaf4e9b09c0f32
+  paragraph: 0
+  text: "<page>manuals:vps:start_menu</page> ====== Start menu ====== Start menu je
+    dostupné ze [[navody:vps:konzole|vzdálené konzole VPS]], když se VPS zapíná nebo
+    restartuje. Pomocí start menu je možné měnit příkaz, kterým se spouští init proces,
+    případně spustit shell. Pokud uživatel menu nepoužije, automaticky se spustí systém
+    z VPS."
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: d5041fc0e5cc8f87
   language: cs
   page: navody:vps:start_menu
+  paragraph: 2
   text: "* **Start system** spustí systém jako obvykle. * **Run shell** spustí ''/bin/sh''
     z VPS. Po ukončení shellu se znovu objeví start menu. Shell lze použít k přístupu
     do VPS, když systém nestartuje, např. kvůli nějaké chybě v konfiguraci. * **Run
     custom command** spouští libovolný příkaz s argumenty jako init proces."
   reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
-- id: 7bec3a9d82652224
+- id: 66450399ab0fcf7d
+  language: cs
+  page: navody:vps:start_menu
+  paragraph: 3
+  text: 'Start menu se nastavuje v detailu VPS ve vpsAdminu:'
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: d2e488a2c8f50fe3
+  language: cs
+  page: navody:vps:start_menu
+  paragraph: 5
+  text: Ve výchozím stavu je zapnuto na všech VPS běžících na vpsAdminOS. Na vstup
+    uživatele čeká 5 sekund. Menu lze vypnout nastavením timeoutu na **0**.
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: c3aa03dd3ef86716
+  language: cs
+  page: navody:vps:start_menu
+  paragraph: 6
+  text: "===== NixOS generace ===== U VPS s NixOS start menu obsahuje položku **Select
+    NixOS generation**. Tato volba umožnuje spustit systém z libovolné generace systému."
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 3096a9f44be9df90
+  language: cs
+  page: navody:vps:start_menu
+  paragraph: 8
+  text: 'Po vybrání se otevře vnořené menu se seznamem generací:'
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 977cccc700a8884d
   language: cs
   page: navody:vps:userdata
+  paragraph: 2
   text: Skripty a konfigurace je možné si do vpsAdminu uložit a při vytvoření/reinstalaci
     VPS vyberete způsob konfigurace. Správu uložených konfigurací najdeme ve vpsAdminu
     menu **VPS** -> **User data**, popř. **Upravit profil** -> **User data**. Při
@@ -384,53 +877,27 @@ discoveries:
   paths:
   - userdata.manage-vps.open
   - userdata.manage-profile.open
-- id: ea444b0f986f0aaf
+- id: 36699a0ab826e9df
   language: cs
   page: navody:vps:userdata
+  paragraph: 3
   text: Pro vývoj a testování je možné uloženou konfiguraci nahrát do VPS kdykoliv,
     **vpsAdmin** -> **VPS** -> **User data** -> Upravit položku ze seznamu a poté
     formulář **Nasadit do VPS**. Tato akce pouze zapíše skript/konfiguraci na disk
     VPS, k jejímu spuštění dojde až při restartu VPS.
   paths:
   - userdata.deploy.open
-- id: 1b89f96a35e3a13b
+- id: 839daec229c3a4a1
+  language: cs
+  page: navody:vps:userns
+  paragraph: 3
+  text: "===== UID/GID mapování ===== Každé VPS používá jedno UID/GID mapování, můžeme
+    jej vidět a nastavovat v detailu VPS:"
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 7b87e007ba529be4
   language: cs
   page: navody:vps:uzivatele
-  text: Ve vpsAdminu v Upravit profil -> Přístupové klíče si nejprve své zařízení
-    registrujte a poté aktivujte dvoufaktorové ověřování v nastavení profilu (vpsAdmin
-    -> Upravit profil).
-  paths:
-  - member.passkeys.open
-  - member.edit-profile.open
-- id: 3b12fc3927319c76
-  language: cs
-  page: navody:vps:uzivatele
-  text: "==== Detailní nastavení ==== Komu by nestačilo nastavení různých e-mailových
-    adres pro různé role, nebo některé e-maily nechce vůbec dostávat, existuje ještě
-    pokročilé nastavení (vpsAdmin -> Upravit profil -> Pokročilá konfigurace e-mailu).
-    Zde si můžete nastavit libovolné adresy pro vybrané typy e-mailů, případně zasílání
-    zrušit úplně."
-  paths:
-  - member.advanced-email-configuration.open
-- id: 6be3dfdd1edc8f06
-  language: cs
-  page: navody:vps:uzivatele
-  text: "===== Nastavení přihlášení ===== V nastavení profilu (vpsAdmin -> Upravit
-    profil) je formulář „Nastavení relací“:"
-  paths:
-  - member.edit-profile.open
-- id: 7d051c55a5a6bc91
-  language: cs
-  page: navody:vps:uzivatele
-  text: Pro ověřování můžete použít např. mobilní telefon s aplikací [[https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=cs|Google
-    Authenticator]] nebo [[https://freeotp.github.io|FreeOTP]]. Při aktivaci naskenujete
-    zobrazený QR kód do aplikace a opíšete jednorázové heslo, které vám zobrazí. Alternativně
-    můžete do aplikace opsat tajný klíč, který vpsAdmin ukazuje pod QR kódem.
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: a918e714d3a87a04
-  language: cs
-  page: navody:vps:uzivatele
+  paragraph: 0
   text: "<page>manuals:vps:users</page> ====== Správa uživatelského účtu ====== =====
     Konfigurace e-mailových adres ===== vpsAdmin umožňuje nastavit jeden primární
     e-mail patřící majiteli účtu -- členovi v našem spolku. Ten musí být nastaven
@@ -439,66 +906,138 @@ discoveries:
     uživatelského účtu (vpsAdmin -> Upravit profil)."
   paths:
   - member.edit-profile.open
-- id: cb9e60454552fb86
+- id: 8af6f09d7a3fe7ae
   language: cs
   page: navody:vps:uzivatele
-  text: "===== Log přihlášení a vykonaných akcí ===== vpsAdmin loguje všechny relace
-    a pamatuje si, jaké akce byly vykonány (vpsAdmin -> Upravit profil -> Relace)."
+  paragraph: 6
+  text: "==== Detailní nastavení ==== Komu by nestačilo nastavení různých e-mailových
+    adres pro různé role, nebo některé e-maily nechce vůbec dostávat, existuje ještě
+    pokročilé nastavení (vpsAdmin -> Upravit profil -> Pokročilá konfigurace e-mailu).
+    Zde si můžete nastavit libovolné adresy pro vybrané typy e-mailů, případně zasílání
+    zrušit úplně."
   paths:
-  - member.sessions.open
-- id: e84300c1a67b187f
+  - member.advanced-email-configuration.open
+- id: e10e2ef2bc062521
   language: cs
   page: navody:vps:uzivatele
-  text: Je možné nastavit více autentizačních zařízení a pro přihlášení lze použít
-    libovolné z nich. Autentizační zařízení můžete dočasně vypnout, nebo trvale smazat
-    (vpsAdmin -> Upravit profil -> TOTP zařízení).
-  paths:
-  - member.totp-devices.open
-- id: fcc8b8684298c599
-  language: cs
-  page: navody:vps:uzivatele
+  paragraph: 10
   text: V nastavení profilu (vpsAdmin -> Upravit profil) je možné dvoufaktorové ověřování
     vypnout nebo zapnout. Aktivní je ale jen když existuje aspoň jedno TOTP zařízení
     nebo passkey.
   paths:
   - member.edit-profile.open
-- id: 39e511562aabebaa
+- id: 50ee994dc258598a
+  language: cs
+  page: navody:vps:uzivatele
+  paragraph: 13
+  text: Pro ověřování můžete použít např. mobilní telefon s aplikací [[https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=cs|Google
+    Authenticator]] nebo [[https://freeotp.github.io|FreeOTP]]. Při aktivaci naskenujete
+    zobrazený QR kód do aplikace a opíšete jednorázové heslo, které vám zobrazí. Alternativně
+    můžete do aplikace opsat tajný klíč, který vpsAdmin ukazuje pod QR kódem.
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: a27891760e45d90f
+  language: cs
+  page: navody:vps:uzivatele
+  paragraph: 16
+  text: Je možné nastavit více autentizačních zařízení a pro přihlášení lze použít
+    libovolné z nich. Autentizační zařízení můžete dočasně vypnout, nebo trvale smazat
+    (vpsAdmin -> Upravit profil -> TOTP zařízení).
+  paths:
+  - member.totp-devices.open
+- id: 791d0df9781f68aa
+  language: cs
+  page: navody:vps:uzivatele
+  paragraph: 21
+  text: Ve vpsAdminu v Upravit profil -> Přístupové klíče si nejprve své zařízení
+    registrujte a poté aktivujte dvoufaktorové ověřování v nastavení profilu (vpsAdmin
+    -> Upravit profil).
+  paths:
+  - member.passkeys.open
+  - member.edit-profile.open
+- id: 93940eca004174c5
+  language: cs
+  page: navody:vps:uzivatele
+  paragraph: 22
+  text: "===== Nastavení přihlášení ===== V nastavení profilu (vpsAdmin -> Upravit
+    profil) je formulář „Nastavení relací“:"
+  paths:
+  - member.edit-profile.open
+- id: aca6e4d4a2c35c23
+  language: cs
+  page: navody:vps:uzivatele
+  paragraph: 25
+  text: "===== Log přihlášení a vykonaných akcí ===== vpsAdmin loguje všechny relace
+    a pamatuje si, jaké akce byly vykonány (vpsAdmin -> Upravit profil -> Relace)."
+  paths:
+  - member.sessions.open
+- id: faad78d87ce082b7
+  language: cs
+  page: navody:vps:vpsadmin
+  paragraph: 4
+  text: Transakce spadají do skupin nazvaných „řetězec transakcí“. Každá operace (vytvoření
+    VPS, start, stop, klon, atd.) je reprezentována jedním řetězcem, který seskupuje
+    více transakcí. Ve webovém rozhraní v sekci **Transakce** v pravém panelu se zobrazuje
+    seznam deseti posledních řetězců a jejich postup v procentech. Kliknutím na ID
+    řetězce lze vidět, jaké transakce obsahuje.
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: b70ed12db30c9d7b
   language: cs
   page: navody:vps:vpsadminos:oprava
+  paragraph: 10
   text: 'Nouzový režim lze použít z detailu VPS, formulář **Spustit VPS ze šablony
     (nouzový režim)**:'
   paths:
   - vps.boot-rescue.open
-- id: 5bc764809e5a8e66
+- id: a2373627deb5f71f
   language: cs
   page: navody:vps:vpsadminos:snap
+  paragraph: 1
+  text: "===== Instalace ===== Ve vpsAdminu je potřeba v detailu VPS povolit feature
+    **FUSE**. Potom nainstalujte snapd a [[https://github.com/vasi/squashfuse|squashfuse]]:"
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 83568dfa5dd12c17
+  language: cs
+  page: navody:vps:vpsadminos:snap
+  paragraph: 5
   text: "===== LXD ===== Pokud chcete ve VPS provozovat kontejnery, jednou z možností
     je [[https://linuxcontainers.org/lxd|LXD]]. Nejprve v detailu VPS povolte feature
     **LXC nesting**."
   reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
-- id: a6b2a290a0ce9d4d
-  language: cs
-  page: navody:vps:vpsadminos:snap
-  text: "===== Instalace ===== Ve vpsAdminu je potřeba v detailu VPS povolit feature
-    **FUSE**. Potom nainstalujte snapd a [[https://github.com/vasi/squashfuse|squashfuse]]:"
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: 7f108bf2eb018b1c
+- id: b54d00009075f419
   language: cs
   page: navody:vps:zalohy
+  paragraph: 3
+  text: Snapshoty jsou vidět v menu Zálohy. Tam je možné je také vytvářet.
+  paths:
+  - backups.vps.open
+- id: '8502184746525158'
+  language: cs
+  page: navody:vps:zalohy
+  paragraph: 16
   text: Identifikátor historie je znázorněn v tabulce se seznamem snapshotů v menu
-    Zálohy → Zálohy VPS.
+    Zálohy.
   paths:
   - backups.vps.open
-- id: d3ec30d45727e077
+- id: 339bfcb5b9009def
   language: cs
-  page: navody:vps:zalohy
-  text: Snapshoty jsou vidět v menu Zálohy → Zálohy VPS. Tam je možné je také vytvářet.
-  paths:
-  - backups.vps.open
-- id: 07d535b7d6ed8b83
+  page: wiki:syntax
+  paragraph: 77
+  text: -> <- <-> => <= <=> >> << -- --- 640x480 (c) (tm) (r) "He thought 'It's a
+    man's world'..."
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: e1e2382df3da4717
+  language: en
+  page: information:faq
+  paragraph: 16
+  text: Sure. Please send your invoicing details, user ID or nickname to podpora(at)vpsFree.cz.
+    See the [[Membership_Fees|payment details]].
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: d66a85dd0818d824
   language: en
   page: information:ip_replacement
+  paragraph: 5
   text: ===== How to replace the addresses? ===== New addresses have been routed to
     your VPS, which addresses specifically can be found in the email we sent you.
     If you haven't received any email and you don't have any IP from the mentioned
@@ -507,54 +1046,53 @@ discoveries:
     addresses" form in vpsAdmin. You can have multiple addresses on an interface and
     perform the replacement gradually. Once the original addresses are no longer needed,
     you can remove them from your VPS using the same form in vpsAdmin.
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: e65419a287768cb2
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 41a715b6446f0a94
   language: en
   page: information:ip_replacement
+  paragraph: 17
   text: ===== I need to return to the original address ===== In the "Interface addresses"
     form in the vpsAdmin details of your VPS, you can add it back. Alternatively,
     if you also deleted the route, you can add it just above in the "Routed addresses"
     form. The original addresses will be available until May 1, 2024.
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: 79c2bfcd7aac1936
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 2b04cb7d959aeaa4
   language: en
   page: information:kb
+  paragraph: 0
   text: ====== Knowledge base ====== All members can edit existing articles and write
     new ones. If you see an error or room for an improvement, you can contribute.
     Click on Log in in the top right corner and then on vpsAdmin in "Log in with other
     Services" section. There you can log in using your vpsAdmin credentials and you'll
     have write access to the knowledge base.
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: 3eec3ae654f5d12a
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 421fac99a88a8c17
   language: en
   page: information:membership_fees
+  paragraph: 1
   text: The board has decided that the payment is made for a **period** of at least
     **three months** in advance. The bank account number is provided below. For the
     variable symbol, use the member ID that every member sees in vpsAdmin – the Membership
     Admin section, first column (ID) (**NOT the ID of the virtual server!**).
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: 64304e1ef2157996
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 81dae57a31d5684c
   language: en
   page: information:membership_fees
+  paragraph: 9
   text: "===== Variable Symbol ===== Payments are identified by a variable symbol,
-    which is member ID. You can find member ID in vpsAdmin -> Edit profile -> Payment
-    instructions. It is also sent in email payment reminders."
+    which is member ID. You can find member ID in vpsAdmin -> Edit profile at the
+    top, or Members section. It is also sent in email payment reminders and can be
+    seen in Payment instructions in member details in vpsAdmin."
   paths:
   - member.payment-instructions.open
-- id: 2bb9a0ca554029d5
+- id: 7b5a68691fc348b4
   language: en
   page: information:new_members
-  text: Log in to the [[https://vpsadmin.vpsfree.cz/|vpsAdmin interface]], go to the
-    **VPS** section, click the server ID.
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: 422f703ce86b0527
-  language: en
-  page: information:new_members
+  paragraph: 1
   text: "===== The Payment Details to Pay the Membership Fee ===== * Payments are
     sent to the bank account 2200041594/2010 (Czech Republic) or 2601502873/8330 (Slovakia).
     * IBAN: CZ0420100000002200041594, SK2083300000002601502873 * Use the member ID
@@ -563,11 +1101,26 @@ discoveries:
     date when your membership payment is due. * We prefer payments for three months
     in advance – either 900 CZK or 36 euro. * Further details can be found in the
     [[Membership_Fees|section on payments]]."
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: 35ba9bb358f846f4
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 0c8df2fb92eb56b1
+  language: en
+  page: information:new_members
+  paragraph: 6
+  text: Log in to the [[https://vpsadmin.vpsfree.cz/|vpsAdmin interface]], go to the
+    **VPS** section, click the server ID.
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 10a4f439c9651af6
+  language: en
+  page: information:new_members
+  paragraph: 18
+  text: "==== How can I find out what traffic my VPS has? ==== In VPS details:"
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: ea064d9d5b891798
   language: en
   page: information:support
+  paragraph: 2
   text: "- **Check** that the problem really isn’t on your side, so that you don’t
     bother the support with unnecessary requests. - If the problem is on your side
     and not even Google can help you, write to our [[https://discourse.vpsfree.cz/t/welcome-to-vpsfree-cz-discourse/5|Discourse]]
@@ -583,34 +1136,57 @@ discoveries:
     in vpsFree.cz. We will automatically use your first name to address you, so please
     don’t be offended."
   reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
-- id: 9405568e923e3f28
+- id: 743d5ef06618a684
   language: en
   page: information:where_to_write
+  paragraph: 1
   text: "===== Support ===== * payment problems * VPS failing to boot * connection
     problems * problems with vpsAdmin * other problems that require the action of
     an admin * read [[support|how to write to our support]] * -> [[mailto:support@vpsfree.org|support@vpsfree.org]]"
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: fc21b4f4d5346042
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 26b5d7646433e582
+  language: en
+  page: information:where_to_write
+  paragraph: 2
+  text: "===== Discourse ===== * questions about software / service configuration
+    * solution recommendations (should I use Apache or Nginx?) * other community-related
+    matters, such as meetups, etc. * -> [[https://discourse.vpsfree.cz/t/welcome-to-vpsfree-cz-discourse/5|Discourse]]
+    or [[chat|IRC / Matrix]]"
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 9ada1c6aea816112
   language: en
   page: manuals:distributions:distributions
+  paragraph: 1
   text: We support all most used distributions. You can see currently supported distributions
     in the [[https://vpsfree.org/registration/|registration form]]. There's an even
     greater selection in vpsAdmin, which includes older versions not shown in the
     registration form.
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: 70d50bb407382d7d
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 7b098ad283fd3d4b
   language: en
   page: manuals:distributions:nixos:impermanence
+  paragraph: 8
   text: "==== 2. Start the VPS in rescue mode ==== In VPS details, use form **Boot
     VPS from template (rescue mode)**. It's best to choose a different distribution
     than NixOS, so that there's no ''/nix'' directory. Use e.g. Alpine or Debian."
   paths:
   - vps.boot-rescue.open
-- id: a5c2242ed17a7811
+- id: 99e0a207d925d665
   language: en
   page: manuals:distributions:nixos:impermanence
+  paragraph: 9
+  text: "==== 3. Create VPS subdataset for the Nix store ==== In VPS details, create
+    subdataset ''nix'', which will be mounted to ''/nix'' (this is why we didn't want
+    to boot into NixOS in the previous step). You might have to free some diskspace
+    in order to be able to create the dataset, you can do that by shrinking the root
+    dataset."
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: c6f2cccc09a24e18
+  language: en
+  page: manuals:distributions:nixos:impermanence
+  paragraph: 11
   text: "==== 5. Mount root dataset to /persistent ==== In the impermanence mode,
     your root file system will be temporary and cleared on every start. We must mount
     our persistent storage to ''/persistent''. This can be either the root dataset,
@@ -619,30 +1195,21 @@ discoveries:
     is the VPS ID) and mount it to ''/persistent''."
   paths:
   - datasets.mount.open
-- id: dfb613f91b36e407
+- id: 5a37f1497fca3a3e
   language: en
   page: manuals:distributions:nixos:impermanence
+  paragraph: 18
   text: "==== 8. Turn on impermanence feature ==== In VPS details, enable the **NixOS
     Impermanence** feature. This will configure your VPS so that it is started with
     a clean, temporary dataset. Its contents will be lost on every reboot and it's
     not backed up. Turning on the feature will cause the VPS to restart into the configuration
     we've prepared in step **7**."
   reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
-- id: 42b2cc4078fde6e0
+- id: 8775ca08a95ff4ed
   language: en
   page: manuals:server:primary_dns
-  text: "===== DNSSEC ===== We support DNSSEC, but to set it up, you need to pass
-    the DNSKEY/DS record to the parent zone, check with your registrar as to how it
-    is done. DNSSEC is activated in the zone details in vpsAdmin, and the keys are
-    automatically generated and the zone is signed; we use the default BIND policy.
-    You can view the DNSKEY/DS records by clicking on **View DNSKEY and DS records**
-    in the zone details."
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: 6f2df507d4ac74ab
-  language: en
-  page: manuals:server:primary_dns
-  text: "- In the **DNS** -> **Primary zones** menu, create a zone for your domain.
+  paragraph: 1
+  text: "- In the **DNS** -> **Primary Zones** menu, create a zone for your domain.
     The zone name is simply the domain name, usually a second-level domain, but you
     can delegate higher-level domains as well. - You need to update the nameservers
     with your domain registrar to our shared servers, which you will see in the zone
@@ -650,121 +1217,246 @@ discoveries:
     the DNS records through the vpsAdmin interface."
   paths:
   - dns.primary-zones.open
-- id: 97dbf91d66d8eea2
+- id: 7313179aa8ba608a
   language: en
   page: manuals:server:primary_dns
+  paragraph: 4
+  text: "===== DNSSEC ===== We support DNSSEC, but to set it up, you need to pass
+    the DNSKEY/DS record to the parent zone, check with your registrar as to how it
+    is done. DNSSEC is activated in the zone details in vpsAdmin, and the keys are
+    automatically generated and the zone is signed; we use the default BIND policy.
+    You can view the DNSKEY/DS records by clicking on **View DNSKEY and DS records**
+    in the zone details."
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 84bc95fa9c692338
+  language: en
+  page: manuals:server:primary_dns
+  paragraph: 5
   text: "===== Custom Secondary Servers ===== You can run your own DNS server in your
     VPS and use it as an additional secondary server. You can add it in the zone details
     in vpsAdmin through the **Secondary Servers** form. vpsAdmin will then show you
     how its configuration might look. Once your server is up and running, you can
     add it to the nameservers with your domain registrar."
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: 1ac262106906aaec
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: e1ab7aa188ee8476
   language: en
   page: manuals:server:secondary_dns
-  text: You can set up individual zones in the menu DNS -> Secondary zones. After
+  paragraph: 1
+  text: You can set up individual zones in the menu DNS -> Secondary Zones. After
     creating a zone using the "Primary Servers" form, you add the address of your
     primary authoritative server that is running in your VPS.
   paths:
   - dns.secondary-zones.open
-- id: 71675e8c7e44cbb6
+- id: 3076c1a56a64656e
   language: en
   page: manuals:server:secondary_dns
+  paragraph: 5
   text: "===== TSIG ===== Zone transfers between primary and secondary servers can
     be further secured using TSIG. First, create a shared key in the menu DNS -> TSIG
-    keys. Each key is identified by an arbitrary name, chosen algorithm, and secret
+    Keys. Each key is identified by an arbitrary name, chosen algorithm, and secret
     code. These values must match on all servers. When adding primary servers to a
     zone, you can set the selected TSIG key. The sample configuration again shows
     how to set up TSIG on the primary server."
   paths:
   - dns.tsig-keys.open
-- id: e7bb7949d5b10e00
+- id: 76922e3369f90565
   language: en
   page: manuals:vps:api
+  paragraph: 1
+  text: Our API is running at https://api.vpsfree.cz. The API can be used to perform
+    any action that you can do in the web interface. In fact, the web interface running
+    at https://vpsadmin.vpsfree.cz uses the API and calls it for every action.
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 9d6e2c79f9dc0350
+  language: en
+  page: manuals:vps:api
+  paragraph: 57
   text: "==== Usage ==== The usage of ''haveapi-fs'' is described in detail in [[https://github.com/vpsfreecz/haveapi-fs#usage|README.md]].
     This is just a brief description."
   reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
-- id: f7649cc00f3ee4db
+- id: 9f9373c634f66556
+  language: en
+  page: manuals:vps:api:windows
+  paragraph: 2
+  text: "- in Windows 10, enable Developer Mode, let it install - in the Programs
+    and Features menu, open Turn Windows Features On or Off, scroll to the very bottom,
+    choose Windows Subsystem for Linux, run the installation and let the computer
+    restart - after the restart, run bash in the Start menu as admin - create a Unix
+    username and password - press the Y key and let the Ubuntu base be installed"
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 78f0fd24a51276f3
+  language: en
+  page: manuals:vps:backups
+  paragraph: 2
+  text: Snapshots can be seen and created in the Backups menu.
+  paths:
+  - backups.vps.open
+- id: f7834fb6f3ca2e46
+  language: en
+  page: manuals:vps:backups
+  paragraph: 15
+  text: The history identifier is shown in the table with a list of snapshots in the
+    Backups menu.
+  paths:
+  - backups.vps.open
+- id: cb6c72b4a9ed55ff
+  language: en
+  page: manuals:vps:console
+  paragraph: 3
+  text: The console can be used to access the [[manuals:vps:start_menu|start menu]],
+    which appears when the VPS is being started or restarted. ===== Web Interface
+    =====
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: ff6b333f17821a8a
   language: en
   page: manuals:vps:datasets
+  paragraph: 2
   text: The dataset in vpsAdmin directly represents the ZFS dataset on the hard drive.
     Datasets are used for VPS (each VPS has its own dataset) and NAS data. A VPS dataset
     can be used the same way as an NAS, but are located in different locations (VPS
     details and the NAS menu). The operations you can carry out with them are the
     same, such as creating snapshots, restoring to snapshots or mounting datasets
     to VPS.
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: 5a9442738d140ca3
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 33a080b0e537432d
   language: en
-  page: manuals:vps:exports
-  text: 'Snapshots can be exported from menu //Backups// -> //VPS backups// or //NAS
-    backups//:'
+  page: manuals:vps:datasets
+  paragraph: 17
+  text: 'Mounts can be seen in the VPS details:'
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: bbf8058a4c45390a
+  language: en
+  page: manuals:vps:environment
+  paragraph: 3
+  text: If you want to see an overview of the allocated resources in the environment,
+    check “Edit profile → Cluster resources”.
   paths:
-  - backups.vps.open
-- id: d9b1192e30e75f6a
+  - member.cluster-resources.open
+- id: 0ee62b782125d7bd
+  language: en
+  page: manuals:vps:environment
+  paragraph: 5
+  text: The environment settings can be found in “Edit profile → Environment configs”.
+  paths:
+  - member.environment-configs.open
+- id: fa7537de6d528879
   language: en
   page: manuals:vps:exports
+  paragraph: 1
   text: "===== Create an export ===== Exports can be found in vpsAdmin main menu as
     //Exports//. Export of a dataset can be created from the list of NAS datasets
     in menu //NAS//:"
   paths:
   - exports.open
-- id: f0c0fc9c7dec815c
+- id: f9c2fa58a718d486
   language: en
   page: manuals:vps:exports
+  paragraph: 3
   text: Another way is to go to //Exports// -> //Export dataset//, which will show
     you a form when you can select which dataset you'd like to export.
   paths:
   - exports.export-dataset.open
-- id: 2d62b7d0d2ac7e3d
+- id: ae698542315b0e50
+  language: en
+  page: manuals:vps:exports
+  paragraph: 4
+  text: 'Snapshots can be exported from menu //Backups// -> //VPS backups// or //NAS
+    backups//:'
+  paths:
+  - backups.vps.open
+- id: 03cf53360bb6b16d
   language: en
   page: manuals:vps:full_disk
+  paragraph: 4
   text: "===== NAS ===== If you're deleting data from NAS, but the free space is not
     increasing, it's most likely held by a snapshot. Data taken by snapshots is [[manuals:vps:datasets#dataset_quotas|reducing
     NAS disk size]]. It's necessary to delete all snapshots to free the space. You
     can do it in vpsAdmin, menu Backups -> NAS."
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: eaf187f474b77e98
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 99df7bbbf6da26ce
   language: en
   page: manuals:vps:ip_addresses
+  paragraph: 9
+  text: A list of addresses is available in the “Networking -> Routable addresses”
+    menu. This is where you can see addresses that are owned or assigned to VPSs,
+    as well as addresses that are available. It is possible to assign addresses to
+    VPSs directly from this list.
+  paths:
+  - networking.routable-addresses.open
+- id: 61da5a16079aa3ea
+  language: en
+  page: manuals:vps:ip_addresses
+  paragraph: 13
+  text: 'There are two forms in VPS details in vpsAdmin to manage addresses:'
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: a53f911927c35237
+  language: en
+  page: manuals:vps:ip_addresses
+  paragraph: 16
   text: vpsAdmin only has the first host address from every network in its database.
     In case you need more host addresses, you can add them to vpsAdmin's database.
     In "Routed addresses" form, click on the icon with labeled "Manage host addresses"
     and then "Add host addresses".
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: 55605724968bfda2
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: e017ec6be601aa1b
+  language: en
+  page: manuals:vps:kvm
+  paragraph: 2
+  text: 'Go to the details of your VPS in vpsAdmin and turn on the following features:'
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 3a8436e7490d4b23
+  language: en
+  page: manuals:vps:kvm
+  paragraph: 10
+  text: "(**//562.586.65.25//** > Address of your NFS server; **//4562//** > number
+    of your dataset on NFS server)"
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 2148011648f1856c
   language: en
   page: manuals:vps:management
+  paragraph: 12
   text: You can upload your public keys to vpsAdmin at Edit profile → Public keys
     → Add public key.
   paths:
   - member.public-keys.add
-- id: 67205992c7263d2a
+- id: 6477eca4ffc0b697
   language: en
   page: manuals:vps:management
+  paragraph: 14
+  text: 'The keys can be configured to be automatically deployed to new or reinstalled
+    VPS. Alternatively, you can deploy individual keys to VPS on demand from VPS details
+    page:'
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 210fa22216ec3c44
+  language: en
+  page: manuals:vps:management
+  paragraph: 23
+  text: It is possible to change VPS parameters in the VPS details. The minimal configuration
+    of a VPS is 1 CPU, 256 MB of RAM and 512 MB of disk space. The maximal configuration
+    is 8 CPUs, 16 GB Of RAM, unlimited disk space.
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 8500b31c659541f2
+  language: en
+  page: manuals:vps:management
+  paragraph: 27
   text: The VPS hostname can be changed directly in vpsAdmin and each time the VPS
     starts, the chosen option in ''/etc/hosts'' will be automatically rewritten. The
     hostname can also be managed manually, outside of vpsAdmin. You can choose which
     solution you prefer in the VPS details.
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: 338738317b61f29a
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 3b87105383452ca9
   language: en
   page: manuals:vps:metrics
-  text: The metric ''vpsadmin_metrics_version'' (unless you’ve changed the prefix)
-    indicates the version of the metrics. If we make backward-incompatible changes,
-    the first number will increase, e.g., ''1.0 -> 2.0''. The number after the decimal
-    point may increase when new metrics are added, but the meaning of the original
-    metrics will remain unchanged.
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: df97f0dae652b0c3
-  language: en
-  page: manuals:vps:metrics
+  paragraph: 2
   text: To set this up, go to **Edit profile** -> **Metrics access tokens** in vpsAdmin
     and create an access token. You will be provided with a scrape URL, which you
     can add to your monitoring configuration. VPS statuses are updated every 2 minutes,
@@ -772,55 +1464,147 @@ discoveries:
     of the available metrics, open the URL in your browser.
   paths:
   - member.metrics-access-tokens.open
-- id: 55b516ad24aaa115
+- id: d6ac0c30fcd5fbb6
+  language: en
+  page: manuals:vps:metrics
+  paragraph: 3
+  text: The metric ''vpsadmin_metrics_version'' (unless you’ve changed the prefix)
+    indicates the version of the metrics. If we make backward-incompatible changes,
+    the first number will increase, e.g., ''1.0 -> 2.0''. The number after the decimal
+    point may increase when new metrics are added, but the meaning of the original
+    metrics will remain unchanged.
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 304a18061bc7d4e4
   language: en
   page: manuals:vps:playgroundvps
+  paragraph: 7
+  text: A new VPS can be created in section VPS, "New VPS" in the right sidebar. You
+    have to select location as "Playground".
+  paths:
+  - vps.create.open
+- id: 9f2ccf7bbe6fdaef
+  language: en
+  page: manuals:vps:playgroundvps
+  paragraph: 12
   text: Go to details of the VPS you wish to clone. Click on **Clone VPS** in the
     right sidebar and select Playground as a target environment and location.
   paths:
   - vps.clone.open
-- id: 14f4a64fee8de0f6
+- id: e517bf92748f4d7f
+  language: en
+  page: manuals:vps:playgroundvps
+  paragraph: 17
+  text: 'You can prepare a new system or configuration on playground or [[manuals:vps:vpsadminos#staging_environment|staging]]
+    VPS and then transfer the new VPS to production. The swap function will move the
+    playground the VPS to production, switch IP addresses and then move the original
+    production VPS to playground. VPS can be swapped from details of the production
+    VPS:'
+  paths:
+  - vps.swap.open
+- id: 6f124a271c2f28dc
+  language: en
+  page: manuals:vps:playgroundvps
+  paragraph: 19
+  text: Make sure to invoke swap from the details of the production VPS, not the other
+    way around. The VPS will be considered more important and its downtime is minimized.
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: d5f1b78301276c90
   language: en
   page: manuals:vps:rdns
+  paragraph: 4
   text: All PTR records for [[Information:IP_Addresses|the IP ranges]] of vpsFree.cz
     are delegated to our DNS servers. PTR records for individual IP addresses can
     be configured in VPS details in vpsAdmin, form "Interface addresses". PTR records
     can also be configured in menu DNS.
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: 7b02ad9433bd4cfb
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: de78f0058539a924
   language: en
   page: manuals:vps:repair
-  text: 'You can create a mount like this: VPS details -> Mount -> choose the dataset
-    of the corrupted VPS.'
+  paragraph: 4
+  text: In order to choose an appropriate course of action, you need to find out what
+    state the VPS is currently in. In any case, you need the remote console in vpsAdmin,
+    which can reveal important information.
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: bd2af197c455d534
+  language: en
+  page: manuals:vps:repair
+  paragraph: 9
+  text: 'You can create a mount like this: Details of the recovery VPS -> Create mount
+    -> choose the dataset of the corrupted VPS.'
   paths:
   - datasets.mount.open
-- id: 16afa5df32598a95
+- id: 4914097ad68f36aa
   language: en
   page: manuals:vps:start_menu
+  paragraph: 0
+  text: "====== Start Menu ====== The start menu can be seen in [[manuals:vps:console|VPS
+    console]] when the VPS is starting. The menu can be used to configure the init
+    command to be used or to start a shell. Without user interaction, the menu starts
+    ''/sbin/init'' from the VPS. This command can be sligthly different depending
+    on the distribution."
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: e6b96a76f4118e9a
+  language: en
+  page: manuals:vps:start_menu
+  paragraph: 2
   text: "* **Start system** will start the system as usual. * **Run shell** will start
     ''/bin/sh'' from the VPS. After the shell is closed, the start menu reappears.
     This can be used to access the file system when the system is not starting, e.g.
     due to a configuration error. * **Run custom command** can be used to add arguments
     to the init process or to run a different process as init."
   reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
-- id: 2698bad9b7e0851d
+- id: 244633edd8bb84bb
   language: en
   page: manuals:vps:start_menu
+  paragraph: 3
+  text: 'The start menu can be configured in VPS details in vpsAdmin:'
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 801bfda9a45abbd6
+  language: en
+  page: manuals:vps:start_menu
+  paragraph: 5
   text: By default, the start menu is enabled on all VPS with a timeout of 5 seconds.
     Setting the timeout to **0** will disable the start menu completely.
   reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
-- id: 5c716de34a2751d0
+- id: f390371372607f5e
+  language: en
+  page: manuals:vps:start_menu
+  paragraph: 6
+  text: "===== NixOS generations ===== For VPS with NixOS, the start menu allows one
+    to choose which system generation to start, similar to a standard boot loader
+    like GRUB. Notice the second menu item:"
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 8fb59d70dfac5235
+  language: en
+  page: manuals:vps:start_menu
+  paragraph: 8
+  text: 'Accessing it will open a sub menu with available generations:'
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 423161848fd6fc98
   language: en
   page: manuals:vps:traffic
+  paragraph: 2
+  text: In the “Networking -> List monthly traffic” menu, we can check the monthly
+    overviews of transferred data.
+  paths:
+  - networking.monthly-traffic.open
+- id: '0182b9d0f7fdb5bc'
+  language: en
+  page: manuals:vps:traffic
+  paragraph: 7
   text: vpsAdmin measures transferred data every 10 seconds and uses that data to
     calculate the average for one second. You can display it either in the “Networking
     -> Live monitor” menu or using [[manuals:vps:api|vpsfreectl]].
   paths:
   - networking.live-monitor.open
-- id: 2d78eff5d86392ba
+- id: e094b95ce4de5a7f
   language: en
   page: manuals:vps:userdata
+  paragraph: 2
   text: Scripts and configurations can be stored in vpsAdmin, and you can select the
     configuration method when creating/reinstalling a VPS. You can manage stored configurations
     in vpsAdmin under **VPS** -> **User data**, or **Edit profile** -> **User data**.
@@ -830,25 +1614,27 @@ discoveries:
   paths:
   - userdata.manage-vps.open
   - userdata.manage-profile.open
-- id: 431ee214e36a80d7
+- id: 1cac80f171aa42c8
   language: en
   page: manuals:vps:userdata
+  paragraph: 3
   text: 'For development and testing, you can deploy a stored configuration to a VPS
     at any time: **vpsAdmin** -> **VPS** -> **User data** -> Edit an entry from the
     list, then use the **Deploy to VPS** form. This action will only create the script/configuration
     files inside the VPS, it will not run/apply it.'
   paths:
   - userdata.deploy.open
-- id: 1462ced92084a061
+- id: d67bcfa663ce7d77
+  language: en
+  page: manuals:vps:userns
+  paragraph: 3
+  text: "===== UID/GID mapping ===== Every VPS uses one UID/GID mapping, it can be
+    seen and configured in VPS details:"
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
+- id: 4de9c308c02d3096
   language: en
   page: manuals:vps:users
-  text: 2FA can be enabled in profile settings (vpsAdmin -> Edit profile). Note that
-    2FA is active only when there's at least one authentication device enabled.
-  paths:
-  - member.edit-profile.open
-- id: 45c17cd57cbbe6c5
-  language: en
-  page: manuals:vps:users
+  paragraph: 0
   text: "====== User account management ====== ===== E-mail addresses ===== vpsAdmin
     allows users to set one primary e-mail address belonging to the account owner
     -- a member of our association. This address must be set and can only be a single
@@ -857,91 +1643,148 @@ discoveries:
     settings can be changed in user profile details (vpsAdmin -> Edit profile)"
   paths:
   - member.edit-profile.open
-- id: 4b1f002c0f8a91f3
+- id: f1184dfc3efc0ef1
   language: en
   page: manuals:vps:users
+  paragraph: 6
   text: "==== Advanced settings ==== Should contact roles not be enough or if don't
     wish to receive certain e-mails, there is an advanced settings form (vpsAdmin
     -> Edit profile -> Advanced e-mail configuration). You can choose different e-mail
     addresses for specific mail templates or disable receiving of some mails altogether."
   paths:
   - member.advanced-email-configuration.open
-- id: 4ca09e37012c641a
+- id: 3f64b2242d356419
   language: en
   page: manuals:vps:users
+  paragraph: 10
+  text: 2FA can be enabled in profile settings (vpsAdmin -> Edit profile). Note that
+    2FA is active only when there's at least one authentication device enabled.
+  paths:
+  - member.edit-profile.open
+- id: 1edbefc7008c578d
+  language: en
+  page: manuals:vps:users
+  paragraph: 13
   text: You can setup TOTP e.g. on your mobile phone using applications like [[https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2|Google
     Authenticator]] or [[https://freeotp.github.io|FreeOTP]]. vpsAdmin will show you
     a QR code which you scan into the application. The 2FA activation is then confirmed
     when you enter the one-time password that the application will show you. Alternatively,
     instead of scanning the QR code, you can enter the secret key manually.
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: 5fdb97bb985fb54c
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: b8b51bf99c345e43
   language: en
   page: manuals:vps:users
-  text: "===== Session log ===== vpsAdmin logs all user sessions and remembers what
-    actions were performed (vpsAdmin -> Edit profile -> Sessions)."
-  paths:
-  - member.sessions.open
-- id: 83638c9af43091ae
-  language: en
-  page: manuals:vps:users
-  text: '===== Session control ===== In profile settings (vpsAdmin -> Edit profile),
-    there''s a "Session control" form:'
-  paths:
-  - member.edit-profile.open
-- id: adf88d16f763124f
-  language: en
-  page: manuals:vps:users
-  text: First register your passkeys in vpsAdmin -> Edit profile -> Passkeys. Then
-    enable 2FA in vpsAdmin -> Edit profile.
-  paths:
-  - member.passkeys.open
-  - member.edit-profile.open
-- id: e4ca35dc6c474ec1
-  language: en
-  page: manuals:vps:users
+  paragraph: 16
   text: You can configure multiple TOTP devices and any one of them can be used to
     log in. Individual devices can be temporarily disabled or removed (vpsAdmin ->
     Edit profile -> TOTP devices).
   paths:
   - member.totp-devices.open
-- id: d601130e3d0011af
+- id: 0367f49b8f7bcac5
+  language: en
+  page: manuals:vps:users
+  paragraph: 20
+  text: First register your passkeys in vpsAdmin -> Edit profile -> Passkeys. Then
+    enable 2FA in vpsAdmin -> Edit profile.
+  paths:
+  - member.passkeys.open
+  - member.edit-profile.open
+- id: eb5e74f14ad5323c
+  language: en
+  page: manuals:vps:users
+  paragraph: 21
+  text: '===== Session control ===== In profile settings (vpsAdmin -> Edit profile),
+    there''s a "Session control" form:'
+  paths:
+  - member.edit-profile.open
+- id: 9c883f74b948a950
+  language: en
+  page: manuals:vps:users
+  paragraph: 24
+  text: "===== Session log ===== vpsAdmin logs all user sessions and remembers what
+    actions were performed (vpsAdmin -> Edit profile -> Session log)."
+  paths:
+  - member.sessions.open
+- id: d5bff5db985505fe
+  language: en
+  page: manuals:vps:vpsadmin
+  paragraph: 3
+  text: Transactions are the way vpsAdmin makes changes that are requested by the
+    user for the servers/VPSs. Changes are not made immediately – they are added to
+    a queue and executed one by one.
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 46d5a958c6f54cb6
   language: en
   page: manuals:vps:vpsadminos
+  paragraph: 1
   text: "===== About vpsAdminOS ===== vpsAdminOS is a spin of NixOS. The host system
     is rather small and includes only management services, as it focuses on running
     everything else in Linux system containers. vpsAdminOS is interconnected with
     vpsAdmin, our control panel. It is however also usable outside of vpsFree.cz's
     infrastructure, e.g. on your home server."
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-- id: aa6b8ee3718fb49c
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 5e5fdbb9190dbc22
   language: en
   page: manuals:vps:vpsadminos:recovery
+  paragraph: 4
+  text: In order to choose an appropriate course of action, you need to find out what
+    state the VPS is currently in. In any case, you need the remote console in vpsAdmin,
+    which can reveal important information.
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: 15f616811ada2818
+  language: en
+  page: manuals:vps:vpsadminos:recovery
+  paragraph: 10
   text: 'The rescue mode can be enabled from VPS details in vpsAdmin, form **Boot
-    VPS from template (rescue mode)**:'
+    from VPS template**:'
   paths:
   - vps.boot-rescue.open
-- id: 35734ba81cac0202
+- id: 4444a03620d33f06
   language: en
-  page: manuals:vps:vpsadminos:storage
-  text: Another way is to go to //Exports// -> //Export dataset//, which will show
-    you a form when you can select which dataset you'd like to export.
+  page: manuals:vps:vpsadminos:recovery
+  paragraph: 16
+  text: To leave the rescue mode, simply restart the VPS. Any action that causes the
+    VPS to restart will take it out of the rescue mode. The rescue system is temporary
+    and is **immediately deleted** when the VPS is restarted.
   reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
-- id: aad476bb53ab5a17
+- id: 471e14d1b7e1b632
   language: en
   page: manuals:vps:vpsadminos:storage
-  text: 'Snapshots can be exported from menu //Backups// -> //VPS backups// or //NAS
-    backups//:'
-  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.
-- id: cdc6aa8893c00b45
-  language: en
-  page: manuals:vps:vpsadminos:storage
+  paragraph: 4
   text: "===== Exports ===== There's a new entry in vpsAdmin main menu called //Exports//.
     Datasets can be exported either by going to a list of NAS datasets in menu //NAS//:"
-  reason: Mentions WebUI content or an unlocalized control, not a navigation label
-    changed by this release.
-page_counts:
-  cs: 116
-  en: 70
+  reason: Legacy duplicate has no Czech counterpart and is intentionally not annotated
+    or released.
+  paths:
+  - exports.open
+- id: d0fa860a5f0c8245
+  language: en
+  page: manuals:vps:vpsadminos:storage
+  paragraph: 6
+  text: Another way is to go to //Exports// -> //Export dataset//, which will show
+    you a form when you can select which dataset you'd like to export.
+  reason: Legacy duplicate has no Czech counterpart and is intentionally not annotated
+    or released.
+  paths:
+  - exports.export-dataset.open
+- id: 14a2703fb6709475
+  language: en
+  page: manuals:vps:vpsadminos:storage
+  paragraph: 7
+  text: 'Snapshots can be exported from menu //Backups// -> //VPS backups// or //NAS
+    backups//:'
+  reason: Legacy duplicate has no Czech counterpart and is intentionally not annotated
+    or released.
+  paths:
+  - backups.vps.open
+- id: 4bc18456425d3362
+  language: en
+  page: wiki:syntax
+  paragraph: 77
+  text: -> <- <-> => <= <=> >> << -- --- 640x480 (c) (tm) (r) "He thought 'It's a
+    man's world'..."
+  reason: Broad lexical match is not a vpsAdmin WebUI navigation instruction.

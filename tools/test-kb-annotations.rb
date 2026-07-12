@@ -48,12 +48,21 @@ class KbAnnotationsCheckerTest < Minitest::Test
     assert_match(/independent navigation inventory mismatch/, error)
   end
 
+  def test_duplicate_page_cannot_replace_an_omitted_identity
+    _out, error, status = run_checker(duplicate_candidate: true)
+
+    refute(status.success?)
+    assert_match(/duplicate candidate page IDs/, error)
+  end
+
   private
 
   def run_checker(
     bindings: [binding],
-    body: '<vpsadmin-nav id="member.public-keys.open">Navigation</vpsadmin-nav>',
-    inventory_discoveries: nil
+    body: '<vpsadmin-nav id="member.public-keys.open">vpsAdmin -> Edit profile</vpsadmin-nav>',
+    source_body: nil,
+    inventory_discoveries: nil,
+    duplicate_candidate: false
   )
     Dir.mktmpdir do |dir|
       navigation = {
@@ -71,24 +80,45 @@ class KbAnnotationsCheckerTest < Minitest::Test
           { 'language' => 'cs', 'id' => 'navody:test', 'file' => 'cs/navody/test.txt' }
         ]
       }
+      candidate['pages'] << candidate['pages'].first.dup if duplicate_candidate
+      source_body ||= body.gsub(%r{</?vpsadmin-nav(?:\s+[^>]*)?>}, '')
+      source = {
+        'cs' => [
+          { 'id' => 'navody:test', 'file' => 'cs/navody/test.txt' }
+        ],
+        'en' => []
+      }
       navigation_path = File.join(dir, 'navigation.yml')
       annotations_path = File.join(dir, 'annotations.yml')
       candidate_path = File.join(dir, 'index.json')
+      source_path = File.join(dir, 'source-index.json')
       inventory_path = File.join(dir, 'inventory.yml')
       page_path = File.join(dir, 'cs/navody/test.txt')
+      source_page_path = File.join(dir, 'source/cs/navody/test.txt')
       FileUtils.mkdir_p(File.dirname(page_path))
+      FileUtils.mkdir_p(File.dirname(source_page_path))
       File.write(navigation_path, YAML.dump(navigation))
       File.write(annotations_path, YAML.dump(annotations))
       File.write(candidate_path, JSON.dump(candidate))
+      File.write(source_path, JSON.dump(source))
       File.write(page_path, body)
+      File.write(source_page_path, source_body)
+      source['cs'][0]['file'] = 'source/cs/navody/test.txt'
+      File.write(source_path, JSON.dump(source))
       discoveries = inventory_discoveries || KbNavigationDiscovery.discover(
         language: 'cs',
         page: 'navody:test',
-        content: body
+        content: source_body
       )
+      candidate_paths = body.scan(/<vpsadmin-nav\s+id="([a-z][a-z0-9.-]*)">/).flatten
+      discoveries.each { |entry| entry['paths'] = candidate_paths unless candidate_paths.empty? }
       File.write(
         inventory_path,
-        YAML.dump('schema' => 1, 'page_counts' => { 'cs' => 1 }, 'discoveries' => discoveries)
+        YAML.dump(
+          'schema' => 1,
+          'page_ids' => { 'cs' => ['navody:test'], 'en' => [] },
+          'discoveries' => discoveries
+        )
       )
 
       Open3.capture3(
@@ -97,7 +127,8 @@ class KbAnnotationsCheckerTest < Minitest::Test
         '--navigation', navigation_path,
         '--annotations', annotations_path,
         '--inventory', inventory_path,
-        '--candidate-index', candidate_path
+        '--candidate-index', candidate_path,
+        '--source-index', source_path
       )
     end
   end
