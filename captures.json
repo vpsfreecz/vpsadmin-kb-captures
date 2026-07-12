@@ -27,7 +27,7 @@
         "public-key"
       ],
       "description": "Czech member list",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -70,7 +70,7 @@
         "public-key"
       ],
       "description": "Czech VPS list",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -113,7 +113,7 @@
         "public-key"
       ],
       "description": "Current VPS detail summary",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -156,7 +156,7 @@
         "public-key"
       ],
       "description": "Current SSH connection guidance",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -199,7 +199,7 @@
         "public-key"
       ],
       "description": "Deploy a registered public key to the VPS",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -242,7 +242,7 @@
         "traffic-samples"
       ],
       "description": "Current VPS monthly transfer summary",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -286,7 +286,7 @@
         "public-key"
       ],
       "description": "Czech add-public-key form",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -330,7 +330,7 @@
         "public-key"
       ],
       "description": "Czech deploy-public-key form",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -373,7 +373,7 @@
         "snapshot"
       ],
       "description": "Current VPS dataset list",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -416,7 +416,7 @@
         "snapshot"
       ],
       "description": "Current create-dataset form with Czech API labels",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -459,7 +459,7 @@
         "snapshot"
       ],
       "description": "Current VPS mount list",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -502,7 +502,7 @@
         "snapshot"
       ],
       "description": "Current mount-dataset form",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -545,7 +545,7 @@
         "snapshot"
       ],
       "description": "Current NAS dataset view with export action",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -588,7 +588,7 @@
         "snapshot"
       ],
       "description": "Current VPS backup view with export actions",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -631,7 +631,7 @@
         "snapshot"
       ],
       "description": "Current create-export form",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -674,7 +674,7 @@
         "snapshot"
       ],
       "description": "Current export settings view before creation",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -717,7 +717,7 @@
         "traffic-samples"
       ],
       "description": "Current routable-address list",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -760,7 +760,7 @@
         "traffic-samples"
       ],
       "description": "Current routed-addresses form",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -803,7 +803,7 @@
         "traffic-samples"
       ],
       "description": "Current interface-addresses form",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -846,7 +846,7 @@
         "nixos-generations"
       ],
       "description": "VPS detail status with the current remote-console action",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -889,7 +889,7 @@
         "nixos-generations"
       ],
       "description": "Current remote-console entry in the VPS sidebar",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -931,7 +931,7 @@
         "base-vps"
       ],
       "description": "Current Czech VPS feature settings",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -973,7 +973,7 @@
         "base-vps"
       ],
       "description": "Current Czech VPS datasets",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -1016,7 +1016,7 @@
         "snapshot"
       ],
       "description": "Current VPS list used to select a recovery VPS",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -1059,7 +1059,7 @@
         "snapshot"
       ],
       "description": "Current VPS backup list",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -1102,7 +1102,7 @@
         "snapshot"
       ],
       "description": "Current export/mount form used for recovery",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -1145,7 +1145,7 @@
         "second-vps"
       ],
       "description": "Current final VPS creation form",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -1189,7 +1189,7 @@
         "second-vps"
       ],
       "description": "Current clone-VPS form",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -1232,7 +1232,7 @@
         "second-vps"
       ],
       "description": "Current swap-VPS form",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -1275,7 +1275,7 @@
         "second-vps"
       ],
       "description": "Current swap-VPS view before a second VPS is selected",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -1318,7 +1318,7 @@
         "traffic-samples"
       ],
       "description": "Current monthly-traffic filters and results",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -1361,7 +1361,7 @@
         "traffic-samples"
       ],
       "description": "Current Czech live network monitor",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -1404,7 +1404,7 @@
         "traffic-samples"
       ],
       "description": "Current live-monitor data corresponding to the CLI view",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -1446,7 +1446,7 @@
         "base-vps"
       ],
       "description": "Current user resource package view",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -1488,7 +1488,7 @@
         "base-vps"
       ],
       "description": "Current cluster resources by environment",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -1530,7 +1530,7 @@
         "base-vps"
       ],
       "description": "Current environment configuration view",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -1573,7 +1573,7 @@
         "traffic-samples"
       ],
       "description": "Current reverse-DNS field in interface addresses",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -1615,7 +1615,7 @@
         "base-vps"
       ],
       "description": "Current VPS creation form",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -1658,7 +1658,7 @@
         "base-vps"
       ],
       "description": "Current root-password form",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -1708,7 +1708,7 @@
         "base-vps"
       ],
       "description": "Current reinstall form",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -1750,7 +1750,7 @@
         "base-vps"
       ],
       "description": "Current VPS resource settings",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -1792,7 +1792,7 @@
         "base-vps"
       ],
       "description": "Current hostname form",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -1834,7 +1834,7 @@
         "base-vps"
       ],
       "description": "Current VPS feature settings",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -1876,7 +1876,7 @@
         "base-vps"
       ],
       "description": "Current maintenance-window form",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -1919,7 +1919,7 @@
         "nixos-generations"
       ],
       "description": "Current start-menu configuration form",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -1962,7 +1962,7 @@
         "nixos-generations"
       ],
       "description": "Current start-menu settings corresponding to the console menu",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -2005,7 +2005,7 @@
         "nixos-generations"
       ],
       "description": "Current distribution controls associated with generation selection",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -2048,7 +2048,7 @@
         "nixos-generations"
       ],
       "description": "Current start-menu configuration for generation selection",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -2090,7 +2090,7 @@
         "base-vps"
       ],
       "description": "Current Czech UID/GID map on the VPS detail",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -2132,7 +2132,7 @@
         "account"
       ],
       "description": "Current Czech e-mail role settings",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -2174,7 +2174,7 @@
         "account"
       ],
       "description": "Current advanced e-mail configuration",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -2216,7 +2216,7 @@
         "account"
       ],
       "description": "Current multi-factor authentication status",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -2258,7 +2258,7 @@
         "account"
       ],
       "description": "Current TOTP confirmation form; QR code and secret are masked",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -2300,7 +2300,7 @@
         "account"
       ],
       "description": "Current TOTP device list with an unconfirmed documentation device",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -2342,7 +2342,7 @@
         "account"
       ],
       "description": "Current Czech session settings",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -2384,7 +2384,7 @@
         "account"
       ],
       "description": "Current Czech user-session list",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -2427,7 +2427,7 @@
         "nixos-generations"
       ],
       "description": "Current Czech rescue-mode boot form",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -2470,7 +2470,7 @@
         "nixos-generations"
       ],
       "description": "Whole web console with the rescue-mode controls in the sidebar",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
@@ -2513,7 +2513,7 @@
         "snapshot"
       ],
       "description": "Current Czech VPS backup page",
-      "vpsadmin_commit": "7e0be5d215ce554009ff92381bdb54557e618776",
+      "vpsadmin_commit": "af3b885a82955dbeb06a102948c35a82bf74acc4",
       "viewport": {
         "width": 1440,
         "height": 1100,
