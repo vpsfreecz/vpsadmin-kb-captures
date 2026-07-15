@@ -1,5 +1,5 @@
 schema: 1
-vpsadmin_revision: 9a5fccf4d5b90bcef62b8d94a09af1d6088c4de8
+vpsadmin_revision: 9de28b8fb92c383f50e5ca3605642d7a78b46cf1
 languages:
   - cs
   - en
@@ -9,6 +9,46 @@ page_namespaces:
 source_context_lines: 1
 
 controls:
+  - id: node.kernel-parameters
+    label: { en: Kernel parameters, cs: Parametry jádra }
+    source:
+      path: webui/pages/page_node.php
+      contains: "'node.kernel-parameters'"
+      related:
+        - path: webui/forms/node.forms.php
+          contains: "'node.kernel-parameters'"
+      fingerprint: 2db7c6767b7874dd2209129c0172013f7b73d132c5740b972d370a92e9590c52
+
+  - id: node.sysctls
+    label: { en: Sysctls, cs: Sysctl }
+    source:
+      path: webui/pages/page_node.php
+      contains: "'node.sysctls'"
+      related:
+        - path: webui/forms/node.forms.php
+          contains: "'node.sysctls'"
+      fingerprint: 2cc4267f8312041c4e944fd2447ac484ec76f62bdf02add379da32a20ef9d07f
+
+  - id: node.software-versions
+    label: { en: Software versions, cs: Verze softwaru }
+    source:
+      path: webui/pages/page_node.php
+      contains: "'node.software-versions'"
+      related:
+        - path: webui/forms/node.forms.php
+          contains: "'node.software-versions'"
+      fingerprint: 975765521a802979a8353d7bc71e3faa49ac02c1d16a99ba25341303ddff2e76
+
+  - id: node.kernel-history
+    label: { en: Kernel history, cs: Historie jádra }
+    source:
+      path: webui/pages/page_node.php
+      contains: "'node.kernel-history'"
+      related:
+        - path: webui/pages/page_index.php
+          contains: 'data-vpsadmin-doc-id="node.kernel-history"'
+      fingerprint: 117128d9557c1ff89642e837c3b4072c73aa7348276db83180288811cc274acf
+
   - id: member.edit-profile
     label: { en: Edit profile, cs: Upravit profil }
     source:

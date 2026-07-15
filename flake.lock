@@ -76,11 +76,11 @@
     },
     "nixpkgsUnstable": {
       "locked": {
-        "lastModified": 1783224372,
-        "narHash": "sha256-8i/87eeoqiGE4yOTjwSA3Eh/ziJRQEmd/unYU+K27sk=",
+        "lastModified": 1784007870,
+        "narHash": "sha256-djcLt/JJphyNt4eDY9XTly+/WbCK5lqWq9lSgCmJkkQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d407951447dcd00442e97087bf374aad70c04cea",
+        "rev": "18b9261cb3294b6d2a06d03f96872827b8fe2698",
         "type": "github"
       },
       "original": {
@@ -92,11 +92,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1783148766,
-        "narHash": "sha256-uslt2pqShTIXDdAHRHv2QkYLsVdY8Oqwz0EA48/RSM8=",
+        "lastModified": 1784011430,
+        "narHash": "sha256-lDebytrYdd47IBLwvNOD+6AGeoqZ78CIKlp70hzW280=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a50de1b7d8a586adc18d2395c19de7d6058e6030",
+        "rev": "8eeec934ae0dbeca3d7868c059568a65c08b2fc3",
         "type": "github"
       },
       "original": {
@@ -164,17 +164,17 @@
         "vpsadminos": "vpsadminos"
       },
       "locked": {
-        "lastModified": 1783892554,
-        "narHash": "sha256-lshzDgNRvvz8sVACHHEKQzBz/z/6jwq69tP/fiV5XmA=",
+        "lastModified": 1784153400,
+        "narHash": "sha256-HjEW//hE9BoIqoYEVzwjWrtM0JK7lVZ0QmCt/mNNkOg=",
         "owner": "vpsfreecz",
         "repo": "vpsadmin",
-        "rev": "9a5fccf4d5b90bcef62b8d94a09af1d6088c4de8",
+        "rev": "9de28b8fb92c383f50e5ca3605642d7a78b46cf1",
         "type": "github"
       },
       "original": {
         "owner": "vpsfreecz",
         "repo": "vpsadmin",
-        "rev": "9a5fccf4d5b90bcef62b8d94a09af1d6088c4de8",
+        "rev": "9de28b8fb92c383f50e5ca3605642d7a78b46cf1",
         "type": "github"
       }
     },
@@ -187,11 +187,11 @@
         "ruby-lxc": "ruby-lxc"
       },
       "locked": {
-        "lastModified": 1783331081,
-        "narHash": "sha256-sJS1tI/SqjOGBm/8RqEIi7M/rSFVtzTIshYdZYmPqWA=",
+        "lastModified": 1784152122,
+        "narHash": "sha256-TvDFBhNVg41wU1FqQzI1jKmIj7wWFqLiXl8JVFVgh+g=",
         "owner": "vpsfreecz",
         "repo": "vpsadminos",
-        "rev": "849282e6be436743a47fb0e592041e6fba9ad41f",
+        "rev": "dbc03d00508b89093ecafc5e5abdcfc6bb5bdfbb",
         "type": "github"
       },
       "original": {
