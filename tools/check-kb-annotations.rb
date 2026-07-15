@@ -102,9 +102,10 @@ if options[:candidate_index]
 
   index.fetch('pages').each do |page|
     content = File.read(File.join(root, page.fetch('file')))
-    matches = content.scan(tag_pattern)
-    unless content.scan('<vpsadmin-nav').length == matches.length &&
-           content.scan('</vpsadmin-nav>').length == matches.length
+    semantic_content = KbNavigationDiscovery.semantic_content(content)
+    matches = semantic_content.scan(tag_pattern)
+    unless semantic_content.scan('<vpsadmin-nav').length == matches.length &&
+           semantic_content.scan('</vpsadmin-nav>').length == matches.length
       abort "#{page.fetch('language')}:#{page.fetch('id')}: malformed annotation tags"
     end
 
@@ -174,7 +175,9 @@ if options[:candidate_index]
   discovery_locations = discoveries.map { |entry| entry.values_at('language', 'page', 'paragraph') }
   tagged_locations = candidate_pages.flat_map do |page|
     candidate_paragraphs.fetch([page.fetch('language'), page.fetch('id')]).each_with_index.filter_map do |paragraph, paragraph_index|
-      [page.fetch('language'), page.fetch('id'), paragraph_index] if paragraph.include?('<vpsadmin-nav')
+      if KbNavigationDiscovery.semantic_content(paragraph).include?('<vpsadmin-nav')
+        [page.fetch('language'), page.fetch('id'), paragraph_index]
+      end
     end
   end
   missed = tagged_locations - discovery_locations

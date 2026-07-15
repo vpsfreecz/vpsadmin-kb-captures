@@ -33,6 +33,21 @@ class KbAnnotationsCheckerTest < Minitest::Test
     assert_match(/unknown annotation path missing\.path/, error)
   end
 
+  def test_literal_and_code_block_examples_are_not_annotations
+    body = <<~DOKUWIKI
+      %%<vpsadmin-nav>%%
+
+      <code>
+      <vpsadmin-nav id="missing.path">Example</vpsadmin-nav>
+      </code>
+
+      <vpsadmin-nav id="member.public-keys.open">vpsAdmin -> Edit profile</vpsadmin-nav>
+    DOKUWIKI
+    _out, error, status = run_checker(body:)
+
+    assert(status.success?, error)
+  end
+
   def test_every_affected_page_requires_binding_or_exception
     _out, error, status = run_checker(bindings: [], body: 'No annotation')
 
@@ -110,7 +125,9 @@ class KbAnnotationsCheckerTest < Minitest::Test
         page: 'navody:test',
         content: source_body
       )
-      candidate_paths = body.scan(/<vpsadmin-nav\s+id="([a-z][a-z0-9.-]*)">/).flatten
+      candidate_paths = KbNavigationDiscovery.semantic_content(body)
+                                             .scan(/<vpsadmin-nav\s+id="([a-z][a-z0-9.-]*)">/)
+                                             .flatten
       discoveries.each { |entry| entry['paths'] = candidate_paths unless candidate_paths.empty? }
       File.write(
         inventory_path,

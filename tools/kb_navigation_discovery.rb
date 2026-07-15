@@ -40,6 +40,12 @@ module KbNavigationDiscovery
     content.gsub(%r{<(?:code|file)\b.*?</(?:code|file)>}mi, '').split(/\n[ \t]*\n+/)
   end
 
+  def semantic_content(content)
+    content
+      .gsub(%r{<(?:code|file|nowiki)\b.*?</(?:code|file|nowiki)>}mi, '')
+      .gsub(/%%.*?%%/m, '')
+  end
+
   def normalize(paragraph)
     paragraph
       .gsub(%r{</?vpsadmin-nav(?:\s+[^>]*)?>}, '')
