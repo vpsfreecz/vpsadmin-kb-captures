@@ -1,5 +1,5 @@
 schema: 1
-vpsadmin_revision: 9de28b8fb92c383f50e5ca3605642d7a78b46cf1
+vpsadmin_revision: e44132ad3a6a56e6fab97d0e420a012549aedcc9
 languages:
   - cs
   - en
@@ -17,7 +17,7 @@ controls:
       related:
         - path: webui/forms/node.forms.php
           contains: "'node.kernel-parameters'"
-      fingerprint: 2db7c6767b7874dd2209129c0172013f7b73d132c5740b972d370a92e9590c52
+      fingerprint: e70ba469304c5230bead83c2fd0e9de4f84c0853316ef3238a923b05d0fd9b75
 
   - id: node.sysctls
     label: { en: Sysctls, cs: Sysctl }
@@ -45,9 +45,9 @@ controls:
       path: webui/pages/page_node.php
       contains: "'node.kernel-history'"
       related:
-        - path: webui/pages/page_index.php
+        - path: webui/lib/functions.lib.php
           contains: 'data-vpsadmin-doc-id="node.kernel-history"'
-      fingerprint: 117128d9557c1ff89642e837c3b4072c73aa7348276db83180288811cc274acf
+      fingerprint: eac723566efae23197d7e06907b4893c28d3623302eef9c2add8de7a7f072668
 
   - id: member.edit-profile
     label: { en: Edit profile, cs: Upravit profil }
