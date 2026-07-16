@@ -1,5 +1,5 @@
 schema: 1
-vpsadmin_revision: b3f3bca6147706b532b0cf209dea3b54881f5223
+vpsadmin_revision: ae76ea3c01148986acd34d43b0d0dd6f6f140ea4
 languages:
   - cs
   - en
@@ -27,7 +27,7 @@ controls:
       related:
         - path: webui/forms/node.forms.php
           contains: "'node.sysctls'"
-      fingerprint: 2cc4267f8312041c4e944fd2447ac484ec76f62bdf02add379da32a20ef9d07f
+      fingerprint: b5566865617f7a33c24dd8c7b5a667fa4537e1478e3ee1d8a7f3562d8836267c
 
   - id: node.software-versions
     label: { en: Software versions, cs: Verze softwaru }
@@ -37,7 +37,7 @@ controls:
       related:
         - path: webui/forms/node.forms.php
           contains: "'node.software-versions'"
-      fingerprint: 975765521a802979a8353d7bc71e3faa49ac02c1d16a99ba25341303ddff2e76
+      fingerprint: 613be83ecb4e2b0ed96be1e519ff7411fb24b9899f2c56eb7fdb8842f2da8018
 
   - id: node.kernel-history
     label: { en: Kernel history, cs: Historie jádra }
