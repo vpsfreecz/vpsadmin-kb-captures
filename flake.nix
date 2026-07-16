@@ -2,7 +2,7 @@
   description = "Reproducible vpsAdmin knowledge-base screenshots";
 
   inputs = {
-    vpsadmin.url = "github:vpsfreecz/vpsadmin/7f90ef35b269fec7cef6e61357b0a7162cc0cdb0";
+    vpsadmin.url = "github:vpsfreecz/vpsadmin/b3f3bca6147706b532b0cf209dea3b54881f5223";
     vpsadminos.follows = "vpsadmin/vpsadminos";
     vpsfStatus = {
       url = "github:vpsfreecz/vpsf-status/master";

@@ -1,5 +1,5 @@
 schema: 1
-vpsadmin_revision: 7f90ef35b269fec7cef6e61357b0a7162cc0cdb0
+vpsadmin_revision: b3f3bca6147706b532b0cf209dea3b54881f5223
 languages:
   - cs
   - en
@@ -48,6 +48,16 @@ controls:
         - path: webui/lib/functions.lib.php
           contains: 'data-vpsadmin-doc-id="node.kernel-history"'
       fingerprint: eac723566efae23197d7e06907b4893c28d3623302eef9c2add8de7a7f072668
+
+  - id: node.system-history
+    label: { en: System history, cs: Historie systému }
+    source:
+      path: webui/pages/page_node.php
+      contains: "'node.system-history'"
+      related:
+        - path: webui/forms/node.forms.php
+          contains: "'node.system-history'"
+      fingerprint: 7c747b80ae003ff4705c734e3e38d9bde8444cc5d749e5e8636617554a0137cc
 
   - id: member.edit-profile
     label: { en: Edit profile, cs: Upravit profil }
