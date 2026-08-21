@@ -179,6 +179,10 @@ bindings:
   count: 1
 - language: cs
   page: navody:vps:uzivatele
+  path: member.password-changes.open
+  count: 1
+- language: cs
+  page: navody:vps:uzivatele
   path: member.sessions.open
   count: 1
 - language: cs
@@ -356,6 +360,10 @@ bindings:
 - language: en
   page: manuals:vps:users
   path: member.passkeys.open
+  count: 1
+- language: en
+  page: manuals:vps:users
+  path: member.password-changes.open
   count: 1
 - language: en
   page: manuals:vps:users
