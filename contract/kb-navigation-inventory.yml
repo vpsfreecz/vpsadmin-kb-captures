@@ -618,27 +618,27 @@ discoveries:
     115 GiB pro KVM disk\\
   reason: Existing WebUI reference outside the localized navigation-label set; inventoried
     for future semantic binding.
-- id: 42e70cd419946f38
-  language: cs
-  page: navody:vps:metriky
-  paragraph: 3
-  text: Metrika ''vpsadmin_metrics_version'' (pokud jste si nezměnili prefix) udává
-    verzi metrik. Pokud bychom dělali zpětně nekompatibilní změny, první číslo se
-    navýší, tj. např. ''1.0 -> 2.0''. Číslo za desetinnou čárkou se může zvyšovat,
-    když přidáme nějaké nové metriky, ale význam původních metrik se nezmění.
-  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
-    for future semantic binding.
-- id: 6d291b8a104c8295
+- id: 3fc09c702912e3bf
   language: cs
   page: navody:vps:metriky
   paragraph: 2
   text: Pro nastavení si ve vpsAdminu v **Upravit profil** -> **Přístupové tokeny
-    k metrikám** vytvořte přístupový token. Zobrazí se vám tzv. scrape URL, kterou
-    přidáte do vašeho monitoringu. Statusy VPS se aktualizují co 2 minuty, takže nemá
-    cenu data stahovat častěji. Pro přesný přehled dostupných metrik si URL otevřete
-    v prohlížeči.
+    k metrikám** vytvoř přístupový token. vpsAdmin ti zobrazí scrape URL, kterou přidáš
+    do svého monitoringu. Stav VPS se aktualizuje každé dvě minuty, takže nemá smysl
+    data stahovat častěji. Úplný seznam dostupných metrik najdeš po otevření scrape
+    URL v prohlížeči.
   paths:
   - member.metrics-access-tokens.open
+- id: 4687ac9f2b1e769b
+  language: cs
+  page: navody:vps:metriky
+  paragraph: 5
+  text: Metrika ''vpsadmin_metrics_version'' udává verzi metrik, pokud sis nezměnil
+    prefix. Aktuální verze je ''1.1''. Při zpětně nekompatibilní změně se zvýší první
+    číslo, například ''1.0 -> 2.0''. Číslo za desetinnou čárkou se může zvýšit při
+    přidání metrik, které nemění význam těch stávajících.
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
 - id: 41620c06a0e29265
   language: cs
   page: navody:vps:obnova_webu_zo_zalohy
@@ -1441,28 +1441,28 @@ discoveries:
     solution you prefer in the VPS details.
   reason: Existing WebUI reference outside the localized navigation-label set; inventoried
     for future semantic binding.
-- id: 3b87105383452ca9
+- id: 561d6eb4fef6d7f3
+  language: en
+  page: manuals:vps:metrics
+  paragraph: 5
+  text: The metric ''vpsadmin_metrics_version'' indicates the metrics version, unless
+    you have changed the prefix. The current version is ''1.1''. The first number
+    increases for a backward-incompatible change, for example ''1.0 -> 2.0''. The
+    number after the decimal point may increase when metrics are added without changing
+    the meaning of existing metrics. <page>manuals:vps:metrics</page>
+  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
+    for future semantic binding.
+- id: c8488142146443a5
   language: en
   page: manuals:vps:metrics
   paragraph: 2
   text: To set this up, go to **Edit profile** -> **Metrics access tokens** in vpsAdmin
-    and create an access token. You will be provided with a scrape URL, which you
-    can add to your monitoring configuration. VPS statuses are updated every 2 minutes,
-    so there’s no point in fetching the data more frequently. For a detailed overview
-    of the available metrics, open the URL in your browser.
+    and create an access token. vpsAdmin will show you a scrape URL to add to your
+    monitoring configuration. VPS status is updated every two minutes, so there is
+    no benefit in fetching the data more frequently. Open the scrape URL in your browser
+    for a complete list of the available metrics.
   paths:
   - member.metrics-access-tokens.open
-- id: d6ac0c30fcd5fbb6
-  language: en
-  page: manuals:vps:metrics
-  paragraph: 3
-  text: The metric ''vpsadmin_metrics_version'' (unless you’ve changed the prefix)
-    indicates the version of the metrics. If we make backward-incompatible changes,
-    the first number will increase, e.g., ''1.0 -> 2.0''. The number after the decimal
-    point may increase when new metrics are added, but the meaning of the original
-    metrics will remain unchanged.
-  reason: Existing WebUI reference outside the localized navigation-label set; inventoried
-    for future semantic binding.
 - id: 26460fb195107ec6
   language: en
   page: manuals:vps:playgroundvps
