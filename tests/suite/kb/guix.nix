@@ -110,6 +110,8 @@ import ../../make-test.nix (
           config.default_order = :defined
         end
 
+        guix_image_version = nil
+
         before(:suite) do
           expect(Digest::SHA256.hexdigest(deploy_system_configuration)).to eq(
             ${builtins.toJSON (builtins.hashString "sha256" deploySystem)}
@@ -123,9 +125,15 @@ import ../../make-test.nix (
           machine.wait_until_online
           machine.succeeds(
             'osctl ct new --repository default --vendor vpsadminos ' \
-            '--variant minimal --distribution guix --version 20260819 kb-guix',
+            '--variant minimal --distribution guix --version latest kb-guix',
             timeout: 600
           )
+          _, version = machine.succeeds('osctl ct show -H -o version kb-guix')
+          guix_image_version = version.strip
+          expect(guix_image_version).not_to be_empty
+          expect(guix_image_version).not_to eq('latest')
+          puts "Guix image version: #{guix_image_version}"
+
           machine.succeeds('osctl ct netif new routed kb-guix eth0')
           machine.succeeds('osctl ct netif ip add kb-guix eth0 192.0.2.2/32')
           machine.succeeds('osctl ct set dns-resolver kb-guix 10.0.2.3')
@@ -210,10 +218,13 @@ import ../../make-test.nix (
           it 'deploys the complete configuration to a second Guix VPS' do
             machine.succeeds(
               'osctl ct new --repository default --vendor vpsadminos ' \
-              '--variant minimal --distribution guix --version 20260819 ' \
-              'kb-guix-target',
+              '--variant minimal --distribution guix ' \
+              "--version #{Shellwords.escape(guix_image_version)} kb-guix-target",
               timeout: 600
             )
+            _, version = machine.succeeds('osctl ct show -H -o version kb-guix-target')
+            expect(version.strip).to eq(guix_image_version)
+
             machine.succeeds('osctl ct netif new routed kb-guix-target eth0')
             machine.succeeds(
               'osctl ct netif ip add kb-guix-target eth0 192.0.2.3/32'

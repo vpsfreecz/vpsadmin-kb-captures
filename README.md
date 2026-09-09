@@ -192,8 +192,9 @@ narrowly scoped read-only NFSv3 installer-ISO workaround. The networking script
 boots deterministic Nix-built KVM guests and verifies their inbound and
 outbound IPv4 and IPv6 paths from outside the VPS.
 
-The Guix suite imports a pinned published vpsAdminOS Guix image and preserves
-its shipped `/etc/config/system.scm` and `vpsadminos.scm` integration. It runs
+The Guix suite imports the latest published vpsAdminOS Guix image, logs its
+resolved version, and uses that build for both test containers. It preserves
+the shipped `/etc/config/system.scm` and `vpsadminos.scm` integration and runs
 the documented reconfiguration without an implicit `guix pull`, activates a
 new system generation, restarts the container, and verifies networking and SSH
 against that generation. It then deploys the complete documented system to a
