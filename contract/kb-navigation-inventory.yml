@@ -945,10 +945,18 @@ discoveries:
     (vpsAdmin -> Upravit profil -> TOTP zařízení).
   paths:
   - member.totp-devices.open
-- id: aca6e4d4a2c35c23
+- id: d2694946a0995af2
   language: cs
   page: navody:vps:uzivatele
   paragraph: 25
+  text: "===== Historie změn hesla ===== vpsAdmin eviduje, kdy a jak se tvoje heslo
+    změnilo. Historii najdeš v **Upravit profil** -> **Změny hesla**."
+  paths:
+  - member.password-changes.open
+- id: 82161baed5d97285
+  language: cs
+  page: navody:vps:uzivatele
+  paragraph: 26
   text: "===== Log přihlášení a vykonaných akcí ===== vpsAdmin loguje všechny relace
     a pamatuje si, jaké akce byly vykonány (vpsAdmin -> Upravit profil -> Relace)."
   paths:
@@ -1646,22 +1654,31 @@ discoveries:
     2FA is active only when there's at least one authentication device enabled.
   paths:
   - member.edit-profile.open
-- id: 4de9c308c02d3096
+- id: 805a18eae10598cf
   language: en
   page: manuals:vps:users
   paragraph: 0
-  text: "====== User account management ====== ===== E-mail addresses ===== vpsAdmin
-    allows users to set one primary e-mail address belonging to the account owner
-    -- a member of our association. This address must be set and can only be a single
-    address. In addition to the primary e-mail address, you can set different addresses
-    for certain contact roles, such as an accountant or system administrator. These
-    settings can be changed in user profile details (vpsAdmin -> Edit profile)"
+  text: "<page>manuals:vps:users</page> ====== User account management ====== =====
+    E-mail addresses ===== vpsAdmin allows users to set one primary e-mail address
+    belonging to the account owner -- a member of our association. This address must
+    be set and can only be a single address. In addition to the primary e-mail address,
+    you can set different addresses for certain contact roles, such as an accountant
+    or system administrator. These settings can be changed in user profile details
+    (vpsAdmin -> Edit profile)"
   paths:
   - member.edit-profile.open
-- id: 7ff96c5a102629c2
+- id: 0e39e054b5ed04dd
   language: en
   page: manuals:vps:users
   paragraph: 24
+  text: "===== Password change history ===== vpsAdmin records when and how your password
+    changes. Open **Edit profile** -> **Password changes** to view the history."
+  paths:
+  - member.password-changes.open
+- id: c755d29e4b90dd18
+  language: en
+  page: manuals:vps:users
+  paragraph: 25
   text: "===== Session log ===== vpsAdmin logs all user sessions and remembers what
     actions were performed (vpsAdmin -> Edit profile -> Sessions)."
   paths:
