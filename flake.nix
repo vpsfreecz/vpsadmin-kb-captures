@@ -2,7 +2,7 @@
   description = "Reproducible contracts for selected vpsFree.cz KB pages";
 
   inputs = {
-    vpsadmin.url = "github:vpsfreecz/vpsadmin/1acc1955f0e7b4f2b67a18674d02a6da8e9e8da4";
+    vpsadmin.url = "github:vpsfreecz/vpsadmin/050ea5263812a76dc39f14c5b58a0e88714d634d";
     vpsadminos.follows = "vpsadmin/vpsadminos";
     vpsfStatus = {
       url = "github:vpsfreecz/vpsf-status/master";
